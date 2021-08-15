@@ -3,9 +3,29 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	overflow: auto;
 	position: relative;
 	z-index: 3;
+}
+
+.imageBackground
+{
+	background-size: cover;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 1;
+}
+
+.backgroundImageColor
+{
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	z-index: 2;
 }
 
 
@@ -28,7 +48,7 @@
 
 .container.fillPageHeight
 {
-	height: 100vh;
+	min-height: 100vh;
 }
 
 @media only screen and (min-width: 770px)

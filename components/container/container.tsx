@@ -1,28 +1,28 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 
 import styles from "./container.module.css";
 
 type ContainerProps = {
 	fillPageHeight?: boolean;
 	edgePadded?: boolean;
-	backgroundImageUrl?: string | undefined;
+	backgroundImage?: ContainerBackgroundImage;
 	className?: string | undefined;
 	limitedWidth?: boolean; 
 }
 
-interface WallpaperBackgroundColor {
-	hexColor: string;
-	opacity: string;
+interface ContainerBackgroundImage {
+	url: string;
+	hexColor?: string;
+	opacity?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImageUrl, className, limitedWidth }) =>
-{
+export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImage, className, limitedWidth }) =>
+	{
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
 
 		if (fillPageHeight) classNames.push(styles.fillPageHeight);
 		if (edgePadded) classNames.push(styles.edgePadded);
-		if (backgroundImageUrl) classNames.push(styles.bgImage);
 
 		if (className) classNames.push(className);
 
@@ -36,17 +36,42 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 			className: buildClassNameFromProps(),
 		};
 
-		if (backgroundImageUrl) {
-			containerProps.style = { backgroundImage: `url(${backgroundImageUrl})`};
-		}
-
 		return containerProps;
+	}
+
+	// assuming backgroundImage is provided
+	const renderBackgroundImage = (): ReactNode | null =>
+	{
+		if (!backgroundImage) return null;
+
+		return (
+			<React.Fragment>
+
+				{ /* render background if provided */ }
+				{ backgroundImage.hexColor  && (
+					<div
+						className={styles.backgroundImageColor}
+						style={{
+							backgroundColor: backgroundImage.hexColor,
+							opacity: backgroundImage.opacity
+						}}
+					/>
+				)}
+
+				<div
+					className={styles.imageBackground}
+					style={{ backgroundImage: `url(${backgroundImage.url})`}}
+				/>
+			</React.Fragment>
+
+		);
 	}
 
 	return (
 		<div
 			{ ... buildContainerProps()}
 		>
+			{ renderBackgroundImage() }
 			{ children }
 		</div>
 	);
@@ -55,6 +80,6 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 Container.defaultProps = {
 	fillPageHeight: false,
 	edgePadded: true,
-	backgroundImageUrl: undefined,
+	backgroundImage: undefined,
 	limitedWidth: true,
 }
