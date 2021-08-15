@@ -15,4 +15,40 @@ html, body
   margin: 0;
   padding: 0;
   font-weight: 400;
+  font-size: 11px;
 }
+
+/* harcoded media queries, that will probably need to be revised at some point */
+
+@media only screen and (min-width: 700px)
+{
+  html, body
+  {
+    font-size: 12px;
+  }
+}
+
+@media only screen and (min-width: 1000px)
+{
+  html, body
+  {
+    font-size: 13px;
+  }
+}
+
+@media only screen and (min-width: 1250px)
+{
+  html, body
+  {
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 1500px)
+{
+  html, body
+  {
+    font-size: 15px;
+  }
+}
+
