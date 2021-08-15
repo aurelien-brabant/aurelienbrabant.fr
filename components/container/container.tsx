@@ -6,9 +6,10 @@ type ContainerProps = {
 	fillPageHeight?: boolean;
 	edgePadded?: boolean;
 	backgroundImageUrl?: string | undefined;
+	className?: string | undefined;
 }
 
-export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImageUrl }) =>
+export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImageUrl, className }) =>
 {
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
@@ -16,6 +17,8 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 		if (fillPageHeight) classNames.push(styles.fillPageHeight);
 		if (edgePadded) classNames.push(styles.edgePadded);
 		if (backgroundImageUrl) classNames.push(styles.bgImage);
+
+		if (className) classNames.push(className);
 
 		return classNames.join(' ');
 	}

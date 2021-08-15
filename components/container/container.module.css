@@ -1,11 +1,11 @@
 .container
 {
-	box-sizing: border-box;
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: green;
 	overflow: auto;
+	position: relative;
+	z-index: 3;
 }
 
 .bgImage
@@ -22,7 +22,7 @@
 
 .container.fillPageHeight
 {
-	min-height: 100vh;
+	height: 100vh;
 }
 
 @media only screen and (min-width: 770px)
