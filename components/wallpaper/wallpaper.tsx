@@ -13,7 +13,7 @@ type WallpaperInputProps = {
 }
 
 export const Wallpaper: React.FC<WallpaperInputProps> = ({ imageUrl, wallpaperBackgroundColor }) =>
-	{
+{
 	return (
 		<div
 			className={styles.image}

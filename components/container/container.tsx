@@ -7,9 +7,15 @@ type ContainerProps = {
 	edgePadded?: boolean;
 	backgroundImageUrl?: string | undefined;
 	className?: string | undefined;
+	limitedWidth?: boolean; 
 }
 
-export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImageUrl, className }) =>
+interface WallpaperBackgroundColor {
+	hexColor: string;
+	opacity: string;
+}
+
+export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImageUrl, className, limitedWidth }) =>
 {
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
@@ -19,6 +25,8 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 		if (backgroundImageUrl) classNames.push(styles.bgImage);
 
 		if (className) classNames.push(className);
+
+		if (limitedWidth) classNames.push(styles.limitedWidth);
 
 		return classNames.join(' ');
 	}
@@ -48,4 +56,5 @@ Container.defaultProps = {
 	fillPageHeight: false,
 	edgePadded: true,
 	backgroundImageUrl: undefined,
+	limitedWidth: true,
 }
