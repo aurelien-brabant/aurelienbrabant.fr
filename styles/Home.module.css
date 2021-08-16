@@ -64,19 +64,13 @@
 .centeredTextContainer
 {
   align-items: center;
-  padding-top: 0.5em;
-  padding-bottom: 0.5em;
-}
-
-.centeredTextContainer h1, .centeredTextContainer h2, .centeredTextContainer h3
-{
-  text-align: center;
-  font-weight: 400;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
 }
 
 /* centeredTextContainer title */
 
-.centeredTextContainer h2
+.centeredTextContainer .title
 {
   font-size: 2em;
   margin-top: 0.5em;
@@ -85,16 +79,55 @@
   text-transform: uppercase;
 }
 
-.centeredTextContainer h3
+.centeredTextContainer .subtitle
 {
-  color: #777;
+  opacity: .8;
   margin-top: 0.2em;
+}
+
+.centeredTextContainer .title, .centeredTextContainer .subtitle
+{
+  color: #fff;
+  text-align: center;
+  font-weight: 400;
+}
+
+.projectCards > *
+{
+  width: 100%;
 }
 
 .projectCards
 {
   display: flex;
+  flex-wrap: wrap;
 }
+
+
+@media only screen and (min-width: 450px)
+{
+  .projectCards > *
+  {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 1000px)
+{
+  .projectCards > *
+  {
+    width: 30%;
+  }
+}
+
+@media only screen and (min-width: 1400px)
+{
+  .projectCards > *
+  {
+    width: 18%;
+  }
+}
+
 
 /* ARROW */
 

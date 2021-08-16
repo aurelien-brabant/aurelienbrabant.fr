@@ -1,0 +1,57 @@
+.card
+{
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+	transition: 0.2s;
+	margin-left: 1em;
+	margin-right: 1em;
+	margin-bottom: 1em;
+
+	background-color: #fff;
+	border-radius: 5px;
+}
+
+.card:hover
+{
+	box-shadow: 0 16px 32px 0 rgba(0,0,0,0.2);
+	transform: scale(1.02);
+}
+
+.card .image
+{
+	background-size: cover;
+	min-height: 200px;
+}
+
+.card .textSection h3, .card .textSection h4
+{
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
+}
+
+.card .textSection
+{
+	font-weight: 400;
+	padding: 8px;
+}
+
+.card .textSection p
+{
+	line-height: 1.5em;
+}
+
+.card .textSection h3
+{
+	font-weight: 400;
+	font-size: 1.3em;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.card .textSection h4
+{
+	font-size: 1em;
+	color: #777;
+	font-weight: 400;
+}

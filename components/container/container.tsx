@@ -17,7 +17,7 @@ interface ContainerBackgroundImage {
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImage, className, limitedWidth }) =>
-	{
+{
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
 
