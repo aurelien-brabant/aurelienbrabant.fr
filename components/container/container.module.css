@@ -9,6 +9,7 @@
 
 .imageBackground
 {
+	/* background-attachment: fixed; */
 	background-size: cover;
 	position: absolute;
 	top: 0;

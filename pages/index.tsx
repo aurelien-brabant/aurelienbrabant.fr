@@ -61,7 +61,22 @@ const Home: NextPage = () => {
           </div>
 
         </Container>
+      </Container>
 
+      { /* I am a writer */ }
+
+      <Container
+        limitedWidth={false}
+      >
+        <Container
+          className={styles.centeredTextContainer}
+        >
+          <h2> Project showcase! </h2>
+          <h3> Take a look at some of my projects! </h3>
+
+          <div className={styles.projectCards}>
+          </div>
+        </Container>
       </Container>
 
     </ React.Fragment>
