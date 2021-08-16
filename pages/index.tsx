@@ -5,6 +5,7 @@ import { Typewriter } from 'react-simple-typewriter'
 
 import styles from '../styles/Home.module.css'
 import {Card} from '../components/card/card';
+import { Compass } from '../components/compass/compass';
 
 import { landingPosts } from '../data/landing_posts';
 
@@ -26,6 +27,7 @@ const Home: NextPage = () => {
 
   return (
     <React.Fragment>
+      <Compass />
 
       <Container
         backgroundImage={{
