@@ -1,5 +1,5 @@
-import React from 'react';
-import {Container} from '../container/container';
+import React, {MouseEventHandler} from 'react';
+import { Button } from '../button/button';
 import styles from './card.module.css';
 
 type CardInputProps = {
@@ -8,9 +8,11 @@ type CardInputProps = {
 	description?: string | undefined;
 	imageCoverUrl: string;
 	cardClassName?: string;
+	buttonClassName?: string;
+	onClickUrl?: string;
 }
 
-export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, imageCoverUrl, cardClassName }) =>
+export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, imageCoverUrl, cardClassName, buttonClassName, onClickUrl }) =>
 {
 	const buildCardClassName = (): string =>
 	{
@@ -21,8 +23,24 @@ export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, i
 		return cardClassNames.join(' ');
 	}
 
+	/*
+	const buildButtonClassName = (): string =>
+	{
+		const buttonClassNames: string[] = [];
+
+		if (buttonClassName) buttonClassNames.push(buttonClassName);
+
+		return buttonClassNames.join(' ');
+	}
+	 */
+
 	return (
-		<div className={buildCardClassName()}>
+		<div
+			className={buildCardClassName()}
+			onClick={() => {
+				if (onClickUrl) window.open(onClickUrl, '_blank');
+			}}
+		>
 			{ imageCoverUrl && (
 				<div
 					className={styles.image}
@@ -38,8 +56,6 @@ export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, i
 				<hr />
 				<p> {description} </p>
 			</div>
-
-			<button style={{marginTop: 'auto'}}> See it on github! </button>
 		</div>
 	)
 }
