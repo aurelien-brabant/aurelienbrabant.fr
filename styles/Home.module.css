@@ -137,6 +137,34 @@
   background-color: #e2725b;
 }
 
+.textCtaSection
+{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: #fff;
+}
+
+.textCtaSection h2
+{
+  font-size: 2.2em;
+  text-transform: uppercase;
+  font-weight: 400;
+  letter-spacing: 2px;
+}
+
+.textCtaSection p
+{
+  font-size: 1.5em;
+}
+
+.ctaButton
+{
+  font-size: 1.5em;
+  background-color: #e2725b;
+}
 
 /* ARROW */
 

@@ -2,6 +2,7 @@ import type { NextPage } from 'next'
 import React, {ReactNode} from 'react';
 import { Container } from '../components/container/container'
 import { Typewriter } from 'react-simple-typewriter'
+import { Button } from '../components/button/button';
 
 import styles from '../styles/Home.module.css'
 import {Card} from '../components/card/card';
@@ -12,7 +13,7 @@ import { landingPosts } from '../data/landing_posts';
 const Home: NextPage = () => {
 
   const renderLandingPosts = (): ReactNode =>
-    {
+  {
     return landingPosts.map((post) => (
       <Card
         key={post.title}
@@ -82,8 +83,6 @@ const Home: NextPage = () => {
         </Container>
       </Container>
 
-      { /* I am a writer */ }
-
       <Container
         className={styles.centeredTextContainer}
         limitedWidth={false}
@@ -105,8 +104,35 @@ const Home: NextPage = () => {
         </Container>
       </Container>
 
+      { /* I am a writer */ }
+
+      <Container
+        limitedWidth={false}
+        backgroundImage= {{
+          url: '/spyglass.jpeg',
+          hexColor: '#000',
+          opacity: '0.85'
+        }}
+      >
+        <Container
+          className={styles.textCtaSection}
+        >
+          <h2 className={styles.title}> I am a writer </h2>
+
+          <p> I love to share my knowledge with other people, therefore I'm writing a lot of articles. </p>
+
+          <Button
+            className={styles.ctaButton}
+          >
+            Discover my blog
+          </Button>
+        </Container>
+      </Container>
+
+
     </ React.Fragment>
   )
+
 } 
 
 export default Home
