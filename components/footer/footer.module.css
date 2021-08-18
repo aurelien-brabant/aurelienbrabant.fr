@@ -1,0 +1,41 @@
+.footer
+{
+	background-color: rgba(20, 20, 20);
+	min-height: 300px;
+	color: #fff;
+}
+
+.footerContainer
+{
+	display: flex;
+}
+
+.footerBlock
+{
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.footerBlock ul
+{
+	margin: 0;
+	padding: 0;
+}
+
+.footerBlock ul > li
+{
+	list-style: none;
+	font-size: 1.2em;
+	transition: opacity .2s;
+}
+
+.footerBlock ul > li:hover
+{
+	opacity: 0.8;
+}
+
+.footerBlock > h3
+{
+	font-size: 2em;
+}
