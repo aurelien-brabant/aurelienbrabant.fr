@@ -4,13 +4,14 @@
 	top: 20px;
 	left: 20px;
 	z-index: 7;
-	height: 50px;
-	width: 50px;
+	height: auto;
+	width: 70px;
+	transition: .2s;
 }
 
 .compass:hover
 {
-	transform: scale(1.1);
+	opacity: 0.8;
 }
 
 .menu
@@ -24,16 +25,45 @@
 	top: 0;
 	bottom: 0;
 	left: 0;
-	right: 0;
+	width: 0;
+	max-width: 100%;
 	z-index: 6;
-	transition: opacity 0.2s;
+	background-color: rgb(20, 20, 20);
+	background:
+	/* top, transparent black, faked with gradient */ 
+	linear-gradient(
+	rgba(0, 0, 0, 0.8), 
+	rgba(0, 0, 0, 0.8)
+	),
+	/* bottom, image */
+	url('/menu_bg.jpg');
+	background-position: center;
+	background-size: cover;
+	transition: all .4s;
+}
+
+.menu.visible
+{
+	width: 400px;
 }
 
 .menu *
 {
 	position: relative;
-	width: inherit;
 	z-index: inherit;
+}
+
+.menu > h1
+{
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	opacity: 0;
+	transition: .2s;
+}
+
+.menu > h1.visible
+{
+	opacity: 1;
 }
 
 .menu > .tab.activated
@@ -49,6 +79,6 @@
 	right: 0;
 	bottom: 0;
 	background-color: #000;
-	opacity: 0.95;
+	opacity: 0.8;
 	z-index: 5;
 }

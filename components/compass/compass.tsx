@@ -1,6 +1,7 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Link from 'next/link';
 import styles from './compass.module.css';
+import openedMap from '../../public/map_opened.png';
 
 type CompassInputProps = {
 }
@@ -60,8 +61,7 @@ export const Compass: React.FC<CompassInputProps> = () => {
 
 	return (
 		<React.Fragment>
-			<div className={styles.menu} style={{display: visible ? 'flex' : 'none'}}>
-				<div className={styles.backgroundColor} />
+			<div className={`${styles.menu} ${visible ? styles.visible : ''}`}>
 				{ tabs.map(tab => (
 					<h1
 						onClick={() => {
@@ -69,21 +69,21 @@ export const Compass: React.FC<CompassInputProps> = () => {
 							setVisible(false)
 						}}
 						key={tab.id}
-						className={`${styles.tab} ${selected === tab.id ? styles.activated : '' }`}
+						className={`${styles.tab} ${selected === tab.id ? styles.activated : '' } ${visible ? styles.visible : ''}`}
 					>
 						<Link
 							key={tab.id} 
 							href={tab.route}
 						>
-							{`${selected == tab.id ? '> ' : ''}${tab.title}`}
+							{tab.title}
 						</Link>
 					</h1>
 				)) }
 			</div>
 			<img
 				className={styles.compass}
-				onClick={() => setVisible(!visible) }
-				src="/compass.png"
+				onClick={() => { setVisible(!visible); } }
+				src={openedMap.src}
 			/>
 		</React.Fragment>
 	)
