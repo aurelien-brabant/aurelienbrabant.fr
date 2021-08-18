@@ -73,11 +73,13 @@ const Home: NextPage = () => {
 
           <img src='/me.jpeg' className={styles.aurelienImage} />
 
-          <h2 className={styles.scrollCta}>Scroll to discover my work</h2>
+          <div className={styles.scrollCta}>
+            <h2>Scroll to discover my work</h2>
 
-          <div className={styles.arrow}>
-            <span></span>
-            <span></span>
+            <div className={styles.arrow}>
+              <span></span>
+              <span></span>
+            </div>
           </div>
 
         </Container>
