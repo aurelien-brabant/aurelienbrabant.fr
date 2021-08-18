@@ -116,6 +116,71 @@
   flex-wrap: wrap;
 }
 
+.technologiesContainer
+{
+  margin: 0 auto;
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
+}
+
+.technologiesContainer > h2
+{
+  font-size: 2em;
+  text-transform: uppercase;
+}
+
+.technologiesContainer > h3
+{
+  color: #777;
+  font-size: 1.3em;
+}
+
+.technologiesContainer > h2, .technologiesContainer > h3
+{
+  margin: 0.5em;
+  text-align: center;
+}
+
+.technologiesContainer > .technologies
+{
+  padding: 2em 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.technologies > img
+{
+  height: auto;
+  max-height: 100px;
+  margin: 1em;
+}
+
+.technologiesContainer > .cta > h2
+{
+    font-size: 2em;
+    text-align: center;
+}
+
+.technologiesContainer > .cta > a
+{
+  padding: 10px;
+  font-size: 1.4em;
+  border: 1px rgba(0, 0, 0, .5) solid;
+  display: block;
+  margin: 0 auto;
+  max-width: 300px;
+  border-radius: 5px;
+  text-align: center;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: box-shadow .2s;
+}
+
+
+.technologiesContainer > .cta > a:hover
+{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
 
 @media only screen and (min-width: 450px)
 {

@@ -9,6 +9,13 @@ import {Card} from '../components/card/card';
 import { Compass } from '../components/compass/compass';
 
 import { landingPosts } from '../data/landing_posts';
+import Link from 'next/link';
+
+type Technology =
+{
+  name: string;
+  imageUrl: string;
+}
 
 const Home: NextPage = () => {
 
@@ -25,6 +32,73 @@ const Home: NextPage = () => {
       />
     ))
   }
+
+  const technologies: Technology[] = [
+    {
+      name: 'HTML5',
+      imageUrl: '/technologies/html.png'
+    },
+    {
+      name: 'CSS3',
+      imageUrl: '/technologies/css.png'
+    },
+    {
+      name: 'JavaScript',
+      imageUrl: '/technologies/javascript.png'
+    },
+    {
+      name: 'TypeScript',
+      imageUrl: '/technologies/typescript.png'
+    },
+    {
+      name: 'NodeJS',
+      imageUrl: '/technologies/nodejs.png'
+    },
+    {
+      name: 'NextJS',
+      imageUrl: '/technologies/nextjs.png'
+    },
+    {
+      name: 'ReactJS',
+      imageUrl: '/technologies/react.png'
+    },
+    {
+      name: 'NestJS',
+      imageUrl: '/technologies/nestjs.svg'
+    },
+    {
+      name: 'Docker',
+      imageUrl: '/technologies/docker.png'
+    },
+    {
+      name: 'C',
+      imageUrl: '/technologies/c.png'
+    },
+    {
+      name: 'C++',
+      imageUrl: '/technologies/cpp.png'
+    },
+    {
+      name: 'Git',
+      imageUrl: '/technologies/git.png'
+    },
+    {
+      name: 'Vim',
+      imageUrl: '/technologies/vim.png'
+    },
+    {
+      name: 'MacOS',
+      imageUrl: '/technologies/apple.png'
+    },
+    {
+      name: 'Linux',
+      imageUrl: '/technologies/tux.png'
+    },
+    {
+      name: 'Notion',
+      imageUrl: '/technologies/notion.png'
+    }
+  ];
 
   return (
     <React.Fragment>
@@ -106,6 +180,22 @@ const Home: NextPage = () => {
         </Container>
       </Container>
 
+      <Container className={styles.technologiesContainer}>
+        <h2> You and I love technology, right ? </h2>
+        <h3> Here is what I work with </h3>
+        <div className={styles.technologies}>
+          { technologies.map(technology => (
+            <img src={technology.imageUrl} />
+          ))}
+        </div>
+        <div
+          className={styles.cta}
+        >
+          <h2> Interested in my skills? </h2>
+          <Link href="/contact"><a>Let's get in touch!</a></Link>
+        </div>
+      </Container>
+
       { /* I am a writer */ }
 
       <Container
@@ -119,7 +209,7 @@ const Home: NextPage = () => {
         <Container
           className={styles.textCtaSection}
         >
-          <h2 className={styles.title}> I am a writer </h2>
+          <h2 className={styles.title}> We need programming stories </h2>
 
           <p> I love to share my knowledge with other people, therefore I'm writing a lot of articles. </p>
 
