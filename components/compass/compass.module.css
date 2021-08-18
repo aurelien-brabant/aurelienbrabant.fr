@@ -39,7 +39,7 @@
 	url('/menu_bg.jpg');
 	background-position: center;
 	background-size: cover;
-	transition: all .4s;
+	transition: all .3s;
 }
 
 .menu.visible

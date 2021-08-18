@@ -29,9 +29,10 @@
 {
   opacity: 0.9;
   color: #fff;
-  font-size: 1.8em;
+  font-size: 1.6em;
   letter-spacing: 1.5px;
   font-weight: 400;
+  text-align: center;
 }
 
 .introduction a
@@ -105,6 +106,12 @@
 
 }
 
+.projectCards
+{
+  display: flex;
+  justify-content: center;
+}
+
 .projectCards > *
 {
   width: 100%;
@@ -146,6 +153,7 @@
   padding: 2em 0;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .technologies > img
@@ -202,7 +210,7 @@
 {
   .projectCards > *
   {
-    width: 18%;
+    width: 17%;
   }
 }
 
@@ -217,11 +225,12 @@
 
 .textCtaSection
 {
+  padding-top: 1.5em;
+  padding-bottom: 1.5em;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 400px;
   color: #fff;
 }
 
@@ -240,6 +249,7 @@
 
 .ctaButton
 {
+  margin: 1em 0;
   font-size: 1.5em;
   background-color: #e2725b;
 }

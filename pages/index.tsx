@@ -107,8 +107,7 @@ const Home: NextPage = () => {
       <Container
         backgroundImage={{
           url: '/landing_bg.jpeg',
-          hexColor: '#000',
-          opacity: '0.88'
+          rgbaColor: 'rgba(0, 0, 0, 0.85)',
         }}
         limitedWidth={false}
       >
@@ -164,8 +163,7 @@ const Home: NextPage = () => {
         limitedWidth={false}
         backgroundImage= {{
           url: '/waterflow.jpg',
-          hexColor: '#000',
-          opacity: '0.75'
+          rgbaColor: 'rgba(0, 0, 0, 0.85)',
         }}
       >
         <Container
@@ -202,8 +200,7 @@ const Home: NextPage = () => {
         limitedWidth={false}
         backgroundImage= {{
           url: '/spyglass.jpeg',
-          hexColor: '#000',
-          opacity: '0.85'
+          rgbaColor: 'rgba(0, 0, 0, 0.85)',
         }}
       >
         <Container
@@ -211,12 +208,12 @@ const Home: NextPage = () => {
         >
           <h2 className={styles.title}> We need programming stories </h2>
 
-          <p> I love to share my knowledge with other people, therefore I'm writing a lot of articles. </p>
+          <p> Stories are great, but programming ones are even greater.</p>
 
           <Button
             className={styles.ctaButton}
           >
-            Discover my blog
+            Check out my blog
           </Button>
         </Container>
       </Container>
@@ -224,7 +221,6 @@ const Home: NextPage = () => {
 
     </ React.Fragment>
   )
-
 } 
 
 export default Home

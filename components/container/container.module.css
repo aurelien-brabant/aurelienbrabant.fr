@@ -5,41 +5,13 @@
 	margin-right: auto;
 	position: relative;
 	z-index: 3;
+	background-size: cover !important;
+	background-position: center !important;
 }
-
-.imageBackground
-{
-	/* background-attachment: fixed; */
-	background-size: cover;
-	background-position: center;
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 1;
-}
-
-.backgroundImageColor
-{
-	position: absolute;
-	top: 0;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	z-index: 2;
-}
-
 
 .fullWidth
 {
 	width: 100%;
-}
-
-.bgImage
-{
-	background-size: cover;
-	background-repeat: no-repeat;
 }
 
 .container.edgePadded

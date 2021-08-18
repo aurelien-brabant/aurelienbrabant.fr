@@ -12,12 +12,12 @@ type ContainerProps = {
 
 interface ContainerBackgroundImage {
 	url: string;
-	hexColor?: string;
+	rgbaColor?: string;
 	opacity?: string;
 }
 
 export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImage, className, limitedWidth }) =>
-{
+	{
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
 
@@ -40,38 +40,24 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 	}
 
 	// assuming backgroundImage is provided
-	const renderBackgroundImage = (): ReactNode | null =>
-	{
+	const buildContainerBackgroundStyle = (): { background: string } | null =>
+		{
 		if (!backgroundImage) return null;
 
-		return (
-			<React.Fragment>
+		let style: { background: string } = { background: `url(${backgroundImage.url})`  };
 
-				{ /* render background if provided */ }
-				{ backgroundImage.hexColor  && (
-					<div
-						className={styles.backgroundImageColor}
-						style={{
-							backgroundColor: backgroundImage.hexColor,
-							opacity: backgroundImage.opacity
-						}}
-					/>
-				)}
+		if (backgroundImage.rgbaColor) {
+			style.background = `linear-gradient(${backgroundImage.rgbaColor}, ${backgroundImage.rgbaColor}), url(${backgroundImage.url})`;
+		}
 
-				<div
-					className={styles.imageBackground}
-					style={{ backgroundImage: `url(${backgroundImage.url})`}}
-				/>
-			</React.Fragment>
-
-		);
+		return style;
 	}
 
 	return (
 		<div
 			{ ... buildContainerProps()}
+			style={buildContainerBackgroundStyle()}
 		>
-			{ renderBackgroundImage() }
 			{ children }
 		</div>
 	);
