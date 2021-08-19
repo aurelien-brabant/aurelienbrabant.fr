@@ -1,3 +1,96 @@
+.header
+{
+	background-color: rgba(20, 20, 20, .99);
+	height: 60px;
+	border-bottom: 1px #e2725b solid;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 10;
+	display: flex;
+	align-items: center;
+	padding: 5px 15px;
+	color: #fff;
+	justify-content: space-between;
+}
+
+.header ul
+{
+	display: none;
+}
+
+.logoWrapper
+{
+	display: flex;
+	align-items: center;
+}
+
+.rudder
+{
+	max-height: 40px;
+	height: auto;
+	width: auto;
+	margin-right: .8em;
+	transition: .2s;
+}
+
+.rudder:hover
+{
+	transform: scale(1.05);
+}
+
+@media only screen and (min-width: 500px)
+{
+	.rudder
+	{
+		/* display: none; */
+	}
+
+	.header ul
+	{
+		display: flex;
+		list-style: none;
+		padding: 0;
+		font-size: 1.1em;
+		text-transform: uppercase;
+	}
+
+	.header .projectCta
+	{
+		display: block;
+		background-color: #e2725b;
+		border-radius: 10px;
+	}
+}
+
+.header ul li
+{
+	outline: none;
+	margin: 0 .8em;
+	transition: color .1s;
+}
+
+.header ul li:hover, header ul li.active
+{
+	color: #e2725b;
+}
+
+.logo
+{
+	font-size: 1em;
+	color: #e2725b;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
+
+.projectCta
+{
+	display: none;
+}
+
+/* Old compass component's style */
+
 .compass
 {
 	position: fixed;
@@ -7,6 +100,7 @@
 	height: auto;
 	width: 70px;
 	transition: .2s;
+	display: none;
 }
 
 .hider

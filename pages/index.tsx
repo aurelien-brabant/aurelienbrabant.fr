@@ -7,7 +7,6 @@ import { Button } from '../components/button/button';
 
 import styles from '../styles/Home.module.css'
 import {Card} from '../components/card/card';
-import { Compass } from '../components/compass/compass';
 
 import { landingPosts } from '../data/landing_posts';
 import Link from 'next/link';
@@ -103,8 +102,6 @@ const Home: NextPage = () => {
 
   return (
     <React.Fragment>
-      <Compass />
-
       <Container
         backgroundImage={{
           url: '/landing_bg.jpeg',
@@ -213,7 +210,8 @@ const Home: NextPage = () => {
 
           <p> Stories are great, but programming ones are even greater.</p>
 
-          <Button
+            <Button
+             href="/blog"
             className={styles.ctaButton}
           >
             Check out my blog

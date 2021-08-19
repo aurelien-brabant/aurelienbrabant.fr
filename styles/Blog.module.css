@@ -1,0 +1,32 @@
+.mainContainer
+{
+  padding-top: 1em;
+}
+
+.header
+{
+  margin: 2em 0em;
+  text-align: center;
+  font-size: 2em;
+}
+
+.header h1
+{
+  font-size: 1.5em;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.header h2
+{
+  font-size: 1em;
+}
+
+.articleCards
+{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}

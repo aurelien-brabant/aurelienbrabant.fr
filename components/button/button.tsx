@@ -1,11 +1,13 @@
 import React from 'react';
 import styles from './button.module.css';
+import Link from 'next/link';
 
 type ButtonInputProps = {
 	className?: string;
+	href: string;
 }
 
-export const Button: React.FC<ButtonInputProps> = ({ children, className }) =>
+export const Button: React.FC<ButtonInputProps> = ({ children, className, href }) =>
 {
 	const buildButtonClassName = (): string => {
 		const classNames = [ styles.button ];
@@ -16,8 +18,14 @@ export const Button: React.FC<ButtonInputProps> = ({ children, className }) =>
 	}
 
 	return (
-		<a href='/' className={buildButtonClassName()}>
-			{children}
-		</a>
+		<Link href={href}>
+			<a className={buildButtonClassName()}>
+				{children}
+			</a>
+		</Link>
 	);
+}
+
+Button.defaultProps = {
+	href: '/'
 }
