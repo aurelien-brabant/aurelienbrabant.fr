@@ -1,7 +1,7 @@
 ---
 title: "Managing events with the minilibx"
 preview: "A clear and comprehensive tutorial about managing events with the minilibx."
-date: "2020-02-08"
+date: "2021-02-08"
 author: "Aurélien Brabant"
 previous: "getting-started-with-the-minilibx"
 next: "pixel-drawing-with-the-minilibx"

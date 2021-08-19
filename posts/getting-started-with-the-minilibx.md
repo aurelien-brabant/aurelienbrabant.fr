@@ -1,7 +1,7 @@
 ---
 title: "Getting started with the minilibx"
 preview: "Learn how to begin with the minilibx to render graphics using the X Window System!"
-date: "2020-02-07"
+date: "2021-02-07"
 author: "Aurélien Brabant"
 next: "events-with-the-minilibx"
 coverUrl: "https://cdn.wallpapersafari.com/17/17/evKQDc.jpg"
