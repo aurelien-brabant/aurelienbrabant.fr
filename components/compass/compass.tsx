@@ -2,41 +2,14 @@ import React, {useState} from 'react';
 import Link from 'next/link';
 import styles from './compass.module.css';
 import openedMap from '../../public/map_opened.png';
+import { navtabs } from '../../data/navtabs';
 
 type CompassInputProps = {
-}
-
-type NavTab = {
-	title: string;
-	route: string;
-	id: number;
 }
 
 export const Compass: React.FC<CompassInputProps> = () => {
 	const [ selected, setSelected ] = useState(0);
 	const [ visible, setVisible ] = useState(false);
-
-	const tabs: NavTab[] = [
-		{
-			title: 'Home',
-			route: '/',
-			id: 0
-		},
-		{
-			title: 'Blog',
-			route: '/blog',
-			id: 1
-		},
-		{
-			title: 'Contact',
-			route: '/contact',
-			id: 2
-		}
-	];
-
-	const maxIndex = tabs[tabs.length - 1].id;
-
-	console.log("max", maxIndex);
 
 	/*
 	const upHandler = (ev: React.KeyboardEvent<HTMLDivElement>): void => 
@@ -62,7 +35,7 @@ export const Compass: React.FC<CompassInputProps> = () => {
 	return (
 		<React.Fragment>
 			<div className={`${styles.menu} ${visible ? styles.visible : ''}`}>
-				{ tabs.map(tab => (
+				{ navtabs.map(tab => (
 					<h1
 						onClick={() => {
 							setSelected(tab.id)
@@ -75,7 +48,7 @@ export const Compass: React.FC<CompassInputProps> = () => {
 							key={tab.id} 
 							href={tab.route}
 						>
-							{tab.title}
+							{tab.label}
 						</Link>
 					</h1>
 				)) }

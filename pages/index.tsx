@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import React, {ReactNode} from 'react';
+import Tada from 'react-reveal/Tada';
 import { Container } from '../components/container/container'
 import { Typewriter } from 'react-simple-typewriter'
 import { Button } from '../components/button/button';
@@ -22,14 +23,14 @@ const Home: NextPage = () => {
   const renderLandingPosts = (): ReactNode =>
   {
     return landingPosts.map((post) => (
-      <Card
-        key={post.title}
-        title={post.title}
-        subtitle={`Duration: about ${post.duration}`}
-        description={post.description}
-        onClickUrl={post.githubLink}
-        imageCoverUrl={post.imageCoverUrl}
-      />
+        <Card
+          key={post.title}
+          title={post.title}
+          subtitle={`Duration: about ${post.duration}`}
+          description={post.description}
+          onClickUrl={post.githubLink}
+          imageCoverUrl={post.imageCoverUrl}
+        />
     ))
   }
 
@@ -183,7 +184,9 @@ const Home: NextPage = () => {
         <h3> Here is what I work with </h3>
         <div className={styles.technologies}>
           { technologies.map(technology => (
-            <img src={technology.imageUrl} />
+            <Tada>
+              <img src={technology.imageUrl} />
+            </Tada>
           ))}
         </div>
         <div

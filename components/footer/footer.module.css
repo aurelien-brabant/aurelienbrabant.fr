@@ -5,9 +5,13 @@
 	color: #fff;
 }
 
-.footerContainer
+.footerBlockWrapper
 {
 	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
 }
 
 .footerBlock
@@ -15,6 +19,30 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+}
+
+@media only screen and (min-width: 700px)
+{
+	.footerBlockWrapper
+	{
+		flex-direction: row;
+	}
+}
+
+.footerContactInfo
+{
+	text-align: center;
+}
+
+.footerContainer
+{
+	padding-top: 1.5em;
+	padding-bottom: 1.5em;
+}
+
+.footerContactInfo p
+{
+	margin: 0.5em;
 }
 
 .footerBlock ul
@@ -26,8 +54,9 @@
 .footerBlock ul > li
 {
 	list-style: none;
-	font-size: 1.2em;
+	font-size: 1.1em;
 	transition: opacity .2s;
+	margin-bottom: .5em;
 }
 
 .footerBlock ul > li:hover
@@ -37,5 +66,27 @@
 
 .footerBlock > h3
 {
-	font-size: 2em;
+	font-size: 1.6em;
+	font-weight: 400;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	padding-bottom: 0.2em;
+	border-bottom: 1px rgb(255, 255, 255, .2) solid;
+	border-radius: 2px;
+	color: #e2725b;
+}
+
+.socials svg
+{
+	height: auto;
+	width: auto;
+	max-height: 30px;
+	fill: #e2725b;
+	margin: 0 .5em;
+	transition: .2s;
+}
+
+.socials svg:hover
+{
+	opacity: .8;
 }
