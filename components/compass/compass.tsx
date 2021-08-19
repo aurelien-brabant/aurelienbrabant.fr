@@ -3,6 +3,7 @@ import Link from 'next/link';
 import styles from './compass.module.css';
 import openedMap from '../../public/map_opened.png';
 import { navtabs } from '../../data/navtabs';
+import disableScroll from 'disable-scroll';
 
 type CompassInputProps = {
 }
@@ -32,8 +33,15 @@ export const Compass: React.FC<CompassInputProps> = () => {
 	}
 	*/
 
+   	if (visible) disableScroll.on();
+	else disableScroll.off();
+
 	return (
 		<React.Fragment>
+			<div
+				className={`${styles.hider} ${visible ? styles.visible : ''}` }
+				onClick={() => { setVisible(false) }}
+			/>
 			<div className={`${styles.menu} ${visible ? styles.visible : ''}`}>
 				{ navtabs.map(tab => (
 					<h1
