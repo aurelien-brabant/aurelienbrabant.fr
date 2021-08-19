@@ -133,7 +133,7 @@ const Home: NextPage = () => {
           </p>
 
           <p className={styles.introduction}>
-            <span className={styles.letterEmphasis}>I</span> ❤️ web development, low-level coding that makes me learn new stuff, and I am also a free software advocate. Just tell me about
+            <span className={styles.letterEmphasis}>I</span> love web development, low-level coding that makes me learn new stuff, and I am also a free software advocate. Just tell me about
             anything IT related, and I will listen to you carefully!
           </p>
 

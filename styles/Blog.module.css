@@ -1,26 +1,22 @@
 .mainContainer
 {
   padding-top: 1em;
+  padding-top: 65px; /* navbar offset must be accounted */
 }
 
 .header
 {
-  margin: 2em 0em;
+  margin: 1em 0em;
   text-align: center;
   font-size: 2em;
 }
 
-.header h1
+.title
 {
-  font-size: 1.5em;
   text-align: center;
+  font-size: 1.5em;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-}
-
-.header h2
-{
-  font-size: 1em;
 }
 
 .articleCards
@@ -28,5 +24,28 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  margin: 1em 0;
+}
 
+.searchbar
+{
+  width: 100%;
+  font-size: 1.3em;
+  padding: 1em 0;
+  border-left: none;
+  border-right: none;
+  border-top: 1.5px rgba(0, 0, 0, .2) solid;
+  border-bottom: 1.5px rgba(0, 0, 0, .2) solid;
+  text-align: center;
+  transition: border-color .2s;
+}
+
+.searchbar:focus
+{
+  border-color: rgba(0, 0, 0, .3);
+}
+
+.blogpostCard
+{
+  max-width: 30%;
 }
