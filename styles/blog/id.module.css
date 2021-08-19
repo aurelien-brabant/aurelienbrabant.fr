@@ -1,0 +1,29 @@
+.mainContainer
+{
+  padding-top: 60px;
+}
+
+.contentContainer
+{
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+
+.headingContainer
+{
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  min-height: 150px;
+}
+
+.inlineCode
+{
+  font-family: Terminus;
+  font-size: 1.2em;
+  padding: 0 5px;
+}

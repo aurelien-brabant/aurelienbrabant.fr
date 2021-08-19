@@ -91,6 +91,7 @@ system can usually be obtained using the `ulimit -n` command.
 $ ulimit -n
 256
 ```
+
 Note that this number **includes** the three default file descriptors, therefore
 a program can generally open `n - 3` file descriptors, where `n` is the result
 given by `ulimit -n`.
