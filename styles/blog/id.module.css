@@ -7,6 +7,7 @@
 {
   font-size: 1.25em;
   line-height: 1.5em;
+  padding: 1.5em 0;
 }
 
 .headingContainer
@@ -18,6 +19,7 @@
   padding-top: 1em;
   padding-bottom: 1em;
   min-height: 150px;
+  background-attachment: fixed;
 }
 
 .headingContainer h1, .headingContainer h2, .h.headingContainer h3
