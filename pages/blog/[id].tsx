@@ -104,7 +104,10 @@ const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 								)
 							},
 
+							// eslint-disable-next-line react/display-name
 							a: ({ children, href, target }) => <Anchor href={href} target={target}>{children}</Anchor>,
+
+							// eslint-disable-next-line react/display-name
 							blockquote: ({ children }) => <Blockquote>{children}</Blockquote>
 
 						}}

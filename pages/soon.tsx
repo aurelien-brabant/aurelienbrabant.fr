@@ -9,7 +9,7 @@ const Soon: React.FC<{}> = () =>
   return (
     <React.Fragment>
       <Head>
-        <title>Coming soon</title>
+        <title>Coming soon | Aurelien Brabant</title>
         <meta name="description" content="Sorry, this page is not available yet, but it will be soon!" />
         { /* We definitely do not want to index that page */ }
         <meta name="robots" content="noindex, nofollow" />

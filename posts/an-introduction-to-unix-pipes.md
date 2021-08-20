@@ -45,8 +45,8 @@ Below are some of them:
 - shared memory
 - pipes
 
-	These different ways all have their pros and cons, but in this post, we'll
-	concentrate on pipes which are really handy for doing simple IPC.
+These different ways all have their pros and cons, but in this post, we'll
+concentrate on pipes which are really handy for doing simple IPC.
 
 # The pipe IPC mechanism
 
