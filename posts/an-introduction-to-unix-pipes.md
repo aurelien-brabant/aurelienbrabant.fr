@@ -5,8 +5,6 @@ date: "2021-07-23"
 author: "Aurélien Brabant"
 ---
 
-![](mario_pipes.png)
-
 Communication between programs is crucial, and is one of the topic any novice
 programmer needs to face at some point. On an UNIX system, one easy way of
 sharing data is to use pipes.
