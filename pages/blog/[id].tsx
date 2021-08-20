@@ -28,6 +28,9 @@ type PostData = {
 
 const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 {
+	const tmp = postData.content.match(/(\w+)/g);
+	const readTime = tmp ? Math.floor(tmp.length / 210) : 0;
+
 	return (
 		<React.Fragment>
 			<Head>
@@ -50,6 +53,7 @@ const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 					}}
 				>
 					<h1> {postData.title} </h1>
+					<h3> {readTime} min. read </h3>
 					<h3> {postData.date} </h3>
 				</Container>
 				<Container
