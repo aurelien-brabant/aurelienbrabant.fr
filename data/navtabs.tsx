@@ -17,7 +17,7 @@ export const navtabs: NavTab[] = [
 	},
 	{
 		label: 'Contact',
-		route: '/contact',
+		route: '/soon',
 		id: 2
 	}
 ];

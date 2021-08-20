@@ -1,0 +1,14 @@
+.mainContainer
+{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.mainContainer h1, .mainContainer h2
+{
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin: 1.5em 0;
+}
