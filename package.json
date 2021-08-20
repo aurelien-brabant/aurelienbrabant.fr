@@ -6,12 +6,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "postbuild": "node scripts/sitemap.js"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.0",
     "@types/react-syntax-highlighter": "^13.5.2",
     "disable-scroll": "^0.6.0",
+    "fs-extra": "^10.0.0",
     "fuse.js": "^6.4.6",
     "gray-matter": "^4.0.3",
     "install": "^0.13.0",
