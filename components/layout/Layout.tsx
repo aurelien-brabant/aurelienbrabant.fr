@@ -1,7 +1,6 @@
 import React from "react";
 import {Footer} from "../footer/footer";
 import Header from '../header/header';
-import { Compass } from '../compass/compass';
 
 type LayoutInputProps = {
 };

@@ -21,7 +21,7 @@ const Header: React.FC<{}> = () =>
 			}
 		}
 
-	}, [router.asPath]);
+	}, [router.asPath, router.route]);
 
 
 	if (isVisible) disableScroll.on();
@@ -36,11 +36,11 @@ const Header: React.FC<{}> = () =>
 			<div className={`${styles.menu} ${isVisible ? styles.visible : ''}`}>
 				{ navtabs.map(tab => (
 					<h1
+						key={tab.id}
 						onClick={() => {
 							setSelected(tab.id)
 							setIsVisible(false)
 						}}
-						key={tab.id}
 						className={`${styles.tab} ${selected === tab.id ? styles.activated : '' } ${isVisible ? styles.visible : ''}`}
 					>
 						<Link
@@ -69,6 +69,7 @@ const Header: React.FC<{}> = () =>
 					{navtabs.map(tab => (
 						<li
 							className={selected === tab.id ? styles.active : ''}
+							key={tab.id}
 							onClick={() => { setSelected(tab.id); setIsVisible(false); }}
 						>
 							<Link href={tab.route}>

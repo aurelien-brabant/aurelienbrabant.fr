@@ -3,7 +3,6 @@ import {Card} from '../components/card/card';
 import {Container} from '../components/container/container';
 import styles from '../styles/Blog.module.css';
 import { getPostsMeta } from '../lib/posts';
-import Flip from 'react-reveal/Flip';
 
 export async function getStaticProps() {
   const posts = getPostsMeta();
@@ -36,7 +35,7 @@ const Blog: React.FC<{ posts: PostMeta[] }> = ({ posts }) =>
       }
     }))
     setFilteredPosts(posts);
-  }, []);
+  }, [posts]);
 
   const handleSearch = (ev: ChangeEvent<HTMLInputElement>, sanePosts: PostMeta[]) => {
     const saneSearchTerm = ev.target.value.toLowerCase();
@@ -51,7 +50,9 @@ const Blog: React.FC<{ posts: PostMeta[] }> = ({ posts }) =>
       className={styles.mainContainer}
       fillPageHeight={true}
     >
-      <h2 className={styles.title}> Let's have a talk. </h2>
+      <h2
+        className={styles.title}
+      > {"Let's have a talk."} </h2>
       <input
         className={styles.searchbar}
         type='text'

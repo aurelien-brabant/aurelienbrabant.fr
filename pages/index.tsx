@@ -1,9 +1,9 @@
 import type { NextPage } from 'next'
 import React, {ReactNode} from 'react';
-import Tada from 'react-reveal/Tada';
 import { Container } from '../components/container/container'
 import { Typewriter } from 'react-simple-typewriter'
 import { Button } from '../components/button/button';
+import Image from 'next/image';
 
 import styles from '../styles/Home.module.css'
 import {Card} from '../components/card/card';
@@ -114,7 +114,7 @@ const Home: NextPage = () => {
           className={styles.mainContainer}
           fillPageHeight={true}
         >
-          <h1 className={styles.greetings}> I'm <span className={styles.typewritten}>
+          <h1 className={styles.greetings}> {"I'm"} <span className={styles.typewritten}>
             <Typewriter
               words={['a developer', 'an explorer', 'a traveler', 'fascinated', 'dedicated']}
               loop={0}
@@ -142,7 +142,7 @@ const Home: NextPage = () => {
           </p>
 
 
-          <img src='/me.jpeg' className={styles.aurelienImage} />
+          <Image src='/me.jpeg' className={styles.aurelienImage} width={210} height={200} alt="photo of website's owner" />
 
           <div className={styles.scrollCta}>
             <h2>Scroll to discover my work</h2>
@@ -181,16 +181,18 @@ const Home: NextPage = () => {
         <h3> Here is what I work with </h3>
         <div className={styles.technologies}>
           { technologies.map(technology => (
-            <Tada>
-              <img src={technology.imageUrl} />
-            </Tada>
+              <img
+                key={technology.name}
+                alt={technology.name}
+                src={technology.imageUrl} 
+              />
           ))}
         </div>
         <div
           className={styles.cta}
         >
           <h2> Interested in my skills? </h2>
-          <Link href="/contact"><a>Let's get in touch!</a></Link>
+          <Link href="/contact"><a>{"Let's get in touch!"}</a></Link>
         </div>
       </Container>
 

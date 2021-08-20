@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { useEffect } from "react"; 
-
 import ReactMarkdown from "react-markdown";
 
 import {
@@ -17,8 +15,6 @@ import {Container} from '../../components/container/container'
 
 import styles from '../../styles/blog/id.module.css';
 
-import remarkSlug from 'remark-slug';
-
 type PostData = {
 	content: string;
 	title: string;
@@ -26,12 +22,8 @@ type PostData = {
 	date: string;
 }
 
-export default function Post({ postData }: { postData: PostData})
+const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 {
-	useEffect(() => {
-		//setPostId(window.location.pathname.split('/')[2]);
-	}, [])
-
 	return (
 		<React.Fragment>
 			<Container
@@ -58,43 +50,63 @@ export default function Post({ postData }: { postData: PostData})
 					{ /* MARKDOWN RENDERING */ }
 
 					<ReactMarkdown
-						children={postData.content}
 						components={{
-
-							code: ({children, inline, className, ...props}) => {
+							// eslint-disable-next-line react/display-name
+							code: ({children, inline, className}) => {
 								const match = /language-(\w+)/.exec(className || '')
 								return match && !inline ? (
-									<MarkdownCodeBlock children={children} language={match[1]} />
+									<MarkdownCodeBlock language={match[1]}>{children}</MarkdownCodeBlock>
 								) : (
 									<MarkdownInlineCode>{children}</MarkdownInlineCode>
 								);
 							},
 
-							/* only image's name must be provided, path is automatically resolved using postData */
+							// eslint-disable-next-line react/display-name
 							img: ({ src, alt }) => (
 								<MarkdownImage src={`/blog/${postData.id}/${src}`} alt={alt} />
 							),
 
+							// eslint-disable-next-line react/display-name
 							h1: ({ children, level }) => (
 								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
 							),
 
+							// eslint-disable-next-line react/display-name
 							h2: ({ children, level }) => (
 								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
 							),
 
+							// eslint-disable-next-line react/display-name
 							h3: ({ children, level }) => (
 								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
-							)
+							),
+
+							// eslint-disable-next-line react/display-name
+							p: ({ children, ...props }) =>
+							{
+								return children[0] && typeof children[0] === 'object' && (children[0] as any).type.name === "img" ? (
+									<div {...props}>
+										{children}
+									</div>
+								) : (
+									<p {...props}>
+										{children}
+									</p>
+								)
+							}
 
 						}}
-					/>
+					>
+						{postData.content}
+					</ReactMarkdown>
 
 				</Container>
 			</Container>
 		</React.Fragment>
 	);
 }
+
+export default Post;
 
 export async function getStaticPaths() {
 	const paths = getPostsId();

@@ -1,5 +1,5 @@
 import {useRouter} from 'next/dist/client/router';
-import React, {ReactNode, useState} from 'react';
+import React, {ReactNode} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 
@@ -14,8 +14,6 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) =>
 	{
 	return (
 		<SyntaxHighlighter
-			children={String(children).replace(/\n$/, '')}
-			language={language}
 			style={vs2015}
 			showLineNumbers
 			codeTagProps={{
@@ -24,7 +22,10 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) =>
 					fontSize: '1.1em'
 			}
 			}}
-		/>)
+		>
+			{String(children).replace(/\n$/, '')}
+		</SyntaxHighlighter>
+	)
 }
 
 type Image = {
@@ -33,19 +34,9 @@ type Image = {
 }
 
 export const Image: React.FC<Image> = ({ src, alt }) =>
-{
-	const router = useRouter();
-
+	{
 	return (
-		<div
-			className={styles.image}
-			onClick={ () => {
-				window.open(src, '_blank');
-			}}
-		>
-			<img src={src} alt={alt} />
-			{ alt && ( <p>{alt}</p> )}
-		</div>
+		<img className={styles.image} src={src} alt={alt} />
 	)
 }
 
@@ -65,9 +56,8 @@ type AnchorHeading = {
 }
 
 export const AnchorHeading: React.FC<AnchorHeading> = ({ children, headingLevel }) =>
-{
+	{
 	const suitableId = String(children).toLowerCase().split(' ').join('-');
-	console.log(suitableId);
 
 	const Tag = 'h' + headingLevel as keyof JSX.IntrinsicElements; 
 
@@ -79,7 +69,7 @@ export const AnchorHeading: React.FC<AnchorHeading> = ({ children, headingLevel 
 				className={`${styles.anchor}`}
 				onClick={() => { navigator.clipboard.writeText(`${window.location.href.split('#')[0]}#${suitableId}`) } }
 			>
-			#
+				#
 			</span>
 			<Tag
 				id={suitableId}

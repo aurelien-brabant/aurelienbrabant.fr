@@ -157,7 +157,7 @@
   justify-content: center;
 }
 
-.technologies > img
+.technologies > img 
 {
   height: auto;
   max-height: 100px;

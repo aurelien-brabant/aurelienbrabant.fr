@@ -1,4 +1,4 @@
-.image img
+.image 
 {
 	margin: 0 auto;
 	max-height: 400px;
@@ -8,7 +8,7 @@
 	transition: opacity .2s;
 }
 
-.image img:hover
+.image:hover
 {
 	opacity: .9;
 }
