@@ -72,7 +72,7 @@ export const Footer: React.FC<FooterInputProps> = () =>
 						</a>
 					</div>
 					<p>contact@aurelienbrabant.fr</p>
-					<p>07 52 64 33 62</p>
+					<p>{"<phone number>"}</p>
 				</div>
 			</Container>
 		</div>
