@@ -6,7 +6,9 @@ import {
 	CodeBlock as MarkdownCodeBlock,
 	Image as MarkdownImage,
 	AnchorHeading as MarkdownHeading,
-	InlineCode as MarkdownInlineCode 
+	InlineCode as MarkdownInlineCode, 
+	Anchor,
+	Blockquote
 } from '../../components/markdown/Markdown';
 
 import { getPostsId, getPostData } from "../../lib/posts";
@@ -93,7 +95,10 @@ const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 										{children}
 									</p>
 								)
-							}
+							},
+
+							a: ({ children, href, target }) => <Anchor href={href} target={target}>{children}</Anchor>,
+							blockquote: ({ children }) => <Blockquote>{children}</Blockquote>
 
 						}}
 					>
