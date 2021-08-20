@@ -47,11 +47,11 @@ export const Footer: React.FC<FooterInputProps> = () =>
 					/>
 					<FooterBlock
 						title="Solutions"
-						items={navtabs}
+						items={[]}
 					/>
 					<FooterBlock
 						title="Contact"
-						items={navtabs}
+						items={[]}
 					/>
 				</div>
 				<div className={styles.footerContactInfo}>
