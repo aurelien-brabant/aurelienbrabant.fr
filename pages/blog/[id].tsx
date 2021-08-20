@@ -3,7 +3,13 @@ import React from 'react';
 import { useEffect } from "react"; 
 
 import ReactMarkdown from "react-markdown";
-import SyntaxHighlighter from 'react-syntax-highlighter';
+
+import {
+	CodeBlock as MarkdownCodeBlock,
+	Image as MarkdownImage,
+	AnchorHeading as MarkdownHeading,
+	InlineCode as MarkdownInlineCode 
+} from '../../components/markdown/Markdown';
 
 import { getPostsId, getPostData } from "../../lib/posts";
 
@@ -11,7 +17,6 @@ import {Container} from '../../components/container/container'
 
 import styles from '../../styles/blog/id.module.css';
 
-import { atomOneDark } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
 import remarkSlug from 'remark-slug';
 
 type PostData = {
@@ -50,31 +55,41 @@ export default function Post({ postData }: { postData: PostData})
 					className={styles.contentContainer}
 					fillPageHeight={true}
 				>
+					{ /* MARKDOWN RENDERING */ }
 
 					<ReactMarkdown
-						remarkPlugins={[[remarkSlug, {}]]}
 						children={postData.content}
 						components={{
+
 							code: ({children, inline, className, ...props}) => {
 								const match = /language-(\w+)/.exec(className || '')
-								if (!inline) return (
-									<SyntaxHighlighter
-										children={String(children).replace(/\n$/, '')}
-										language={match ? match[1] : ''}
-										style={atomOneDark}
-										showLineNumbers
-										codeTagProps={{
-											style: {
-												fontFamily: "Terminus",
-												fontSize: '1.2em'
-										}
-										}}
-									/>
-								)
-								return <span className={styles.inlineCode}>{children}</span>
-							}
+								return match && !inline ? (
+									<MarkdownCodeBlock children={children} language={match[1]} />
+								) : (
+									<MarkdownInlineCode>{children}</MarkdownInlineCode>
+								);
+							},
+
+							/* only image's name must be provided, path is automatically resolved using postData */
+							img: ({ src, alt }) => (
+								<MarkdownImage src={`/blog/${postData.id}/${src}`} alt={alt} />
+							),
+
+							h1: ({ children, level }) => (
+								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
+							),
+
+							h2: ({ children, level }) => (
+								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
+							),
+
+							h3: ({ children, level }) => (
+								<MarkdownHeading headingLevel={level}>{children}</MarkdownHeading>
+							)
+
 						}}
 					/>
+
 				</Container>
 			</Container>
 		</React.Fragment>

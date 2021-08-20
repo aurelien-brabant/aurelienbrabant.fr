@@ -1,0 +1,53 @@
+.image img
+{
+	margin: 0 auto;
+	max-height: 400px;
+	height: auto;
+	width: auto;
+	display: block;
+	transition: opacity .2s;
+}
+
+.image img:hover
+{
+	opacity: .9;
+}
+
+.anchorHeading
+{
+	display: flex;	
+	align-items: center;
+}
+
+.anchorHeading span
+{
+	font-size: 2em;
+	color: #e2725b;
+	margin-right: .2em;
+	opacity: .4;
+	transition: opacity .2s;
+}
+
+.anchorHeading.separator
+{
+	border-bottom: 2px rgba(0, 0, 0, .2) solid;
+}
+
+.anchorHeading span:hover
+{
+	opacity: 1;
+}
+
+.anchorHeading span:active
+{
+	opacity: 0.7;
+}
+
+.inlineCode
+{
+	color: #e2725b;
+	font-family: Terminus;
+	font-weight: 700;
+	font-size: 1.1em;
+	padding: 0 5px;
+}

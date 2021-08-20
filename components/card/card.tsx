@@ -1,3 +1,4 @@
+import {useRouter} from 'next/dist/client/router';
 import React, {MouseEventHandler} from 'react';
 import { Button } from '../button/button';
 import styles from './card.module.css';
@@ -14,6 +15,8 @@ type CardInputProps = {
 
 export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, imageCoverUrl, cardClassName, buttonClassName, onClickUrl }) =>
 {
+	const router = useRouter();
+
 	const buildCardClassName = (): string =>
 	{
 		const cardClassNames = [ styles.card ];
@@ -38,7 +41,10 @@ export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, i
 		<div
 			className={buildCardClassName()}
 			onClick={() => {
-				if (onClickUrl) window.open(onClickUrl, '_blank');
+				if (!onClickUrl) return ;
+				const baseUrl = `${window.location.protocol}//${window.location.hostname}:${window.location.port}`;
+				const url = new URL(onClickUrl, baseUrl);
+				router.push(url);	
 			}}
 		>
 			{ imageCoverUrl && (
