@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
 import React, {ReactNode} from 'react';
+import Head from 'next/head';
 import { Container } from '../components/container/container'
 import { Typewriter } from 'react-simple-typewriter'
 import { Button } from '../components/button/button';
@@ -102,6 +103,14 @@ const Home: NextPage = () => {
 
   return (
     <React.Fragment>
+      <Head>
+        <title>Web developer | Aurélien Brabant</title>
+        <meta
+          name="description"
+          content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
+        />
+        <meta name="robots" content="index, follow" />
+      </Head>
       <Container
         backgroundImage={{
           url: '/landing_bg.jpeg',

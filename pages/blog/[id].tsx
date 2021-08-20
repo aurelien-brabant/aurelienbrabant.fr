@@ -1,4 +1,5 @@
 import React from 'react';
+import Head from 'next/head';
 
 import ReactMarkdown from "react-markdown";
 
@@ -22,12 +23,18 @@ type PostData = {
 	title: string;
 	id: string;
 	date: string;
+	preview: string;
 }
 
 const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 {
 	return (
 		<React.Fragment>
+			<Head>
+				<title>{postData.title}</title>
+				<meta name="description" content={postData.preview} />
+				<meta name="robots" content="index, follow" />
+			</Head>
 			<Container
 				limitedWidth={false}
 				className={styles.mainContainer}
