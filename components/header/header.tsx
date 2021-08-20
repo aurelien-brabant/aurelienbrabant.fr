@@ -14,8 +14,10 @@ const Header: React.FC<{}> = () =>
 	const router = useRouter();	
 
 	useEffect(() => {
+		const tmp = router.route.split('/');
+		const baseRoute = tmp.length > 0 ? `/${tmp[1]}` : '/';
 		for (const tab of navtabs) {
-			if (tab.route === router.route) {
+			if (tab.route === baseRoute) {
 				setSelected(tab.id);
 				return ;
 			}

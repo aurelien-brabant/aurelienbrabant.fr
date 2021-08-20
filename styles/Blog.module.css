@@ -47,5 +47,21 @@
 
 .blogpostCard
 {
-  max-width: 310px;
+  width: 100%;
+}
+
+@media only screen and (min-width: 500px)
+{
+  .blogpostCard
+  {
+    width: 45%;
+  }
+}
+
+@media only screen and (min-width: 1000px)
+{
+  .blogpostCard
+  {
+    width: 30%;
+  }
 }
