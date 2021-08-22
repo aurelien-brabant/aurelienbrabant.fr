@@ -35,7 +35,7 @@ type NestedHeading = {
 }
 
 const fromHTMLToNestedHeading = (el: HTMLElement): NestedHeading | null =>
-{
+	{
 	if (el.nodeName[0] === "H" && el.nodeName.length === 2) {
 		const level = parseInt(el.nodeName[1]);
 
@@ -75,7 +75,6 @@ const useMarkdownHeadingsData = () => {
 
 	useEffect(() => {
 		const headingElements: HTMLElement[] = Array.from(document.querySelectorAll('.markdown-heading'));
-		console.log(headingElements);
 		const nestedHeadings: NestedHeading[] = [];
 
 		for (const headingElement of headingElements) {
@@ -84,7 +83,6 @@ const useMarkdownHeadingsData = () => {
 			if (nested) insertNestedHeadingIter(nestedHeadings, nested);
 		}
 		setMarkdownHeadings(nestedHeadings);
-		console.log("useMarkdownHeadings called");
 	}, []);
 
 	return markdownHeadings;
@@ -92,11 +90,9 @@ const useMarkdownHeadingsData = () => {
 
 const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested, level }) =>
 	{
-	return (
-		<ul style={{marginLeft: `${5 * level}px`, padding: 0}}>
-			{
-				nested.map(el => (
-					<React.Fragment>
+	return ( 
+			nested.map(el => (
+				<React.Fragment key={el.id}>
 					<div
 						onClick={(e) => {
 							e.preventDefault();
@@ -109,11 +105,10 @@ const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested
 					{ el.nested.length > 0 && (
 						<Headings nested={el.nested} level={level + 1} />
 					)}
-					</React.Fragment>
-				))
-			}
-		</ul>
-	);
+				</React.Fragment>
+			))
+
+		   );
 }
 
 const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
