@@ -49,15 +49,6 @@ const fromHTMLToNestedHeading = (el: HTMLElement): NestedHeading | null =>
 	} else return null;
 }
 
-const insertNestedHeading = (tree: NestedHeading[], el: NestedHeading, level: number) =>
-	{
-	if (el.headingLevel > level) {
-		insertNestedHeading(tree[tree.length - 1].nested, el, level + 1);
-	} else {
-		tree.push(el);
-	}
-}
-
 const insertNestedHeadingIter = (head: NestedHeading[], inserted: NestedHeading) =>
 	{
 	let level = 1;
@@ -97,6 +88,7 @@ const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested
 					e.preventDefault();
 					document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
 				}}
+				style={{marginLeft: `${10 * (level - 1)}px`, marginBottom: `${15 / level}px`, marginTop: `${15 / level}px`}}
 				className={styles[`heading${level}`]}
 			>
 				{el.title}

@@ -64,21 +64,17 @@
 	padding: 0 5px;
 }
 
-.codeBlock
-{
-}
-
 .anchor
 {
 	color: #e2725b;
 	opacity: .9;
 	border-bottom: 1px #111827 dotted;
-	transition: opacity .2s;
+	transition: border-color .2s;
 }
 
 .anchor:hover
 {
-	opacity: 1;
+	border-color: #e2725b;
 }
 
 .blockquote

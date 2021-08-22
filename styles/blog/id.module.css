@@ -5,7 +5,6 @@
 
 .contentContainer
 {
-  font-size: 1.2em;
   line-height: 1.5em;
   padding: 1.5em 0;
   color: #6b7280;
@@ -29,12 +28,6 @@
   margin: 0.2em 0;
 }
 
-.inlineCode
-{
-  font-family: Terminus;
-  font-size: 1.2em;
-  padding: 0 5px;
-}
 
 /* SIDENAV STYLE */
 
@@ -46,7 +39,7 @@
   max-height: calc(100vh - 100px);
   margin-left: 1.5em;
   color:  #111827;
-  font-size: .85em;
+  font-size: 1em;
   position: sticky;
   align-self: flex-start;
   overflow: auto;
@@ -54,7 +47,9 @@
 
 .markdownWrapper
 {
-  width: 100%; 
+  width: 100%;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 @media only screen and (min-width: 1000px)
