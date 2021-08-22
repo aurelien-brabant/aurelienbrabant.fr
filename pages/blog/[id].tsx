@@ -89,26 +89,25 @@ const useMarkdownHeadingsData = () => {
 }
 
 const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested, level }) =>
-	{
-	return ( 
-			nested.map(el => (
-				<React.Fragment key={el.id}>
-					<div
-						onClick={(e) => {
-							e.preventDefault();
-							document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
-						}}
-						className={styles[`heading${level}`]}
-					>
-						{el.title}
-					</div>
-					{ el.nested.length > 0 && (
-						<Headings nested={el.nested} level={level + 1} />
-					)}
-				</React.Fragment>
-			))
+{
+	return <>{nested.map(el => (
+		<React.Fragment key={el.id}>
+			<div
+				onClick={(e) => {
+					e.preventDefault();
+					document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
+				}}
+				className={styles[`heading${level}`]}
+			>
+				{el.title}
+			</div>
+			{ el.nested.length > 0 && (
+				<Headings nested={el.nested} level={level + 1} />
+			)}
+		</React.Fragment>
+	))}
+	</>
 
-		   );
 }
 
 const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
