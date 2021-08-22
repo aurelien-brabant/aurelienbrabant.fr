@@ -8,7 +8,7 @@ next: "pixel-drawing-with-the-minilibx"
 coverUrl: "https://cdn.wallpapersafari.com/17/17/evKQDc.jpg"
 ---
 
-## Wanderer, beware!
+# Wanderer, beware!
 
 Hey! If this post is the first you're reading from me about the minilibx, [you'd better check out the first
 post](https://aurelienbrabant.fr/posts/getting-started-with-the-minilibx), which explains all the basics you need to know.

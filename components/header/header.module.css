@@ -1,6 +1,7 @@
 .header
 {
 	background-color: rgba(20, 20, 20, .99);
+	box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 	height: 60px;
 	border-bottom: 1px #e2725b solid;
 	position: fixed;

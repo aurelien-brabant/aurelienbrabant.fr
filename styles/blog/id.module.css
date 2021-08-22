@@ -5,9 +5,11 @@
 
 .contentContainer
 {
-  font-size: 1.25em;
+  font-size: 1.2em;
   line-height: 1.5em;
   padding: 1.5em 0;
+  color: #6b7280;
+  display: flex;
 }
 
 .headingContainer
@@ -33,3 +35,66 @@
   font-size: 1.2em;
   padding: 0 5px;
 }
+
+/* SIDENAV STYLE */
+
+.sidenav
+{
+  display:none;
+  top: 70px;
+  padding: 10px;
+  max-height: calc(100vh - 100px);
+  margin-left: 1.5em;
+  color:  #111827;
+  font-size: .85em;
+  position: sticky;
+  align-self: flex-start;
+  overflow: auto;
+}
+
+@media only screen and (min-width: 1000px)
+{
+  .markdownWrapper
+  {
+    width: 68%;
+  }
+
+  .sidenav
+  {
+    display: block;
+  }
+}
+
+.sidenav div
+{
+  opacity: .7s;
+  white-space: no-wrap;
+}
+
+.sidenav div:hover
+{
+  color: #e2725b;
+  transition: .2s;
+}
+
+.heading1
+{
+  text-transform: uppercase;
+  letter-spacing: 1.1px;
+  font-size: 1.1em;
+  border-bottom: 1px rgba(0, 0, 0, .2) dotted;
+  margin-bottom: 1em;
+}
+
+.heading2
+{
+  font-weight: 700;
+  margin-bottom: .5em;
+}
+
+.heading3
+{
+  margin-bottom: .3em;
+}
+
+/* END OF SIDENAV STYLE */

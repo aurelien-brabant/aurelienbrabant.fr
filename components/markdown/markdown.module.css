@@ -19,6 +19,7 @@
 	display: flex;	
 	align-items: center;
 	line-height: 2.5em;
+	color: #111827;
 }
 
 .anchorHeading span
@@ -45,23 +46,34 @@
 	opacity: 0.7;
 }
 
+.anchorHeading span
+{
+	border: none;
+}
+
 .inlineCode
 {
 	color: #e2725b;
 	font-family: Terminus;
 	font-weight: 700;
-	font-size: 1.1em;
 	padding: 0 5px;
+}
+
+.codeBlock
+{
 }
 
 .anchor
 {
-	color: #0645AD;
+	color: #e2725b;
+	opacity: .9;
+	border-bottom: 1px #111827 dotted;
+	transition: opacity .2s;
 }
 
 .anchor:hover
 {
-	text-decoration: underline;
+	opacity: 1;
 }
 
 .blockquote

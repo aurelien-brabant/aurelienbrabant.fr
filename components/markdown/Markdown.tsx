@@ -1,7 +1,8 @@
-import {useRouter} from 'next/dist/client/router';
 import React, {ReactNode} from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { vs2015 } from 'react-syntax-highlighter/dist/cjs/styles/hljs';
+
+import { textToCSSId } from '../../lib/text_to_css_id';
 
 import styles from './markdown.module.css';
 
@@ -11,7 +12,7 @@ type CodeBlockProps = {
 }
 
 export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) =>
-	{
+{
 	return (
 		<SyntaxHighlighter
 			style={vs2015}
@@ -19,7 +20,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) =>
 			codeTagProps={{
 				style: {
 					fontFamily: "Terminus",
-					fontSize: '1.1em'
+					fontSize: '1em'
 			}
 			}}
 		>
@@ -47,7 +48,7 @@ export const InlineCode: React.FC<InlineCode> = ({ children }) => (
 	<span
 		className={styles.inlineCode}
 	>
-		{children}
+		`{children}`
 	</span>
 )
 
@@ -56,10 +57,9 @@ type AnchorHeading = {
 }
 
 export const AnchorHeading: React.FC<AnchorHeading> = ({ children, headingLevel }) =>
-	{
-	const suitableId = String(children).toLowerCase().split(' ').join('-');
-
+{
 	const Tag = 'h' + headingLevel as keyof JSX.IntrinsicElements; 
+	const suitableId = textToCSSId(String(children));
 
 	return (
 		<div
@@ -67,12 +67,13 @@ export const AnchorHeading: React.FC<AnchorHeading> = ({ children, headingLevel 
 		>
 			<span
 				className={`${styles.anchor}`}
-				onClick={() => { navigator.clipboard.writeText(`${window.location.href.split('#')[0]}#${suitableId}`) } }
+				onClick={() => { navigator.clipboard.writeText(`${window.location.href.split('#')[0]}#${suitableId}`) }}
 			>
 				#
 			</span>
 			<Tag
 				id={suitableId}
+				className="markdown-heading"
 			>
 				{children}
 			</Tag>
@@ -99,4 +100,3 @@ export const Blockquote: React.FC<{}> = ({ children }) =>
 {
 	return <blockquote className={styles.blockquote}>{children}</blockquote>;
 }
-
