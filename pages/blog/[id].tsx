@@ -100,7 +100,7 @@ const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested
 					<div
 						onClick={(e) => {
 							e.preventDefault();
-							document.querySelector(`#${el.id}`).scrollIntoView({ behavior: "smooth" });
+							document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
 						}}
 						className={styles[`heading${level}`]}
 					>
