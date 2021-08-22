@@ -22,6 +22,11 @@
 	color: #111827;
 }
 
+.anchorHeading h1, .anchorHeading h2, .anchorHeading h3
+{
+	scroll-margin-top: 65px;
+}
+
 .anchorHeading span
 {
 	font-size: 2em;
