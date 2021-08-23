@@ -19,7 +19,7 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) =>
 			showLineNumbers
 			codeTagProps={{
 				style: {
-					fontFamily: "Terminus",
+					fontFamily: "Consolas",
 					fontSize: '1em'
 			}
 			}}
