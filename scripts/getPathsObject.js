@@ -1,8 +1,15 @@
 const fs = require("fs");
 
+const basename = (s) => {
+	const split = s.split('/');
+
+	return split[split.length - 1];
+}
+
 module.exports = () => {
 	const excludedPageNames = [
-		'soon'
+		'soon',
+		'blog/[id]'
 	];
 
 	const fileObj = {};
@@ -14,10 +21,10 @@ module.exports = () => {
 			const fileStat = fs.statSync(filePath);
 			
 			/* remove the .md extension from the filepath */
-			const cleanFilePath = filePath.split(".md")[0];
+			const cleanFilePath = basename(filePath).split(".md")[0];
 
-			fileObj[`/${cleanFilePath}`] = {
-				page: `/${cleanFilePath}`,
+			fileObj[`/blog/${cleanFilePath}`] = {
+				page: `/blog/${cleanFilePath}`,
 				lastModified: fileStat.mtime
 			};
 		})
