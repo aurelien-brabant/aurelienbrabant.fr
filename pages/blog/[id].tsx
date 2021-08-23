@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import Head from 'next/head';
-import { strip } from '../../lib/strip';
 
 import ReactMarkdown from "react-markdown";
 
@@ -34,10 +33,12 @@ type NestedHeading = {
 	headingLevel: number;
 }
 
+/* ------ HELPERS ------ */
+
 const fromHTMLToNestedHeading = (el: HTMLElement): NestedHeading | null =>
-	{
-	if (el.nodeName[0] === "H" && el.nodeName.length === 2) {
-		const level = parseInt(el.nodeName[1]);
+{
+	if (el.nodeName[0].toLowerCase() === "h" && el.nodeName.length === 2) {
+		const level = el.nodeName.charCodeAt(1) - 48;
 
 		return {
 			id: el.id,
@@ -46,11 +47,13 @@ const fromHTMLToNestedHeading = (el: HTMLElement): NestedHeading | null =>
 			headingLevel: level,
 		};
 
-	} else return null;
+	}
+	
+	return null; /* not an HTML heading */
 }
 
-const insertNestedHeadingIter = (head: NestedHeading[], inserted: NestedHeading) =>
-	{
+const insertNestedHeading = (head: NestedHeading[], inserted: NestedHeading) =>
+{
 	let level = 1;
 	let	target: NestedHeading[] = head;
 
@@ -61,7 +64,7 @@ const insertNestedHeadingIter = (head: NestedHeading[], inserted: NestedHeading)
 	target.push(inserted);
 }
 
-const useMarkdownHeadingsData = () => {
+const useMarkdownNestedHeadings = () => {
 	const [ markdownHeadings, setMarkdownHeadings ] = useState<NestedHeading[]>([]);
 
 	useEffect(() => {
@@ -71,7 +74,7 @@ const useMarkdownHeadingsData = () => {
 		for (const headingElement of headingElements) {
 			const nested = fromHTMLToNestedHeading(headingElement);
 
-			if (nested) insertNestedHeadingIter(nestedHeadings, nested);
+			if (nested) insertNestedHeading(nestedHeadings, nested);
 		}
 		setMarkdownHeadings(nestedHeadings);
 	}, []);
@@ -79,27 +82,49 @@ const useMarkdownHeadingsData = () => {
 	return markdownHeadings;
 }
 
-const Headings: React.FC<{ nested: NestedHeading[], level: number }> = ({ nested, level }) =>
-{
-	return <>{nested.map(el => (
-		<React.Fragment key={el.id}>
-			<div
-				onClick={(e) => {
-					e.preventDefault();
-					document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
-				}}
-				style={{marginLeft: `${10 * (level - 1)}px`, marginBottom: `${15 / level}px`, marginTop: `${15 / level}px`}}
-				className={styles[`heading${level}`]}
-			>
-				{el.title}
-			</div>
-			{ el.nested.length > 0 && (
-				<Headings nested={el.nested} level={level + 1} />
-			)}
-		</React.Fragment>
-	))}
-	</>
+/* TableOfContents Headings */
 
+const TOCHeadings: React.FC<{ headings: NestedHeading[], level: number }> = ({ headings, level }) =>
+{
+	return (
+		<React.Fragment>
+			{headings.map(el => (
+				<React.Fragment key={el.id}>
+					<div
+						onClick={(e) => {
+							e.preventDefault();
+							document.querySelector(`#${el.id}`)!.scrollIntoView({ behavior: "smooth" });
+						}}
+						style={{marginLeft: `${10 * (level - 1)}px`, marginBottom: `${15 / level}px`, marginTop: `${15 / level}px`}}
+						className={styles[`heading${level}`]}
+					>
+						{el.title}
+					</div>
+					{
+						/* render subheadings recursively */
+						el.nested.length > 0 && (
+							<TOCHeadings
+								headings={el.nested}
+								level={level + 1} 
+							/>
+					)}
+				</React.Fragment>
+			))}
+	</React.Fragment>)
+}
+
+TOCHeadings.defaultProps = { level: 1 };
+
+const TableOfContents: React.FC<{ headings: NestedHeading[] }> = ({ headings }) => {
+	return (
+		<nav
+			className={styles.sidenav}
+		>
+			<TOCHeadings
+				headings={headings}
+				level={1} />
+		</nav>
+	)
 }
 
 const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
@@ -107,7 +132,7 @@ const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 	const tmp = postData.content.match(/(\w+)/g);
 	const readTime = tmp ? Math.floor(tmp.length / 210) : 0;
 
-	const headings = useMarkdownHeadingsData();
+	const headings = useMarkdownNestedHeadings();
 
 	return (
 		<React.Fragment>
@@ -201,13 +226,7 @@ const Post: React.FC<{ postData: PostData }> = ({ postData }) =>
 							{postData.content}
 						</ReactMarkdown>
 					</div>
-
-					<nav
-						className={styles.sidenav}
-					>
-						{headings && <Headings nested={headings} level={1} />}
-					</nav>
-
+					<TableOfContents headings={headings} />
 				</Container>
 			</Container>
 		</React.Fragment>
