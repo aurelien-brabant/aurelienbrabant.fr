@@ -13,6 +13,8 @@ WORKDIR		/usr/app
 COPY 		. .
 
 # Install and build the NextJS web application
-RUN			yarn install && yarn build
+RUN			yarn install
+
+RUN			yarn build
 
 ENTRYPOINT	["yarn", "start"]
