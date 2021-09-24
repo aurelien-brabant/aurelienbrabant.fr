@@ -113,8 +113,8 @@ const Home: NextPage = () => {
       </Head>
       <Container
         backgroundImage={{
-          url: '/landing_bg.jpeg',
-          rgbaColor: 'rgba(0, 0, 0, 0.85)',
+          url: '/cabane_rognes_chamonix.jpg',
+          rgbaColor: 'rgba(0, 0, 0, 0.7)',
         }}
         limitedWidth={false}
       >
@@ -123,44 +123,38 @@ const Home: NextPage = () => {
           className={styles.mainContainer}
           fillPageHeight={true}
         >
-          <h1 className={styles.greetings}> {"I'm"} <span className={styles.typewritten}>
-            <Typewriter
-              words={['a developer', 'an explorer', 'a traveler', 'fascinated', 'dedicated']}
-              loop={0}
-              cursor
-              cursorStyle='|'
-              typeSpeed={70}
-              deleteSpeed={50}
-              delaySpeed={1000}
-              onLoopDone={() => console.log(`Done after 5 loops!`)}
-            /> {' '} </span>✍️
-          </h1>
+		
+		<div className={styles.introduction}>
+			<h1 className={styles.introduction}>
+				Hey, I'm Aurélien
+				<span className={styles.colorEmphase}>.</span>
+			</h1>
 
-          <p className={styles.introduction}>
-            <span className={styles.letterEmphasis}>H</span>i there 👋! My name is Aurélien Brabant, I am a {' '}
-            🇫🇷 programmer currently studying at <a href='https://42.fr'>school 42</a> in Paris.
-          </p>
+			<h3>
+			  I'm a software engineer who makes websites and many other things
+			  <span className={styles.colorEmphase}>.</span>
+			</h3>
+		</div>
 
-          <p className={styles.introduction}>
-            <span className={styles.letterEmphasis}>I</span> love web development, low-level coding that makes me learn new stuff, and I am also a free software advocate. Just tell me about
-            anything IT related, and I will listen to you carefully!
-          </p>
+	  <div className={styles.scrollCta}>
+	    <div>
+			<h4><span className={styles.colorEmphase}>Scroll</span> to explore my work</h4>
+			<h5>Or let's {' '}
+			<Link href="/soon"><a>get in touch</a></Link>
+			</h5>
+		</div>
 
-          <p className={styles.introduction}>
-            <span className={styles.letterEmphasis}>M</span>oreover, I also like to read, especially philosophy and classical litterature. This has nothing to do with IT, but it gives me a lot of new ideas, such as this landing page!
-          </p>
-
-
-          <Image src='/me.jpeg' className={styles.aurelienImage} width={210} height={200} alt="photo of website's owner" />
-
-          <div className={styles.scrollCta}>
-            <h2>Scroll to discover my work</h2>
-
-            <div className={styles.arrow}>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
+		<div
+		    className={styles.arrow}
+			onClick={(e) => {
+			  e.preventDefault();
+			  document.querySelector(`#project-showcase`)!.scrollIntoView({ behavior: "smooth" });
+						}}
+		>
+		  <span></span>
+		  <span></span>
+		</div>
+	  </div>
 
         </Container>
       </Container>
@@ -176,7 +170,7 @@ const Home: NextPage = () => {
         <Container
           limitedWidth={false}
         >
-          <h2 className={styles.title}> Project showcase! </h2>
+          <h2 className={styles.title} id="project-showcase"> Project showcase! </h2>
           <h3 className={styles.subtitle}> Take a look at some of my projects! </h3>
 
           <div className={styles.projectCards}>

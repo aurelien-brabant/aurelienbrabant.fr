@@ -8,6 +8,14 @@
   padding-top: 75px;
 }
 
+.introduction
+{
+	font-size: 2em;
+	color: #fff;
+	text-align: center;
+	font-weight: 400;
+}
+
 .greetings
 {
   color: #fff;
@@ -26,32 +34,16 @@
   margin: 1em 0;
 }
 
-.introduction
-{
-  opacity: 0.9;
-  color: #fff;
-  font-size: 1.6em;
-  letter-spacing: 1.5px;
-  font-weight: 400;
-  text-align: center;
-}
-
-.introduction a
-{
-  opacity: 0.8;
-  transition: opacity .2s;
-}
-
-.introduction a:hover
-{
-  opacity: 1.0;
-}
-
 .letterEmphasis
 {
   font-size: 1.3em;
   /*margin-right: 2px*/;
   color: #e2725b;
+}
+
+.colorEmphase
+{
+	color: #e2725b;
 }
 
 .typewritten
@@ -62,17 +54,44 @@
 
 .scrollCta
 {
-  margin-top: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.scrollCta > h2
+.scrollCta div
 {
-  font-size: 1.9em;
-  color:  #fff;
-  margin: 1.2em 0;
+	text-align: center;
+	color: #fff;
+	margin: 1.5em 0 2em 0;
+}
+
+.scrollCta h4, .scrollCta h5
+{
+	margin: .7em 0;
+}
+
+.scrollCta a
+{
+	border-bottom: 1px black solid;
+	border-color: #e2725b;
+	padding-bottom: .3em;
+	transition: opacity .2s;
+}
+
+.scrollCta a:hover
+{
+	opacity: .7;
+}
+
+.scrollCta h4
+{
+	font-size: 2.2em;
+}
+
+.scrollCta h5
+{
+	font-size: 1.5em;
 }
 
 .centeredTextContainer
