@@ -17,7 +17,7 @@ export const landingPosts: LandingPost[] = [
 	{
 		title:'minishell',
 		duration: '1 month',
-		imageCoverUrl: '/minishell_preview.png',
+		imageCoverUrl: '/minishell_preview.jpeg',
 		description: `my first teamwork project. we've recreated a simple unix command line interpreter, also known as "shell".`,
 		githubLink: 'https://github.com/aurelien-brabant/minishell'
 	},
@@ -35,11 +35,4 @@ export const landingPosts: LandingPost[] = [
 		description: `My very own C programming library, that I've wrote to help me write elegant and efficient C code during the first part of my cursus at 42. I'm very proud of it as it has a lot of useful stuff in it.`,
 		githubLink: 'https://github.com/aurelien-brabant/libft'
 	},
-	{
-		title:'PTYS',
-		duration: '1 day',
-		imageCoverUrl: '/ptys_preview.jpg',
-		description: `A very small C framework designed to help 42 students to test their ft_printf project without all the hassle.`,
-		githubLink: 'https://github.com/aurelien-brabant/printf-test-it-yourself'
-	}
 ]

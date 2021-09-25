@@ -6,11 +6,12 @@
   align-items: center;
   padding-bottom: 10px;
   padding-top: 75px;
+  min-height: 60vh;
 }
 
 .introduction
 {
-	font-size: 2em;
+	font-size: 1.8em;
 	color: #fff;
 	text-align: center;
 	font-weight: 400;
@@ -73,15 +74,14 @@
 
 .scrollCta a
 {
-	border-bottom: 1px black solid;
-	border-color: #e2725b;
 	padding-bottom: .3em;
 	transition: opacity .2s;
+	opacity: .7;
 }
 
 .scrollCta a:hover
 {
-	opacity: .7;
+	opacity: 1;
 }
 
 .scrollCta h4
@@ -99,18 +99,10 @@
   align-items: center;
   padding-top: 1.5em;
   padding-bottom: 1.5em;
+  background-color: #fff;
 }
 
 /* centeredTextContainer title */
-
-.centeredTextContainer .title
-{
-  font-size: 2em;
-  margin-top: 0.5em;
-  margin-bottom: 0.2em;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-}
 
 .centeredTextContainer .subtitle
 {
@@ -120,34 +112,42 @@
 
 .centeredTextContainer .title, .centeredTextContainer .subtitle
 {
-  color: #fff;
   text-align: center;
   font-weight: 400;
-
 }
 
-.projectCards
+.projectsContainer
 {
-  display: flex;
-  justify-content: center;
+	color: #000;
+	padding-top: .7em;
+	padding-bottom: 2.5em;
 }
 
-.projectCards > *
+.projectsContainer h2
 {
-  width: 100%;
+	font-size: 3em;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	margin: 0;
 }
 
-.projectCards
+.projectsContainer h3
 {
-  display: flex;
-  flex-wrap: wrap;
+	color: #fff;
+}
+
+.carousel
+{
+	margin-top: auto;
+	transform: translateY(3.5em);
+	width: 100%;
 }
 
 .technologiesContainer
 {
   margin: 0 auto;
-  padding-top: 1.5em;
-  padding-bottom: 1.5em;
+  padding-top: 4em;
+  padding-bottom: 3em;
 }
 
 .technologiesContainer > h2
@@ -209,7 +209,7 @@
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
-
+/*
 @media only screen and (min-width: 450px)
 {
   .projectCards > *
@@ -233,6 +233,7 @@
     width: 17%;
   }
 }
+*/
 
 .cardButton
 {
@@ -241,6 +242,11 @@
   margin-right: auto;
   width: 80%;
   background-color: #e2725b;
+}
+
+.blogSection
+{
+	min-height: 30vh;
 }
 
 .textCtaSection

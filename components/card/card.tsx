@@ -59,7 +59,6 @@ export const Card: React.FC<CardInputProps> = ({ title, subtitle, description, i
 			>
 				<h3> {title} </h3>
 				<h4> {subtitle} </h4>
-				<hr />
 				<p> {description} </p>
 			</div>
 		</div>

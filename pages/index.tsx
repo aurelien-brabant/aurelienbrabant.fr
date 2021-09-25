@@ -2,13 +2,12 @@ import type { NextPage } from 'next'
 import React, {ReactNode} from 'react';
 import Head from 'next/head';
 import { Container } from '../components/container/container'
-import { Typewriter } from 'react-simple-typewriter'
 import { Button } from '../components/button/button';
-import Image from 'next/image';
+import Carousel from 'react-multi-carousel';
 
 import styles from '../styles/Home.module.css'
+import 'react-multi-carousel/lib/styles.css'
 import {Card} from '../components/card/card';
-
 import { landingPosts } from '../data/landing_posts';
 import Link from 'next/link';
 
@@ -17,6 +16,29 @@ type Technology =
   name: string;
   imageUrl: string;
 }
+
+const projectsCarouselResponsive = {
+	desktop: {
+	  breakpoint: { max: 3000, min: 1900 },
+	  items: 4,
+	},
+	mediumDesktop: {
+		breakpoint: { max: 2000, min: 1000 },
+		items: 3,
+	},
+	smallDesktop: {
+		breakpoint: { max: 1400, min: 1024 },
+		items: 2
+	},
+	tablet: {
+	  breakpoint: { max: 1024, min: 464 },
+	  items: 2,
+	},
+    mobile: {
+      breakpoint: { max: 464, min: 0 },
+      items: 1,
+    }
+};
 
 const Home: NextPage = () => {
 
@@ -121,7 +143,6 @@ const Home: NextPage = () => {
 
         <Container
           className={styles.mainContainer}
-          fillPageHeight={true}
         >
 		
 		<div className={styles.introduction}>
@@ -136,48 +157,23 @@ const Home: NextPage = () => {
 			</h3>
 		</div>
 
-	  <div className={styles.scrollCta}>
-	    <div>
-			<h4><span className={styles.colorEmphase}>Scroll</span> to explore my work</h4>
-			<h5>Or let's {' '}
-			<Link href="/soon"><a>get in touch</a></Link>
-			</h5>
-		</div>
+		  <Carousel responsive={projectsCarouselResponsive}
+			  autoPlay={true}
+			  autoPlaySpeed={1500}
+			  infinite={true}
+			 containerClass={styles.carousel}
+		  >
+		  { renderLandingPosts() }
+		  </Carousel>
 
-		<div
-		    className={styles.arrow}
-			onClick={(e) => {
-			  e.preventDefault();
-			  document.querySelector(`#project-showcase`)!.scrollIntoView({ behavior: "smooth" });
-						}}
-		>
-		  <span></span>
-		  <span></span>
-		</div>
-	  </div>
 
         </Container>
       </Container>
 
-      <Container
-        className={styles.centeredTextContainer}
-        limitedWidth={false}
-        backgroundImage= {{
-          url: '/waterflow.jpg',
-          rgbaColor: 'rgba(0, 0, 0, 0.85)',
-        }}
-      >
-        <Container
-          limitedWidth={false}
-        >
-          <h2 className={styles.title} id="project-showcase"> Project showcase! </h2>
-          <h3 className={styles.subtitle}> Take a look at some of my projects! </h3>
 
-          <div className={styles.projectCards}>
-            { renderLandingPosts() }
-          </div>
-        </Container>
-      </Container>
+
+      { /* I am a writer */ }
+
 
       <Container className={styles.technologiesContainer}>
         <h2> You and I love technology, right ? </h2>
@@ -199,14 +195,13 @@ const Home: NextPage = () => {
         </div>
       </Container>
 
-      { /* I am a writer */ }
-
       <Container
         limitedWidth={false}
         backgroundImage= {{
           url: '/spyglass.jpeg',
           rgbaColor: 'rgba(0, 0, 0, 0.85)',
         }}
+		className={styles.blogSection}
       >
         <Container
           className={styles.textCtaSection}
@@ -223,7 +218,6 @@ const Home: NextPage = () => {
           </Button>
         </Container>
       </Container>
-
 
     </ React.Fragment>
   )
