@@ -61,7 +61,8 @@ a {
 
 html, body
 {
-  font-family: Roboto;
+
+font-family: Liberation Sans, Roboto;
   margin: 0;
   padding: 0;
   font-weight: 400;
