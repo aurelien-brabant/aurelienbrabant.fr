@@ -1,5 +1,7 @@
 import React from 'react';
 import '../styles/globals.css'
+import '@fontsource/roboto'
+import '@fontsource/roboto/700.css'
 import type { AppProps } from 'next/app'
 import {Layout} from '../components/layout/Layout'
 import Router from 'next/router';
