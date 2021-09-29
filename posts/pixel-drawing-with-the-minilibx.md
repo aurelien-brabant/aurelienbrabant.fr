@@ -1,10 +1,8 @@
 ---
 title: "Pixel drawing with the minilibx"
 preview: "All you need to know about drawing pixels using the minilibx."
-date: "2021-02-08"
+dateString: "2021-02-08"
 author: "Aurélien Brabant"
-previous: "events-with-the-minilibx"
-coverUrl: "https://cdn.wallpapersafari.com/17/17/evKQDc.jpg"
 ---
 
 # Wanderer, beware!

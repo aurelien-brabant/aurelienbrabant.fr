@@ -1,7 +1,7 @@
 ---
 title: "An introduction to UNIX pipes"
 preview: "Pipes are a way for two ore more processes to communicate data. Let's see how to use them in C!"
-date: "2021-07-23"
+dateString: "2021-07-23"
 author: "Aurélien Brabant"
 ---
 

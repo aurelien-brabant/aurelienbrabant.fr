@@ -1,10 +1,8 @@
 ---
 title: "Getting started with the minilibx"
 preview: "Learn how to begin with the minilibx to render graphics using the X Window System!"
-date: "2021-02-07"
+dateString: "2021-02-07"
 author: "Aurélien Brabant"
-next: "events-with-the-minilibx"
-coverUrl: "https://cdn.wallpapersafari.com/17/17/evKQDc.jpg"
 ---
 
 The **minilibx** is a small C library used for rendering graphics, primarily used by [42](https://en.wikipedia.org/wiki/42_(school)) students.
