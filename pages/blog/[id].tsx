@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
-import Image from 'next/image';
-import { readtimeInMinutes } from '../../lib/readtime';
+import Image from "next/image";
+import { readtimeInMinutes } from "../../lib/readtime";
 
 import ReactMarkdown from "react-markdown";
 
@@ -96,6 +96,11 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 							document
 								.querySelector(`#${el.id}`)!
 								.scrollIntoView({ behavior: "smooth" });
+							history.pushState(
+								{},
+								document.title,
+								`${window.location.href.split("#")[0]}#${el.id}`
+							);
 						}}
 						style={{
 							marginLeft: `${10 * (level - 1)}px`,
@@ -154,7 +159,10 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 			>
 				<Container className={styles.postHeader}>
 					<div className={styles.tagList}>
-					 { postData.meta.tags && postData.meta.tags.map(tag => <span> { tag } </span>) }
+						{postData.meta.tags &&
+							postData.meta.tags.map((tag) => (
+								<span> {tag} </span>
+							))}
 					</div>
 					<h1> {postData.meta.title} </h1>
 					<p> {postData.meta.preview} </p>
@@ -174,15 +182,15 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 							</div>
 							<div>
 								{" "}
-								{new Date(postData.meta.dateString).toLocaleString(
-									"en-US",
-									{
-										year: "numeric",
-										month: "long",
-										day: "numeric",
-									}
-								)}{" "}
-								• {readtimeInMinutes(postData.content)} MINUTES READ
+								{new Date(
+									postData.meta.dateString
+								).toLocaleString("en-US", {
+									year: "numeric",
+									month: "long",
+									day: "numeric",
+								})}{" "}
+								• {readtimeInMinutes(postData.content)} MINUTES
+								READ
 							</div>
 						</div>
 					</div>
