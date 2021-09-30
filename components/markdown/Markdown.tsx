@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import SyntaxHighlighter from "react-syntax-highlighter";
-import { atomOneDark as syntaxTheme } from "react-syntax-highlighter/dist/cjs/styles/hljs";
+import syntaxTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/tomorrow-night"
 
 import { textToCSSId } from "../../lib/text_to_css_id";
 
@@ -15,6 +15,7 @@ type CodeBlockProps = {
 export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
 	return (
 		<SyntaxHighlighter
+			language={language}
 			style={syntaxTheme}
 			codeTagProps={{
 				style: {
