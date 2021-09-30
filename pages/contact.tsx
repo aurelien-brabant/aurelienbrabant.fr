@@ -31,10 +31,10 @@ const ContactPage: NextPage = () => {
 
         <p>
           You can also visit my {" "}
-          <a href="https://github.com/aurelien-brabant" target="_blank">GitHub</a>,{" "}
-          <a href="https://www.linkedin.com/in/aurelien-brabant" target="_blank">LinkedIn</a>,{" "}
-          <a href="https://twitter.com/aurelienb42" target="_blank">Twitter</a>,{" "}
-          or even <a href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg" target="_blank">YouTube</a> channel.
+          <a href="https://github.com/aurelien-brabant" target="_blank" rel="noreferrer">GitHub</a>,{" "}
+          <a href="https://www.linkedin.com/in/aurelien-brabant" target="_blank" rel="noreferrer">LinkedIn</a>,{" "}
+          <a href="https://twitter.com/aurelienb42" target="_blank" rel="noreferrer">Twitter</a>,{" "}
+          or even <a href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg" target="_blank" rel="noreferrer">YouTube</a> channel.
         </p>
       </Container>
     </Container>

@@ -142,7 +142,11 @@ const Home: NextPage = () => {
 
 						<p className={styles.activity}>
 							I'm currently learning programming at{" "}
-							<a href="https://42.fr" target="_blank">
+							<a
+								href="https://42.fr"
+								target="_blank"
+								rel="noreferrer"
+							>
 								42 Paris
 							</a>
 							, where I mainly concentrate on C and C++

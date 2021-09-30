@@ -228,7 +228,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 								img: ({ src, alt }) => (
 									<MarkdownImage
 										src={`/blog/${postData.id}/${src}`}
-										alt={alt}
+										alt={alt ? alt : 'no alt provided'}
 									/>
 								),
 
