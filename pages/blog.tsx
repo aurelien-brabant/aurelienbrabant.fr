@@ -5,8 +5,8 @@ import { Card } from "../components/card/card";
 import { Container } from "../components/container/container";
 import styles from "../styles/Blog.module.css";
 import { getPosts, BlogPost, getPostsTag } from "../lib/posts";
-import { readtimeInMinutes } from '../lib/readtime';
-import { useMediaQuery } from 'react-responsive';
+import { readtimeInMinutes } from "../lib/readtime";
+import { useMediaQuery } from "react-responsive";
 
 import Head from "next/head";
 
@@ -21,64 +21,17 @@ export async function getStaticProps() {
   };
 }
 
-const BlogPostPreview: React.FC<{
-  post: BlogPost;
-  vertical: boolean;
-}> = ({ post, vertical }) => {
-
-
-  return (
-    <article
-      className={`${styles.blogpostPreviewWrapper}
-      ${vertical ? styles.vertical : ""}
-      `}
-    >
-      <Link href={`/blog/${post.id}`}>
-        <a>
-          <img src={`/blog/covers/${post.id}.png`} />
-        </a>
-      </Link>
-      <div className={styles.content}>
-        <div className={styles.postTags}>
-          {post.meta.tags && post.meta.tags.map((tag) => <span> {tag} </span>)}
-        </div>
-        <div>
-          <h3>
-            <Link href={`/blog/${post.id}`}>
-             <a> {post.meta.title}</a>
-            </Link>
-          </h3>
-          <p><Link href={`/blog/${post.id}`}><a>{post.meta.preview}</a></Link></p>
-          <div className={styles.metablock}>
-            <Image
-              src={"/aurelien.jpg"}
-              alt={"photo of the author"}
-              width={40}
-              height={40}
-              className={styles.authorImage}
-            />
-            <div>
-              <div style={{marginBottom: '5px'}}> Aurelien Brabant </div>
-              <div> { new Date(post.meta.dateString).toLocaleString('en-US', {
-                year: 'numeric', month: 'long', day: 'numeric'
-              }) } • { readtimeInMinutes(post.content) } MINUTES READ
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </article>
-  );
-};
-
 const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
   posts,
   postTags,
 }) => {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+  const [selectedTag, setSelectedTag] = useState<string | null>(null);
   const [sanePosts, setSanePosts] = useState<BlogPost[]>([]);
 
-  const isLargeEnoughForHorizontalPosts = useMediaQuery({ query: '(min-width: 1250px)' });
+  const isLargeEnoughForHorizontalPosts = useMediaQuery({
+    query: "(min-width: 1250px)",
+  });
 
   useEffect(() => {
     setSanePosts(
@@ -93,31 +46,89 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
     setFilteredPosts(posts);
   }, [posts]);
 
-  const handleSearch = (
-    ev: ChangeEvent<HTMLInputElement>,
-    sanePosts: BlogPost[]
-  ) => {
-    const saneSearchTerm = ev.target.value.toLowerCase();
+  const selectTag = (tag: string) => {
+    setFilteredPosts(posts.filter((post) => post.meta.tags!.includes(tag)));
+    setSelectedTag(tag);
+  };
 
-    setFilteredPosts(
-      posts.filter((post, i) => {
-        return (
-          sanePosts[i].meta.title.includes(saneSearchTerm) ||
-          sanePosts[i].meta.preview.includes(saneSearchTerm)
-        );
-      })
+  const BlogPostPreview: React.FC<{
+    post: BlogPost;
+    vertical: boolean;
+  }> = ({ post, vertical }) => {
+    return (
+      <article
+        className={`${styles.blogpostPreviewWrapper}
+      ${vertical ? styles.vertical : ""}
+      `}
+      >
+        <Link href={`/blog/${post.id}`}>
+          <a>
+            <img src={`/blog/covers/${post.id}.png`} />
+          </a>
+        </Link>
+        <div className={styles.content}>
+          <div className={styles.postTags}>
+            {post.meta.tags &&
+              post.meta.tags.map((tag) => (
+                <span
+                  className={`${styles.previewTag} ${selectedTag === tag ? styles.selected : ""}`}
+                >
+                  {" "}
+                  {tag}
+                </span>
+              ))}
+          </div>
+          <div>
+            <h3>
+              <Link href={`/blog/${post.id}`}>
+                <a> {post.meta.title}</a>
+              </Link>
+            </h3>
+            <p>
+              <Link href={`/blog/${post.id}`}>
+                <a>{post.meta.preview}</a>
+              </Link>
+            </p>
+            <div className={styles.metablock}>
+              <Image
+                src={"/aurelien.jpg"}
+                alt={"photo of the author"}
+                width={40}
+                height={40}
+                className={styles.authorImage}
+              />
+              <div>
+                <div style={{ marginBottom: "5px" }}> Aurelien Brabant </div>
+                <div>
+                  {" "}
+                  {new Date(post.meta.dateString).toLocaleString("en-US", {
+                    year: "numeric",
+                    month: "long",
+                    day: "numeric",
+                  })}{" "}
+                  • {readtimeInMinutes(post.content)} MINUTES READ
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
     );
   };
 
   const renderPreviews = () => {
     const previews: React.ReactNode[] = [];
 
-    for (let i = 0; i < posts.length; ++i) {
+    for (let i = 0; i < filteredPosts.length; ++i) {
       if (!isLargeEnoughForHorizontalPosts || i % 4) {
         let els: BlogPost[] = [];
 
-        if (!isLargeEnoughForHorizontalPosts) els = posts;
-        else els = posts.slice(i, i + (i + 3 >= posts.length ? posts.length : 3));
+        if (!isLargeEnoughForHorizontalPosts) els = filteredPosts;
+        else
+          els = filteredPosts.slice(
+            i,
+            i + (i + 3 >= filteredPosts.length ? filteredPosts.length : 3)
+          );
 
         previews.push(
           <div className={styles.blogpostsInline} key={`grouped-${i}`}>
@@ -130,7 +141,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       } else {
         previews.push(
           <Fragment key={i}>
-            <BlogPostPreview key={i} post={posts[i]} vertical={false} />
+            <BlogPostPreview key={i} post={filteredPosts[i]} vertical={false} />
             <hr className={styles.blogpostSeparator} />
           </Fragment>
         );
@@ -156,7 +167,14 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
           <h2>Featured articles about programming, hardware and more</h2>
           <div className={styles.tagList}>
             {postTags.map((tag) => (
-              <span className={styles.tag}>{tag}</span>
+              <span
+                className={`${styles.tag} ${
+                  selectedTag === tag ? styles.selected : ""
+                }`}
+                onClick={() => selectTag(tag)}
+              >
+                {tag}
+              </span>
             ))}
           </div>
         </Container>

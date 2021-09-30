@@ -32,11 +32,15 @@
   transition: .2s;
 }
 
+.tag.selected, .tag:hover, .previewTag.selected
+{
+  background-color: #e2725b !important;
+  color: #000;
+}
+
 .tag:hover
 {
   cursor: pointer;
-  background-color: #e2725b;
-  color: #000;
 }
 
 .blogHeaderWrapper h1
@@ -55,59 +59,6 @@
   padding-top: 1em;
   background-color: #191b1f;
   padding-bottom: 1em;
-}
-
-.header {
-  margin: 1em 0em;
-  text-align: center;
-  font-size: 2em;
-}
-
-.title {
-  text-align: center;
-  font-size: 1.5em;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-}
-
-.articleCards {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: 1em 0;
-}
-
-.searchbar {
-  width: 100%;
-  font-size: 1.3em;
-  padding: 1em 0;
-  border-left: none;
-  border-right: none;
-  border-top: 1.5px rgba(0, 0, 0, 0.2) solid;
-  border-bottom: 1.5px rgba(0, 0, 0, 0.2) solid;
-  text-align: center;
-  transition: border-color 0.2s;
-  outline: none;
-}
-
-.searchbar:focus {
-  border-color: rgba(0, 0, 0, 0.3);
-}
-
-.blogpostCard {
-  width: 100%;
-}
-
-@media only screen and (min-width: 500px) {
-  .blogpostCard {
-    width: 45%;
-  }
-}
-
-@media only screen and (min-width: 1000px) {
-  .blogpostCard {
-    width: 30%;
-  }
 }
 
 /* BLOGPOST */
