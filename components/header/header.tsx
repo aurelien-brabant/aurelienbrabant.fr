@@ -81,7 +81,7 @@ const Header: React.FC<{}> = () =>
 					))}
 				</ul>
 				<Button
-					href='/soon'
+					href='/contact'
 					className={styles.projectCta}
 				>
 					Want to work with me?

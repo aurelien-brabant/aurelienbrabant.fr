@@ -247,7 +247,7 @@ const Home: NextPage = () => {
 					</div>
 					<div className={styles.cta}>
 						<h2> Interested in my skills? </h2>
-						<Link href="/soon">
+						<Link href="/contact">
 							<a>{"Let's get in touch!"}</a>
 						</Link>
 					</div>
