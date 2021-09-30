@@ -59,6 +59,7 @@
 
 	.header .projectCta
 	{
+		color: #000;
 		display: block;
 		background-color: #e2725b;
 		border-radius: 10px;
