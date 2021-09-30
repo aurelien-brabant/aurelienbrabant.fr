@@ -92,6 +92,10 @@ const Home: NextPage = () => {
 			imageUrl: "/technologies/tux.png",
 		},
 		{
+			name: "Gentoo",
+			imageUrl: "/technologies/gentoo.png",
+		},
+		{
 			name: "Notion",
 			imageUrl: "/technologies/notion.png",
 		},
