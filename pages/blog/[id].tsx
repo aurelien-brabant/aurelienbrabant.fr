@@ -153,6 +153,9 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 				edgePadded={false}
 			>
 				<Container className={styles.postHeader}>
+					<div className={styles.tagList}>
+					 { postData.meta.tags && postData.meta.tags.map(tag => <span> { tag } </span>) }
+					</div>
 					<h1> {postData.meta.title} </h1>
 					<p> {postData.meta.preview} </p>
 					<hr className={styles.separator} />
