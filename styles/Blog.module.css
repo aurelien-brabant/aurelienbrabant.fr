@@ -13,6 +13,10 @@
 
 .tagList
 {
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  justify-content: center;
   margin-top: auto;
   padding: 5px;
 }
@@ -20,6 +24,7 @@
 .tag
 {
   background-color: rgb(18, 18, 18);
+  border: 1px #e2725b solid;
   color: #e2725b;
   padding: 5px 10px;
   margin: 5px;
@@ -30,7 +35,8 @@
 .tag:hover
 {
   cursor: pointer;
-  opacity: 1;
+  background-color: #e2725b;
+  color: #000;
 }
 
 .blogHeaderWrapper h1
@@ -48,6 +54,7 @@
 .mainContainer {
   padding-top: 1em;
   background-color: rgba(30, 30, 30);
+  padding-bottom: 1em;
 }
 
 .header {
@@ -111,6 +118,23 @@
   padding: 1em 0;
   justify-content: space-between;
   gap: 3em;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+@media screen and (min-width: 1000px)
+{
+  .blogpostPreviewWrapper.vertical
+  {
+    max-width: 50%;
+  }
+}
+
+.blogpostPreviewWrapper.vertical
+{
+  flex-direction: column;
+  justify-content: flex-start;
+  gap: 1em;
+  flex: 1 1 301px;
 }
 
 .blogpostPreviewWrapper a
@@ -118,6 +142,12 @@
   position: relative;
   flex: 1 1 auto;
   min-height: 300px;
+}
+
+.blogpostPreviewWrapper.vertical a
+{
+  max-height: 200px !important;
+  min-height: 200px;
 }
 
 .blogpostPreviewWrapper a img
@@ -137,6 +167,13 @@
   flex: 0 1 400px;
   color: #fff;
   font-size: 1.2em;
+  padding: 0 8px;
+}
+
+.blogpostPreviewWrapper.vertical .content
+{
+  justify-content: space-between;
+  flex-basis: 0;
 }
 
 .blogpostPreviewWrapper .content h3
@@ -148,17 +185,62 @@
 .blogpostPreviewWrapper .content p
 {
   color: rgb(180, 180, 180);
+  line-height: 1.5em;
 }
 
 .blogpostPreviewWrapper .content .postTags
 {
-  font-size: 0.8em;
+  display: flex;
+  flex-wrap: wrap;
+  font-size: 0.65em;
   color: #e2725b;
+  text-transform: uppercase;
+  gap: 5px;
+}
+
+.blogpostPreviewWrapper.vertical .content .postTags
+{
+  display: flex;
+  flex-basis: 2em;
+  align-content: flex-start;
+}
+
+.blogpostPreviewWrapper.vertical .content .postTags > span
+{
+  display: block;
 }
 
 .blogpostPreviewWrapper .content .postTags > span
 {
   background-color: rgb(18, 18, 18);
   padding: 5px 10px;
-  margin-right: 5px;
+}
+
+
+.blogpostsInline
+{
+  gap: 1em;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.blogpostSeparator
+{
+  margin: 1.5em 0 1em 0;
+  border-color: rgb(100, 100, 100);
+}
+
+.metablock
+{
+  display: flex;
+  align-items: center;
+  font-size: .8em;
+  opacity: .8;
+  text-transform: uppercase;
+  gap: 10px;
+}
+
+.authorImage
+{
+  border-radius: 50%;
 }
