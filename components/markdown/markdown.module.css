@@ -19,7 +19,7 @@
 	display: flex;	
 	align-items: center;
 	line-height: 2.5em;
-	color: #111827;
+	color: rgba(230, 230, 230);
 }
 
 .anchorHeading h1, .anchorHeading h2, .anchorHeading h3

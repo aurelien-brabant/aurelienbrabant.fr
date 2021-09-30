@@ -1,6 +1,7 @@
 .mainContainer
 {
   padding-top: 60px;
+  background-color: #191b1f;
 }
 
 .contentContainer
@@ -33,12 +34,13 @@
 
 .sidenav
 {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   display:none;
   top: 70px;
   padding: 10px;
   max-height: calc(100vh - 100px);
   margin-left: 1.5em;
-  color:  #111827;
+  color:  rgba(255, 255, 255, .75);
   font-size: 1em;
   position: sticky;
   align-self: flex-start;
@@ -47,7 +49,7 @@
 
 .markdownWrapper
 {
-  color:  #111827;
+  color:  rgba(255, 255, 255, .75);
   width: 100%;
   font-size: 1.2em;
   line-height: 1.5em;
@@ -80,6 +82,7 @@
 
 .heading1
 {
+  color: rgb(255, 255, 255, .75);
   text-transform: uppercase;
   letter-spacing: 1.1px;
   font-size: 1.1em;
@@ -99,3 +102,60 @@
 }
 
 /* END OF SIDENAV STYLE */
+
+.postHeader
+{
+  padding-top: 2em;
+  padding-bottom: 2em;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  font-size: 1.5em;
+  color: rgb(255, 255, 255, .75);
+  max-width: 800px;
+  text-align: center;
+}
+
+.postHeader h1
+{
+  margin: 0;
+}
+
+.postHeader p
+{
+  opacity: .8;
+  margin: 5px 0;
+}
+
+.separator
+{
+  width: 100%;
+  margin-left: 0;
+  margin-right: 0;
+  border-color: rgb(100, 100, 100);
+}
+
+.metablock
+{
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  font-size: .75em;
+  opacity: .8;
+  text-transform: uppercase;
+  text-align: left;
+  gap: 10px;
+}
+
+.authorImage
+{
+  border-radius: 50%;
+}
+
+.postImage
+{
+  margin: 1em 0;
+  max-height: 550px;
+  width: auto;
+  max-width: 100%;
+}

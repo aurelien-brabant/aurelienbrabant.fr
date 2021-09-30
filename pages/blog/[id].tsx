@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Head from "next/head";
+import Image from 'next/image';
+import { readtimeInMinutes } from '../../lib/readtime';
 
 import ReactMarkdown from "react-markdown";
 
@@ -144,23 +146,47 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 				<meta name="description" content={postData.meta.preview} />
 				<meta name="robots" content="index, follow" />
 			</Head>
+
 			<Container
 				limitedWidth={false}
 				className={styles.mainContainer}
 				edgePadded={false}
 			>
-				<Container
-					className={styles.headingContainer}
-					limitedWidth={false}
-					edgePadded={false}
-					backgroundImage={{
-						url: `/blog/covers/${postData.id}.png`,
-						rgbaColor: `rgba(0, 0, 0, .8)`,
-					}}
-				>
+				<Container className={styles.postHeader}>
 					<h1> {postData.meta.title} </h1>
-					<h3> {readTime} min. read </h3>
-					<h3> {postData.meta.dateString} </h3>
+					<p> {postData.meta.preview} </p>
+					<hr className={styles.separator} />
+					<div className={styles.metablock}>
+						<Image
+							src={"/aurelien.jpg"}
+							alt={"photo of the author"}
+							width={40}
+							height={40}
+							className={styles.authorImage}
+						/>
+						<div>
+							<div style={{ marginBottom: "5px" }}>
+								{" "}
+								Aurelien Brabant{" "}
+							</div>
+							<div>
+								{" "}
+								{new Date(postData.meta.dateString).toLocaleString(
+									"en-US",
+									{
+										year: "numeric",
+										month: "long",
+										day: "numeric",
+									}
+								)}{" "}
+								• {readtimeInMinutes(postData.content)} MINUTES READ
+							</div>
+						</div>
+					</div>
+					<img
+						src={`/blog/covers/${postData.id}.png`}
+						className={styles.postImage}
+					/>
 				</Container>
 				<Container
 					className={styles.contentContainer}
