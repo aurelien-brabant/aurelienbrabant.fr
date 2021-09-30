@@ -4,6 +4,7 @@ preview: "A clear and comprehensive tutorial about managing events with the mini
 dateString: "2021-02-08"
 author: "Aurélien Brabant"
 tags:
+- minilibx
 - C Programming
 - Computer graphics
 ---

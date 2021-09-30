@@ -3,6 +3,10 @@ title: "Pixel drawing with the minilibx"
 preview: "All you need to know about drawing pixels using the minilibx."
 dateString: "2021-02-08"
 author: "Aurélien Brabant"
+tags:
+- minilibx
+- C Programming
+- Computer graphics
 ---
 
 # Wanderer, beware!

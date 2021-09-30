@@ -1,21 +1,50 @@
 import React, { ChangeEvent, useEffect, useState } from "react";
+import Link from 'next/link';
 import { Card } from "../components/card/card";
 import { Container } from "../components/container/container";
 import styles from "../styles/Blog.module.css";
-import { getPosts, BlogPost } from "../lib/posts";
+import { getPosts, BlogPost, getPostsTag } from "../lib/posts";
 
 import Head from "next/head";
 
 export async function getStaticProps() {
   const posts = getPosts();
+  const tags = getPostsTag();
   return {
     props: {
       posts,
+      postTags: tags
     },
   };
 }
 
-const Blog: React.FC<{ posts: BlogPost[] }> = ({ posts }) => {
+const BlogPostPreview: React.FC<{
+  post: BlogPost,
+}> = ({ post }) =>
+{
+  return (
+    <article
+      className={styles.blogpostPreviewWrapper}
+    >
+      <Link href={`/blog/${post.id}`}><a>
+        <img src={`/blog/covers/${post.id}.png`} />
+      </a></Link>
+        <div
+          className={styles.content}
+        >
+          <div
+            className={styles.postTags}
+          >
+            { post.meta.tags && post.meta.tags.map(tag => <span> { tag } </span>) }
+          </div>
+          <h3> { post.meta.title } </h3>
+          <p> { post.meta.preview } </p>
+        </div>
+    </article>
+  );
+}
+
+const Blog: React.FC<{ posts: BlogPost[], postTags: string[] }> = ({ posts, postTags }) => {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
   const [sanePosts, setSanePosts] = useState<BlogPost[]>([]);
 
@@ -58,7 +87,35 @@ const Blog: React.FC<{ posts: BlogPost[] }> = ({ posts }) => {
         />
         <meta name="robots" content="index, follow" />
       </Head>
-      <Container className={styles.mainContainer} fillPageHeight={true}>
+        <Container
+          className={styles.blogHeaderWrapper}
+          limitedWidth={false}
+        >
+          <Container
+            className={styles.blogHeader}
+          >
+          <h1>Blog</h1>
+          <h2>
+            Featured articles about programming, hardware and more
+          </h2>
+          <div className={styles.tagList}>
+          { postTags.map(tag => (
+            <span className={styles.tag}>
+              { tag }
+            </span>
+          ))
+          }
+          </div>
+          </Container>
+        </Container>
+      <Container
+        className={styles.mainContainer}
+        fillPageHeight={true}
+        limitedWidth={false}
+      >
+        <Container>
+
+        {/*
         <h2 className={styles.title}> {"Let's have a talk."} </h2>
         <input
           className={styles.searchbar}
@@ -68,22 +125,16 @@ const Blog: React.FC<{ posts: BlogPost[] }> = ({ posts }) => {
             handleSearch(ev, sanePosts);
           }}
         />
-        <div className={styles.articleCards}>
-          {filteredPosts.length === 0 && (
-            <h3>Sorry, did not found anything :( </h3>
-          )}
-          {filteredPosts.map((post) => (
-            <Card
-              key={post.id}
-              cardClassName={styles.blogpostCard}
-              imageCoverUrl={`/blog/covers/${post.id}.png`}
-              title={post.meta.title}
-              subtitle={post.meta.dateString}
-              description={post.meta.preview}
-              onClickUrl={`/blog/${post.id}`}
+          */}
+
+          { posts.map(post => (
+            <BlogPostPreview
+            post={post}
             />
-          ))}
-        </div>
+          ))
+          }
+
+        </Container>
       </Container>
     </React.Fragment>
   );

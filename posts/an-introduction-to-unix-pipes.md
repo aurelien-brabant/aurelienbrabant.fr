@@ -3,6 +3,9 @@ title: "An introduction to UNIX pipes"
 preview: "Pipes are a way for two ore more processes to communicate data. Let's see how to use them in C!"
 dateString: "2021-07-23"
 author: "Aurélien Brabant"
+tags:
+- C Programming
+- UNIX
 ---
 
 Communication between programs is crucial, and is one of the topic any novice

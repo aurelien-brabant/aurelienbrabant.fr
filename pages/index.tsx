@@ -121,8 +121,8 @@ const Home: NextPage = () => {
 					<Image
 						src={"/aurelien.jpg"}
 						alt={"Photo of Aurelien"}
-						height={256}
-						width={192}
+						height={250}
+						width={250}
 						className={styles.aurelienPhoto}
 					/>
 
