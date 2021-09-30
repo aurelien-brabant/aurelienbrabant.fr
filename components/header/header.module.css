@@ -149,8 +149,8 @@
 	background:
 	/* top, transparent black, faked with gradient */ 
 	linear-gradient(
-	rgba(0, 0, 0, 0.8), 
-	rgba(0, 0, 0, 0.8)
+	rgba(0, 0, 0, 0.95), 
+	rgba(0, 0, 0, 0.95)
 	),
 	/* bottom, image */
 	url('/menu_bg.jpg');
@@ -161,7 +161,7 @@
 
 .menu.visible
 {
-	width: 400px;
+	width: 450px;
 }
 
 .menu *

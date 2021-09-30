@@ -35,7 +35,7 @@ const Header: React.FC<{}> = () =>
 				className={`${styles.hider} ${isVisible ? styles.visible : ''}` }
 				onClick={() => { setIsVisible(false) }}
 			/>
-			<div className={`${styles.menu} ${isVisible ? styles.visible : ''}`}>
+			<nav className={`${styles.menu} ${isVisible ? styles.visible : ''}`}>
 				{ navtabs.map(tab => (
 					<h1
 						key={tab.id}
@@ -53,7 +53,7 @@ const Header: React.FC<{}> = () =>
 						</Link>
 					</h1>
 				)) }
-			</div>
+			</nav>
 			<header
 				className={styles.header}
 			>
