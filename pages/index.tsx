@@ -236,9 +236,8 @@ const Home: NextPage = () => {
 					<h3> Here are some of the technologies I use </h3>
 					<div className={styles.technologies}>
 						{technologies.map((technology) => (
-							<div>
+							<div key={technology.name}>
 								<img
-									key={technology.name}
 									alt={technology.name}
 									src={technology.imageUrl}
 								/>

@@ -161,7 +161,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 					<div className={styles.tagList}>
 						{postData.meta.tags &&
 							postData.meta.tags.map((tag) => (
-								<span> {tag} </span>
+								<span key={tag}> {tag} </span>
 							))}
 					</div>
 					<h1> {postData.meta.title} </h1>

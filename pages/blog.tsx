@@ -25,26 +25,12 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
   posts,
   postTags,
 }) => {
-  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>([]);
+  const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
-  const [sanePosts, setSanePosts] = useState<BlogPost[]>([]);
 
   const isLargeEnoughForHorizontalPosts = useMediaQuery({
     query: "(min-width: 1250px)",
   });
-
-  useEffect(() => {
-    setSanePosts(
-      posts.map((post) => {
-        return {
-          ...post,
-          preview: post.meta.preview.toLowerCase(),
-          title: post.meta.preview.toLowerCase(),
-        };
-      })
-    );
-    setFilteredPosts(posts);
-  }, [posts]);
 
   const selectTag = (tag: string) => {
     setFilteredPosts(posts.filter((post) => post.meta.tags!.includes(tag)));
@@ -71,6 +57,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
             {post.meta.tags &&
               post.meta.tags.map((tag) => (
                 <span
+                  key={`${post.id}-${tag}`}
                   className={`${styles.previewTag} ${selectedTag === tag ? styles.selected : ""}`}
                 >
                   {" "}
@@ -133,15 +120,15 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
         previews.push(
           <div className={styles.blogpostsInline} key={`grouped-${i}`}>
             {els.map((el) => (
-              <BlogPostPreview post={el} vertical={true} />
+              <BlogPostPreview key={el.id} post={el} vertical={true} />
             ))}
           </div>
         );
         i += els.length;
       } else {
         previews.push(
-          <Fragment key={i}>
-            <BlogPostPreview key={i} post={filteredPosts[i]} vertical={false} />
+          <Fragment key={filteredPosts[i].id}>
+            <BlogPostPreview post={filteredPosts[i]} vertical={false} />
             <hr className={styles.blogpostSeparator} />
           </Fragment>
         );
@@ -168,6 +155,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
           <div className={styles.tagList}>
             {postTags.map((tag) => (
               <span
+                key={tag}
                 className={`${styles.tag} ${
                   selectedTag === tag ? styles.selected : ""
                 }`}
