@@ -39,7 +39,7 @@ export const Image: React.FC<Image> = ({ src, alt }) => {
 		<Link href={src}>
 			<a target="_blank">
 				<img className={styles.image} src={src} alt={alt} />
-			</
+			</a>
 		</Link>
 	);
 };
