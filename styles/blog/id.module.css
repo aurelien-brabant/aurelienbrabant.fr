@@ -86,7 +86,8 @@
   text-transform: uppercase;
   letter-spacing: 1.1px;
   font-size: 1.1em;
-  border-bottom: 1px rgba(0, 0, 0, .2) dotted;
+  border-bottom: 1px rgba(255, 255, 255, .2) dotted;
+  padding-bottom: 2px;
   margin-bottom: 1em;
 }
 
