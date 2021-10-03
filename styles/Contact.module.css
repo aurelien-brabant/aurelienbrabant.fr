@@ -13,6 +13,7 @@
 {
   color: rgba(255, 255, 255, .95);
   font-size: 2em;
+  text-decoration: underline;
 }
 
 .contactContainer p
