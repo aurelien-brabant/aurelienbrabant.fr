@@ -196,6 +196,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 					</div>
 					<img
 						src={`/blog/covers/${postData.id}.png`}
+						alt={`blogpost's cover`}
 						className={styles.postImage}
 					/>
 				</Container>

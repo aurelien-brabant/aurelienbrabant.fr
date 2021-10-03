@@ -6,6 +6,7 @@ import type { AppProps } from 'next/app'
 import {Layout} from '../components/layout/Layout'
 import Router from 'next/router';
 import NProgress from 'nprogress';
+import '../public/nprogress.css';
 import Head from 'next/head';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
@@ -15,9 +16,6 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
-      <Head>
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
-      </Head>
       <Layout>
         <Component {...pageProps} />
       </Layout>

@@ -29,7 +29,7 @@ const About: NextPage = () => {
           If you haven't heard about the 42 network already, it's basically a network of campuses all around
           the world that aim to train the future of software engineers, using a very unique pedagogical approach based
           on peer-learning. If you're interested in 42, I highly encourage you to visit{" "}
-          <a href="https://42.fr" target="_blank" rel="noreferer">their website</a> !
+          <a href="https://42.fr" target="_blank" rel="noreferrer">their website</a> !
         </p>
         <p>
           I started programming about one year before I decided to attempt the selection of 42 Paris which took place in August of 2020. Since then, I basically never stopped, growing my skills and mindset, enjoying programming as a hobby, but also as a full-time activity.
@@ -49,7 +49,7 @@ const About: NextPage = () => {
         <p>
         In my spare time, I occasionaly write articles for my {" "}
           <Link href="/blog"><a>blog</a></Link> or make{" "}
-          <a href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg" target="_blank" rel="noreferer">
+          <a href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg" target="_blank" rel="noreferrer">
           YouTube videos{" "}
           </a>
        with the hope that my knowledge may become

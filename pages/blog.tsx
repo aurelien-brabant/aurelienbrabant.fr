@@ -54,7 +54,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       >
         <Link href={`/blog/${post.id}`}>
           <a>
-            <img src={`/blog/covers/${post.id}.png`} />
+            <img src={`/blog/covers/${post.id}.png`} alt={`${post.id}'s cover image`} />
           </a>
         </Link>
         <div className={styles.content}>

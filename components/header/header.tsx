@@ -63,6 +63,7 @@ const Header: React.FC<{}> = () =>
 					<img
 						className={styles.rudder}
 						src="/rudder.svg" 
+						alt={'rudder logo'}
 						onClick={() => { setIsVisible(!isVisible); } }
 					/>
 					<Link href="/"><a className={styles.logo}>Aurélien Brabant</a></Link>

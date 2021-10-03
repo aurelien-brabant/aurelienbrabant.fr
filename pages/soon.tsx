@@ -19,7 +19,7 @@ const Soon: React.FC<{}> = () =>
         className={styles.mainContainer}
       >
         <h1> Sorry but... </h1>
-        <Image src='/coming_soon.png' width={1000} height={320} />
+        <Image src='/coming_soon.png' width={1000} height={320} alt={'Soon image'} />
         <h2> This page is still under construction! </h2>
       </Container>
     </React.Fragment>
