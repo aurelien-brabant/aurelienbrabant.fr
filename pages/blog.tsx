@@ -33,8 +33,13 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
   });
 
   const selectTag = (tag: string) => {
-    setFilteredPosts(posts.filter((post) => post.meta.tags!.includes(tag)));
-    setSelectedTag(tag);
+    if (tag === selectedTag) {
+      setSelectedTag(null);
+      setFilteredPosts(posts);
+    } else {
+      setFilteredPosts(posts.filter((post) => post.meta.tags!.includes(tag)));
+      setSelectedTag(tag);
+    }
   };
 
   const BlogPostPreview: React.FC<{
