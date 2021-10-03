@@ -12,7 +12,7 @@ tags:
 # Wanderer, beware!
 
 Hey! If this post is the first you're reading from me about the minilibx, [you'd better check out the first
-post](https://aurelienbrabant.fr/posts/getting-started-with-the-minilibx), which explains all the basics you need to know.
+post](https://aurelienbrabant.fr/blog/getting-started-with-the-minilibx), which explains all the basics you need to know.
 That said, let's discuss how we are going to handle events using the minilibx!
 
 # Screen metrics
