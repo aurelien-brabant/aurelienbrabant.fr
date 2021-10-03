@@ -163,10 +163,6 @@ This statement is basically saying: "loop while it's true". The thing is that it
 
 We can try to run the code now. The window should appear and stay on the screen. We should be able to move it around without any issue.
 
-![](https://i.imgur.com/ytNGZR7.png)
-
-Don't mind the pink borders, they are automatically added by my window manager!
-
 ## Minilibx window limitations
 
 By looking at the minilibx implementation, it seems that there are some limitations related to window creation:
