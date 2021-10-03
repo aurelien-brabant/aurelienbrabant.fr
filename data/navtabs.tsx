@@ -16,8 +16,13 @@ export const navtabs: NavTab[] = [
 		id: 1
 	},
 	{
+		label: 'About',
+		route: '/about',
+		id: 2,
+	},
+	{
 		label: 'Contact',
 		route: '/contact',
-		id: 2
+		id: 3
 	}
 ];

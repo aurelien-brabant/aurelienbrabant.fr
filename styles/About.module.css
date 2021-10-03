@@ -1,0 +1,45 @@
+.aboutWrapper
+{
+  background-color: #191b1f;
+  padding-top: 70px;
+  font-size: 1.5em;
+  padding-bottom: 2em;
+}
+
+.aboutContainer h1
+{
+  color: rgba(255, 255, 255, .95);
+  font-size: 2em;
+  text-decoration: underline;
+}
+
+.aboutContainer .photo
+{
+  display: block;
+  max-width: 100%;
+  max-height: 550px;
+  margin: 0 auto;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.aboutContainer p
+{
+  margin: 1.5em 0;
+  color: rgba(255, 255, 255, .75);
+  line-height: 1.3em;
+}
+
+.aboutContainer a
+{
+  color: #e2725b;
+  margin: 0 2px;
+  padding-bottom: 3px;
+  transition: .2s;
+  border-bottom: 1px transparent dotted;
+}
+
+.aboutContainer a:hover
+{
+  border-color: #e2725b;
+}
