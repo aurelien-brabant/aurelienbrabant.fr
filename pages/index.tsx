@@ -11,6 +11,8 @@ import { Card } from "../components/card/card";
 import { landingPosts } from "../data/landing_posts";
 import Link from "next/link";
 
+import { Dictionary, useDictionary } from '../data/dict';
+
 type Technology = {
 	name: string;
 	imageUrl: string;
@@ -101,6 +103,8 @@ const Home: NextPage = () => {
 		},
 	];
 
+	const dict = useDictionary("index");
+
 	return (
 		<React.Fragment>
 			<Head>
@@ -132,28 +136,15 @@ const Home: NextPage = () => {
 
 					<div className={styles.introduction}>
 						<h1 className={styles.introduction}>
-							Hi, I'm Aurelien
+							{dict["hi"]}
 						</h1>
 
 						<h3>
-							I make websites and write about programming and
-							GNU/Linux stuff
+							{dict["hi_sub"]}
 						</h3>
 
 						<p className={styles.activity}>
-							I'm currently learning programming at{" "}
-							<a
-								href="https://42.fr"
-								target="_blank"
-								rel="noreferrer"
-							>
-								42 Paris
-							</a>
-							, where I mainly concentrate on C and C++
-							programming. I'm also building blazing fast, modern
-							and reliable websites using{" "}
-							<span className={styles.emphase}>NodeJS</span> and{" "}
-							<span className={styles.emphase}>Typescript</span>
+							{dict["hi_introduction"]}
 						</p>
 
 						<div className={styles.socials}>
@@ -236,8 +227,8 @@ const Home: NextPage = () => {
 
 			<Container className={styles.backgroundCareer} limitedWidth={false}>
 				<Container className={styles.technologiesContainer}>
-					<h2> You and I love technology, right ? </h2>
-					<h3> Here are some of the technologies I use </h3>
+					<h2> {dict["technologies_heading"]} </h2>
+					<h3> {dict["technologies_sub"]} </h3>
 					<div className={styles.technologies}>
 						{technologies.map((technology) => (
 							<div key={technology.name}>
@@ -249,9 +240,9 @@ const Home: NextPage = () => {
 						))}
 					</div>
 					<div className={styles.cta}>
-						<h2> Interested in my skills? </h2>
+						<h2> {dict["technologies_get_in_touch"]} </h2>
 						<Link href="/contact">
-							<a>{"Let's get in touch!"}</a>
+							<a>{dict["technologies_get_in_touch_btn"]}</a>
 						</Link>
 					</div>
 				</Container>
@@ -267,18 +258,15 @@ const Home: NextPage = () => {
 			>
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
-						{" "}
-						We need programming stories{" "}
+						{dict["blog_section_heading"]}
 					</h2>
 
 					<p>
-						{" "}
-						Stories are great, but programming ones are even
-						greater.
+						{dict["blog_section_sub"]}
 					</p>
 
 					<Button href="/blog" className={styles.ctaButton}>
-						Check out my blog
+						{dict["blog_section_btn"]}
 					</Button>
 				</Container>
 			</Container>
