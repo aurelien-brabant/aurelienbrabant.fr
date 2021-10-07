@@ -36,8 +36,3 @@ yarn-error.log*
 robots.txt
 sitemap_local.xml
 
-# temporary
-
-context
-lib/dict.ts
-data/dict.ts
