@@ -1,4 +1,12 @@
 import { createContext } from 'react';
-import { Language } from '../data/dict';
 
-export default createContext(Language.FR);
+export type LanguageContextData =
+{
+	section: string;
+	language: 'en' | 'fr';
+}
+
+export default createContext<LanguageContextData>({
+	section: 'index',
+	language: 'en'
+});

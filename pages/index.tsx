@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Container } from "../components/container/container";
 import { Button } from "../components/button/button";
 
+import { Translator } from '../components/translator/translator';
+
 import styles from "../styles/Home.module.css";
 import "react-multi-carousel/lib/styles.css";
 import { Card } from "../components/card/card";
@@ -136,15 +138,15 @@ const Home: NextPage = () => {
 
 					<div className={styles.introduction}>
 						<h1 className={styles.introduction}>
-							{dict["hi"]}
+							<Translator>name</Translator>
 						</h1>
 
 						<h3>
-							{dict["hi_sub"]}
+							<Translator>short introduction</Translator>
 						</h3>
 
 						<p className={styles.activity}>
-							{dict["hi_introduction"]}
+							<Translator>long introduction</Translator>
 						</p>
 
 						<div className={styles.socials}>
@@ -227,8 +229,8 @@ const Home: NextPage = () => {
 
 			<Container className={styles.backgroundCareer} limitedWidth={false}>
 				<Container className={styles.technologiesContainer}>
-					<h2> {dict["technologies_heading"]} </h2>
-					<h3> {dict["technologies_sub"]} </h3>
+					<h2> </h2>
+					<h3> </h3>
 					<div className={styles.technologies}>
 						{technologies.map((technology) => (
 							<div key={technology.name}>
@@ -240,9 +242,9 @@ const Home: NextPage = () => {
 						))}
 					</div>
 					<div className={styles.cta}>
-						<h2> {dict["technologies_get_in_touch"]} </h2>
+						<h2> </h2>
 						<Link href="/contact">
-							<a>{dict["technologies_get_in_touch_btn"]}</a>
+							<a></a>
 						</Link>
 					</div>
 				</Container>
@@ -258,15 +260,12 @@ const Home: NextPage = () => {
 			>
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
-						{dict["blog_section_heading"]}
 					</h2>
 
 					<p>
-						{dict["blog_section_sub"]}
 					</p>
 
 					<Button href="/blog" className={styles.ctaButton}>
-						{dict["blog_section_btn"]}
 					</Button>
 				</Container>
 			</Container>
