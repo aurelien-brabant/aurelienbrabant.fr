@@ -3,3 +3,8 @@ export type DictionarySection = { [key: string]: string };
 export type Language = 'fr' | 'en';
 
 export const availableLanguages: Language[] = [ 'en', 'fr' ];
+
+export const isValidLanguage = (s: string): boolean =>
+{
+    return availableLanguages.includes(s as Language);
+}
