@@ -19,5 +19,9 @@
     "home": "Home",
     "about": "About",
     "contact": "Contact"
+  },
+
+  "header": {
+    "get in touch": "Want to work together?"
   }
 }

@@ -11,6 +11,7 @@ import { Translator } from '../translator/Translator';
 const Header: React.FC<{}> = () =>
 {
 	const navtabLanguageSection = 'navtab';
+	const headerLanguageSection = 'header';
 
 	const [ selected, setSelected ] = useState(0);
 	const [ isVisible, setIsVisible ] = useState(false);
@@ -93,7 +94,7 @@ const Header: React.FC<{}> = () =>
 						href='/contact'
 						className={styles.projectCta}
 					>
-						Want to work with me?
+						<Translator section={headerLanguageSection}>get in touch</Translator>
 					</Button>
 				</div>
 			</header>

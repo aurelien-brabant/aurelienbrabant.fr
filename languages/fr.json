@@ -19,5 +19,9 @@
     "home": "Accueil",
     "about": "A propos",
     "contact": "Contact"
+  },
+
+  "header": {
+    "get in touch": "Une idée, un projet?"
   }
 }
