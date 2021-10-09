@@ -1,7 +1,7 @@
 {
   "index": {
     "name": "Hi, I'm Aurelien",
-    "short introduction": "I make websites and write about programming and GNU/Linux stuff",
+    "short introduction": "I make websites and write about programming",
     "long introduction": "I'm currently learning programming at 42 Paris, where I mainly concentrate on C and C++ programming. I'm also building blazing fast, modern and reliable websites using NodeJS and Typescript",
 
     "technologies heading": "You and I love technology, right ?",

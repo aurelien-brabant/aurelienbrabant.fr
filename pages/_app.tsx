@@ -8,7 +8,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import '../public/nprogress.css';
 
-import LanguageProvider from '../context/LanguageProvider';
+import LanguageProvider from '../context/language/LanguageProvider';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());

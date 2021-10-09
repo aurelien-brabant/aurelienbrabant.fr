@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { Language, availableLanguages } from '../lib/language';
-import languageContext from './language';
+import { Language, availableLanguages } from '../../lib/language';
+import languageContext from './languageContext';
 
 const LanguageProvider: React.FC<{}> = ({ children }) =>
 {

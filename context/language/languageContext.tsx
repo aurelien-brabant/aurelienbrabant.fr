@@ -1,8 +1,9 @@
 import { createContext } from 'react';
+import { Language } from '../../lib/language'
 
 export type LanguageContextData =
 {
-	language: 'en' | 'fr';
+	language: Language;
 	setLanguage?: Function;
 }
 

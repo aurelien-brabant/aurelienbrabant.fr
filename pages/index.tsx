@@ -1,19 +1,16 @@
 import type { NextPage } from "next";
-import React, { ReactNode } from "react";
+import React, { Fragment } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { Container } from "../components/container/container";
 import { Button } from "../components/button/button";
 
-import { Translator } from "../components/translator/translator";
+import { Translator } from "../components/translator/Translator";
 
 import styles from "../styles/Home.module.css";
 import "react-multi-carousel/lib/styles.css";
 import { Card } from "../components/card/card";
-import { landingPosts } from "../data/landing_posts";
 import Link from "next/link";
-
-import { Dictionary, useDictionary } from "../data/dict";
 
 type Technology = {
 	name: string;
@@ -22,19 +19,6 @@ type Technology = {
 
 const Home: NextPage = () => {
 	const languageSection = "index";
-
-	const renderLandingPosts = (): ReactNode => {
-		return landingPosts.map((post) => (
-			<Card
-				key={post.title}
-				title={post.title}
-				subtitle={`Duration: about ${post.duration}`}
-				description={post.description}
-				onClickUrl={post.githubLink}
-				imageCoverUrl={post.imageCoverUrl}
-			/>
-		));
-	};
 
 	const technologies: Technology[] = [
 		{
@@ -107,8 +91,6 @@ const Home: NextPage = () => {
 		},
 	];
 
-	const dict = useDictionary("index");
-
 	return (
 		<React.Fragment>
 			<Head>
@@ -152,9 +134,22 @@ const Home: NextPage = () => {
 						</h3>
 
 						<p className={styles.activity}>
-							<Translator section={languageSection}>
-								long introduction
-							</Translator>
+							<Translator manual={{
+								'en': (
+								<Fragment>
+									I'm currently learning programming at <a href="https://42.fr">42 Paris</a>,
+									where I mainly concentrate on C and C++ programming.
+									I'm also building blazing fast, modern and reliable websites using <b>NodeJS</b> and <b>Typescript</b>
+								</Fragment>
+								),
+
+								'fr': (
+								<Fragment>
+										Je suis actuellement étudiant à l'<a href="https://42.fr">école 42</a>{" "}
+										sur le campus de Paris où j'étudie la programmation, faisant principalement du C et du C++.
+										Je réalise aussi des sites web rapides modernes et fiables à l'aide de <b>NodeJS</b> et de <b>Typescript</b>
+								</Fragment>) 
+							}} />
 						</p>
 
 						<div className={styles.socials}>
