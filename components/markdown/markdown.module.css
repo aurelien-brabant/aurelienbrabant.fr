@@ -18,13 +18,27 @@
 {
 	display: flex;	
 	align-items: center;
-	line-height: 2.5em;
 	color: rgba(255, 255, 255, .85);
 }
 
 .anchorHeading h1, .anchorHeading h2, .anchorHeading h3
 {
 	scroll-margin-top: 65px;
+}
+
+.anchorHeading h1
+{
+	font-size: 1.2em;
+}
+
+.anchorHeading h2
+{
+	font-size: 1.1em;
+}
+
+.anchorHeading h3
+{
+	font-size: 1em;
 }
 
 .anchorHeading span
@@ -59,11 +73,13 @@
 .inlineCode
 {
 	color: #e2725b;
-	font-family: Consolas;
+	font-family: Terminus;
+	letter-spacing: 1.2px;
 	font-weight: 400;
+	overflow-wrap: break-word;
+	white-space: normal;
 
-
-  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	padding: 0 5px;
 }
 

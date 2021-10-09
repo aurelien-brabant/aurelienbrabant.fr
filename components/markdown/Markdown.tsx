@@ -19,8 +19,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
 			style={syntaxTheme}
 			codeTagProps={{
 				style: {
-					fontFamily: "Consolas",
-					fontSize: "0.95em",
+					fontFamily: "Terminus",
+					fontSize: "1em",
 				},
 			}}
 		>
