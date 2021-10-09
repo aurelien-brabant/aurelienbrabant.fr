@@ -4,29 +4,32 @@ import LanguageContext from '../../context/language';
 import languageFR from '../../languages/fr.json';
 import languageEN from '../../languages/en.json';
 
-const languages: {[key: string]: { [key: string]: { [key: string]: string }}} =
+const languageFiles: {[key: string]: any } =
 {
 	'fr': languageFR,
 	'en': languageEN
 }
 
-const translate = (text: string): string =>
+const translate = (text: string, section?: string): string =>
 {
-	const { language: currentLanguage, section } = useContext(LanguageContext);
+	const { language } = useContext(LanguageContext);
 
-	if (Object.keys(languages).includes(currentLanguage)) {
-		if (languages[currentLanguage][section]) {
-			return languages[currentLanguage][section][text]
-			!== undefined ? languages[currentLanguage][section][text] : text;
+	for (const key in languageFiles) {
+		if (key === language) {
+			if (section) {
+				return languageFiles[key][section][text] || text;
+			} else {
+				return languageFiles[key][text] || text;
+			}
 		}
 	}
 
 	return text;
 }
 
-export const Translator: React.FC<{}> = ({ children }) =>
+export const Translator: React.FC<{ section?: string }> = ({ children, section }) =>
 {
 	return <Fragment>
-	{translate((children as string).trim())}
+	{translate((children as string).trim(), section)}
 	</Fragment>
 }

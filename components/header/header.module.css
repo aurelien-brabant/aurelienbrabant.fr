@@ -64,6 +64,13 @@
 		background-color: #e2725b;
 		border-radius: 10px;
 	}
+
+	.rightmostSection
+	{
+		display: flex;
+		align-items: center;
+		gap: 1em;
+	}
 }
 
 .header ul li

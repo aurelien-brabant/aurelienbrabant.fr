@@ -5,6 +5,7 @@ import { navtabs } from '../../data/navtabs';
 import {useRouter} from 'next/dist/client/router';
 import Link from 'next/link';
 import disableScroll from 'disable-scroll';
+import LanguageSwitcher from '../language-switcher/LanguageSwitcher';
 
 const Header: React.FC<{}> = () =>
 	{
@@ -81,12 +82,17 @@ const Header: React.FC<{}> = () =>
 						</li>
 					))}
 				</ul>
-				<Button
-					href='/contact'
-					className={styles.projectCta}
+				<div
+					className={styles.rightmostSection}
 				>
-					Want to work with me?
-				</Button>
+					<LanguageSwitcher />
+					<Button
+						href='/contact'
+						className={styles.projectCta}
+					>
+						Want to work with me?
+					</Button>
+				</div>
 			</header>
 		</React.Fragment>
 	);

@@ -5,7 +5,7 @@ import Image from "next/image";
 import { Container } from "../components/container/container";
 import { Button } from "../components/button/button";
 
-import { Translator } from '../components/translator/translator';
+import { Translator } from "../components/translator/translator";
 
 import styles from "../styles/Home.module.css";
 import "react-multi-carousel/lib/styles.css";
@@ -13,7 +13,7 @@ import { Card } from "../components/card/card";
 import { landingPosts } from "../data/landing_posts";
 import Link from "next/link";
 
-import { Dictionary, useDictionary } from '../data/dict';
+import { Dictionary, useDictionary } from "../data/dict";
 
 type Technology = {
 	name: string;
@@ -21,6 +21,8 @@ type Technology = {
 };
 
 const Home: NextPage = () => {
+	const languageSection = "index";
+
 	const renderLandingPosts = (): ReactNode => {
 		return landingPosts.map((post) => (
 			<Card
@@ -138,15 +140,21 @@ const Home: NextPage = () => {
 
 					<div className={styles.introduction}>
 						<h1 className={styles.introduction}>
-							<Translator>name</Translator>
+							<Translator section={languageSection}>
+								name
+							</Translator>
 						</h1>
 
 						<h3>
-							<Translator>short introduction</Translator>
+							<Translator section={languageSection}>
+								short introduction
+							</Translator>
 						</h3>
 
 						<p className={styles.activity}>
-							<Translator>long introduction</Translator>
+							<Translator section={languageSection}>
+								long introduction
+							</Translator>
 						</p>
 
 						<div className={styles.socials}>
@@ -229,8 +237,16 @@ const Home: NextPage = () => {
 
 			<Container className={styles.backgroundCareer} limitedWidth={false}>
 				<Container className={styles.technologiesContainer}>
-					<h2> </h2>
-					<h3> </h3>
+					<h2>
+						<Translator section={languageSection}>
+							technologies heading
+						</Translator>
+					</h2>
+					<h3>
+						<Translator section={languageSection}>
+							technologies sub
+						</Translator>
+					</h3>
 					<div className={styles.technologies}>
 						{technologies.map((technology) => (
 							<div key={technology.name}>
@@ -242,9 +258,17 @@ const Home: NextPage = () => {
 						))}
 					</div>
 					<div className={styles.cta}>
-						<h2> </h2>
+						<h2>
+							<Translator section={languageSection}>
+								technologies get in touch
+							</Translator>
+						</h2>
 						<Link href="/contact">
-							<a></a>
+							<a>
+								<Translator section={languageSection}>
+									technologies get in touch btn
+								</Translator>
+							</a>
 						</Link>
 					</div>
 				</Container>
@@ -260,12 +284,21 @@ const Home: NextPage = () => {
 			>
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
+						<Translator section={languageSection}>
+							blog heading
+						</Translator>
 					</h2>
 
 					<p>
+						<Translator section={languageSection}>
+							blog sub
+						</Translator>
 					</p>
 
 					<Button href="/blog" className={styles.ctaButton}>
+						<Translator section={languageSection}>
+							blog btn
+						</Translator>
 					</Button>
 				</Container>
 			</Container>

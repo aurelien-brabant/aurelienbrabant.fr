@@ -8,7 +8,7 @@ import Router from 'next/router';
 import NProgress from 'nprogress';
 import '../public/nprogress.css';
 
-import LanguageContext from '../context/language';
+import LanguageProvider from '../context/LanguageProvider';
 
 Router.events.on('routeChangeStart', () => NProgress.start());
 Router.events.on('routeChangeComplete', () => NProgress.done());
@@ -17,14 +17,11 @@ Router.events.on('routeChangeError', () => NProgress.done());
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <React.Fragment>
-      <LanguageContext.Provider value={{
-          section: 'index',
-          language: 'en'
-        }}>
+      <LanguageProvider>
       <Layout>
         <Component {...pageProps} />
       </Layout>
-      </LanguageContext.Provider>
+      </LanguageProvider>
     </React.Fragment>
   )
 }

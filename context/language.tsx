@@ -2,11 +2,10 @@ import { createContext } from 'react';
 
 export type LanguageContextData =
 {
-	section: string;
 	language: 'en' | 'fr';
+	setLanguage?: Function;
 }
 
 export default createContext<LanguageContextData>({
-	section: 'index',
-	language: 'en'
+	language: 'en',
 });

@@ -1,0 +1,19 @@
+.languageWrapper
+{
+	display: flex;
+	gap: .5em;
+}
+
+.languageWrapper > img
+{
+	height: 18px;
+	width: auto;
+	display: block;
+	transition: opacity .1s;
+	opacity: .5;
+}
+
+.languageWrapper > img:hover, .languageWrapper > img.selected
+{
+	opacity: 1;
+}
