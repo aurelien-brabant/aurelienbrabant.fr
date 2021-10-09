@@ -54,9 +54,11 @@ const Header: React.FC<{}> = () => {
 						} ${isVisible ? styles.visible : ""}`}
 					>
 						<Link key={tab.id} href={tab.route}>
+							<a>
 							<Translator section={navtabLanguageSection}>
 								{tab.label}
 							</Translator>
+							</a>
 						</Link>
 					</h1>
 				))}
