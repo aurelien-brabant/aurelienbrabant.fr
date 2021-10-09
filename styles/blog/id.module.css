@@ -44,7 +44,7 @@
   font-size: 1em;
   position: sticky;
   align-self: flex-start;
-  overflow: auto;
+  z-index: 4;
 }
 
 .markdownWrapper
@@ -64,6 +64,8 @@
 
   .sidenav
   {
+    border: 2px #e2725b dashed;
+    border-radius: 5px;
     display: block;
   }
 }
@@ -177,4 +179,19 @@
 .postHeader .tagList > span
 {
   padding: 10px 5px;
+}
+
+.sidenav .toggleButton {
+  height: 30px;
+  width: 30px;
+  background-color: #191b1f;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  transform: translate(10px, -10px);
+  border-radius: 50%;
+  border: 2px #e2725b solid;
+  position: absolute;
+  z-index: 5;
+  right: 0;
+  text-align: center;
+  top: 0;
 }

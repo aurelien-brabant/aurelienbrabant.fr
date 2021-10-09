@@ -133,6 +133,13 @@ const TableOfContents: React.FC<{ headings: NestedHeading[] }> = ({
 }) => {
 	return (
 		<nav className={styles.sidenav}>
+			{/*
+			<span
+				className={styles.toggleButton}
+			>
+				X
+			</span>
+			  */}
 			<TOCHeadings headings={headings} level={1} />
 		</nav>
 	);
