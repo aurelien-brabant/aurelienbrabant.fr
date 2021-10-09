@@ -28,5 +28,13 @@
   "blog": {
     "heading": "Blog",
     "sub heading": "Featured articles about programming, hardware and more"
+  },
+
+  "contact": {
+    "heading": "Contact",
+    "thank you": "Thank you for your interest in getting in touch!",
+    "description": "Whether it's to discuss about stuff I've written on my blog or to work with me, I'm happy to get your email.",
+    "best way to reach": "The best way to reach me is by email at",
+    "socials": "You can also follow me on my social medias:"
   }
 }

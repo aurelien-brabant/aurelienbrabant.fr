@@ -27,5 +27,14 @@
   "blog": {
     "heading": "Blog",
     "sub heading": "Articles sur la programmation, le hardware et autres (en anglais principalement)"
+  },
+
+  "contact": {
+    "heading": "Contact",
+    "thank you": "Merci de l'intérêt que vous portez à me contacter !",
+    "description": "Que ce soit pour discuter de mes articles ou pour que l'on travaille ensemble, je serai ravi de recevoir votre email.",
+    "best way to reach": "La meilleure manière de me joindre est de me contacter par email à",
+    "socials": "Vous pouvez aussi me suivre sur mes réseaux sociaux:"
   }
+
 }

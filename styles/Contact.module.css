@@ -21,7 +21,7 @@
   color: rgba(255, 255, 255, .75);
 }
 
-.contactContainer a
+.contactContainer p a
 {
   color: #e2725b;
   margin: 0 2px;
@@ -30,7 +30,12 @@
   border-bottom: 1px transparent dotted;
 }
 
-.contactContainer a:hover
+.contactContainer p a:hover
 {
   border-color: #e2725b;
+}
+
+.contactContainer .socials
+{
+  fill: rgba(255, 255, 255, .9);
 }
