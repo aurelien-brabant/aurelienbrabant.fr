@@ -6,9 +6,12 @@ import {useRouter} from 'next/dist/client/router';
 import Link from 'next/link';
 import disableScroll from 'disable-scroll';
 import LanguageSwitcher from '../language-switcher/LanguageSwitcher';
+import { Translator } from '../translator/Translator';
 
 const Header: React.FC<{}> = () =>
-	{
+{
+	const navtabLanguageSection = 'navtab';
+
 	const [ selected, setSelected ] = useState(0);
 	const [ isVisible, setIsVisible ] = useState(false);
 
@@ -50,7 +53,7 @@ const Header: React.FC<{}> = () =>
 							key={tab.id} 
 							href={tab.route}
 						>
-							{tab.label}
+							<Translator section={navtabLanguageSection}>{tab.label}</Translator>
 						</Link>
 					</h1>
 				)) }
@@ -77,7 +80,7 @@ const Header: React.FC<{}> = () =>
 							onClick={() => { setSelected(tab.id); setIsVisible(false); }}
 						>
 							<Link href={tab.route}>
-								<a>{tab.label}</a>
+								<a><Translator section={navtabLanguageSection}>{tab.label}</Translator></a>
 							</Link>
 						</li>
 					))}

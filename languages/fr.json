@@ -12,5 +12,12 @@
     "blog heading": "Histoires de programmeurs",
     "blog sub": "Les programmeurs aussi savent raconter des histoires",
     "blog btn": "Découvrez mon blog"
+  },
+  
+  "navtab": {
+    "blog": "Blog",
+    "home": "Accueil",
+    "about": "A propos",
+    "contact": "Contact"
   }
 }

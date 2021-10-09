@@ -12,7 +12,7 @@ const languageFiles: {[key: string]: any } =
 	'en': languageEN
 }
 
-const translate = (text: string, section?: string): string =>
+export const translate = (text: string, section?: string): string =>
 {
 	const { language } = useContext(languageContext);
 

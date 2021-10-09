@@ -1,3 +1,5 @@
+import { translate } from "../components/translator/Translator";
+
 type NavTab = {
 	label: string;
 	route: string;
@@ -6,22 +8,22 @@ type NavTab = {
 
 export const navtabs: NavTab[] = [
 	{
-		label: 'Home',
+		label: 'home',
 		route: '/',
 		id: 0
 	},
 	{
-		label: 'Blog',
+		label: 'blog',
 		route: '/blog',
 		id: 1
 	},
 	{
-		label: 'About',
+		label: 'about',
 		route: '/about',
 		id: 2,
 	},
 	{
-		label: 'Contact',
+		label: 'contact',
 		route: '/contact',
 		id: 3
 	}

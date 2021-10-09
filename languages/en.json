@@ -12,5 +12,12 @@
     "blog heading": "We need programming stories",
     "blog sub": "Stories are great, but programming ones are even greater.",
     "blog btn": "Check out my blog"
+  },
+
+  "navtab": {
+    "blog": "Blog",
+    "home": "Home",
+    "about": "About",
+    "contact": "Contact"
   }
 }
