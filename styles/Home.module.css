@@ -236,11 +236,9 @@
 	color: #fff;
 }
 
-.carousel {
-	margin-top: auto;
-	transform: translateY(3.5em);
-	width: 100%;
-}
+/**
+ * TECHNOLOGIES SECTION
+ */
 
 .technologiesContainer {
 	margin: 0 auto;
@@ -287,6 +285,12 @@
 	margin: 1em;
 }
 
+.technologies > div:hover img
+{
+	transform: scale(1.1);
+	transition: .3s;
+}
+
 .technologiesContainer > .cta > h2 {
 	font-size: 2em;
 	text-align: center;
@@ -310,42 +314,9 @@
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-/*
-@media only screen and (min-width: 450px)
-{
-.projectCards > *
-{
-width: 45%;
-}
-}
-
-@media only screen and (min-width: 1000px)
-{
-.projectCards > *
-{
-width: 30%;
-}
-}
-
-@media only screen and (min-width: 1400px)
-{
-.projectCards > *
-{
-width: 17%;
-}
-}
- */
-
-.cardButton {
-	margin-top: auto;
-	margin-left: auto;
-	margin-right: auto;
-	width: 80%;
-	background-color: #e2725b;
-}
-
 .blogSection {
-	min-height: 30vh;
+	min-height: 400px;
+	display: flex;
 }
 
 .textCtaSection {
@@ -373,45 +344,4 @@ width: 17%;
 	margin: 1em 0;
 	font-size: 1.5em;
 	background-color: #e2725b;
-}
-
-/* ARROW */
-
-.arrow {
-	height: 50px;
-	transform: translate(-50%, -50%);
-}
-
-.arrow span {
-	display: block;
-	width: 30px;
-	height: 30px;
-	border-bottom: 5px solid #e2725b;
-	border-right: 5px solid #e2725b;
-
-	transform: rotate(45deg);
-	margin: -10px;
-	animation: animate 2s infinite;
-}
-
-.arrow span:nth-child(2) {
-	animation-delay: -0.2s;
-}
-
-.arrow span:nth-child(3) {
-	animation-delay: -0.4s;
-}
-
-@keyframes animate {
-	0% {
-		opacity: 0;
-		transform: rotate(45deg) translate(0, 0);
-	}
-	50% {
-		opacity: 1;
-	}
-	100% {
-		opacity: 0;
-		transform: rotate(45deg) translate(20px, 20px);
-	}
 }
