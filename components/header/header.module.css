@@ -156,18 +156,19 @@
 	background:
 	/* top, transparent black, faked with gradient */ 
 	linear-gradient(
-	rgba(0, 0, 0, 0.95), 
-	rgba(0, 0, 0, 0.95)
+	rgba(0, 0, 0, 0.90), 
+	rgba(0, 0, 0, 0.90)
 	),
 	/* bottom, image */
 	url('/menu_bg.jpg');
 	background-position: center;
 	background-size: cover;
-	transition: all .3s;
+	transition: width .3s;
 }
 
 .menu.visible
 {
+	border-right: 2px #e2725b solid;
 	width: 450px;
 }
 
