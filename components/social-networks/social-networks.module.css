@@ -1,0 +1,18 @@
+.socials {
+	display: flex;
+	justify-content: center;
+	gap: 0.7em;
+	padding: 0.5em;
+}
+
+.socials svg {
+	width: auto;
+	height: 35px;
+	fill: inherit;
+	transition: 0.2s;
+}
+
+.socials svg:hover
+{
+	opacity: .7;
+}

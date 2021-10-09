@@ -116,17 +116,8 @@
 }
 
 .socials {
-	padding-top: 1.5em;
-	padding-bottom: 3em;
-}
-
-.socials svg {
-	height: auto;
-	width: auto;
-	max-height: 35px;
-	fill: #e2725b;
-	margin: 0 0.5em;
-	transition: 0.2s;
+	padding: 1.5em 0;
+	fill: rgba(255, 255, 255, .9);
 }
 
 .aurelienPhoto {

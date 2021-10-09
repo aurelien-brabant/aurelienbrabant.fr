@@ -76,17 +76,6 @@
 	color: #e2725b;
 }
 
-.socials svg
-{
-	height: auto;
-	width: auto;
-	max-height: 30px;
-	fill: #e2725b;
-	margin: 0 .5em;
-	transition: .2s;
-}
-
-.socials svg:hover
-{
-	opacity: .8;
+.socials {
+	fill: rgba(255, 255, 255, .9);
 }

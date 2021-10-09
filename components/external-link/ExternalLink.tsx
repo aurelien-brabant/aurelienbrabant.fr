@@ -6,7 +6,7 @@ type ExternalLinkProps = {
 
 const ExternalLink: React.FC<ExternalLinkProps> = ({ children, href }) => {
 	return (
-		<a href={href} target="_blank" rel="noreferer">
+		<a href={href} target="_blank" rel="noreferrer">
 			{children}
 		</a>
 	);
