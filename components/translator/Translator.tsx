@@ -4,7 +4,7 @@ import languageContext from '../../context/language/languageContext';
 import languageFR from '../../languages/fr.json';
 import languageEN from '../../languages/en.json';
 
-import { Language, availableLanguages } from '../../lib/language';
+import { availableLanguages } from '../../lib/language';
 
 const languageFiles: {[key: string]: any } =
 {
@@ -12,7 +12,7 @@ const languageFiles: {[key: string]: any } =
 	'en': languageEN
 }
 
-export const translate = (text: string, section?: string): string =>
+export const useTranslate = (text: string, section?: string): string =>
 {
 	const { language } = useContext(languageContext);
 
@@ -68,6 +68,7 @@ export const Translator: React.FC<TranslatorProps> = ({ children, section, manua
 	}
 	
 	return <Fragment>
-	{translate((children as string).trim(), section)}
+		{/*eslint-disable-next-line*/}
+	{useTranslate((children as string).trim(), section)}
 	</Fragment>
 }

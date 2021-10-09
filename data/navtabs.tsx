@@ -1,4 +1,4 @@
-import { translate } from "../components/translator/Translator";
+import { useTranslate } from "../components/translator/Translator";
 
 type NavTab = {
 	label: string;
