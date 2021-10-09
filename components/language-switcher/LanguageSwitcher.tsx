@@ -13,6 +13,7 @@ const LanguageSwitcher = () =>
 		>
 			{ availableLanguages.map(lang => (
 			<img
+				key={`${lang}-flag`}
 				src={`/language-flag/${lang}.svg`}
 				className={`${lang === language ? styles.selected : ''}`}
 				onClick={() => {
