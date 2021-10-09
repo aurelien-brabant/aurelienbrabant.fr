@@ -15,6 +15,7 @@ const LanguageSwitcher = () =>
 			<img
 				key={`${lang}-flag`}
 				src={`/language-flag/${lang}.svg`}
+				alt={`select-language-${lang}`}
 				className={`${lang === language ? styles.selected : ''}`}
 				onClick={() => {
 					setLanguage!(lang);
