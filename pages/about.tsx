@@ -1,13 +1,15 @@
 import React from "react";
 import Head from "next/head";
 import { NextPage } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import { Container } from "../components/container/container";
+import { Translator } from "../components/translator/Translator";
 import styles from "../styles/About.module.css";
-import aurelienPhoto from "../public/aurelien_nid_aigle.jpg";
+import ExternalLink from "../components/external-link/ExternalLink";
 
 const About: NextPage = () => {
+  const aboutLanguageSection = "about";
+
   return (
     <React.Fragment>
       <Head>
@@ -24,75 +26,95 @@ const About: NextPage = () => {
         limitedWidth={false}
       >
         <Container className={styles.aboutContainer}>
-          <h1> About </h1>
+          <h1>
+            {" "}
+            <Translator section={aboutLanguageSection}>heading</Translator>
+          </h1>
           <img
-            src={"/aurelien_nid_aigle.jpg"}
+            src="/aurelien_nid_aigle.jpg"
             alt={"photo of Aurélien Brabant"}
             className={styles.photo}
           />
           <p>
-            Hi, my name is Aurélien. I'm a french student currently studying
-            software engineering at school 42 in Paris.
+            <Translator section={aboutLanguageSection}>p1</Translator>
           </p>
           <p>
-            If you haven't heard about the 42 network already, it's basically a
-            network of campuses all around the world that aim to train the
-            future of software engineers, using a very unique pedagogical
-            approach based on peer-learning. If you're interested in 42, I
-            highly encourage you to visit{" "}
-            <a href="https://42.fr" target="_blank" rel="noreferrer">
-              their website
-            </a>{" "}
-            !
+            <Translator section={aboutLanguageSection}>p2</Translator>
           </p>
           <p>
-            I started programming about one year before I decided to attempt the
-            selection of 42 Paris which took place in August of 2020. Since
-            then, I basically never stopped, growing my skills and mindset,
-            enjoying programming as a hobby, but also as a full-time activity.
+            <Translator section={aboutLanguageSection}>p3</Translator>
           </p>
 
           <p>
-            About programming in general, I'm mostly studying fundamentals at
-            42, making use of mainly C, C++ and even assembly. Nonetheless, I'm
-            also really interested in web development, especially in TypeScript
-            and NodeJS, which this website is made out of!
+            <Translator section={aboutLanguageSection}>p4</Translator>
           </p>
 
           <p>
-            Moreover, I enjoy quite a lot the GNU/Linux ecosystem, and love
-            hearing about open source software: I'm indeed using Linux as my
-            daily driver since almost the beginning of my programming journey!
+            <Translator section={aboutLanguageSection}>p5</Translator>
           </p>
 
           <p>
-            In my spare time, I occasionaly write articles for my{" "}
-            <Link href="/blog">
-              <a>blog</a>
-            </Link>{" "}
-            or make{" "}
-            <a
-              href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg"
-              target="_blank"
-              rel="noreferrer"
-            >
-              YouTube videos{" "}
-            </a>
-            with the hope that my knowledge may become useful to others.
+            <Translator
+              manual={{
+                en: (
+                  <React.Fragment>
+                    In my spare time, I occasionaly write articles for my{" "}
+                    <Link href="/blog">
+                      <a>blog</a>
+                    </Link>{" "}
+                    or make{" "}
+                    <ExternalLink href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg">
+                      YouTube videos{" "}
+                    </ExternalLink>
+                    with the hope that my knowledge may become useful to others.
+                  </React.Fragment>
+                ),
+                fr: (
+                  <React.Fragment>
+                    Sur mon temps libre, je m'adonne à l'écriture d'articles sur
+                    mon{" "}
+                    <Link href="/blog">
+                      <a>blog</a>
+                    </Link>{" "}
+                    ou enregistre des{" "}
+                    <ExternalLink href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg">
+                      vidéos YouTube{" "}
+                    </ExternalLink>
+                    avec l'espoir que mes connaissances puissent se réveler
+                    utile aux autres.
+                  </React.Fragment>
+                ),
+              }}
+            />
           </p>
 
           <p>
-            My so-called life plan is to continue working on software
-            engineering projects, while traveling the world (the dream of every
-            software engineer, yes I know!)
+            <Translator section={aboutLanguageSection}>p6</Translator>
           </p>
 
           <p>
-            A suggestion, question, offer? Feel free to{" "}
-            <Link href="/contact">
-              <a>contact me</a>
-            </Link>{" "}
-            at any time!
+            <Translator
+              manual={{
+                en: (
+                  <React.Fragment>
+                    A suggestion, question, offer? Feel free to{" "}
+                    <Link href="/contact">
+                      <a>contact me</a>
+                    </Link>{" "}
+                    at any time!
+                  </React.Fragment>
+                ),
+                fr: (
+                  <React.Fragment>
+                    Une suggestion, une question, une offre?{" "}
+                    <Link href="/contact">
+                      <a>Contactez moi </a>
+                    </Link>{" "}
+                    dès maintenant!
+                  </React.Fragment>
+                ),
+              }}
+            />
           </p>
         </Container>
       </Container>

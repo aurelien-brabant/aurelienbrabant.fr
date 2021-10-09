@@ -12,7 +12,7 @@
     "blog sub": "Les programmeurs aussi savent raconter des histoires",
     "blog btn": "Découvrez mon blog"
   },
-  
+
   "navtab": {
     "blog": "Blog",
     "home": "Accueil",
@@ -35,6 +35,16 @@
     "description": "Que ce soit pour discuter de mes articles ou pour que l'on travaille ensemble, je serai ravi de recevoir votre email.",
     "best way to reach": "La meilleure manière de me joindre est de me contacter par email à",
     "socials": "Vous pouvez aussi me suivre sur mes réseaux sociaux:"
+  },
+
+  "about": {
+    "heading": "A propos",
+    "p1": "Moi c'est Aurélien, j'étudie actuellement l'informatique à l'école 42 sur le campus de Paris.",
+    "p2": "Si vous n'avez pas entendu parler du 42 \"network\", c'est un réseau mondial d'écoles de programmation dont la pédagogie est essentiellement basée sur l'autonomie et l'apprentissage entre étudiants au travers de la réalisation de projets pratiques.",
+    "p3": "J'ai commencé la programmation à peu près un an avant que je décide de tenter la sélection de 42 Paris qui a eu lieu en aôut 2020. Depuis, je n'ai jamais arrêté de coder et d'apprendre, faisant progresser mes capacités et mon état d'esprit, et appréciant la programmation comme passe temps autant que comme activité quotidienne.",
+    "p4": "A propos de la programmation en général, j'étudie surtout les fondamentaux en faisant le tronc commun du cursus de 42, abordant des thèmes essentiels avec des languages bas niveau tels que le C et le C++. Je suis également très intéressé par le développment web, particulièrement par tout ce qui est relatif à NodeJS et TypeScript, technologies avec lesquelles ce site à été construit!",
+    "p5": "De plus, je suis aussi un adepte de l'écosystème GNU/Linux et du mouvement du logicel libre, que j'utilise quasiment depuis mes débuts en programmation!",
+    "p6": "Concernant la vie en général, j'aspirer à gagner mon indépendance autant que possible, et à voyager tant que la santé me le permettra (le rêve de tout programmeur qui se respecte!)."
   }
 
 }

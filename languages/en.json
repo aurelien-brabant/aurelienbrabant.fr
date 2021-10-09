@@ -36,5 +36,15 @@
     "description": "Whether it's to discuss about stuff I've written on my blog or to work with me, I'm happy to get your email.",
     "best way to reach": "The best way to reach me is by email at",
     "socials": "You can also follow me on my social medias:"
+  },
+
+  "about": {
+    "heading": "About",
+    "p1": "Hi, my name is Aurélien. I'm a french student currently studying software engineering at school 42 in Paris.",
+    "p2": "If you haven't heard about the 42 network already, it's basically a network of campuses all around the world that aim to train the future of software engineers, using a very unique pedagogical approach based on peer-learning",
+    "p3": "I started programming about one year before I decided to attempt the selection of 42 Paris which took place in August of 2020. Since then, I basically never stopped, growing my skills and mindset, enjoying programming as a hobby, but also as a full-time activity.",
+    "p4": "About programming in general, I'm mostly studying fundamentals at 42, making use of mainly C, C++ and even assembly. Nonetheless, I'm also really interested in web development, especially in TypeScript and NodeJS, which this website is made out of!",
+    "p5": "Moreover, I enjoy quite a lot the GNU/Linux ecosystem, and love hearing about open source software: I'm indeed using Linux as my daily driver since almost the beginning of my programming journey!",
+    "p6": "My so-called life plan is to continue working on software engineering projects, while traveling the world (the dream of every software engineer, yes I know!)"
   }
 }
