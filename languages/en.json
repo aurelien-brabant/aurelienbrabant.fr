@@ -23,5 +23,10 @@
 
   "header": {
     "get in touch": "Want to work together?"
+  },
+
+  "blog": {
+    "heading": "Blog",
+    "sub heading": "Featured articles about programming, hardware and more"
   }
 }

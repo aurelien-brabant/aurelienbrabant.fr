@@ -1,12 +1,13 @@
-import React, { ChangeEvent, useEffect, useState, Fragment } from "react";
+import React, { useState, Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { Card } from "../components/card/card";
 import { Container } from "../components/container/container";
 import styles from "../styles/Blog.module.css";
 import { getPosts, BlogPost, getPostsTag } from "../lib/posts";
 import { readtimeInMinutes } from "../lib/readtime";
 import { useMediaQuery } from "react-responsive";
+
+import { Translator } from '../components/translator/Translator';
 
 import Head from "next/head";
 
@@ -27,6 +28,8 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
 }) => {
   const [filteredPosts, setFilteredPosts] = useState<BlogPost[]>(posts);
   const [selectedTag, setSelectedTag] = useState<string | null>(null);
+
+  const blogLanguageSection = "blog";
 
   const isLargeEnoughForHorizontalPosts = useMediaQuery({
     query: "(min-width: 1250px)",
@@ -54,7 +57,10 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       >
         <Link href={`/blog/${post.id}`}>
           <a>
-            <img src={`/blog/covers/${post.id}.png`} alt={`${post.id}'s cover image`} />
+            <img
+              src={`/blog/covers/${post.id}.png`}
+              alt={`${post.id}'s cover image`}
+            />
           </a>
         </Link>
         <div className={styles.content}>
@@ -63,7 +69,9 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
               post.meta.tags.map((tag) => (
                 <span
                   key={`${post.id}-${tag}`}
-                  className={`${styles.previewTag} ${selectedTag === tag ? styles.selected : ""}`}
+                  className={`${styles.previewTag} ${
+                    selectedTag === tag ? styles.selected : ""
+                  }`}
                 >
                   {" "}
                   {tag}
@@ -155,8 +163,8 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       </Head>
       <Container className={styles.blogHeaderWrapper} limitedWidth={false}>
         <Container className={styles.blogHeader}>
-          <h1>Blog</h1>
-          <h2>Featured articles about programming, hardware and more</h2>
+          <h1><Translator section={blogLanguageSection}>heading</Translator></h1>
+          <h2><Translator section={blogLanguageSection}>sub heading</Translator></h2>
           <div className={styles.tagList}>
             {postTags.map((tag) => (
               <span
