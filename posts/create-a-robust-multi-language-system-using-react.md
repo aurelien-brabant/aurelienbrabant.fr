@@ -1,6 +1,6 @@
 ---
 title: "Create a robust multi language system using React"
-preview: "In order to target a large audience, it is sometimes needed to make a website available in several languages. This post present a robust and handy way to implement such a system using ReactJS."
+preview: "In order to target a large audience, it is sometimes needed to make a website available in several languages. This post presents a robust and handy way to implement such a system using ReactJS."
 dateString: "2021-10-10"
 author: "Aurélien Brabant"
 tags:
@@ -44,7 +44,7 @@ language is selected.
 
 ## Data model representation decision
 
-A simple key-value pair data structure would probably be sufficient, and fortunately for us, this is basically what a Javascript object is. However, storing pure data in a Javascript object defects Javascript's purpose: it is a programming language, not a way to represent static data. For that, `JSON` (Javascript Object Notation) seems to be a better option.
+A simple key-value pair data structure would probably be sufficient, and fortunately for us, this is basically what a Javascript object is. However, storing pure data in a Javascript object defeats Javascript's purpose: it is a programming language, not a way to represent static data. For that, `JSON` (Javascript Object Notation) seems to be a better option.
 
 We'll then store our data into `JSON` files, one for each language we want to support.
 
@@ -79,12 +79,11 @@ we won't be able to import `.json` files directly later (if you've bootstrapped 
 # Provide selected language using React Context
 
 In order for us to know which language is selected from almost anywhere in the app, we need to make this information available globally.
-In conjunction with hooks, [React Context](https://reactjs.org/docs/context.html) will help us getting this done, without the need to pass down the selected language to each
-component that would make use of it manually.
+In conjunction with hooks, [React Context](https://reactjs.org/docs/context.html) will help us getting this done without passing the language prop manually.
 
 ## Define a Language object
 
-Before we use context, we need to establish what a `Language` object is. As we are using TypeScript, it should be as easy as writing:
+Before we use context, we need to define what a `Language` object is. As we are using Typescript, it should be as easy as writing:
 
 ```tsx
 export type Language = 'fr' | 'en' | 'de' | 'es';
@@ -326,9 +325,47 @@ The only missing piece is the interface that will allow language switching by ca
 > If you're satisfied with the `Translator` component we've built, then feel free to skip this section.
 > If you feel like it lacks some customizability, then continue reading!
 
+One problem of the `Translator` component as it is now is that **we can't render anything else than raw strings**. While it may be sufficient for many use cases, extending its functionalities would be great!
+
+### The problem
+
+Imagine that we need to style the content that we *also* need to translate. On the web, styling is done through the use
+HTML tags which are assigned class names or style rules directly.
+
+However, we can't really do that in our language file.
+It is indeed possible, in React, to transform a string with HTML inside it into proper HTML, but this is often a dangerous thing to do, and it would defeat the purpose of the language file.
+
+### Possible solutions
+
+To solve this problem, we may consider two solutions: 
+
+- Make use of some *markup language* (markdown for one) inside the translated strings, that is then parsed and safely rendered into proper
+HTML.
+- Add a feature to the `Translator` that allows to render different `JSX` elements depending on the selected language.
+
+While the first solution is probably be better because it'd not require more code inside the components making use
+of the `Translator`, it'd also require a lot of technical setup which is out of the scope of this post.
+
+For my website, I implemented the second solution, allowing me to write something like:
+
+```tsx
+	/* ... */
+	<Translator
+		manual={{
+			'fr': <a href="#lien">un lien</a>,
+			'en': <a href="#link">a link</a>
+		}}
+	/>
+	/* ... */
+```
+
+As I said, this solution adds a lot of code and is really similar to `if-else` branching, but in my opinion it is good enough for more exceptional use cases.
+
+We'll not discuss the implementation here, but I just wanted to talk about what could be done to improve our `Translator` component.
+
 # Implement persistence in browser's local storage
 
-One additional thing we would want to add is to remember which is the last language the browser has used last time the website has been visited.
+One additional thing we would want to do is to remember which is the last language the browser has used last time the website has been visited.
 One easy way to implement such a thing is to make use of the web browser's [storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API)
 in order to store that information as a *cookie*.
 
