@@ -62,7 +62,7 @@ a {
 html, body
 {
 
-font-family: Liberation Sans, Roboto;
+  font-family: Liberation Sans, Roboto;
   margin: 0;
   padding: 0;
   font-weight: 400;
@@ -95,3 +95,12 @@ font-family: Liberation Sans, Roboto;
   }
 }
 
+body::-webkit-scrollbar-thumb {
+  background-color: #e2725b;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar {
+      background-color: rgb(20, 20, 20);
+      width: .75vw;
+}
