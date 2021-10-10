@@ -41,13 +41,8 @@
 	transform: scale(1.05);
 }
 
-@media only screen and (min-width: 500px)
+@media only screen and (min-width: 700px)
 {
-	.rudder
-	{
-		/* display: none; */
-	}
-
 	.header ul
 	{
 		display: flex;

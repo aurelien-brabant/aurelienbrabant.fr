@@ -7,7 +7,7 @@ import { getPosts, BlogPost, getPostsTag } from "../lib/posts";
 import { readtimeInMinutes } from "../lib/readtime";
 import { useMediaQuery } from "react-responsive";
 
-import { Translator } from '../components/translator/Translator';
+import { Translator } from "../components/translator/Translator";
 
 import Head from "next/head";
 
@@ -119,7 +119,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
   const renderPreviews = () => {
     const previews: React.ReactNode[] = [];
 
-    for (let i = 0; i < filteredPosts.length;) {
+    for (let i = 0; i < filteredPosts.length; ) {
       if (!isLargeEnoughForHorizontalPosts || i % 4) {
         let els: BlogPost[] = [];
 
@@ -161,11 +161,19 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
           content="Blog posts about web development, the GNU/Linux ecosystem, and computer science in general. Come read my programmer stories!"
         />
         <meta name="robots" content="index, follow" />
+        <link
+          rel="canonical"
+          href={`https://aurelienbrabant.fr/blog`}
+        />
       </Head>
       <Container className={styles.blogHeaderWrapper} limitedWidth={false}>
         <Container className={styles.blogHeader}>
-          <h1><Translator section={blogLanguageSection}>heading</Translator></h1>
-          <h2><Translator section={blogLanguageSection}>sub heading</Translator></h2>
+          <h1>
+            <Translator section={blogLanguageSection}>heading</Translator>
+          </h1>
+          <h2>
+            <Translator section={blogLanguageSection}>sub heading</Translator>
+          </h2>
           <div className={styles.tagList}>
             {postTags.map((tag) => (
               <span

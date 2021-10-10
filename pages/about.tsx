@@ -19,6 +19,7 @@ const About: NextPage = () => {
           content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
         />
         <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://aurelienbrabant.fr/about" />
       </Head>
       <Container
         className={styles.aboutWrapper}

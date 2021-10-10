@@ -157,6 +157,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 				<title>{postData.meta.title}</title>
 				<meta name="description" content={postData.meta.preview} />
 				<meta name="robots" content="index, follow" />
+				<link rel="canonical" href={`https://aurelienbrabant.fr/blog/${postData.id}`} />
 			</Head>
 
 			<Container

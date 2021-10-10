@@ -4,8 +4,8 @@ import Head from "next/head";
 import Image from "next/image";
 import { Container } from "../components/container/container";
 import { Button } from "../components/button/button";
-import ExternalLink from '../components/external-link/ExternalLink';
-import SocialNetworks from '../components/social-networks/SocialNetworks';
+import ExternalLink from "../components/external-link/ExternalLink";
+import SocialNetworks from "../components/social-networks/SocialNetworks";
 
 import { Translator } from "../components/translator/Translator";
 
@@ -100,6 +100,10 @@ const Home: NextPage = () => {
 					content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
 				/>
 				<meta name="robots" content="index, follow" />
+				<link
+					rel="canonical"
+					href={`https://aurelienbrabant.fr`}
+				/>
 			</Head>
 
 			{/* Introduction - Landing page */}
@@ -134,30 +138,43 @@ const Home: NextPage = () => {
 						</h3>
 
 						<p className={styles.activity}>
-							<Translator manual={{
-								'en': (
-								<Fragment>
-									I'm currently learning programming at <ExternalLink href="https://42.fr">42 Paris</ExternalLink>,
-									where I mainly concentrate on C and C++ programming.
-									I'm also building blazing fast, modern and reliable websites using <b>NodeJS</b> and <b>Typescript</b>
-								</Fragment>
-								),
+							<Translator
+								manual={{
+									en: (
+										<Fragment>
+											I'm currently learning programming
+											at{" "}
+											<ExternalLink href="https://42.fr">
+												42 Paris
+											</ExternalLink>
+											, where I mainly concentrate on C
+											and C++ programming. I'm also
+											building blazing fast, modern and
+											reliable websites using{" "}
+											<b>NodeJS</b> and <b>Typescript</b>
+										</Fragment>
+									),
 
-								'fr': (
-								<Fragment>
-										Je suis actuellement étudiant à l'<ExternalLink href="https://42.fr">école 42</ExternalLink>{" "}
-										sur le campus de Paris où j'étudie la programmation, faisant principalement du C et du C++.
-										Je réalise aussi des sites web rapides modernes et fiables à l'aide de <b>NodeJS</b> et de <b>Typescript</b>
-								</Fragment>) 
-							}} />
+									fr: (
+										<Fragment>
+											Je suis actuellement étudiant à l'
+											<ExternalLink href="https://42.fr">
+												école 42
+											</ExternalLink>{" "}
+											sur le campus de Paris où j'étudie
+											la programmation, faisant
+											principalement du C et du C++. Je
+											réalise aussi des sites web rapides
+											modernes et fiables à l'aide de{" "}
+											<b>NodeJS</b> et de{" "}
+											<b>Typescript</b>
+										</Fragment>
+									),
+								}}
+							/>
 						</p>
-						<SocialNetworks
-							className={styles.socials}
-						/>
-
+						<SocialNetworks className={styles.socials} />
 					</div>
-				
-
 				</Container>
 
 				<div className={styles.introductionCurve}>
