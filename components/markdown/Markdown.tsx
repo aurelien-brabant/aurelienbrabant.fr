@@ -1,7 +1,7 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
-import SyntaxHighlighter from "react-syntax-highlighter";
-import syntaxTheme from "react-syntax-highlighter/dist/cjs/styles/hljs/tomorrow-night"
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { tomorrow as syntaxTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
 
 import { textToCSSId } from "../../lib/text_to_css_id";
 

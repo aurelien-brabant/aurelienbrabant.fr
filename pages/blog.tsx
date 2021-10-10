@@ -119,7 +119,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
   const renderPreviews = () => {
     const previews: React.ReactNode[] = [];
 
-    for (let i = 0; i < filteredPosts.length; ++i) {
+    for (let i = 0; i < filteredPosts.length;) {
       if (!isLargeEnoughForHorizontalPosts || i % 4) {
         let els: BlogPost[] = [];
 
@@ -127,7 +127,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
         else
           els = filteredPosts.slice(
             i,
-            i + (i + 3 >= filteredPosts.length ? filteredPosts.length : 3)
+            i + (i + 3 >= filteredPosts.length ? filteredPosts.length - i : 3)
           );
 
         previews.push(
@@ -145,6 +145,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
             <hr className={styles.blogpostSeparator} />
           </Fragment>
         );
+        ++i;
       }
     }
 

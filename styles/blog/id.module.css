@@ -45,6 +45,9 @@
   position: sticky;
   align-self: flex-start;
   z-index: 4;
+  width: 30%;
+  border: 2px #e2725b solid;
+  overflow: auto;
 }
 
 .markdownWrapper
@@ -64,8 +67,6 @@
 
   .sidenav
   {
-    border: 2px #e2725b dashed;
-    border-radius: 5px;
     display: block;
   }
 }

@@ -48,6 +48,7 @@
 	margin-right: .2em;
 	opacity: .4;
 	transition: opacity .2s;
+	font-family: Terminus;
 }
 
 .anchorHeading.separator
@@ -98,11 +99,11 @@
 
 .blockquote
 {
-	border: 3.5px #e2725b solid;
+	border: 2px #e2725b solid;
 	box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 	border-radius: 5px;
 	padding: 5px 10px;
-	margin: 0;
-	font-size: 1.1em;
+	margin: 1.5em 0;
+	font-size: 1em;
 	color: rgba(255, 255, 255, .9);
 }

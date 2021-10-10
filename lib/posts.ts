@@ -24,7 +24,13 @@ export const getPosts = (): BlogPost[] => {
 
 	return fileNames
 		.filter((fileName) => !fileName.startsWith("."))
-		.map((fileName) => getPost(fileName.replace(/\.md$/, '')));
+		.map((fileName) => getPost(fileName.replace(/\.md$/, ''))).sort((a, b) => {
+			if (new Date(a.meta.dateString) < new Date(b.meta.dateString)) {
+				return 1;
+			} else {
+				return -1;
+			}
+		});
 };
 
 export const getPost = (id: string): BlogPost => {
