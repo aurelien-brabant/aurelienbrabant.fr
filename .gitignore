@@ -36,3 +36,5 @@ yarn-error.log*
 robots.txt
 sitemap_local.xml
 
+public/feeds
+*.swp
