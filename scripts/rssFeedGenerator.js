@@ -23,9 +23,10 @@ getBlogpostMeta().forEach((postMeta) => {
     feed.addItem({
         title: postMeta.meta.title,
         id: postMeta.id,
-        link: `/blog/${postMeta.id}`,
+        link: `https://aurelienbrabant.fr/blog/${postMeta.id}`,
         description: postMeta.meta.preview,
         date: new Date(postMeta.meta.dateString),
+        content: postMeta.content
     })
 });
 
