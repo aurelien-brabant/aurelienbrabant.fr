@@ -1,6 +1,6 @@
 .contactWrapper
 {
-  padding-top: 70px;
+  padding-top: 1em;
   background-color: #191b1f;
 }
 
@@ -14,6 +14,7 @@
   color: rgba(255, 255, 255, .95);
   font-size: 2em;
   text-decoration: underline;
+  margin: 0;
 }
 
 .contactContainer p

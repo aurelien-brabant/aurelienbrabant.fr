@@ -1,14 +1,17 @@
 .blogHeaderWrapper {
   background-color: rgb(20, 20, 20);
   min-height: 300px;
-  padding-top: calc(75px + 1em);
   color: #fff;
   text-align: center;
 }
 
 .blogHeader
 {
-  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: inherit;
 }
 
 .tagList
@@ -17,7 +20,6 @@
   flex-wrap: wrap;
   align-content: flex-start;
   justify-content: center;
-  margin-top: auto;
   padding: 5px;
 }
 

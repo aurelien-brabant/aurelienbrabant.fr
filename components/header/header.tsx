@@ -7,6 +7,7 @@ import Link from "next/link";
 import disableScroll from "disable-scroll";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 import { Translator } from "../translator/Translator";
+import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 const Header: React.FC<{}> = () => {
 	const navtabLanguageSection = "navtab";
@@ -49,15 +50,14 @@ const Header: React.FC<{}> = () => {
 							setSelected(tab.id);
 							setIsVisible(false);
 						}}
-						className={`${styles.tab} ${
-							selected === tab.id ? styles.activated : ""
-						} ${isVisible ? styles.visible : ""}`}
+						className={`${styles.tab} ${selected === tab.id ? styles.activated : ""
+							} ${isVisible ? styles.visible : ""}`}
 					>
 						<Link key={tab.id} href={tab.route}>
 							<a>
-							<Translator section={navtabLanguageSection}>
-								{tab.label}
-							</Translator>
+								<Translator section={navtabLanguageSection}>
+									{tab.label}
+								</Translator>
 							</a>
 						</Link>
 					</h1>
@@ -106,6 +106,7 @@ const Header: React.FC<{}> = () => {
 					</Button>
 				</div>
 			</header>
+			<div className={styles.headerOffset} />
 		</React.Fragment>
 	);
 };

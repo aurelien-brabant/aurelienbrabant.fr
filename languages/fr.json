@@ -17,7 +17,8 @@
     "blog": "Blog",
     "home": "Accueil",
     "about": "A propos",
-    "contact": "Contact"
+    "contact": "Contact",
+    "projects": "Projets"
   },
 
   "header": {

@@ -1,9 +1,9 @@
 .aboutWrapper
 {
   background-color: #191b1f;
-  padding-top: 70px;
   font-size: 1.5em;
   padding-bottom: 2em;
+  padding-top: 1em;
 }
 
 .aboutContainer h1
@@ -11,6 +11,7 @@
   color: rgba(255, 255, 255, .95);
   font-size: 2em;
   text-decoration: underline;
+  margin: 0;
 }
 
 .aboutContainer .photo

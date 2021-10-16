@@ -1,0 +1,116 @@
+.projectHeader {
+    padding-top: 1em;
+    min-height: 300px;
+    background-color: rgb(20, 20, 20);
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+}
+
+.projectHeader h1 {
+    margin: 10px 0;
+    font-size: 3em;
+    margin: 0;
+}
+
+.projectCard {
+    max-width: 100%;
+    width: 350px;
+    height: 275px;
+    color: rgba(255, 255, 255, .8);
+}
+
+.projectWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.projectContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: #191b1f;
+}
+
+.image {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+}
+
+.backgroundText {
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    opacity: .9;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    padding: 5px;
+    line-height: 1.5em;
+    transition: opacity .2s;
+}
+
+.backgroundText:hover {
+    opacity: .8;
+}
+
+.backgroundText .technologies > div {
+    background-color: #fff;
+    border-radius: 50%;
+    padding: 10px;
+    min-width: 50px;    
+}
+
+.technologies {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: .5em;
+}
+
+.backgroundText img {
+    max-height: 30px;
+    width: auto;
+}
+
+.sortByTechnology
+{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+    max-width: 600px;
+}
+
+.sortByTechnology > a
+{
+    /*border-bottom: 1px white solid;*/
+    padding: 5px 0;
+    margin: 0 5px;
+    font-family: Terminus;
+    font-size: 1.2em;
+    border-bottom: 2px transparent dotted;
+    transition: border-color .2s;
+}
+
+.sortByTechnology > a:hover, .sortByTechnology > a.selected
+{
+    border-color: #e2725b;
+}

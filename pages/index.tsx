@@ -11,85 +11,11 @@ import { Translator } from "../components/translator/Translator";
 
 import styles from "../styles/Home.module.css";
 import Link from "next/link";
+import { technologies } from "../data/technologies";
 
-type Technology = {
-	name: string;
-	imageUrl: string;
-};
 
 const Home: NextPage = () => {
 	const languageSection = "index";
-
-	const technologies: Technology[] = [
-		{
-			name: "HTML5",
-			imageUrl: "/technologies/html.png",
-		},
-		{
-			name: "CSS3",
-			imageUrl: "/technologies/css.png",
-		},
-		{
-			name: "JavaScript",
-			imageUrl: "/technologies/javascript.png",
-		},
-		{
-			name: "TypeScript",
-			imageUrl: "/technologies/typescript.png",
-		},
-		{
-			name: "NodeJS",
-			imageUrl: "/technologies/nodejs.png",
-		},
-		{
-			name: "NextJS",
-			imageUrl: "/technologies/nextjs.png",
-		},
-		{
-			name: "ReactJS",
-			imageUrl: "/technologies/react.png",
-		},
-		{
-			name: "NestJS",
-			imageUrl: "/technologies/nestjs.svg",
-		},
-		{
-			name: "Docker",
-			imageUrl: "/technologies/docker.png",
-		},
-		{
-			name: "C",
-			imageUrl: "/technologies/c.png",
-		},
-		{
-			name: "C++",
-			imageUrl: "/technologies/cpp.png",
-		},
-		{
-			name: "Git",
-			imageUrl: "/technologies/git.png",
-		},
-		{
-			name: "Vim",
-			imageUrl: "/technologies/vim.png",
-		},
-		{
-			name: "MacOS",
-			imageUrl: "/technologies/apple.png",
-		},
-		{
-			name: "Linux",
-			imageUrl: "/technologies/tux.png",
-		},
-		{
-			name: "Gentoo",
-			imageUrl: "/technologies/gentoo.png",
-		},
-		{
-			name: "Notion",
-			imageUrl: "/technologies/notion.png",
-		},
-	];
 
 	return (
 		<React.Fragment>

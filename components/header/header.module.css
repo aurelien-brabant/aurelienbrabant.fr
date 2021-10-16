@@ -202,3 +202,8 @@
 	opacity: 0.8;
 	z-index: 5;
 }
+
+.headerOffset {
+	height: 60px;
+	background-color: rgb(20, 20, 20);
+}

@@ -1,0 +1,58 @@
+.osWindow {
+    /*display: flex;
+    flex-direction: column;*/
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.osWindow .content {
+    position: relative;
+}
+
+.osWindowDecoration {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #e2725b;
+    background-color: rgb(15, 15, 15);
+    height: 26px;
+    width: 100%;
+    align-items: center;
+    font-size: .7em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-align: center;
+    position: relative;
+    font-family: Terminus;  
+}
+
+.osWindowDecoration h2 {
+    margin: 0;
+    padding: 0;
+}
+
+.osWindowDecoration i {
+    position: absolute;
+    height: 12px;
+    display: inline-block;
+    border-radius: 50%;
+    top: 6px;
+    width: 12px;
+}
+
+.osWindowDecoration .closeButton
+{
+    left: 4px;
+    background-color: #ff5f57;
+}
+
+.osWindowDecoration .minimizeButton {
+    left: 20px;
+    content: " ";
+    background-color: #ffbd2e;
+}
+
+.osWindowDecoration .fullscreenButton {
+    left: 36px;
+    content: " ";
+    background-color: #28ca41;
+}
