@@ -2,18 +2,32 @@
 {
     background-color: #191b1f;
     color: rgba(255, 255, 255, .75);
-    padding-top: .5em;
     padding-bottom: 1em;
 }
 
 .projectWrapper h1, .projectWrapper h2 {
-    margin: 5;
+    margin: 5px;
     text-align: center;
+}
+
+.projectWrapper h2 {
+    font-weight: 400;
+    color: rgb(255, 255, 255 .75);
 }
 
 .projectWrapper h1 {
     font-family: Terminus;
     font-size: 2.5em;
+    margin: 10px 0;
+    color: #e2725b;
+}
+
+.projectWrapper {
+    background-color: rgb(20, 20, 20);
+    padding-top: 2em;
+    padding-bottom: 2em;
+    color: #fff;
+    border-bottom: 2px rgb(240, 240, 240) solid;
 }
 
 .illustrationImg {
@@ -36,6 +50,14 @@
     align-items: center;
     justify-content: center;
     gap: 10px;
+    border-bottom: 2px rgb(240, 240, 240) solid;
+}
+
+.banner > .technologyIcons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .banner > div > img {
@@ -68,13 +90,17 @@
 
 .projectContent {
     font-size: 1.2em;
+    padding-top: 1em;
+    padding-bottom: 1em;
 }
 
 .projectContent h3 {
-    font-size: 1.3em;
-    border-bottom: 2px rgba(255, 255, 255, .1) solid;
-    padding-bottom: .5em;
-    margin: 1.5em 0;
+    font-size: 1.8em;
+    border-bottom: 2px rgba(255, 255, 255, .05) solid;
+    text-transform: uppercase;
+    font-family: Terminus;
+    padding-bottom: .25em;
+    margin: 1.2em 0;
 }
 
 .projectContent > ul {
@@ -86,6 +112,12 @@
 
 .projectContent > ul > li {
     margin: 5px;
+    padding-left: 10px;
+}
+
+.projectContent > ul > li::marker {
+    content: "➪";
+    color: #e2725b;
 }
 
 .projectContent > p {

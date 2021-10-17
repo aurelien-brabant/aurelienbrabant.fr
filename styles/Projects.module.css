@@ -31,6 +31,8 @@
 .projectCardContent {
     width: 350px;
     height: 275px;
+    max-width: 100%;
+    
 }
 
 .projectWrapper {

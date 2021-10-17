@@ -31,12 +31,19 @@ const projects: Project[] = [
 		id: "aurelienbrabant",
 		name: "aurelienbrabant.fr",
 		description: "My own website, built on top of modern web technologies",
-		about: "About my website",
+		about: "My personal website, acting as a blog and a portfolio. Serverless at the moment, but makes use of NextJS to statically build HTML.",
 		technologies: ["HTML5", "CSS3", "NextJS", "JavaScript", "TypeScript", "ReactJS", "NodeJS", "Docker"],
 		githubLink: "https://github.com/aurelien-brabant/aurelienbrabant.fr-v2",
 		tags: ["Web", "Personal"],
 		illustration: "/projects/aurelienbrabant.fr.jpg",
-		learned: []
+		learned: [
+			"ReactJS TypeScript integration",
+			"Multi language system with partial support",
+			"Pure CSS, no framework",
+			"Search engine optimization: canonical/meta tags, automated sitemap generation",
+			"RSS feed automatic generation for the blog",
+			"Blog rendered from a list of markdown posts with syntax highlighting support",
+		]
 	},
 	{
 		id: "github-finder",

@@ -41,6 +41,7 @@ const Projects: NextPage = () => {
             <Container
                 className={styles.projectHeader}
                 limitedWidth={false}
+                
             >
                 <h1> My projects </h1>
                 <h2> Explore {filteredProjects.length} project{filteredProjects.length > 1 && 's'} {selectedTechnology !== '' && `sorted by "${selectedTechnology}"`} </h2>

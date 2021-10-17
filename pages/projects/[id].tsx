@@ -41,19 +41,19 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
         <Head>
             <title> {project.name} | Aurelien Brabant </title>
         </Head>
-        <Container fillPageHeight={true}
+        <Container className={styles.projectWrapper} edgePadded={false} limitedWidth={false}>
+                <h1> {project.name} </h1>
+                <h2> {project.description} </h2>
+        </Container>
+        <Container
         edgePadded={false}
         limitedWidth={false}
         className={styles.projectContainer}
         >
-            <Container className={styles.projectWrapper} edgePadded={false} limitedWidth={false}>
-                <h1> {project.name} </h1>
-                <h2> {project.description} </h2>
-            </Container>
             <div className={styles.banner} style={{backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75) ), url('${project.illustration}')`}}>
-                <div>
+                <div className={styles.technologyIcons}>
                 { project.technologies.map(technology => (
-                    <img src={getTechnology(technology)?.imageUrl} />
+                    <img key={technology} src={getTechnology(technology)?.imageUrl} alt={technology} />
                 ))}
                 </div>
                 { project.githubLink && (
@@ -77,7 +77,6 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
                 <ul>
                     {project.learned.map(learned => <li>{learned}</li>)}
                 </ul>
-                <h3> Ressources </h3>
             </Container>
         </Container>
         </React.Fragment>
