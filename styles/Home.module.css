@@ -3,8 +3,8 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	padding-top: 1.5em;
 	padding-bottom: 15px;
-	padding-top: 100px;
 	position: relative;
 }
 
@@ -15,10 +15,11 @@
 }
 
 .introduction h1 {
-	font-size: 2em;
+	font-size: 2.5em;
 	font-weight: 700;
 	letter-spacing: 2px;
 	text-align: center;
+	font-family: Terminus;
 }
 
 .introduction h3 {
@@ -298,7 +299,7 @@
 	background-color: #fff;
 	text-align: center;
 	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-	transition: box-shadow 0.2s;
+	transition: box-shadow 0.2s;	
 }
 
 .technologiesContainer > .cta > a:hover {
