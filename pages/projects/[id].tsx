@@ -75,7 +75,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
                 </p>
                 <h3> Technologies and concepts learned</h3>
                 <ul>
-                    {project.learned.map(learned => <li>{learned}</li>)}
+                    {project.learned.map(learned => <li key={learned}>{learned}</li>)}
                 </ul>
             </Container>
         </Container>

@@ -20,7 +20,7 @@ const Projects: NextPage = () => {
 
     useEffect(() => {
         setFilteredProjects(sanitizedProjects);
-    }, [])
+    }, [sanitizedProjects])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {
@@ -47,7 +47,7 @@ const Projects: NextPage = () => {
                 <h2> Explore {filteredProjects.length} project{filteredProjects.length > 1 && 's'} {selectedTechnology !== '' && `sorted by "${selectedTechnology}"`} </h2>
                 <div className={styles.sortByTechnology}>
                     {technologies.filter(technology => !technology.isTool).map(technology => (
-                        <a onClick={() => { filterProjectsByTechnology(technology.name.toLowerCase()) }}
+                        <a key={technology.name} onClick={() => { filterProjectsByTechnology(technology.name.toLowerCase()) }}
                             className={technology.name.toLocaleLowerCase() == selectedTechnology ? styles.selected : ''}
                         >{technology.name}</a>
                     ))}
@@ -58,7 +58,7 @@ const Projects: NextPage = () => {
                 <Container>
                     <div className={styles.projectWrapper} >
                         {filteredProjects.map(project => (
-                            <Fade>
+                            <Fade key={project.id}>
                                 <OsWindow title={project.name} className={styles.projectCard} contentClassName={styles.projectCardContent}>
                                     <Link href={`/projects/${project.id}`}><a>
                                     <div className={styles.image} style={{ backgroundImage: `url('${project.illustration}')` }} />
@@ -66,7 +66,7 @@ const Projects: NextPage = () => {
                                         <h3>{project.description}</h3>
                                         <div className={styles.technologies}>
                                             {project.technologies.map(technology =>
-                                                <div><img key={technology} alt={`made with ${technology}`} src={getTechnology(technology)?.imageUrl} /></div>
+                                                <div key={technology}><img alt={`made with ${technology}`} src={getTechnology(technology)?.imageUrl} /></div>
                                             )}
                                         </div>
                                     </div>
