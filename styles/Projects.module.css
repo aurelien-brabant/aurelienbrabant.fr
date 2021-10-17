@@ -103,6 +103,7 @@
 
 .sortByTechnology
 {
+    margin-top: 1em;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -112,13 +113,13 @@
 
 .sortByTechnology > a
 {
-    /*border-bottom: 1px white solid;*/
-    padding: 5px 0;
+    padding-bottom: 5px;
     margin: 0 5px;
     font-family: Terminus;
     font-size: 1.2em;
     border-bottom: 2px transparent dotted;
     transition: border-color .2s;
+    text-transform: uppercase;
 }
 
 .sortByTechnology > a:hover, .sortByTechnology > a.selected
