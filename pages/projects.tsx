@@ -20,7 +20,8 @@ const Projects: NextPage = () => {
 
     useEffect(() => {
         setFilteredProjects(sanitizedProjects);
-    }, [sanitizedProjects])
+    //eslint-disable-next-line
+    }, [])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {
