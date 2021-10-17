@@ -1,4 +1,5 @@
 const fs = require("fs");
+const projects = require('../data/projects.cjs');
 
 const basename = (s) => {
 	const split = s.split('/');
@@ -9,7 +10,8 @@ const basename = (s) => {
 module.exports = () => {
 	const excludedPageNames = [
 		'soon',
-		'blog/[id]'
+		'blog/[id]',
+		'projects/[id]'
 	];
 
 	const fileObj = {};
@@ -28,6 +30,16 @@ module.exports = () => {
 				lastModified: fileStat.mtime
 			};
 		})
+	}
+
+	const getProjectsPaths = () => {
+		const fileStat = './data/projects.cjs';
+		for (const project of projects) {
+			fileObj[`/projects/${project.id}`] = {
+				page: `/projects/${project.id}`,
+				lastModified: fileStat.mtime
+			};
+		}
 	}
 
 	const walkSync = dir => {
@@ -62,6 +74,8 @@ module.exports = () => {
 	walkSync("pages/");
 
 	getPostPaths();
+
+	getProjectsPaths();
 
 	return fileObj;
 };
