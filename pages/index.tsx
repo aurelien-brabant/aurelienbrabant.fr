@@ -6,13 +6,20 @@ import { Container } from "../components/container/container";
 import { Button } from "../components/button/button";
 import ExternalLink from "../components/external-link/ExternalLink";
 import SocialNetworks from "../components/social-networks/SocialNetworks";
-
 import { Translator } from "../components/translator/Translator";
-
-import styles from "../styles/Home.module.css";
 import Link from "next/link";
 import { technologies } from "../data/technologies";
 
+import styles from "../styles/Home.module.css";
+
+/*
+** Technologies identified by these names will not be displayed in the technologies.
+** Names are expected to be lowercase.
+*/
+
+const excludedTechnologies = [
+	"nasm", "wordpress"
+];
 
 const Home: NextPage = () => {
 	const languageSection = "index";
@@ -133,7 +140,8 @@ const Home: NextPage = () => {
 						</Translator>
 					</h3>
 					<div className={styles.technologies}>
-						{technologies.map((technology) => (
+						{technologies.filter(technology => !excludedTechnologies.includes(technology.name.toLowerCase()))
+						.map((technology) => (
 							<div key={technology.name}>
 								<img
 									alt={technology.name}
