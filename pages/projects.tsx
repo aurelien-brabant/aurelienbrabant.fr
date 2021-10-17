@@ -7,6 +7,8 @@ import projects from '../data/projects';
 import { technologies, getTechnology } from '../data/technologies';
 import Fade from 'react-reveal/Fade'
 import type { Project } from '../data/projects';
+import Link from "next/link";
+import Head from "next/head";
 
 const Projects: NextPage = () => {
     const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
@@ -33,13 +35,15 @@ const Projects: NextPage = () => {
 
     return (
         <React.Fragment>
+            <Head>
+                <title> Projects | Aurelien Brabant </title>
+            </Head>
             <Container
                 className={styles.projectHeader}
                 limitedWidth={false}
             >
                 <h1> My projects </h1>
-                <h2> Explore my {projects.length} projects </h2>
-                <h5> Sort by technology: </h5>
+                <h2> Explore {filteredProjects.length} project{filteredProjects.length > 1 && 's'} {selectedTechnology !== '' && `sorted by "${selectedTechnology}"`} </h2>
                 <div className={styles.sortByTechnology}>
                     {technologies.filter(technology => !technology.isTool).map(technology => (
                         <a onClick={() => { filterProjectsByTechnology(technology.name.toLowerCase()) }}
@@ -54,7 +58,8 @@ const Projects: NextPage = () => {
                     <div className={styles.projectWrapper} >
                         {filteredProjects.map(project => (
                             <Fade>
-                                <OsWindow title={project.name} contentClassName={styles.projectCard}>
+                                <OsWindow title={project.name} className={styles.projectCard} contentClassName={styles.projectCardContent}>
+                                    <Link href={`/projects/${project.id}`}><a>
                                     <div className={styles.image} style={{ backgroundImage: `url('${project.illustration}')` }} />
                                     <div className={styles.backgroundText}>
                                         <h3>{project.description}</h3>
@@ -64,6 +69,7 @@ const Projects: NextPage = () => {
                                             )}
                                         </div>
                                     </div>
+                                    </a></Link>
                                 </OsWindow>
                             </Fade>
                         ))}

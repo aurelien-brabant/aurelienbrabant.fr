@@ -112,7 +112,7 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 						{el.title}
 					</div>
 					{
-						/* render subheadings recursively */
+						/* render subheadings recursiveltch the list of blog */
 						el.nested.length > 0 && (
 							<TOCHeadings
 								headings={el.nested}

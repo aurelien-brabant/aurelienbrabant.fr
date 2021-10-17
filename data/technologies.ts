@@ -32,7 +32,7 @@ export const technologies: Technology[] = [
     },
     {
         name: "NextJS",
-        imageUrl: "/technologies/nextjs.png",
+        imageUrl: "/technologies/nextjs.svg",
         isTool: false,
     },
     {
