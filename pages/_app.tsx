@@ -6,7 +6,7 @@ import type { AppProps } from 'next/app'
 import {Layout} from '../components/layout/Layout'
 import Router from 'next/router';
 import NProgress from 'nprogress';
-import '../public/nprogress.css';
+import '../styles/nprogress.css';
 
 import LanguageProvider from '../context/language/LanguageProvider';
 
@@ -26,4 +26,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   )
 }
 
-export default MyApp
+export default MyApp;

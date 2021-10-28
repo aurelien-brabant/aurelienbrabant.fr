@@ -9,8 +9,8 @@ import SocialNetworks from "../components/social-networks/SocialNetworks";
 import { Translator } from "../components/translator/Translator";
 import Link from "next/link";
 import { technologies } from "../data/technologies";
-
 import styles from "../styles/Home.module.css";
+import {useMediaQuery} from "react-responsive";
 
 /*
 ** Technologies identified by these names will not be displayed in the technologies.
@@ -23,6 +23,10 @@ const excludedTechnologies = [
 
 const Home: NextPage = () => {
 	const languageSection = "index";
+
+	const isPhone = useMediaQuery({
+		query: '(max-width: 600px)'
+	});
 
 	return (
 		<React.Fragment>
@@ -170,8 +174,8 @@ const Home: NextPage = () => {
 			<Container
 				limitedWidth={false}
 				backgroundImage={{
-					url: "/spyglass.jpeg",
-					rgbaColor: "rgba(0, 0, 0, 0.85)",
+					url: "/landing_blog.jpeg",
+					rgbaColor: "rgba(0, 0, 0, 0.7)",
 				}}
 				className={styles.blogSection}
 			>

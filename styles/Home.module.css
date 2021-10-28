@@ -4,7 +4,7 @@
 	justify-content: center;
 	align-items: center;
 	padding-top: 1.5em;
-	padding-bottom: 15px;
+	padding-bottom: 3em;
 	position: relative;
 }
 
@@ -49,29 +49,38 @@
 }
 
 .introductionCurve {
-	position: absolute;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	overflow: hidden;
-	line-height: 0;
-	transform: rotate(180deg);
+	display: none;
 }
 
-.introductionCurve svg {
-	position: relative;
-	display: block;
-	width: calc(127% + 1.3px);
-	height: 141px;
+@media only screen and (min-width: 600px) {
+	.introductionCurve {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+		transform: rotate(180deg);
+	}
+
+	.introductionCurve svg {
+		position: relative;
+		display: block;
+		width: calc(127% + 1.3px);
+		height: 141px;
+	}
+
+	.shape-fill {
+		fill: #141414;
+	}
+
+	.introductionCurve .shapeFill {
+		fill: #b55b49;
+	}
 }
 
-.shape-fill {
-	fill: #141414;
-}
 
-.introductionCurve .shapeFill {
-	fill: #b55b49;
-}
 
 .backgroundCareer {
 	color: #fff;
