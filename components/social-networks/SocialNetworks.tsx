@@ -2,7 +2,7 @@ import React from "react";
 
 import ExternalLink from '../external-link/ExternalLink';
 
-import styles from './social-networks.module.css';
+import styles from '../../styles/social-networks.module.scss';
 
 type SocialNetworksProps = {
 	className?: string;
