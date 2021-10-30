@@ -1,11 +1,14 @@
 import React from "react";
+import Image from 'next/image';
 import Head from "next/head";
 import { NextPage } from "next";
 import Link from "next/link";
 import { Container } from "../components/container/container";
 import { Translator } from "../components/translator/Translator";
-import styles from "../styles/About.module.css";
+import styles from "../styles/about.module.scss";
 import ExternalLink from "../components/external-link/ExternalLink";
+
+import aurelienPhoto from '../public/aurelien_nid_aigle.jpg';
 
 const About: NextPage = () => {
   const aboutLanguageSection = "about";
@@ -29,13 +32,9 @@ const About: NextPage = () => {
         <Container className={styles.aboutContainer}>
           <h1>
             {" "}
-            <Translator section={aboutLanguageSection}>heading</Translator>
+            <span>~</span><Translator section={aboutLanguageSection}>heading</Translator><span>~</span>
           </h1>
-          <img
-            src="/aurelien_nid_aigle.jpg"
-            alt={"photo of Aurélien Brabant"}
-            className={styles.photo}
-          />
+          
           <p>
             <Translator section={aboutLanguageSection}>p1</Translator>
           </p>
@@ -45,11 +44,16 @@ const About: NextPage = () => {
           <p>
             <Translator section={aboutLanguageSection}>p3</Translator>
           </p>
-
-          <p>
+         <p>
             <Translator section={aboutLanguageSection}>p4</Translator>
           </p>
-
+<Image
+            src={aurelienPhoto}
+            alt={"photo of Aurélien Brabant"}
+            layout="responsive"
+            className={styles.photo}
+          />
+ 
           <p>
             <Translator section={aboutLanguageSection}>p5</Translator>
           </p>

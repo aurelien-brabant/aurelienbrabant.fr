@@ -1,0 +1,204 @@
+@use 'core';
+
+.mainContainer {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	padding-top: 1.5em;
+	padding-bottom: 3em;
+	position: relative;
+
+	.introduction {
+		text-align: center;
+		color: #fff;
+		font-size: 1.2em;
+
+		h1 {
+			font-size: 2em;
+			font-weight: 700;
+			letter-spacing: 2px;
+			text-align: center;
+			font-family: Terminus;
+		}
+
+		h3 {
+			font-weight: 400;
+			opacity: 0.8;
+		}
+
+		.activity {
+			color: #818189;
+			max-width: 700px;
+			margin: 0 auto;
+			font-size: 0.9em;
+			line-height: 1.4em;
+
+			a {
+				color: core.$primary-color;
+				transition: opacity 0.2s;
+
+				&:hover {
+					opacity: 0.9;
+				}
+			}
+		}
+	}
+}
+
+.introductionCurve {
+	display: none;
+}
+
+@media only screen and (min-width: 600px) {
+	.introductionCurve {
+		display: block;
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		overflow: hidden;
+		line-height: 0;
+		transform: rotate(180deg);
+	}
+
+	.introductionCurve svg {
+		position: relative;
+		display: block;
+		width: calc(127% + 1.3px);
+		height: 141px;
+	}
+
+	.shape-fill {
+		fill: #141414;
+	}
+
+	.introductionCurve .shapeFill {
+		fill: #b55b49;
+	}
+}
+
+.backgroundTechnologies {
+	color: #fff;
+	padding-top: 2em;
+	padding-bottom: 1em;
+	background-color: #b55b49;
+	text-align: center;
+}
+
+.socials {
+	padding: 1.5em 0;
+	fill: rgba(255, 255, 255, 0.9);
+}
+
+.aurelienPhoto {
+	border-radius: 50%;
+}
+
+/**
+ * TECHNOLOGIES SECTION
+ */
+
+.technologiesContainer {
+	margin: 0 auto;
+	padding-bottom: 3em;
+
+	h2,
+	h3 {
+		margin: 0.5em;
+		text-align: center;
+	}
+
+	h2 {
+		font-size: 2.2em;
+		text-transform: uppercase;
+	}
+
+	h3 {
+		font-size: 1.5em;
+		color: core.$light-text-color;
+	}
+
+	.technologies {
+		padding: 2em 0;
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+
+		> div {
+			padding: 10px;
+			background-color: #fff;
+			margin: 0.5em;
+			border-radius: 50%;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+
+			&:hover img {
+				transform: scale(1.1);
+				transition: 0.3s;
+			}
+
+			img {
+				height: auto;
+				max-height: 70px;
+				margin: 1em;
+			}
+		}
+	}
+
+	.cta {
+		h2 {
+			font-size: 2em;
+			text-align: center;
+		}
+
+		a {
+			padding: 10px;
+			font-size: 1.4em;
+			display: block;
+			margin: 0 auto;
+			max-width: 300px;
+			border-radius: 5px;
+			color: #000;
+			background-color: #fff;
+			text-align: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: box-shadow 0.2s;
+
+			&:hover {
+				box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			}
+		}
+	}
+}
+
+.blogSection {
+	min-height: 400px;
+	display: flex;
+
+	.textCtaSection {
+		padding-top: 1.5em;
+		padding-bottom: 1.5em;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		color: #fff;
+
+		h2 {
+			font-size: 2.5em;
+			text-transform: uppercase;
+			font-weight: 400;
+			letter-spacing: 2px;
+		}
+
+		p {
+			font-size: 1.2em;
+		}
+
+		.ctaButton {
+			margin: 1em 0;
+			font-size: 1.2em;
+			background-color: core.$primary-color;
+		}
+	}
+}

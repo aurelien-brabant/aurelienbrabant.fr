@@ -18,7 +18,7 @@ import { getPosts, getPost, BlogPost } from "../../lib/posts";
 
 import { Container } from "../../components/container/container";
 
-import styles from "../../styles/blog/id.module.css";
+import styles from '../../styles/blogpost.module.scss';
 
 type NestedHeading = {
 	id: string | undefined;

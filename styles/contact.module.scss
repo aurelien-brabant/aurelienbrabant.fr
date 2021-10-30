@@ -1,0 +1,46 @@
+@use 'core';
+
+.contactWrapper
+{
+  padding-top: 1.5em;
+  background-color: core.$background-color;
+}
+
+.contactContainer
+{
+  font-size: 1.15em;
+
+  h1 {
+    color: core.$text-color;
+    text-align: center;
+    text-transform: uppercase;
+
+    span {
+      color: core.$primary-color;
+      margin: 0 .3em;
+    }
+  }
+
+  p {
+    color: core.$text-color;
+
+    a {
+      color: core.$primary-color;
+      margin: 0 2px;
+      padding-bottom: 3px;
+      transition: .2s;
+      border-bottom: 1px transparent dotted;
+
+      &:hover {
+        border-color: core.$primary-color;
+      }
+    }
+  }
+
+  .socials
+  {
+    fill: rgba(255, 255, 255, .9);
+  }
+}
+
+

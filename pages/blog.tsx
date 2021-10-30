@@ -2,7 +2,7 @@ import React, { useState, Fragment } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Container } from "../components/container/container";
-import styles from "../styles/Blog.module.css";
+import styles from "../styles/blog.module.scss";
 import { getPosts, BlogPost, getPostsTag } from "../lib/posts";
 import { readtimeInMinutes } from "../lib/readtime";
 import { useMediaQuery } from "react-responsive";
@@ -57,7 +57,12 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       >
         <Link href={`/blog/${post.id}`}>
           <a>
-            <img
+            <div className={styles.imageBack}>
+              <h3> Click to read </h3>
+              <h5> about {readtimeInMinutes(post.content)} min. </h5>
+            </div>
+            <Image
+              layout="fill"
               src={`/blog/covers/${post.id}.png`}
               alt={`${post.id}'s cover image`}
             />
@@ -142,7 +147,6 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
         previews.push(
           <Fragment key={filteredPosts[i].id}>
             <BlogPostPreview post={filteredPosts[i]} vertical={false} />
-            <hr className={styles.blogpostSeparator} />
           </Fragment>
         );
         ++i;
@@ -171,9 +175,9 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
           <h1>
             <Translator section={blogLanguageSection}>heading</Translator>
           </h1>
-          <h2>
+          <h3>
             <Translator section={blogLanguageSection}>sub heading</Translator>
-          </h2>
+          </h3>
           <div className={styles.tagList}>
             {postTags.map((tag) => (
               <span
@@ -191,7 +195,6 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       </Container>
       <Container
         className={styles.mainContainer}
-        fillPageHeight={true}
         limitedWidth={false}
       >
         <Container>

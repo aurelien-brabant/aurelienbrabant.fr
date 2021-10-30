@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./footer.module.css";
+import styles from "../../styles/footer.module.scss";
 import { Container } from "../container/container";
 import { Translator } from "../translator/Translator";
 import SocialNetworks from '../../components/social-networks/SocialNetworks';
@@ -55,13 +55,18 @@ export const Footer: React.FC<FooterInputProps> = () => {
 						</ul>
 					</div>
 					<FooterBlock title="Solutions" items={[]} />
-					<FooterBlock title="Contact" items={[]} />
+					<FooterBlock title="Contact" items={[
+						{
+							label: "hi@aurelienbrabant.fr",
+							route: "mailto:hi@aurelienbrabant.fr"
+						}
+					]} />
 				</div>
 				<SocialNetworks
 					className={styles.socials}
 				/>
 				<div className={styles.footerContactInfo}>
-					<p>hi@aurelienbrabant.fr</p>
+					<small>&copy; Copyright {new Date().getFullYear()}, aurelienbrabant.fr</small>
 				</div>
 			</Container>
 		</div>

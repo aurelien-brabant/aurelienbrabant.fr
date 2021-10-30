@@ -5,7 +5,7 @@ import { Container } from "../components/container/container";
 import { Translator } from "../components/translator/Translator";
 import SocialNetworks from "../components/social-networks/SocialNetworks";
 
-import styles from "../styles/Contact.module.css";
+import styles from "../styles/contact.module.scss";
 
 const ContactPage: NextPage = () => {
   const contactLanguageSection = "contact";
@@ -26,9 +26,10 @@ const ContactPage: NextPage = () => {
         className={styles.contactWrapper}
         fillPageHeight={true}
       >
-        <Container className={styles.contactContainer}>
-          <h1>
-            <Translator section={contactLanguageSection}>heading</Translator>
+       <Container className={styles.contactContainer}>
+            <h1>
+            {" "}
+            <span>~</span><Translator section={contactLanguageSection}>heading</Translator><span>~</span>
           </h1>
           <p>
             <Translator section={contactLanguageSection}>thank you</Translator>

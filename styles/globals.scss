@@ -1,0 +1,89 @@
+@use 'core';
+
+@font-face {
+  font-family: "Terminus";
+  src: url("/fonts/terminus/TerminusTTF-4.49.1.ttf");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Terminus";
+  src: url("/fonts/terminus/TerminusTTF-Bold-4.49.1.ttf");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: .3em 0;
+}
+
+h1, h2 {
+  font-size: bold;
+  font-family: Terminus;
+}
+
+h3, h4, h5, h6 {
+  font-size: normal;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+/* increase base font-size when screen gets wider */
+
+html, body
+{
+  font-family: core.$font-stack;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-size: 12px;
+}
+
+@media only screen and (max-width: core.$breakpoint-md)
+{
+  html, body
+  {
+    font-size: 1kpx;
+  }
+}
+
+@media only screen and (max-width: core.$breakpoint-lg)
+{
+  html, body
+  {
+    font-size: 16px;
+  }
+}
+
+@media only screen and (min-width: core.$breakpoint-lg)
+{
+  html, body {
+    font-size: 18px;
+  }
+}
+
+/* scrollbar styles */
+
+body::-webkit-scrollbar-thumb {
+  background-color: core.$primary-color;
+  border-radius: 5px;
+}
+
+body::-webkit-scrollbar {
+      background-color: core.$secondary-color;
+      width: .75vw;
+}

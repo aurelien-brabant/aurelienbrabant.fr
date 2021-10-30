@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import '@fontsource/roboto'
 import '@fontsource/roboto/700.css'
 import type { AppProps } from 'next/app'

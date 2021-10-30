@@ -1,0 +1,21 @@
+/* fonts */
+$font-stack: Liberation Sans, Roboto;
+
+/* colors */
+
+$primary-color: #e2725b;
+$secondary-color: rgb(20, 20, 20);
+$background-color: #191b1f;
+$text-color: rgba(255, 255, 255, .95);
+$light-text-color: rgba(255, 255, 255, .75);
+
+/* breakpoints */
+
+$breakpoint-sm: 600px;
+$breakpoint-md: 1100px;
+$breakpoint-lg: 1500px;
+
+:export {
+  primaryColor: $primary-color;
+  secondaryColor: $secondary-color;
+}

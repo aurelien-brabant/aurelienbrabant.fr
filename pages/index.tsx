@@ -1,32 +1,30 @@
-import type { NextPage } from "next";
-import React, { Fragment } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import { Container } from "../components/container/container";
-import { Button } from "../components/button/button";
-import ExternalLink from "../components/external-link/ExternalLink";
-import SocialNetworks from "../components/social-networks/SocialNetworks";
-import { Translator } from "../components/translator/Translator";
-import Link from "next/link";
-import { technologies } from "../data/technologies";
-import styles from "../styles/Home.module.css";
-import {useMediaQuery} from "react-responsive";
+import type { NextPage } from 'next'
+import React, { Fragment } from 'react'
+import Head from 'next/head'
+import Image from 'next/image'
+import { Container } from '../components/container/container'
+import { Button } from '../components/button/button'
+import ExternalLink from '../components/external-link/ExternalLink'
+import SocialNetworks from '../components/social-networks/SocialNetworks'
+import { Translator } from '../components/translator/Translator'
+import Link from 'next/link'
+import { technologies } from '../data/technologies'
+import styles from '../styles/index.module.scss'
+import { useMediaQuery } from 'react-responsive'
 
 /*
-** Technologies identified by these names will not be displayed in the technologies.
-** Names are expected to be lowercase.
-*/
+ ** Technologies identified by these names will not be displayed in the technologies.
+ ** Names are expected to be lowercase.
+ */
 
-const excludedTechnologies = [
-	"nasm", "wordpress"
-];
+const excludedTechnologies = ['nasm', 'wordpress']
 
 const Home: NextPage = () => {
-	const languageSection = "index";
+	const languageSection = 'index'
 
 	const isPhone = useMediaQuery({
-		query: '(max-width: 600px)'
-	});
+		query: '(max-width: 600px)',
+	})
 
 	return (
 		<React.Fragment>
@@ -37,25 +35,22 @@ const Home: NextPage = () => {
 					content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
 				/>
 				<meta name="robots" content="index, follow" />
-				<link
-					rel="canonical"
-					href={`https://aurelienbrabant.fr`}
-				/>
+				<link rel="canonical" href={`https://aurelienbrabant.fr`} />
 			</Head>
 
 			{/* Introduction - Landing page */}
 
 			<Container
 				backgroundImage={{
-					url: "/landing_bg.jpeg",
-					rgbaColor: "rgba(20, 20, 20, 0.97)",
+					url: '/landing_bg.jpeg',
+					rgbaColor: 'rgba(20, 20, 20, 0.97)',
 				}}
 				limitedWidth={false}
 			>
 				<Container className={styles.mainContainer}>
 					<Image
-						src={"/aurelien.jpg"}
-						alt={"Photo of Aurelien"}
+						src={'/aurelien.jpg'}
+						alt={'Photo of Aurelien'}
 						height={250}
 						width={250}
 						className={styles.aurelienPhoto}
@@ -80,15 +75,16 @@ const Home: NextPage = () => {
 									en: (
 										<Fragment>
 											I'm currently learning programming
-											at{" "}
+											at{' '}
 											<ExternalLink href="https://42.fr">
-												42 Paris
+												<b className="bold">42 Paris</b>
 											</ExternalLink>
 											, where I mainly concentrate on C
 											and C++ programming. I'm also
 											building blazing fast, modern and
-											reliable websites using{" "}
-											<b>NodeJS</b> and <b>Typescript</b>
+											reliable websites using{' '}
+											<b className="bold">NodeJS</b> and{' '}
+											<b className="bold">Typescript</b>
 										</Fragment>
 									),
 
@@ -97,14 +93,14 @@ const Home: NextPage = () => {
 											Je suis actuellement étudiant à l'
 											<ExternalLink href="https://42.fr">
 												école 42
-											</ExternalLink>{" "}
+											</ExternalLink>{' '}
 											sur le campus de Paris où j'étudie
 											la programmation, faisant
 											principalement du C et du C++. Je
 											réalise aussi des sites web rapides
-											modernes et fiables à l'aide de{" "}
-											<b>NodeJS</b> et de{" "}
-											<b>Typescript</b>
+											modernes et fiables à l'aide de{' '}
+											<b className="bold">NodeJS</b> et de{' '}
+											<b className="bold">Typescript</b>
 										</Fragment>
 									),
 								}}
@@ -131,7 +127,7 @@ const Home: NextPage = () => {
 
 			{/* TECHNOLOGIES */}
 
-			<Container className={styles.backgroundCareer} limitedWidth={false}>
+			<Container className={styles.backgroundTechnologies} limitedWidth={false}>
 				<Container className={styles.technologiesContainer}>
 					<h2>
 						<Translator section={languageSection}>
@@ -144,15 +140,21 @@ const Home: NextPage = () => {
 						</Translator>
 					</h3>
 					<div className={styles.technologies}>
-						{technologies.filter(technology => !excludedTechnologies.includes(technology.name.toLowerCase()))
-						.map((technology) => (
-							<div key={technology.name}>
-								<img
-									alt={technology.name}
-									src={technology.imageUrl}
-								/>
-							</div>
-						))}
+						{technologies
+							.filter(
+								(technology) =>
+									!excludedTechnologies.includes(
+										technology.name.toLowerCase()
+									)
+							)
+							.map((technology) => (
+								<div key={technology.name}>
+									<img
+										alt={technology.name}
+										src={technology.imageUrl}
+									/>
+								</div>
+							))}
 					</div>
 					<div className={styles.cta}>
 						<h2>
@@ -174,8 +176,8 @@ const Home: NextPage = () => {
 			<Container
 				limitedWidth={false}
 				backgroundImage={{
-					url: "/landing_blog.jpeg",
-					rgbaColor: "rgba(0, 0, 0, 0.7)",
+					url: '/landing_blog.jpeg',
+					rgbaColor: 'rgba(0, 0, 0, 0.7)',
 				}}
 				className={styles.blogSection}
 			>
@@ -200,7 +202,7 @@ const Home: NextPage = () => {
 				</Container>
 			</Container>
 		</React.Fragment>
-	);
-};
+	)
+}
 
-export default Home;
+export default Home

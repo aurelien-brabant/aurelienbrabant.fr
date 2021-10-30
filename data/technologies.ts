@@ -16,6 +16,11 @@ export const technologies: Technology[] = [
         isTool: false,
     },
     {
+        name: "SASS",
+        imageUrl: "/technologies/sass.png",
+        isTool: false
+    },
+    {
         name: "JavaScript",
         imageUrl: "/technologies/javascript.png",
         isTool: false,

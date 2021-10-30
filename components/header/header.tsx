@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
+import Image from 'next/image';
 import { Button } from "../button/button";
-import styles from "./header.module.css";
+import styles from "../../styles/header.module.scss";
 import { navtabs } from "../../data/navtabs";
 import { useRouter } from "next/dist/client/router";
 import Link from "next/link";
 import disableScroll from "disable-scroll";
 import LanguageSwitcher from "../language-switcher/LanguageSwitcher";
 import { Translator } from "../translator/Translator";
-import style from "react-syntax-highlighter/dist/esm/styles/hljs/a11y-dark";
 
 const Header: React.FC<{}> = () => {
 	const navtabLanguageSection = "navtab";
@@ -65,16 +65,18 @@ const Header: React.FC<{}> = () => {
 			</nav>
 			<header className={styles.header}>
 				<div className={styles.logoWrapper}>
-					<img
+					<Image
 						className={styles.rudder}
-						src="/rudder.svg"
+						width="35"
+						height="35"
+						src="/rudder.png"
 						alt={"rudder logo"}
 						onClick={() => {
 							setIsVisible(!isVisible);
 						}}
 					/>
 					<Link href="/">
-						<a className={styles.logo}>Aurélien Brabant</a>
+						<a className={styles.logo}>AB</a>
 					</Link>
 				</div>
 				<ul>

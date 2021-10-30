@@ -1,0 +1,173 @@
+@use 'core';
+
+.projectHeader {
+    padding-top: 1em;
+    min-height: 300px;
+    background-color: core.$secondary-color;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 2em;
+
+    h1 {
+        margin: .4em 0;
+        font-size: 2.2em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+    }
+    
+    .sortByTechnology {
+        margin-top: 1em;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1em;
+        max-width: 600px;
+
+        > a {
+            padding-bottom: 5px;
+            margin: 0 5px;
+            font-family: Terminus;
+            font-size: 1em;
+            border-bottom: 2px transparent dotted;
+            transition: border-color 0.2s;
+            text-transform: uppercase;
+
+            &.selected,
+            &:hover {
+                border-color: core.$primary-color;
+            }
+        }
+    }
+}
+
+.projectContainer {
+    padding-top: 2em;
+    padding-bottom: 2em;
+    background-color: core.$background-color;
+}
+
+.projectsWrapper {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+.projectCard {
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    max-width: 100%;
+    color: core.$text-color;
+    border: 5px core.$secondary-color solid;
+    transition: 0.2s;
+
+    &:hover {
+        transform: scale(1.02);
+    }
+
+    .cardDecoration {
+        background-color: core.$secondary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: core.$primary-color;
+        height: 26px;
+        width: 100%;
+        align-items: center;
+        font-size: 0.6em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        text-align: center;
+        position: relative;
+        font-family: Terminus;
+
+        i {
+            position: absolute;
+            height: 12px;
+            display: inline-block;
+            border-radius: 50%;
+            top: 6px;
+            width: 12px;
+        }
+
+        .closeButton {
+            left: 4px;
+            background-color: #ff5f57;
+        }
+
+        .minimizeButton {
+            left: 20px;
+            content: ' ';
+            background-color: #ffbd2e;
+        }
+
+        .fullscreenButton {
+            left: 36px;
+            content: ' ';
+            background-color: #28ca41;
+        }
+    }
+
+    .projectCardContent {
+        width: 350px;
+        height: 275px;
+        max-width: 100%;
+        position: relative;
+    }
+
+    .image {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-size: cover;
+        background-position: center;
+        z-index: 0;
+    }
+
+    .backgroundText {
+        max-height: 100%;
+        text-align: center;
+        z-index: 1;
+        position: absolute;
+        opacity: 0.92;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        left: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: core.$secondary-color;
+        line-height: 1.5em;
+        transition: opacity 0.2s;
+
+        &:hover {
+            opacity: 0.82;
+        }
+
+        .technologies {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.5em;
+
+            > div {
+                background-color: #fff;
+                border-radius: 50%;
+                padding: 10px;
+                min-width: 50px;
+            }
+
+            img {
+                max-height: 30px;
+                width: auto;
+            }
+        }
+    }
+}
