@@ -80,8 +80,6 @@
 
 .backgroundTechnologies {
 	color: #fff;
-	padding-top: 2em;
-	padding-bottom: 1em;
 	background-color: #b55b49;
 	text-align: center;
 }
@@ -101,46 +99,52 @@
 
 .technologiesContainer {
 	margin: 0 auto;
-	padding-bottom: 3em;
+	transform: translateY(-3.3em);
 
-	h2,
-	h3 {
-		margin: 0.5em;
-		text-align: center;
-	}
-
-	h2 {
+	.rotatedTitle
+	{
+		margin: 0;
+		background-color: core.$primary-color;
+		padding: 6px;
+		border-radius: 2px;
 		font-size: 2.2em;
 		text-transform: uppercase;
+			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	}
 
 	h3 {
 		font-size: 1.5em;
-		color: core.$light-text-color;
+		color: core.$text-color;
+		margin-top: 1.5em;
 	}
 
 	.technologies {
-		padding: 2em 0;
+		padding: .5em 0;
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: center;
 
 		> div {
-			padding: 10px;
-			background-color: #fff;
-			margin: 0.5em;
+			padding: 1.2em;
+			background-color: core.$background-color;
+			border: 3px core.$primary-color solid;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 			border-radius: 50%;
+			margin: 1em;
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 			&:hover img {
-				transform: scale(1.1);
-				transition: 0.3s;
+				transition: transform .8s;
+				transform: rotatez(360deg);
 			}
 
 			img {
+				margin: 0 auto;
+				display: block;
 				height: auto;
-				max-height: 70px;
-				margin: 1em;
+				width: 70px;
 			}
 		}
 	}
@@ -152,14 +156,16 @@
 		}
 
 		a {
+			text-transform: uppercase;
 			padding: 10px;
-			font-size: 1.4em;
+			font-size: 1.1em;
 			display: block;
 			margin: 0 auto;
 			max-width: 300px;
-			border-radius: 5px;
-			color: #000;
-			background-color: #fff;
+			border-radius: 2px;
+			border: 3px core.$primary-color solid;
+			color: core.$primary-color;
+			background-color: core.$background-color;
 			text-align: center;
 			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 			transition: box-shadow 0.2s;
@@ -196,9 +202,23 @@
 		}
 
 		.ctaButton {
-			margin: 1em 0;
-			font-size: 1.2em;
+			text-transform: uppercase;
+			padding: 10px;
+			font-size: 1.1em;
+			display: block;
+			margin: 0 auto;
+			max-width: 300px;
+			border-radius: 2px;
+			border: 3px core.$background-color solid;
+			color: core.$background-color;
 			background-color: core.$primary-color;
+			text-align: center;
+			box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+			transition: box-shadow 0.2s;
+
+			&:hover {
+				box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+			}
 		}
 	}
 }

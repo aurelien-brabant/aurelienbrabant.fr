@@ -127,9 +127,12 @@ const Home: NextPage = () => {
 
 			{/* TECHNOLOGIES */}
 
-			<Container className={styles.backgroundTechnologies} limitedWidth={false}>
+			<Container
+				className={styles.backgroundTechnologies}
+				limitedWidth={false}
+			>
 				<Container className={styles.technologiesContainer}>
-					<h2>
+					<h2 className={styles.rotatedTitle}>
 						<Translator section={languageSection}>
 							technologies heading
 						</Translator>
@@ -157,11 +160,11 @@ const Home: NextPage = () => {
 							))}
 					</div>
 					<div className={styles.cta}>
-						<h2>
+						<h3>
 							<Translator section={languageSection}>
 								technologies get in touch
 							</Translator>
-						</h2>
+						</h3>
 						<Link href="/contact">
 							<a>
 								<Translator section={languageSection}>
@@ -194,11 +197,13 @@ const Home: NextPage = () => {
 						</Translator>
 					</p>
 
-					<Button href="/blog" className={styles.ctaButton}>
-						<Translator section={languageSection}>
-							blog btn
-						</Translator>
-					</Button>
+					<Link href="/blog">
+						<a className={styles.ctaButton}>
+							<Translator section={languageSection}>
+								blog btn
+							</Translator>
+						</a>
+					</Link>
 				</Container>
 			</Container>
 		</React.Fragment>

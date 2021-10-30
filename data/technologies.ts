@@ -7,112 +7,82 @@ export type Technology = {
 export const technologies: Technology[] = [
     {
         name: "HTML5",
-        imageUrl: "/technologies/html.png",
+        imageUrl: "/technos/html.svg",
         isTool: false,
     },
     {
         name: "CSS3",
-        imageUrl: "/technologies/css.png",
+        imageUrl: "/technos/css3.svg",
         isTool: false,
     },
     {
         name: "SASS",
-        imageUrl: "/technologies/sass.png",
+        imageUrl: "/technos/sass.svg",
         isTool: false
     },
     {
         name: "JavaScript",
-        imageUrl: "/technologies/javascript.png",
+        imageUrl: "/technos/javascript.svg",
         isTool: false,
     },
     {
         name: "TypeScript",
-        imageUrl: "/technologies/typescript.png",
+        imageUrl: "/technos/typescript.svg",
         isTool: false,
     },
     {
         name: "NodeJS",
-        imageUrl: "/technologies/nodejs.png",
-        isTool: false,
-    },
-    {
-        name: "NextJS",
-        imageUrl: "/technologies/nextjs.svg",
+        imageUrl: "/technos/nodejs.svg",
         isTool: false,
     },
     {
         name: "ReactJS",
-        imageUrl: "/technologies/react.png",
+        imageUrl: "/technos/reactjs.svg",
         isTool: false,
     },
     {
         name: "NestJS",
-        imageUrl: "/technologies/nestjs.svg",
+        imageUrl: "/technos/nestjs.svg",
         isTool: false,
     },
     {
         name: "Docker",
-        imageUrl: "/technologies/docker.png",
+        imageUrl: "/technos/docker.svg",
         isTool: false,
     },
     {
         name: "C",
-        imageUrl: "/technologies/c.png",
+        imageUrl: "/technos/c.svg",
         isTool: false,
     },
     {
         name: "C++",
-        imageUrl: "/technologies/cpp.png",
+        imageUrl: "/technos/cpp.svg",
+        isTool: false,
+    },
+    {
+        name: "Linux",
+        imageUrl: "/technos/linux.svg",
         isTool: false,
     },
     {
         name: "Git",
-        imageUrl: "/technologies/git.png",
+        imageUrl: "/technos/git.svg",
         isTool: true,
     },
     {
         name: "Vim",
-        imageUrl: "/technologies/vim.png",
+        imageUrl: "/technos/vim.svg",
         isTool: true,
-    },
-    {
-        name: "MacOS",
-        imageUrl: "/technologies/apple.png",
-        isTool: true,
-    },
-    {
-        name: "Linux",
-        imageUrl: "/technologies/tux.png",
-        isTool: false,
-    },
-    {
-        name: "Gentoo",
-        imageUrl: "/technologies/gentoo.png",
-        isTool: true,
-    },
-    {
-        name: "Notion",
-        imageUrl: "/technologies/notion.png",
-        isTool: true,
-    },
-    {
-        name: "NASM",
-        imageUrl: "/technologies/nasm.png",
-        isTool: false,
-    },
-    {
-        name: "wordpress",
-        imageUrl: "/technologies/wordpress.png",
-        isTool: false,
     },
     {
         name: "bash",
-        imageUrl: "/technologies/bash.png",
+        imageUrl: "/technos/bash.svg",
         isTool: false,
     },
     {
         name: "MongoDB",
-        imageUrl: "/technologies/mongodb.png",
+        imageUrl: "/technos/mongodb.svg",
         isTool: false
     }
 ];

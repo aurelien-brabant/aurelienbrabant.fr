@@ -32,7 +32,7 @@ const projects: Project[] = [
 		name: "aurelienbrabant.fr",
 		description: "My own website, built on top of modern web technologies",
 		about: "My personal website, acting as a blog and a portfolio. Serverless at the moment, but makes use of NextJS to statically build HTML.",
-		technologies: ["HTML5", "CSS3", "SASS", "NextJS", "JavaScript", "TypeScript", "ReactJS", "NodeJS", "Docker"],
+		technologies: ["HTML5", "CSS3", "SASS", "JavaScript", "TypeScript", "ReactJS", "NodeJS", "Docker"],
 		githubLink: "https://github.com/aurelien-brabant/aurelienbrabant.fr-v2",
 		tags: ["Web", "Personal"],
 		illustration: "/projects/aurelienbrabant.fr.jpg",
@@ -103,7 +103,7 @@ const projects: Project[] = [
 		description: "A DevOps project from the 42 curriculum, making use of docker, wordpress, nginx and much more",
 		about: `Inception is a project from the 42 school's common-core curriculum, which's goal is to make us learn about application containerization through
 		the use of docker and docker-compose. This project basically setups a bunch of interdependent services that all run in a separate docker container.`,
-		technologies: ["docker", "bash", "wordpress", "Linux"],
+		technologies: ["docker", "bash", "Linux"],
 		tags: ["42 common-core", "DevOps"],
 		illustration: "/projects/inception.jpg",
 		learned: [
@@ -181,7 +181,7 @@ const projects: Project[] = [
 		description: "An introduction to x86_64 assembly",
 		about: `A project from the 42 school common core curriculum that aims at making us understand how things work at the lowest level a programmer can approach.
 		This project is basically about reimplementing some functions from the C library, but using the x86_64 assembly language instead.`,
-		technologies: ["NASM"],
+		technologies: [],
 		tags: ["42 common-core"],
 		illustration: "/projects/libasm.jpg",
 		learned: [
