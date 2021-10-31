@@ -47,7 +47,7 @@ const Home: NextPage = () => {
 			<Container
 				limitedWidth={false}
 			>
-				<BackgroundImage src={landingBackground} objectFit={"contain"} backgroundColor={"rgba(20, 20, 20, .92)"} />
+				<BackgroundImage src={landingBackground} backgroundColor={"rgba(20, 20, 20, .92)"} />
 				<Container className={styles.mainContainer}>
 					<Image
 						src={aurelienPhoto}
