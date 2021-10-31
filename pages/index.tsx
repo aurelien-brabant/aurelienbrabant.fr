@@ -182,7 +182,7 @@ const Home: NextPage = () => {
 				limitedWidth={false}
 				className={styles.blogSection}
 			>
-				<BackgroundImage src={landingBlog} objectFit={"contain"} backgroundColor={"rgba(20, 20, 20, .90)"} />
+				<BackgroundImage src={landingBlog} backgroundColor={"rgba(20, 20, 20, .90)"} />
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
 						<Translator section={languageSection}>
