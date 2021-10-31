@@ -8,7 +8,7 @@ type ContainerProps = {
 	backgroundImage?: ContainerBackgroundImage;
 	className?: string | undefined;
 	limitedWidth?: boolean; 
-	size: 'sm' | 'md' | 'lg';
+	size?: 'sm' | 'md' | 'lg';
 }
 
 interface ContainerBackgroundImage {
