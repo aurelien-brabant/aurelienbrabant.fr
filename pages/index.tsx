@@ -3,7 +3,6 @@ import React, { Fragment } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container } from '../components/container/container'
-import { Button } from '../components/button/button'
 import ExternalLink from '../components/external-link/ExternalLink'
 import SocialNetworks from '../components/social-networks/SocialNetworks'
 import { Translator } from '../components/translator/Translator'
@@ -11,8 +10,11 @@ import Link from 'next/link'
 import { technologies } from '../data/technologies'
 import styles from '../styles/index.module.scss'
 import { useMediaQuery } from 'react-responsive'
+import BackgroundImage from '../components/BackgroundImage'
 
-import aurelienPhoto from '../public/aurelien.webp';
+import aurelienPhoto from '../public/aurelien.webp'
+import landingBackground from '../public/landing_bg.webp'
+import landingBlog from '../public/landing_blog.webp'
 
 /*
  ** Technologies identified by these names will not be displayed in the technologies.
@@ -43,12 +45,9 @@ const Home: NextPage = () => {
 			{/* Introduction - Landing page */}
 
 			<Container
-				backgroundImage={{
-					url: '/landing_bg.webp',
-					rgbaColor: 'rgba(20, 20, 20, 0.97)',
-				}}
 				limitedWidth={false}
 			>
+				<BackgroundImage src={landingBackground} objectFit={"contain"} backgroundColor={"rgba(20, 20, 20, .92)"} />
 				<Container className={styles.mainContainer}>
 					<Image
 						src={aurelienPhoto}
@@ -181,12 +180,9 @@ const Home: NextPage = () => {
 
 			<Container
 				limitedWidth={false}
-				backgroundImage={{
-					url: '/landing_blog.webp',
-					rgbaColor: 'rgba(0, 0, 0, 0.7)',
-				}}
 				className={styles.blogSection}
 			>
+				<BackgroundImage src={landingBlog} objectFit={"contain"} backgroundColor={"rgba(20, 20, 20, .90)"} />
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
 						<Translator section={languageSection}>
