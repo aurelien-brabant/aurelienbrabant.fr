@@ -18,7 +18,7 @@ const projects: Project[] = [
 		about: "A RESTFul API built with the NestJS TypeScript framework, originally designed for a web application designed to plan and schedule nocturn events.",
 		technologies: ["TypeScript", "NestJS", "Docker"],
 		tags: ["Personal"],
-		illustration: "/projects/partylens_api.jpg",
+		illustration: "/projects/partylens_api.webp",
 		learned: [
 			"TypeScript",
 			"NestJS",
@@ -35,7 +35,7 @@ const projects: Project[] = [
 		technologies: ["HTML5", "CSS3", "SASS", "JavaScript", "TypeScript", "ReactJS", "NextJS", "NodeJS", "Docker"],
 		githubLink: "https://github.com/aurelien-brabant/aurelienbrabant.fr-v2",
 		tags: ["Web", "Personal"],
-		illustration: "/projects/aurelienbrabant.fr.jpg",
+		illustration: "/projects/aurelienbrabant.fr.webp",
 		learned: [
 			"ReactJS TypeScript integration",
 			"Multi language system with partial support",
@@ -52,7 +52,7 @@ const projects: Project[] = [
 		about: "A React project that plays with the GitHub API which I did when learning about React.",
 		technologies: ["HTML5", "JavaScript", "ReactJS"],
 		tags: ["Personal"],
-		illustration: "/projects/github-finder.jpg",
+		illustration: "/projects/github-finder.webp",
 		learned: [
 			"ReactJS fundamentals: class/functional components, lifecycle, state, props, re-render",
 			"Build a modern ReactJS program architecture",
@@ -69,7 +69,7 @@ const projects: Project[] = [
 		about: "A simple app that stores a list of contacts and implements user authentication, built with the MERN stack.",
 		technologies: ["HTML5", "JavaScript", "ReactJS", "NodeJS", "MongoDB"],
 		tags: ["Personal"],
-		illustration: "/projects/contact-keeper.jpg",
+		illustration: "/projects/contact-keeper.webp",
 		learned: [
 			"Build a RESTful API",
 			"Process HTTP requests using the ExpressJS HTTP Framework",
@@ -89,7 +89,7 @@ const projects: Project[] = [
 		using ExpressJS, plain JavaScript, and MongoDB. While the codebase is really dirty (it was my first real web app after all), I think that the overall result wasn't too bad!`,
 		technologies: ["HTML5", "NodeJS", "JavaScript", "MongoDB"],
 		tags: ["Web", "Personal"],
-		illustration: "/projects/myfiche.png",
+		illustration: "/projects/myfiche.webp",
 		learned: [
 			"JavaScripts basics",
 			"ExpressJS JavaScript HTTP framework",
@@ -105,7 +105,7 @@ const projects: Project[] = [
 		the use of docker and docker-compose. This project basically setups a bunch of interdependent services that all run in a separate docker container.`,
 		technologies: ["docker", "bash", "Linux"],
 		tags: ["42 common-core", "DevOps"],
-		illustration: "/projects/inception.jpg",
+		illustration: "/projects/inception.webp",
 		learned: [
 			"Basic Linux system administration concepts",
 			"Shell scripting",
@@ -130,7 +130,7 @@ const projects: Project[] = [
 
 		technologies: ["C"],
 		tags: ["42 common-core"],
-		illustration: "/projects/libft.jpg",
+		illustration: "/projects/libft.webp",
 		learned: [
 			"C programming fundamentals and advanced techniques such as '\"generic\" programming",
 			"Basic understanding and implementation of sorting algorithms",
@@ -147,7 +147,7 @@ const projects: Project[] = [
 		technologies: ["C"],
 		githubLink: "https://github.com/aurelien-brabant/minishell",
 		tags: ["42 common-core"],
-		illustration: "/projects/minishell.jpg",
+		illustration: "/projects/minishell.webp",
 		learned: [
 			"User input handling, featuring lexing and parsing",
 			"Inter process communication (IPC) through the use of UNIX pipes",
@@ -165,7 +165,7 @@ const projects: Project[] = [
 		visualize sprites.`,
 		technologies: ["C"],
 		tags: ["42 common-core"],
-		illustration: "/projects/cub3d.png",
+		illustration: "/projects/cub3d.webp",
 		learned: [
 			"Introduction to graphical programming using the XOrg version of the minilibX library",
 			"Basic application of math concepts such as trigonometry in order to perform raycasting",
@@ -183,7 +183,7 @@ const projects: Project[] = [
 		This project is basically about reimplementing some functions from the C library, but using the x86_64 assembly language instead.`,
 		technologies: [],
 		tags: ["42 common-core"],
-		illustration: "/projects/libasm.jpg",
+		illustration: "/projects/libasm.webp",
 		learned: [
 			"x86_64 assembly language: Intel syntax, Netwide Assembler (NASM) compiler"
 		]
@@ -197,7 +197,7 @@ const projects: Project[] = [
 		by reimplementing some of the standard library data structures such as vector, stack and map`,
 		technologies: ["C++"],
 		tags: ["Personal"],
-		illustration: "/projects/ft_containers.jpg",
+		illustration: "/projects/ft_containers.webp",
 		githubLink: "https://github.com/aurelien-brabant/ft_containers",
 		learned: [
 			"Sequence containers (vector)",

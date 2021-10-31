@@ -63,7 +63,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
             </div>
             <Image
               layout="fill"
-              src={`/blog/covers/${post.id}.png`}
+              src={`/blog/covers/${post.id}.webp`}
               alt={`${post.id}'s cover image`}
             />
           </a>

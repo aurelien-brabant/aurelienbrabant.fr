@@ -12,6 +12,8 @@ import { technologies } from '../data/technologies'
 import styles from '../styles/index.module.scss'
 import { useMediaQuery } from 'react-responsive'
 
+import aurelienPhoto from '../public/aurelien.webp';
+
 /*
  ** Technologies identified by these names will not be displayed in the technologies.
  ** Names are expected to be lowercase.
@@ -42,14 +44,14 @@ const Home: NextPage = () => {
 
 			<Container
 				backgroundImage={{
-					url: '/landing_bg.jpeg',
+					url: '/landing_bg.webp',
 					rgbaColor: 'rgba(20, 20, 20, 0.97)',
 				}}
 				limitedWidth={false}
 			>
 				<Container className={styles.mainContainer}>
 					<Image
-						src={'/aurelien.jpg'}
+						src={aurelienPhoto}
 						alt={'Photo of Aurelien'}
 						height={250}
 						width={250}
@@ -179,7 +181,7 @@ const Home: NextPage = () => {
 			<Container
 				limitedWidth={false}
 				backgroundImage={{
-					url: '/landing_blog.jpeg',
+					url: '/landing_blog.webp',
 					rgbaColor: 'rgba(0, 0, 0, 0.7)',
 				}}
 				className={styles.blogSection}

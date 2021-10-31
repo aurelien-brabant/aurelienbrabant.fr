@@ -48,7 +48,7 @@ to do with it: just be aware that there's a serious alternative growing up.
 
 **PS**: if you're running a modern version of the [Gnome desktop environement](https://www.gnome.org/), you're likely running on Wayland.
 
-![Wayland (left) VS X Window System (right)](x11-vs-wayland.jpg)
+![Wayland (left) VS X Window System (right)](x11-vs-wayland.webp)
 
 # Hands on the minilibx: basic setup
 

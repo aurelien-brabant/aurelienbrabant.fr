@@ -31,7 +31,7 @@ As an exemple, let's say we want to draw a line that has the following endpoints
 
 The following is what is going to be rendered on the window:
 
-![](line-drawing.png)
+![](line-drawing.webp)
 
 What we get is an horizontal line taking all the width of the screen (we went from x=0 to x=1920), with a top margin of 100 pixels (the two points have
 the same y coordinate, 100, therefore the line is drawn on the 100th row).
@@ -56,7 +56,7 @@ Finally, we need to tell the minilibx what is going to be the color of the pixel
 
 ## Encoding a color, according to the True Color standard
 
-![](colors.png)
+![](colors.webp)
 
 Several ways of representing colors for computer graphics exist. The minilibx is complying to the **true color** standard.
 Here's the definition of what the true color standard is, according to [techopedia](https://www.techopedia.com/definition/496/true-color):
@@ -177,7 +177,7 @@ respectively, which gives us the center of the window. The color is specified in
 
 Try to run this code. You should notice a small red pixel on the center of the window. That's it, here is our first pixel!
 
-![](pixel-put.png)
+![](pixel-put.webp)
 
 ### A small check to be safe
 
@@ -252,7 +252,7 @@ by value here.
 These `render_rect` function calls will display two rectangles: one in the upper left corner of the window (red), and the other
 in the bottom right corner (green).
 
-![](rectangles.png)
+![](rectangles.webp)
 
 ## Drawbacks of our approach
 
@@ -567,7 +567,7 @@ We then need to push the updated image on the window, which is done using `mlx_p
 of the image are (0, 0) because it is covering the whole window. The `mlx_put_image_to_window` will push the image
 as well as the changes done to it (if any) at each frame.
 
-![](final-rectangles.png)
+![](final-rectangles.webp)
 
 See what we have now ? Awesome!
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import { readtimeInMinutes } from "../../lib/readtime";
 
 import ReactMarkdown from "react-markdown";
+import aurelienPhoto from '../../public/aurelien.webp';
 
 import {
 	CodeBlock as MarkdownCodeBlock,
@@ -177,7 +178,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 					<hr className={styles.separator} />
 					<div className={styles.metablock}>
 						<Image
-							src={"/aurelien.jpg"}
+							src={aurelienPhoto}
 							alt={"photo of the author"}
 							width={40}
 							height={40}
@@ -203,7 +204,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 						</div>
 					</div>
 					<img
-						src={`/blog/covers/${postData.id}.png`}
+						src={`/blog/covers/${postData.id}.webp`}
 						alt={`blogpost's cover`}
 						className={styles.postImage}
 					/>

@@ -33,7 +33,7 @@ functions **hooks**.
 Take a look at the flowchart below. I tried to summarize briefly how the whole thing works by reading
 the source code directly.
 
-![](mlx-loop-flowchart.png)
+![](mlx-loop-flowchart.webp)
 
 As you can see, it is somewhat simple. Now that you've an understanding of how the event loop works, let's
 figure out how to register the events using the minilibx API.

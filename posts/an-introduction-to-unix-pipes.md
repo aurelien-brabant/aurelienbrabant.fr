@@ -63,7 +63,7 @@ on the operating system.
 As you may know, each time a process is created when running a command from the command line,
 three of them are automatically bound to the process:
 
-![](fd_inheritance.png)
+![](fd_inheritance.webp)
 
 As we said before, file descriptors are local to a process, which means
 that each process has its own set of file descriptors. However, it is perfectly
