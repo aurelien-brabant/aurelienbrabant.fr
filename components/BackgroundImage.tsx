@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styles from '../styles/background-image.module.scss'
 
 type BackgroundImageProps = {
-    src: string | StaticImageData | undefined;
+    src: string | StaticImageData | undefined
     objectFit?: 'fill' | 'contain' | 'cover' | 'none' | 'scale-down'
     backgroundColor?: string
 }
@@ -23,14 +23,14 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
                 />
             )}
             <div className={styles.imageBackground}>
-                <Image src={src} layout="fill" objectFit="cover" />
+                {src && <Image src={src} layout="fill" objectFit={objectFit} />}
             </div>
         </React.Fragment>
     )
 }
 
 BackgroundImage.defaultProps = {
-    objectFit: 'fill',
+    objectFit: 'cover',
 }
 
 export default BackgroundImage
