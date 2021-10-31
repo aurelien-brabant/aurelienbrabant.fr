@@ -119,10 +119,15 @@
 	}
 
 	.technologies {
+		overflow-x: scroll;
 		padding: .5em 0;
 		display: flex;
-		flex-wrap: wrap;
-		justify-content: center;
+
+		@media only screen and (min-width: core.$breakpoint-sm) {
+			overflow-x: auto;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
 
 		> div {
 			padding: 1.2em;
