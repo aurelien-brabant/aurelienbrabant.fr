@@ -1,6 +1,6 @@
-import React, {ReactNode} from 'react';
+import React from 'react';
 
-import styles from "./container.module.css";
+import styles from "../../styles/container.module.scss";
 
 type ContainerProps = {
 	fillPageHeight?: boolean;
@@ -8,6 +8,7 @@ type ContainerProps = {
 	backgroundImage?: ContainerBackgroundImage;
 	className?: string | undefined;
 	limitedWidth?: boolean; 
+	size: 'sm' | 'md' | 'lg';
 }
 
 interface ContainerBackgroundImage {
@@ -16,7 +17,7 @@ interface ContainerBackgroundImage {
 	opacity?: string;
 }
 
-export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, edgePadded, backgroundImage, className, limitedWidth }) =>
+export const Container: React.FC<ContainerProps> = ({ children, size, fillPageHeight, edgePadded, backgroundImage, className, limitedWidth }) =>
 	{
 	const buildClassNameFromProps = (): string => {
 		const classNames: string[] = [ styles.container ];
@@ -27,6 +28,8 @@ export const Container: React.FC<ContainerProps> = ({ children, fillPageHeight, 
 		if (className) classNames.push(className);
 
 		if (limitedWidth) classNames.push(styles.limitedWidth);
+
+		if (size) classNames.push(styles[size]);
 
 		return classNames.join(' ');
 	}
@@ -68,4 +71,5 @@ Container.defaultProps = {
 	edgePadded: true,
 	backgroundImage: undefined,
 	limitedWidth: true,
+	size: 'md',
 }

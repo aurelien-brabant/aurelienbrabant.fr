@@ -1,0 +1,62 @@
+@use 'core';
+
+.container {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	position: relative;
+	z-index: 3;
+	background-size: cover !important;
+	background-position: center !important;
+
+	@media only screen and (min-width: core.$breakpoint-sm) {
+		&.sm.limitedWidth {
+			width: 70%;
+		}
+
+		&.md.limitedWidth {
+			width: 80%;
+		}
+
+		&.lg.limitedWidth {
+			width: 95%;
+		}
+	}
+
+	@media only screen and (min-width: core.$breakpoint-md) {
+		&.sm.limitedWidth {
+			width: 60%;
+		}
+		
+		&.md.limitedWidth {
+			width: 70%;
+		}
+
+		&.lg.limitedWidth {
+			width: 85%;
+		}
+	}
+
+	@media only screen and (min-width: core.$breakpoint-lg) {
+		&.sm.limitedWidth {
+			width: 55%;
+		}
+
+		&.md.limitedWidth {
+			width: 65%;
+		}
+
+		&.lg.limitedWidth {
+			width: 75%;
+		}
+	}
+}
+
+.container.edgePadded {
+	padding-left: 0.3em;
+	padding-right: 0.3em;
+}
+
+.container.fillPageHeight {
+	min-height: 100vh;
+}

@@ -78,7 +78,7 @@ const Projects: NextPage = () => {
                 </div>
             </Container>
             <Container limitedWidth={false} className={styles.projectContainer}>
-                <Container>
+                <Container size={"lg"}>
                     <div className={styles.projectsWrapper}>
                         {filteredProjects.map((project) => (
                             <Fade key={project.id}>

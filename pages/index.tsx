@@ -92,9 +92,9 @@ const Home: NextPage = () => {
 
 									fr: (
 										<Fragment>
-											Je suis actuellement étudiant à l'
+											Je suis actuellement étudiant à {" "}
 											<ExternalLink href="https://42.fr">
-												école 42
+												l &#39; école 42
 											</ExternalLink>{' '}
 											sur le campus de Paris où j'étudie
 											la programmation, faisant
@@ -102,7 +102,7 @@ const Home: NextPage = () => {
 											réalise aussi des sites web rapides
 											modernes et fiables à l'aide de{' '}
 											<b className="bold">NodeJS</b> et de{' '}
-											<b className="bold">Typescript</b>
+											<b className="bold">Typescript</b>🚀
 										</Fragment>
 									),
 								}}
@@ -132,6 +132,7 @@ const Home: NextPage = () => {
 			<Container
 				className={styles.backgroundTechnologies}
 				limitedWidth={false}
+				edgePadded={false}
 			>
 				<Container className={styles.technologiesContainer}>
 					<h2 className={styles.rotatedTitle}>

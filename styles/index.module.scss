@@ -10,15 +10,17 @@
 	position: relative;
 
 	.introduction {
-		text-align: center;
 		color: #fff;
 		font-size: 1.2em;
+
+		h1, h3 {
+			text-align: center;
+		}
 
 		h1 {
 			font-size: 2em;
 			font-weight: 700;
 			letter-spacing: 2px;
-			text-align: center;
 			font-family: Terminus;
 		}
 

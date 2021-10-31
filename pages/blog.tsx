@@ -196,6 +196,7 @@ const Blog: React.FC<{ posts: BlogPost[]; postTags: string[] }> = ({
       <Container
         className={styles.mainContainer}
         limitedWidth={false}
+        size={'lg'}
       >
         <Container>
           {/*
