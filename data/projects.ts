@@ -32,7 +32,7 @@ const projects: Project[] = [
 		name: "aurelienbrabant.fr",
 		description: "My own website, built on top of modern web technologies",
 		about: "My personal website, acting as a blog and a portfolio. Serverless at the moment, but makes use of NextJS to statically build HTML.",
-		technologies: ["HTML5", "CSS3", "SASS", "JavaScript", "TypeScript", "ReactJS", "NodeJS", "Docker"],
+		technologies: ["HTML5", "CSS3", "SASS", "JavaScript", "TypeScript", "ReactJS", "NextJS", "NodeJS", "Docker"],
 		githubLink: "https://github.com/aurelien-brabant/aurelienbrabant.fr-v2",
 		tags: ["Web", "Personal"],
 		illustration: "/projects/aurelienbrabant.fr.jpg",

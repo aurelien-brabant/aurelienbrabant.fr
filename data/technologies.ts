@@ -41,6 +41,11 @@ export const technologies: Technology[] = [
         isTool: false,
     },
     {
+        name: "NextJS",
+        imageUrl: "/technos/nextjs.svg",
+        isTool: false
+    },
+    {
         name: "NestJS",
         imageUrl: "/technos/nestjs.svg",
         isTool: false,
