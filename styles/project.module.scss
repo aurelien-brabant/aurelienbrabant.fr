@@ -15,25 +15,28 @@
 
     h1,
     h2 {
-        margin: 5px;
+        margin: 5px 0;
         text-align: center;
     }
 
     h1 {
-        font-family: Terminus;
-        font-size: 2.5em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
         margin: 10px 0;
         color: core.$primary-color;
     }
 
     h2 {
+        font-style: italic;
         font-weight: 400;
+        font-family: core.$font-stack;
         color: core.$light-text-color;
     }
 }
 
 .banner {
-    min-height: 150px;
+    padding: 1.2em;
+    height: 180px;
     width: 100%;
     background-position: center;
     background-attachment: fixed;
@@ -61,8 +64,8 @@
 
         img {
             height: auto;
-            width: 50px;
-            margin: 0 5px;
+            width: 2.3rem;
+            margin: 0 .5em;
         }
     }
 

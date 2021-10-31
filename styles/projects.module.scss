@@ -24,12 +24,11 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
-        gap: 1em;
         max-width: 600px;
 
         > a {
+            margin: .4em;
             padding-bottom: 5px;
-            margin: 0 5px;
             font-family: Terminus;
             font-size: 1em;
             border-bottom: 2px transparent dotted;
@@ -54,7 +53,6 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1em;
 }
 
 .projectCard {
@@ -63,6 +61,7 @@
     color: core.$text-color;
     border: 5px core.$secondary-color solid;
     transition: 0.2s;
+    margin: .5em;
 
     &:hover {
         transform: scale(1.02);
@@ -155,9 +154,10 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 0.5em;
+            margin-top: 1em;
 
             img {
+                margin: 0 .4em;
                 width: 30px;
                 height: auto;
             }
