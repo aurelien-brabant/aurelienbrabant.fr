@@ -9,6 +9,7 @@ import Link from 'next/link'
 import Head from 'next/head'
 
 import styles from '../styles/projects.module.scss'
+import BackgroundImage from '../components/BackgroundImage'
 
 const Projects: NextPage = () => {
     const [filteredProjects, setFilteredProjects] = useState<Project[]>([])
@@ -98,12 +99,7 @@ const Projects: NextPage = () => {
                                     >
                                         <Link href={`/projects/${project.id}`}>
                                             <a>
-                                                <div
-                                                    className={styles.image}
-                                                    style={{
-                                                        backgroundImage: `url('${project.illustration}')`,
-                                                    }}
-                                                />
+                                                <BackgroundImage src={project.illustration} backgroundColor={'rgba(20, 20, 20, .9)'} />
                                                 <div
                                                     className={
                                                         styles.backgroundText

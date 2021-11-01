@@ -22,9 +22,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
                     style={{ backgroundColor }}
                 />
             )}
-            <div className={styles.imageBackground}>
                 {src && <Image src={src} layout="fill" objectFit={objectFit} />}
-            </div>
         </React.Fragment>
     )
 }
