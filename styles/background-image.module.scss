@@ -12,4 +12,9 @@
 
 .colorBackground {
     z-index: 2;
+    transition: opacity .4s;
+    
+    &:hover {
+        opacity: .9;
+    }
 }

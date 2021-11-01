@@ -35,6 +35,8 @@
 }
 
 .banner {
+    position: relative;
+    z-index: 11500;
     padding: 1.2em;
     height: 180px;
     width: 100%;
@@ -46,6 +48,12 @@
     align-items: center;
     justify-content: center;
     border-bottom: 2px rgb(240, 240, 240) solid;
+
+
+    .bannerContent {
+        position: relative;
+        z-index: 4;
+    }
 
     .illustrationImg {
         display: block;
