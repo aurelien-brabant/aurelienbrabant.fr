@@ -85,7 +85,7 @@ const Home: NextPage = () => {
 											building blazing fast, modern and
 											reliable websites using{' '}
 											<b className="bold">NodeJS</b> and{' '}
-											<b className="bold">Typescript</b>
+											<b className="bold">Typescript</b> 🚀
 										</Fragment>
 									),
 
@@ -101,7 +101,7 @@ const Home: NextPage = () => {
 											réalise aussi des sites web rapides
 											modernes et fiables à l'aide de{' '}
 											<b className="bold">NodeJS</b> et de{' '}
-											<b className="bold">Typescript</b>🚀
+											<b className="bold">Typescript</b> 🚀
 										</Fragment>
 									),
 								}}

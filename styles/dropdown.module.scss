@@ -1,0 +1,79 @@
+@use 'core';
+
+.dropdown {
+    transition: 0.3s opacity;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    div {
+        cursor: pointer;
+    }
+
+    &.hover {
+        ul {
+            min-width: 100%;
+            border: 1px rgba(255, 255, 255, 0.025) solid;
+            margin: 0;
+            padding: 1em 0.5em;
+            opacity: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transform: translateY(105%);
+            transition: opacity 0.2s;
+            position: absolute;
+            border-bottom: 3px core.$primary-color solid;
+            bottom: 0;
+            left: 0;
+
+            li {
+                white-space: nowrap;
+                margin: 0.3em 0;
+            }
+        }
+
+        &.activated ul {
+            opacity: 1;
+            z-index: 15;
+        }
+    }
+
+    /* This is not :hover, .hover is a class name */
+    &.normal {
+        div {
+            display: flex;
+            align-items: center;
+        }
+
+        div::after {
+            display: block;
+            height: 0px;
+            width: 0px;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid core.$primary-color;
+            content: ' ';
+            transition: border 0.3s;
+            margin: 0 0.2em;
+        }
+
+        &.activated {
+            div::after {
+                border-top: none;
+                border-bottom: 5px solid core.$primary-color;
+            }
+
+            ul {
+                display: block;
+            }
+        }
+
+        ul {
+            display: none;
+            margin: 0.3em 0;
+            padding-left: 0.5em;
+            list-style: none;
+        }
+    }
+}

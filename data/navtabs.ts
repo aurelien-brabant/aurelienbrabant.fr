@@ -2,6 +2,7 @@ type NavTab = {
 	label: string;
 	route: string;
 	id: number;
+	children?: { label: string, route: string}[];
 }
 
 export const navtabs: NavTab[] = [
@@ -22,12 +23,22 @@ export const navtabs: NavTab[] = [
 	},
 	{
 		label: 'about',
-		route: '/about',
+		route: "/about",
+		children: [
+			{
+				label: 'Who am I?',
+				route: '/about'
+			},
+			{
+				label: 'Resume',
+				route: '/resume'
+			}
+		],
 		id: 3,
 	},
 	{
 		label: 'contact',
 		route: '/contact',
 		id: 4
-	}
+	},
 ];

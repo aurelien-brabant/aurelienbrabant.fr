@@ -16,18 +16,25 @@
 	color: #fff;
 	justify-content: space-between;
 
-	ul {
+	> ul {
 		display: none;
-	}
 
-	li {
-		outline: none;
-		margin: 0 0.8em;
-		transition: color 0.1s;
+		.dropdownContent {
+			background-color: core.$secondary-color;
+			border-bottom: 3px core.$primary-color solid;
+			font-size: .9em;
+			color: core.$text-color;
+		}
 
-		&:hover,
-		&.active {
-			color: core.$primary-color;
+		li {
+			outline: none;
+			margin: 0 1em;
+			transition: color 0.1s;
+
+			&:hover,
+			&.active {
+				color: core.$primary-color;
+			}
 		}
 	}
 
@@ -108,11 +115,13 @@
 }
 
 .menu {
-	color: #fff;
+	color: core.$text-color;
 	position: fixed;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
+	/*
+	text-align: center;
+	*/
 	justify-content: center;
 	top: 0;
 	bottom: 0;
@@ -121,15 +130,13 @@
 	max-width: 100%;
 	z-index: 6;
 	background-color: core.$secondary-color;
-	background:
-	/* top, transparent black, faked with gradient */ linear-gradient(
-			rgba(20, 20, 20, 0.95),
-			rgba(20, 20, 20, 0.95)
-		),
-		/* bottom, image */ url('/menu_bg.jpg');
-	background-position: center;
-	background-size: cover;
 	transition: width 0.3s;
+
+	.menuContainer {
+		margin: 0 auto;
+		max-width: 80%;
+		z-index: 100;
+	}
 
 	&.visible {
 		/* do not display right orange border if the menu takes the full viewport's width */
@@ -139,7 +146,15 @@
 		width: 600px;
 	}
 
-	.tab {
+	.dropdownTab {
+		font-size: 1em !important;
+		font-family: core.$font-stack !important;
+		margin: .4em 0;
+	}
+
+	.tab, .dropdownTab {
+		font-family: Terminus;
+		color: core.$text-color;
 		font-size: 1.9em;
 		letter-spacing: 2px;
 		text-transform: uppercase;

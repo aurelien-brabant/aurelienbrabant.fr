@@ -1,0 +1,11 @@
+@use 'core';
+
+.resumeBackgroundContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: core.$background-color;
+  color: core.$primary-color;
+  text-align: center;
+  text-transform: uppercase;
+}
