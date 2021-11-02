@@ -52,6 +52,7 @@ const Dropdown: React.FC<DropdownProps> = ({
             >
                 {links.map((link) => (
                     <li
+                        key={link.label}
                         onClick={() => {
                             if (onLinkClick) {
                                 onLinkClick(setActivated)
