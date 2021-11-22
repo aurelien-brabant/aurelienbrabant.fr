@@ -1,34 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![](https://i.imgur.com/ZlhbIGD.png)
 
-## Getting Started
+This is the code source repository that holds my personal website, mainly standing as my portfolio.
 
-First, run the development server:
+It is a static website built with NextJS, ReactJS and Typescript.
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+In case you're curious, I'm giving details about how I have setup some parts of my website right below.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+# Styling
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+I first used plain CSS files, but I recently refactored almost every stylesheet using the  [SASS](https://sass-lang.com/) CSS preprocessor.
+Not a big change to be honest, I would probably be really happy too with something like [Less](https://lesscss.org/) or even going back to plain CSS.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+While I've some familiarity with class-based styling framework or [Material UI](https://mui.com/) I really wanted to practice my CSS skills.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+# Deployment
 
-## Learn More
+While I usually like to deploy stuff on my raspberry pi 4, I deployed my website on a [vultr](https://www.vultr.com/) VPS to benefit from a better bandwidth.
 
-To learn more about Next.js, take a look at the following resources:
+I did setup a nginx reverse proxy that proxies requests to my actual website, these two being run in docker containers.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+I also issued a free HTTPS certificate signed by the [Let's Encrypt](https://letsencrypt.org/) authority.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+# Why is the website so fast
 
-## Deploy on Vercel
+Maybe because I'm a really smart programmer. Just a hint I'm giving you here.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+More seriously, this is mostly coming from [static HTML generation](https://nextjs.org/docs/basic-features/pages#static-generation-recommended) and browser caching.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This is one of the benefits that come along with using NextJS!
+
+# Blog
+
+The blog section of the website is rendered at build time (in fact: like every page on my website) from an array of [markdown](https://en.wikipedia.org/wiki/Markdown) posts.
+These posts are rendered to HTML using the [react-markdown](https://github.com/remarkjs/react-markdown) package.
+
+# Dynamic language selector
+
+As you may have noticed, a language switcher is made available at the top right corner of the naviguation bar: once you select your language, (most) data is automatically "translated".
+
+For that, I'm using a homemade solution I discussed [on my blog](https://aurelienbrabant.fr/blog/create-a-robust-multi-language-system-using-react): I'm not using any internationalization library such as [i18n](https://www.npmjs.com/package/i18n), at least not yet.
+
+While it's not [fully](https://aurelienbrabant.fr/projects) [implemented](https://aurelienbrabant.fr/blog) (yet?) it was a great thing to make!
