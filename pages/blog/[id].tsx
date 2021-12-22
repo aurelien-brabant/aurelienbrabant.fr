@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import Head from "next/head";
-import Image from "next/image";
-import { readtimeInMinutes } from "../../lib/readtime";
+import React, { useState, useEffect } from 'react'
+import Head from 'next/head'
+import Image from 'next/image'
 
-import ReactMarkdown from "react-markdown";
-import aurelienPhoto from '../../public/aurelien.webp';
+import ReactMarkdown from 'react-markdown'
+import aurelienPhoto from '../../public/aurelien.webp'
 
 import {
 	CodeBlock as MarkdownCodeBlock,
@@ -13,73 +12,72 @@ import {
 	InlineCode as MarkdownInlineCode,
 	Anchor,
 	Blockquote,
-} from "../../components/markdown/Markdown";
+} from '../../components/markdown/Markdown'
 
-import { getPosts, getPost, BlogPost } from "../../lib/posts";
+import { Container } from '../../components/container/container'
 
-import { Container } from "../../components/container/container";
-
-import styles from '../../styles/blogpost.module.scss';
+import styles from '../../styles/blogpost.module.scss'
+import { GetServerSideProps } from 'next'
 
 type NestedHeading = {
-	id: string | undefined;
-	title: string | undefined;
-	nested: NestedHeading[];
-	headingLevel: number;
-};
+	id: string | undefined
+	title: string | undefined
+	nested: NestedHeading[]
+	headingLevel: number
+}
 
 /* ------ HELPERS ------ */
 
 const fromHTMLToNestedHeading = (el: HTMLElement): NestedHeading | null => {
-	if (el.nodeName[0].toLowerCase() === "h" && el.nodeName.length === 2) {
-		const level = el.nodeName.charCodeAt(1) - 48;
+	if (el.nodeName[0].toLowerCase() === 'h' && el.nodeName.length === 2) {
+		const level = el.nodeName.charCodeAt(1) - 48
 
 		return {
 			id: el.id,
 			title: el.innerText,
 			nested: [],
 			headingLevel: level,
-		};
+		}
 	}
 
-	return null; /* not an HTML heading */
-};
+	return null /* not an HTML heading */
+}
 
 const insertNestedHeading = (
 	head: NestedHeading[],
 	inserted: NestedHeading
 ) => {
-	let level = 1;
-	let target: NestedHeading[] = head;
+	let level = 1
+	let target: NestedHeading[] = head
 
 	while (inserted.headingLevel > level) {
-		++level;
-		target = target[target.length - 1].nested;
+		++level
+		target = target[target.length - 1].nested
 	}
-	target.push(inserted);
-};
+	target.push(inserted)
+}
 
 const useMarkdownNestedHeadings = () => {
 	const [markdownHeadings, setMarkdownHeadings] = useState<NestedHeading[]>(
 		[]
-	);
+	)
 
 	useEffect(() => {
 		const headingElements: HTMLElement[] = Array.from(
-			document.querySelectorAll(".markdown-heading")
-		);
-		const nestedHeadings: NestedHeading[] = [];
+			document.querySelectorAll('.markdown-heading')
+		)
+		const nestedHeadings: NestedHeading[] = []
 
 		for (const headingElement of headingElements) {
-			const nested = fromHTMLToNestedHeading(headingElement);
+			const nested = fromHTMLToNestedHeading(headingElement)
 
-			if (nested) insertNestedHeading(nestedHeadings, nested);
+			if (nested) insertNestedHeading(nestedHeadings, nested)
 		}
-		setMarkdownHeadings(nestedHeadings);
-	}, []);
+		setMarkdownHeadings(nestedHeadings)
+	}, [])
 
-	return markdownHeadings;
-};
+	return markdownHeadings
+}
 
 /* TableOfContents Headings */
 
@@ -93,15 +91,15 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 				<React.Fragment key={el.id}>
 					<div
 						onClick={(e) => {
-							e.preventDefault();
+							e.preventDefault()
 							document
 								.querySelector(`#${el.id}`)!
-								.scrollIntoView({ behavior: "smooth" });
+								.scrollIntoView({ behavior: 'smooth' })
 							history.pushState(
 								{},
 								document.title,
-								`${window.location.href.split("#")[0]}#${el.id}`
-							);
+								`${window.location.href.split('#')[0]}#${el.id}`
+							)
 						}}
 						style={{
 							marginLeft: `${10 * (level - 1)}px`,
@@ -124,10 +122,10 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 				</React.Fragment>
 			))}
 		</React.Fragment>
-	);
-};
+	)
+}
 
-TOCHeadings.defaultProps = { level: 1 };
+TOCHeadings.defaultProps = { level: 1 }
 
 const TableOfContents: React.FC<{ headings: NestedHeading[] }> = ({
 	headings,
@@ -143,22 +141,53 @@ const TableOfContents: React.FC<{ headings: NestedHeading[] }> = ({
 			  */}
 			<TOCHeadings headings={headings} level={1} />
 		</nav>
-	);
-};
+	)
+}
 
-const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
-	const tmp = postData.content.match(/(\w+)/g);
-	const readTime = tmp ? Math.floor(tmp.length / 210) : 0;
+export const getServerSideProps: GetServerSideProps = async function (context) {
+	const props: { [key: string]: any } = {}
 
-	const headings = useMarkdownNestedHeadings();
+	if (context.params) {
+		const postData: BrabantApi.BlogpostData = await (
+			await fetch(
+				`http://backend:3000/blogposts/search?by=string_id&payload=${context.params.id}`
+			)
+		).json()
+
+		postData.releaseTs = postData.releaseTs;
+		postData.lastEditTs = postData.lastEditTs;
+
+		props.postData = postData
+	}
+
+	return {
+		props,
+	}
+}
+
+const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
+	postData,
+}) => {
+	const [clientReleaseDate, setClientReleaseDate] = useState<string>()
+	const [clientLastEditDate, setClientLastEditDate] = useState<string>()
+
+	useEffect(() => {
+		setClientReleaseDate(new Date(postData.releaseTs).toLocaleDateString())
+		setClientLastEditDate(new Date(postData.releaseTs).toLocaleDateString());
+	})
+
+	const headings = useMarkdownNestedHeadings()
 
 	return (
 		<React.Fragment>
 			<Head>
-				<title>{postData.meta.title}</title>
-				<meta name="description" content={postData.meta.preview} />
+				<title>{postData.title}</title>
+				<meta name="description" content={postData.description} />
 				<meta name="robots" content="index, follow" />
-				<link rel="canonical" href={`https://aurelienbrabant.fr/blog/${postData.id}`} />
+				<link
+					rel="canonical"
+					href={`https://aurelienbrabant.fr/blog/${postData.stringId}`}
+				/>
 			</Head>
 
 			<Container
@@ -167,44 +196,39 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 				edgePadded={false}
 			>
 				<Container className={styles.postHeader}>
+					{/*
 					<div className={styles.tagList}>
 						{postData.meta.tags &&
 							postData.meta.tags.map((tag) => (
 								<span key={tag}> {tag} </span>
 							))}
 					</div>
-					<h1> {postData.meta.title} </h1>
-					<p> {postData.meta.preview} </p>
+					  */}
+					<h1> {postData.title} </h1>
+					<p> {postData.description} </p>
 					<hr className={styles.separator} />
 					<div className={styles.metablock}>
 						<Image
 							src={aurelienPhoto}
-							alt={"photo of the author"}
+							alt={'photo of the author'}
 							width={40}
 							height={40}
 							className={styles.authorImage}
 						/>
 						<div>
-							<div style={{ marginBottom: "5px" }}>
-								{" "}
-								Aurelien Brabant{" "}
+							<div style={{ marginBottom: '5px' }}>
+								{' '}
+								Aurelien Brabant{' '}
 							</div>
 							<div>
-								{" "}
-								{new Date(
-									postData.meta.dateString
-								).toLocaleString("en-US", {
-									year: "numeric",
-									month: "long",
-									day: "numeric",
-								})}{" "}
-								• {readtimeInMinutes(postData.content)} MINUTES
-								READ
+								{' '}
+								Last edited the {clientLastEditDate} (Created the {clientReleaseDate}) •{' '}
+								{postData.estimatedReadingTime} MINUTES READ
 							</div>
 						</div>
 					</div>
 					<img
-						src={`/blog/covers/${postData.id}.webp`}
+						src={`/blog/covers/${postData.stringId}.webp`}
 						alt={`blogpost's cover`}
 						className={styles.postImage}
 					/>
@@ -221,8 +245,8 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 								// eslint-disable-next-line react/display-name
 								code: ({ children, inline, className }) => {
 									const match = /language-(\w+)/.exec(
-										className || ""
-									);
+										className || ''
+									)
 									return match && !inline ? (
 										<MarkdownCodeBlock language={match[1]}>
 											{children}
@@ -231,13 +255,13 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 										<MarkdownInlineCode>
 											{children}
 										</MarkdownInlineCode>
-									);
+									)
 								},
 
 								// eslint-disable-next-line react/display-name
 								img: ({ src, alt }) => (
 									<MarkdownImage
-										src={`/blog/${postData.id}/${src}`}
+										src={`/blog/${postData.stringId}/${src}`}
 										alt={alt ? alt : 'no alt provided'}
 									/>
 								),
@@ -248,7 +272,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 										<MarkdownHeading headingLevel={level}>
 											{children}
 										</MarkdownHeading>
-									);
+									)
 								},
 
 								// eslint-disable-next-line react/display-name
@@ -268,13 +292,13 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 								// eslint-disable-next-line react/display-name
 								p: ({ children, ...props }) => {
 									return children[0] &&
-										typeof children[0] === "object" &&
+										typeof children[0] === 'object' &&
 										(children[0] as any).type.name ===
-											"img" ? (
+											'img' ? (
 										<div {...props}>{children}</div>
 									) : (
 										<p {...props}>{children}</p>
-									);
+									)
 								},
 
 								// eslint-disable-next-line react/display-name
@@ -297,29 +321,7 @@ const Post: React.FC<{ postData: BlogPost }> = ({ postData }) => {
 				</Container>
 			</Container>
 		</React.Fragment>
-	);
-};
-
-export default Post;
-
-export async function getStaticPaths() {
-	const paths = getPosts().map((post) => ({
-		params: {
-			id: post.id,
-		},
-	}));
-
-	return {
-		paths,
-		fallback: false,
-	};
+	)
 }
 
-export async function getStaticProps({ params }: { params: { id: string } }) {
-	const postData = getPost(params.id);
-	return {
-		props: {
-			postData,
-		},
-	};
-}
+export default Post

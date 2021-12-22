@@ -44,10 +44,11 @@ const Home: NextPage = () => {
 
 			{/* Introduction - Landing page */}
 
-			<Container
-				limitedWidth={false}
-			>
-				<BackgroundImage src={landingBackground} backgroundColor={"rgba(20, 20, 20, .92)"} />
+			<Container limitedWidth={false}>
+				<BackgroundImage
+					src={landingBackground}
+					backgroundColor={'rgba(20, 20, 20, .92)'}
+				/>
 				<Container className={styles.mainContainer}>
 					<Image
 						src={aurelienPhoto}
@@ -85,13 +86,14 @@ const Home: NextPage = () => {
 											building blazing fast, modern and
 											reliable websites using{' '}
 											<b className="bold">NodeJS</b> and{' '}
-											<b className="bold">Typescript</b> 🚀
+											<b className="bold">Typescript</b>{' '}
+											🚀
 										</Fragment>
 									),
 
 									fr: (
 										<Fragment>
-											Je suis actuellement étudiant à {" "}
+											Je suis actuellement étudiant à{' '}
 											<ExternalLink href="https://42.fr">
 												l &#39; école 42
 											</ExternalLink>{' '}
@@ -101,7 +103,8 @@ const Home: NextPage = () => {
 											réalise aussi des sites web rapides
 											modernes et fiables à l'aide de{' '}
 											<b className="bold">NodeJS</b> et de{' '}
-											<b className="bold">Typescript</b> 🚀
+											<b className="bold">Typescript</b>{' '}
+											🚀
 										</Fragment>
 									),
 								}}
@@ -178,11 +181,11 @@ const Home: NextPage = () => {
 				</Container>
 			</Container>
 
-			<Container
-				limitedWidth={false}
-				className={styles.blogSection}
-			>
-				<BackgroundImage src={landingBlog} backgroundColor={"rgba(20, 20, 20, .90)"} />
+			<Container limitedWidth={false} className={styles.blogSection}>
+				<BackgroundImage
+					src={landingBlog}
+					backgroundColor={'rgba(20, 20, 20, .90)'}
+				/>
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
 						<Translator section={languageSection}>

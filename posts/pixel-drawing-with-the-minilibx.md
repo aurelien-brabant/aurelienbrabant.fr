@@ -1,8 +1,9 @@
 ---
 title: "Pixel drawing with the minilibx"
-preview: "All you need to know about drawing pixels using the minilibx."
-dateString: "2021-02-08"
-author: "Aurélien Brabant"
+description: "All you need to know about drawing pixels using the minilibx."
+releaseTs: "2021-02-08"
+authorEmail: "perso@aurelienbrabant.fr"
+coverImagePath: "/some/local/path"
 tags:
 - minilibx
 - C Programming
