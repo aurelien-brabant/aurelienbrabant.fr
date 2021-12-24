@@ -13,6 +13,7 @@ declare namespace BrabantApi {
 		lastEditTs: Date;
 		estimatedReadingTime: number;
 		stringId: string;
+		tags: string[];
 	};
 
 	/**
@@ -22,14 +23,17 @@ declare namespace BrabantApi {
 	export type BlogpostData = {
 		blogpostId: number;
 		title: string;
+		authorUsername: string;
 		description: string;
 		authorId: number;
+		authorUsername: string;
 		content: string;
 		releaseTs: Date;
 		lastEditTs: Date;
 		coverImagePath: string;
 		estimatedReadingTime: number;
 		stringId: string;
+		tags: string[];
 	};
 
 	/**

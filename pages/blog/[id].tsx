@@ -218,7 +218,7 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 						<div>
 							<div style={{ marginBottom: '5px' }}>
 								{' '}
-								Aurelien Brabant{' '}
+								{postData.authorUsername}
 							</div>
 							<div>
 								{' '}
