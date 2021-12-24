@@ -1,8 +1,9 @@
 ---
 title: "Getting started with the minilibx"
 preview: "Learn how to begin with the minilibx to render graphics using the X Window System!"
-dateString: "2021-02-07"
-author: "Aurélien Brabant"
+releaseTs: "2021-02-07"
+coverImagePath: "/some/local/path"
+authorEmail: "perso@aurelienbrabant.fr"
 tags:
 - minilibx
 - C Programming

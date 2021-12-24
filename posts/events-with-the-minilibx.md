@@ -1,8 +1,9 @@
 ---
 title: "Managing events with the minilibx"
 preview: "A clear and comprehensive tutorial about managing events with the minilibx."
-dateString: "2021-02-08"
-author: "Aurélien Brabant"
+releaseTs: "2021-02-08"
+coverImagePath: "/some/local/path"
+authorEmail: "perso@aurelienbrabant.fr"
 tags:
 - minilibx
 - C Programming

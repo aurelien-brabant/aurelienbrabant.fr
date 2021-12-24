@@ -1,8 +1,9 @@
 ---
 title: "Create a robust multi language system using React"
-preview: "In order to target a large audience, it is sometimes needed to make a website available in several languages. This post presents a robust and handy way to implement such a system using ReactJS."
-dateString: "2021-10-10"
-author: "Aurélien Brabant"
+content: "In order to target a large audience, it is sometimes needed to make a website available in several languages. This post presents a robust and handy way to implement such a system using ReactJS."
+releaseTs: "2021-10-10"
+authorEmail: "perso@aurelienbrabant.fr"
+coverImagePath: "/some/local/path"
 tags:
 - React
 - Web
