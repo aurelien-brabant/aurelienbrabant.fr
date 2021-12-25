@@ -18,22 +18,22 @@
 }
 
 .postHeader {
-    padding-top: 2em;
-    padding-bottom: 1em;
     display: flex;
     align-items: center;
     flex-direction: column;
+    padding-top: 2em;
+    padding-bottom: 1em;
     font-size: 1.1em;
     color: core.$light-text-color;
     max-width: 800px;
     text-align: center;
 
     h1 {
-      font-size: 2em;
+        font-size: 2em;
     }
 
     p {
-      margin: .5em 0;
+        margin: 0.5em 0;
     }
 
     .tagList {
@@ -48,10 +48,10 @@
         margin-right: 0.2em;
 
         span {
-          background-color: core.$secondary-color;
-            padding: 8px;
-            border-radius: 2px;
-            margin-left: .5em;
+            background-color: core.$secondary-color;
+            padding: 0.75em;
+            border-radius: 10px;
+            margin-left: 0.5em;
         }
     }
 
@@ -87,6 +87,9 @@
     }
 
     .postImage {
+        border-radius: 10px;
+        border: 10px rgba(255, 255, 255, 0.02) solid;
+        box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
         margin: 1em 0;
         max-height: 550px;
         width: auto;
@@ -95,6 +98,8 @@
 }
 
 .sidenav {
+    border-radius: 5px;
+    border: 5px rgba(255, 255, 255, 0.02) solid;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     display: none;
     top: 70px;
