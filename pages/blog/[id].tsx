@@ -196,20 +196,18 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 				edgePadded={false}
 			>
 				<Container className={styles.postHeader}>
-					{/*
 					<div className={styles.tagList}>
-						{postData.meta.tags &&
-							postData.meta.tags.map((tag) => (
+						{postData.tags &&
+							postData.tags.map((tag) => (
 								<span key={tag}> {tag} </span>
 							))}
 					</div>
-					  */}
 					<h1> {postData.title} </h1>
 					<p> {postData.description} </p>
 					<hr className={styles.separator} />
 					<div className={styles.metablock}>
 						<Image
-							src={aurelienPhoto}
+							src={postData.authorPictureURI}
 							alt={'photo of the author'}
 							width={40}
 							height={40}
