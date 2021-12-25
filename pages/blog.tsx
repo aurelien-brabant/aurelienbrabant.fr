@@ -51,12 +51,10 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
 
         const BlogPostPreview: React.FC<{
             post: BrabantApi.BlogpostPreview
-            vertical: boolean
-        }> = ({ post, vertical }) => {
+        }> = ({ post }) => {
             return (
                 <article
-                    className={`${styles.blogpostPreviewWrapper}
-      ${vertical ? styles.vertical : ''}
+                    className={`${styles.blogpostPreviewWrapper} ${styles.vertical}
       `}
                 >
                     <Link href={`/blog/${post.stringId}`}>
@@ -134,54 +132,6 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
             )
         }
 
-        const renderPreviews = () => {
-            const previews: React.ReactNode[] = []
-
-            for (let i = 0; i < filteredPosts.length; ) {
-                if (!isLargeEnoughForHorizontalPosts || i % 4) {
-                    let els: BrabantApi.BlogpostPreview[] = []
-
-                    if (!isLargeEnoughForHorizontalPosts) els = filteredPosts
-                    else
-                        els = filteredPosts.slice(
-                            i,
-                            i +
-                                (i + 3 >= filteredPosts.length
-                                    ? filteredPosts.length - i
-                                    : 3)
-                        )
-
-                    previews.push(
-                        <div
-                            className={styles.blogpostsInline}
-                            key={`grouped-${i}`}
-                        >
-                            {els.map((el) => (
-                                <BlogPostPreview
-                                    key={el.blogpostId}
-                                    post={el}
-                                    vertical={true}
-                                />
-                            ))}
-                        </div>
-                    )
-                    i += els.length
-                } else {
-                    previews.push(
-                        <Fragment key={filteredPosts[i].blogpostId}>
-                            <BlogPostPreview
-                                post={filteredPosts[i]}
-                                vertical={false}
-                            />
-                        </Fragment>
-                    )
-                    ++i
-                }
-            }
-
-            return previews
-        }
-
         return (
             <React.Fragment>
                 <Head>
@@ -234,7 +184,16 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     limitedWidth={false}
                     size={'lg'}
                 >
-                    <Container>{renderPreviews()}</Container>
+                    <Container>
+                        <div className={styles.blogpostsWrapper}>
+                        {filteredPosts.map((post) => (
+                            <BlogPostPreview
+                                key={post.blogpostId}
+                                post={post}
+                            />
+                        ))}
+                        </div>
+                    </Container>
                 </Container>
             </React.Fragment>
         )

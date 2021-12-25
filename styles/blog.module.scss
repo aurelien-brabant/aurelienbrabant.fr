@@ -42,7 +42,7 @@
             opacity: 0.8;
             text-transform: uppercase;
             transition: 0.2s;
-            font-size: .7em;
+            font-size: 0.7em;
 
             &:hover,
             &.selected {
@@ -62,31 +62,36 @@
 
 /* BLOGPOST */
 
-.blogpostsInline {
+.blogpostsWrapper {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 .blogpostPreviewWrapper {
-    border: 2px rgba(255, 255, 255, .02) solid;
-    border-radius: 2px;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: flex-start;
+    border: 2px rgba(255, 255, 255, 0.02) solid;
+    border-radius: 5px;
+    max-width: 375px;
+    margin: .7em .5em;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    margin-top: 1em;
-    margin-bottom: 1em;
+
 
     .content {
         display: flex; /* is itself a flex container */
         flex-direction: column;
-        justify-content: center;
-        flex: 0 1 450px;
-        color: #fff;
         padding: 1em;
+        justify-content: space-between;
+        color: #fff;
 
         h3 {
             opacity: 0.9;
             text-transform: uppercase;
+            font-family: Terminus;
+            font-size: 1.3em;
+            margin-top: .5em;
         }
 
         p {
@@ -106,7 +111,7 @@
             span {
                 background-color: core.$secondary-color;
                 padding: 5px 10px;
-                margin: .2em .5em .2em 0;
+                margin: 0.2em 0.5em 0.2em 0;
 
                 &.selected {
                     background-color: core.$primary-color;
@@ -123,7 +128,7 @@
             text-transform: uppercase;
 
             div {
-                margin-left: .35em;
+                margin-left: 0.35em;
             }
 
             .authorImage {
@@ -136,6 +141,8 @@
         position: relative;
         flex: 1 1 auto;
         min-height: 270px;
+        max-height: 200px !important;
+        min-height: 200px;
 
         .imageBack {
             position: absolute;
@@ -164,37 +171,18 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: opacity .2s;
+            transition: opacity 0.2s;
 
             &:hover {
-                opacity: .05;
+                opacity: 0.05;
             }
         }
     }
 
-    &.vertical {
-        flex-direction: column;
-        justify-content: flex-start;
-        gap: 1em;
-        flex: 1 1 301px;
-        margin-left: .5em;
-        margin-right: .5em;
-
-        a {
-            max-height: 200px !important;
-            min-height: 200px;
-        }
-
-        .content {
-            padding-top: 0;
-            justify-content: space-between;
-            flex-basis: 0;
-        }
-    }
 
 }
 
 .blogpostSeparator {
     margin: 1.5em 0 1em 0;
-    border-color: rgba(255, 255, 255, .1);
+    border-color: rgba(255, 255, 255, 0.1);
 }
