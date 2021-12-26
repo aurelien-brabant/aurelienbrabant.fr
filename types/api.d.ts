@@ -20,6 +20,7 @@ declare namespace BrabantApi {
 		estimatedReadingTime: number;
 		stringId: string;
 		tags: string[];
+		coverImagePath: string;
 	};
 
 	/**
@@ -50,6 +51,7 @@ declare namespace BrabantApi {
 		userId: number;
 		email: string;
 		username: string;
+		pictureURI: string;
 		role: number;
 	};
 
@@ -63,6 +65,7 @@ declare namespace BrabantApi {
 		username: string;
 		firstname?: string;
 		lastname?: string;
+		pictureURI: string;
 		role: number;
 		isEmailVerified: boolean;
 		isActivated: boolean;
@@ -75,4 +78,24 @@ declare namespace BrabantApi {
 		username: string,
 		accountCreationTs: Date,
 	}
+
+	export type Technology = {
+		name: string;
+		logoURI: string;
+	}
+
+	export type ProjectPreview = {
+		name: string;
+		description: string;
+		coverURI: string;
+		technologies: Technology[];
+	}
+
+	export type Project = {
+		name: string;
+		description: string;
+		coverURI: string;
+		content: string;
+		technologies: Technology[];
+	};
 }

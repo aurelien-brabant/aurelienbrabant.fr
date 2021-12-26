@@ -66,9 +66,8 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                                     about {post.estimatedReadingTime} min. read
                                 </h5>
                             </div>
-                            <Image
-                                layout="fill"
-                                src={`/blog/covers/${post.stringId}.webp`}
+                            <img
+                                src={post.coverImagePath}
                                 alt={`${post.blogpostId}'s cover image`}
                             />
                         </a>

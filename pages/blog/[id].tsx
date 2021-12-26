@@ -226,7 +226,7 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 						</div>
 					</div>
 					<img
-						src={`/blog/covers/${postData.stringId}.webp`}
+						src={postData.coverImagePath}
 						alt={`blogpost's cover`}
 						className={styles.postImage}
 					/>
