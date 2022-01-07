@@ -27,17 +27,27 @@
         max-width: 600px;
 
         > a {
+            border: 1px rgba(255, 255, 255, .3) solid;
+            padding: .5em;
             margin: .4em;
             padding-bottom: 5px;
             font-family: Terminus;
             font-size: 1em;
-            border-bottom: 2px transparent dotted;
             transition: border-color 0.2s;
             text-transform: uppercase;
 
-            &.selected,
-            &:hover {
+            &.selected {
+                background-color: core.$primary-color;
+                color: #000;
+            }
+            
+            &:hover, &.selected {
                 border-color: core.$primary-color;
+            }
+
+            > span {
+                display: block;
+                transform: translateY(-.1em);
             }
         }
     }

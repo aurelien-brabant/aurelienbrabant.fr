@@ -2,7 +2,6 @@ import { GetServerSideProps, NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
 import projects from '../data/projects'
-import { technologies, getTechnology } from '../data/technologies'
 import Fade from 'react-reveal/Fade'
 import type { Project } from '../data/projects'
 import Link from 'next/link'
@@ -50,7 +49,7 @@ const Projects: React.FC<ProjectsPageProps> = ({
     const [filteredProjects, setFilteredProjects] = useState(projects)
     const [selectedTechnology, setSelectedTechnology] = useState('')
 
-    useEffect(() => {}, [])
+    useEffect(() => { console.log(technologyNames); }, [])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {
@@ -60,7 +59,7 @@ const Projects: React.FC<ProjectsPageProps> = ({
             setFilteredProjects(
                 projects.filter((project) => {
                     for (const techno of project.technologies) {
-                        if (techno.name === technologyName) {
+                        if (techno.name.toLowerCase() === technologyName) {
                             return true
                         }
                     }
@@ -87,24 +86,25 @@ const Projects: React.FC<ProjectsPageProps> = ({
                 </h3>
 
                 <div className={styles.sortByTechnology}>
-                    {technologies
-                        .filter((technology) => !technology.isTool)
+                    {technologyNames
                         .map((technology) => (
                             <a
-                                key={technology.name}
+                                key={technology}
                                 onClick={() => {
                                     filterProjectsByTechnology(
-                                        technology.name.toLowerCase()
+                                        technology.toLowerCase()
                                     )
                                 }}
                                 className={
-                                    technology.name.toLocaleLowerCase() ==
+                                    technology.toLocaleLowerCase() ==
                                     selectedTechnology
                                         ? styles.selected
                                         : ''
                                 }
                             >
-                                {technology.name}
+                                <span>
+                                {technology}
+                                </span>
                             </a>
                         ))}
                 </div>
