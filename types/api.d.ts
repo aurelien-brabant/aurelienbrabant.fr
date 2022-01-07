@@ -41,6 +41,7 @@ declare namespace BrabantApi {
 		estimatedReadingTime: number;
 		stringId: string;
 		tags: string[];
+		privacy: 'PRIVATE' | 'PUBLIC' | 'PRIVATE-PREV';
 	};
 
 	/**
@@ -80,22 +81,28 @@ declare namespace BrabantApi {
 	}
 
 	export type Technology = {
+		technologyId: string;
 		name: string;
 		logoURI: string;
 	}
 
-	export type ProjectPreview = {
+	export interface ProjectPreview {
+		projectId: string;
 		name: string;
 		description: string;
 		coverURI: string;
 		technologies: Technology[];
+		startTs: string,
+		stringId: string;
+		companyName: string | null;
+		role: string;
+		endTs?: string,
 	}
 
-	export type Project = {
-		name: string;
-		description: string;
-		coverURI: string;
+	export interface Project extends ProjectPreview {
 		content: string;
-		technologies: Technology[];
-	};
+		privacy: 'PRIVATE' | 'PRIVATE-PREV' | 'PUBLIC';
+		githubLink: string | null;
+		gitlabLink: string | null;
+	}
 }

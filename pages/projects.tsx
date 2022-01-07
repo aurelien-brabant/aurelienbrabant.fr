@@ -1,4 +1,4 @@
-import { NextPage } from 'next'
+import { GetServerSideProps, NextPage } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
 import projects from '../data/projects'
@@ -11,30 +11,61 @@ import Head from 'next/head'
 import styles from '../styles/projects.module.scss'
 import BackgroundImage from '../components/BackgroundImage'
 
-const Projects: NextPage = () => {
-    const [filteredProjects, setFilteredProjects] = useState<Project[]>([])
-    const [selectedTechnology, setSelectedTechnology] = useState<string>('')
-    const sanitizedProjects = projects.map((project) => {
-        project.technologies = project.technologies.map((technology) =>
-            technology.toLowerCase()
-        )
-        return project
-    })
+export const getServerSideProps: GetServerSideProps = async (context) => {
+    let res = await fetch('http://backend:3000/projects')
 
-    useEffect(() => {
-        setFilteredProjects(sanitizedProjects)
-        //eslint-disable-next-line
-    }, [])
+    const projects: BrabantApi.ProjectPreview[] = await res.json()
+
+    const technologyNames: string[] = []
+
+    /* Retrieve the names of the USED technologies without making an extra API call to the /technologies
+     * endpoint (that'd retrieve the complete technology list, not only those actually used by the presented projects).
+     */
+
+    for (const project of projects) {
+        for (const techno of project.technologies) {
+            if (!technologyNames.includes(techno.name)) {
+                technologyNames.push(techno.name)
+            }
+        }
+    }
+
+    return {
+        props: {
+            technologyNames,
+            projects,
+        },
+    }
+}
+
+type ProjectsPageProps = {
+    projects: BrabantApi.ProjectPreview[]
+    technologyNames: string[]
+}
+
+const Projects: React.FC<ProjectsPageProps> = ({
+    projects,
+    technologyNames,
+}) => {
+    const [filteredProjects, setFilteredProjects] = useState(projects)
+    const [selectedTechnology, setSelectedTechnology] = useState('')
+
+    useEffect(() => {}, [])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {
-            setFilteredProjects(sanitizedProjects)
+            setFilteredProjects(projects)
             setSelectedTechnology('')
         } else {
             setFilteredProjects(
-                sanitizedProjects.filter((project) =>
-                    project.technologies.includes(technologyName)
-                )
+                projects.filter((project) => {
+                    for (const techno of project.technologies) {
+                        if (techno.name === technologyName) {
+                            return true
+                        }
+                    }
+                    return false
+                })
             )
             setSelectedTechnology(technologyName)
         }
@@ -79,13 +110,11 @@ const Projects: NextPage = () => {
                 </div>
             </Container>
             <Container limitedWidth={false} className={styles.projectContainer}>
-                <Container size={"lg"}>
+                <Container size={'lg'}>
                     <div className={styles.projectsWrapper}>
                         {filteredProjects.map((project) => (
-                            <Fade key={project.id}>
-                                <div
-                                    className={`${styles.projectCard}`}
-                                >
+                            <Fade key={project.projectId}>
+                                <div className={`${styles.projectCard}`}>
                                     <div className={styles.cardDecoration}>
                                         <h2>{project.name}</h2>
                                         <i className={styles.closeButton} />
@@ -97,9 +126,16 @@ const Projects: NextPage = () => {
                                     <div
                                         className={`${styles.projectCardContent}`}
                                     >
-                                        <Link href={`/projects/${project.id}`}>
+                                        <Link
+                                            href={`/projects/${project.stringId}`}
+                                        >
                                             <a>
-                                                <BackgroundImage src={project.illustration} backgroundColor={'rgba(20, 20, 20, .9)'} />
+                                                <BackgroundImage
+                                                    src={project.coverURI}
+                                                    backgroundColor={
+                                                        'rgba(20, 20, 20, .9)'
+                                                    }
+                                                />
                                                 <div
                                                     className={
                                                         styles.backgroundText
@@ -117,16 +153,13 @@ const Projects: NextPage = () => {
                                                             (technology) => (
                                                                 <div
                                                                     key={
-                                                                        technology
+                                                                        technology.name
                                                                     }
                                                                 >
                                                                     <img
-                                                                        alt={`made with ${technology}`}
+                                                                        alt={`made with ${technology.name}`}
                                                                         src={
-                                                                            getTechnology(
-                                                                                technology
-                                                                            )
-                                                                                ?.imageUrl
+                                                                            technology.logoURI
                                                                         }
                                                                     />
                                                                 </div>

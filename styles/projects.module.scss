@@ -117,11 +117,11 @@
             opacity: .85;
         }
 
-        span:nth-child(2) {
+        > img {
             transition: transform .2s;
         }
 
-        &:hover span:nth-child(2) {
+        &:hover > img {
             transform: scale(1.25);
         }
     }
@@ -138,8 +138,10 @@
     }
 
     .backgroundText {
+        text-transform: uppercase;
         position: relative;
         height: 100%;
+        padding: 0 .5em;
         text-align: center;
         z-index: 5;
         display: flex;
