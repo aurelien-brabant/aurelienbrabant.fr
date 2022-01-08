@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 
-import ReactMarkdown from 'react-markdown'
 import aurelienPhoto from '../../public/aurelien.webp'
 
+import ReactMarkdown from 'react-markdown'
 import {
 	CodeBlock as MarkdownCodeBlock,
 	Image as MarkdownImage,

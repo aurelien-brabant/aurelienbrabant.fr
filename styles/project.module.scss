@@ -6,7 +6,57 @@
     padding-bottom: 1em;
 }
 
+.githubLink {
+    background-color: #fff;
+    color: #000;
+}
+
+.gitlabLink {
+    background-color: #f96424;
+}
+
+.sourceCodeWrapper {
+    flex-direction: column;
+    display: flex;
+}
+
+.sourceCodeWrapper > * {
+    margin: 0.5em 0;
+}
+
+@media only screen and (min-width: 800px) {
+    .sourceCodeWrapper {
+        flex-direction: row;
+    }
+
+    .sourceCodeWrapper > * {
+        margin: 0 0.5em;
+    }
+}
+
+.sourceCodeLink {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    border-radius: 2px;
+
+    svg {
+        font-size: 1.5em;
+    }
+
+    span {
+        margin-left: 0.5em;
+        font-size: 0.9em;
+    }
+    text-transform: uppercase;
+}
+
+
 .projectHeader {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: core.$secondary-color;
     padding-top: 2em;
     padding-bottom: 2em;
@@ -15,7 +65,7 @@
 
     h1,
     h2 {
-        margin: 5px 0;
+        margin: 0.5em;
         text-align: center;
     }
 
@@ -31,6 +81,7 @@
         font-weight: 400;
         font-family: core.$font-stack;
         color: core.$light-text-color;
+        margin-bottom: 1em;
     }
 }
 
@@ -48,7 +99,6 @@
     align-items: center;
     justify-content: center;
     border-bottom: 2px rgb(240, 240, 240) solid;
-
 
     .bannerContent {
         position: relative;
@@ -73,7 +123,7 @@
         img {
             height: auto;
             width: 2.3rem;
-            margin: 0 .5em;
+            margin: 0 0.5em;
         }
     }
 
@@ -95,14 +145,14 @@
         }
 
         svg {
-            margin: 0 .5em;
+            margin: 0 0.5em;
             max-height: 25px;
         }
     }
 }
 
 .projectContent {
-    padding-top: 1em;
+    padding-top: 3em;
     padding-bottom: 1em;
 
     h3 {
