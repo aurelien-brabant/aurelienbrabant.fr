@@ -28,7 +28,7 @@ export const navtabs: NavTab[] = [
 	},
 	{
 		label: 'Resume',
-		route: "/resume",
+		route: "/resume.pdf",
 		id: 4,
 	},
 	{
