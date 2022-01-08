@@ -57,7 +57,7 @@ export const Footer: React.FC<FooterInputProps> = () => {
 					<FooterBlock title="Solutions" items={[]} />
 					<FooterBlock title="Contact" items={[
 						{
-							label: "hi@aurelienbrabant.fr",
+							label: "contact@aurelienbrabant.fr",
 							route: "mailto:hi@aurelienbrabant.fr"
 						}
 					]} />

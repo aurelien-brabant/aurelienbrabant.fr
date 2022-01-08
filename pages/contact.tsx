@@ -46,9 +46,9 @@ const ContactPage: NextPage = () => {
               <Translator section={contactLanguageSection}>
                 best way to reach
               </Translator>
-              <a href="mailto:hi@aurelienbrabant.fr" className={styles.email}>
+              <a href="mailto:contact@aurelienbrabant.fr" className={styles.email}>
                 {" "}
-                hi@aurelienbrabant.fr.
+                contact@aurelienbrabant.fr.
               </a>
             </b>
           </p>
