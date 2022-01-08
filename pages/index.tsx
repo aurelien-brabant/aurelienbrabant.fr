@@ -44,17 +44,13 @@ const Home: NextPage = () => {
 
 			{/* Introduction - Landing page */}
 
-			<Container limitedWidth={false}>
-				<BackgroundImage
-					src={landingBackground}
-					backgroundColor={'rgba(20, 20, 20, .92)'}
-				/>
+			<Container limitedWidth={false} className={styles.rootContainer}>
 				<Container className={styles.mainContainer}>
 					<Image
 						src={aurelienPhoto}
 						alt={'Photo of Aurelien'}
-						height={250}
-						width={250}
+						height={220}
+						width={220}
 						className={styles.aurelienPhoto}
 					/>
 
@@ -182,10 +178,6 @@ const Home: NextPage = () => {
 			</Container>
 
 			<Container limitedWidth={false} className={styles.blogSection}>
-				<BackgroundImage
-					src={landingBlog}
-					backgroundColor={'rgba(20, 20, 20, .90)'}
-				/>
 				<Container className={styles.textCtaSection}>
 					<h2 className={styles.title}>
 						<Translator section={languageSection}>

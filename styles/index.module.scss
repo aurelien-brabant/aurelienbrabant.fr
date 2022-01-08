@@ -1,5 +1,13 @@
 @use 'core';
 
+.rootContainer {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)),
+		url('/landing_bg.webp');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+}
+
 .mainContainer {
 	display: flex;
 	flex-direction: column;
@@ -12,8 +20,10 @@
 	.introduction {
 		color: #fff;
 		font-size: 1.2em;
+		text-align: center;
 
-		h1, h3 {
+		h1,
+		h3 {
 			text-align: center;
 		}
 
@@ -93,6 +103,8 @@
 }
 
 .aurelienPhoto {
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	border: 5px #e2725b solid !important;
 	border-radius: 50%;
 }
 
@@ -104,15 +116,14 @@
 	margin: 0 auto;
 	transform: translateY(-3.3em);
 
-	.rotatedTitle
-	{
+	.rotatedTitle {
 		margin: 0;
 		background-color: core.$primary-color;
 		padding: 6px;
 		border-radius: 2px;
 		font-size: 2.2em;
 		text-transform: uppercase;
-			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	}
 
 	h3 {
@@ -123,7 +134,7 @@
 
 	.technologies {
 		overflow-x: scroll;
-		padding: .5em 0;
+		padding: 0.5em 0;
 		display: flex;
 
 		@media only screen and (min-width: core.$breakpoint-sm) {
@@ -144,7 +155,7 @@
 			box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 
 			&:hover img {
-				transition: transform .8s;
+				transition: transform 0.8s;
 				transform: rotatez(360deg);
 			}
 
@@ -186,6 +197,10 @@
 }
 
 .blogSection {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)),
+		url('/landing_blog.webp');
+	background-position: center;
+	background-size: cover;
 	min-height: 400px;
 	display: flex;
 
