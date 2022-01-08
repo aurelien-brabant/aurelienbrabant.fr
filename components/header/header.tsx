@@ -121,7 +121,7 @@ const Header: React.FC<{}> = () => {
 						>
 							{tab.children ? (
 								<Dropdown
-									type={'hover'}
+									type={'normal'}
 									links={tab.children}
 									contentClassName={styles.dropdownContent}
 									titleClassName={

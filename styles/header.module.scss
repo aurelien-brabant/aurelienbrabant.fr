@@ -17,18 +17,10 @@
 	justify-content: space-between;
 
 	> ul {
-		display: none;
-
-		.dropdownContent {
-			background-color: core.$secondary-color;
-			border-bottom: 3px core.$primary-color solid;
-			font-size: .9em;
-			color: core.$text-color;
-		}
 
 		li {
 			outline: none;
-			margin: 0 1em;
+			margin: 0 .5em;
 			transition: color 0.1s;
 
 			&:hover,

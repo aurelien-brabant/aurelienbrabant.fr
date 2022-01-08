@@ -24,21 +24,16 @@ export const navtabs: NavTab[] = [
 	{
 		label: 'about',
 		route: "/about",
-		children: [
-			{
-				label: 'Who am I?',
-				route: '/about'
-			},
-			{
-				label: 'Resume',
-				route: '/resume'
-			}
-		],
 		id: 3,
+	},
+	{
+		label: 'Resume',
+		route: "/resume",
+		id: 4,
 	},
 	{
 		label: 'contact',
 		route: '/contact',
-		id: 4
+		id: 5
 	},
 ];

@@ -34,18 +34,20 @@ const Dropdown: React.FC<DropdownProps> = ({
                 activated ? styles.activated : ''
             }`}
             onClick={() => setActivated(!activated)}
-            onMouseEnter={() => {
+            
+                    >
+            <div onMouseEnter={() => {
                 if (type === 'hover') setActivated(true)
             }}
-            onMouseLeave={() => {
-                if (type === 'hover') setActivated(false)
-            }}
-        >
-            <div className={`${titleClassName ? titleClassName : ''}`}>
+            className={`${titleClassName ? titleClassName : ''}`}>
                 {' '}
                 {children}{' '}
             </div>
             <ul
+onMouseLeave={() => {
+                if (type === 'hover') setActivated(false)
+            }}
+
                 className={`${
                     contentClassName ? contentClassName : ''
                 }`}
