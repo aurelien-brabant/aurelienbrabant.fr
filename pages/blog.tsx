@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async function (
     _content
 ) {
     let { posts, tags }: BrabantApi.GetBlogposts = await (
-        await fetch('http://backend:3000/blogposts')
+                    await fetch(`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts`)
     ).json()
 
     return {

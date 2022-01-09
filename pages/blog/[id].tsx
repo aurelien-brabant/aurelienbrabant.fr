@@ -150,7 +150,7 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
 	if (context.params) {
 		const postData: BrabantApi.BlogpostData = await (
 			await fetch(
-				`http://backend:3000/blogposts/search?by=string_id&payload=${context.params.id}`
+				`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${context.params.id}`
 			)
 		).json()
 

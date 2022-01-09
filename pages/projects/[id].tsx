@@ -14,7 +14,7 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     if (context.params) {
         const res = await fetch(
-            `http://backend:3000/projects/search?by=string_id&payload=${context.params.id}`
+            `http://${process.env.API_HOST}:${process.env.API_PORT}/projects/search?by=string_id&payload=${context.params.id}`
         )
 
         project = await res.json()

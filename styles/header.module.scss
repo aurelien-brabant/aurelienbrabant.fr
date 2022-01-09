@@ -21,7 +21,7 @@
 
 		li {
 			outline: none;
-			margin: 0 .5em;
+			margin: 0 0.5em;
 			transition: color 0.1s;
 
 			&:hover,
@@ -108,6 +108,12 @@
 }
 
 .menu {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)),
+		url('/landing_bg.webp');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+
 	color: core.$text-color;
 	position: fixed;
 	display: flex;
@@ -142,10 +148,11 @@
 	.dropdownTab {
 		font-size: 1em !important;
 		font-family: core.$font-stack !important;
-		margin: .4em 0;
+		margin: 0.4em 0;
 	}
 
-	.tab, .dropdownTab {
+	.tab,
+	.dropdownTab {
 		font-family: Terminus;
 		color: core.$text-color;
 		font-size: 1.9em;

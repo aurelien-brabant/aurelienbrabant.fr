@@ -1,9 +1,7 @@
-import { GetServerSideProps, NextPage } from 'next'
+import { GetServerSideProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
-import projects from '../data/projects'
 import Fade from 'react-reveal/Fade'
-import type { Project } from '../data/projects'
 import Link from 'next/link'
 import Head from 'next/head'
 
@@ -11,7 +9,7 @@ import styles from '../styles/projects.module.scss'
 import BackgroundImage from '../components/BackgroundImage'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    let res = await fetch('http://backend:3000/projects')
+    let res = await fetch(`http://${process.env.API_HOST}:${process.env.API_PORT}/projects`);
 
     const projects: BrabantApi.ProjectPreview[] = await res.json()
 
