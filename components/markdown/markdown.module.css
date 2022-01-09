@@ -1,22 +1,23 @@
-.image 
+.image
 {
-	margin: 0 auto;
-	max-height: 400px;
+	margin: .7em auto;
+	max-height: 450px;
 	height: auto;
 	width: auto;
 	display: block;
 	transition: opacity .2s;
 	max-width: 100%;
-};
+	border-radius: 2px;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
 
-.image:hover
-{
+.image:hover {
 	opacity: .7;
 }
 
 .anchorHeading
 {
-	display: flex;	
+	display: flex;
 	align-items: center;
 	color: rgba(255, 255, 255, .85);
 }

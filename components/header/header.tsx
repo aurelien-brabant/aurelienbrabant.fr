@@ -55,7 +55,6 @@ const Header: React.FC<{}> = () => {
 			<nav
 				className={`${styles.menu} ${isVisible ? styles.visible : ''}`}
 			>
-				<BackgroundImage src={landingBg} backgroundColor={'rgba(20, 20, 20, .93)'}/>
 				<div className={styles.menuContainer}>
 					{navtabs.map((tab) =>
 						tab.children ? (
