@@ -1,6 +1,34 @@
 @use 'core';
 
 @font-face {
+    font-family: 'Calibre';
+    font-style: light;
+    font-weight: 100;
+    font-display: swap;
+    src: url('/fonts/CalibreLight.woff2') format('woff2'),
+        url('/fonts/CalibreLight.woff') format('woff'),
+        url('/fonts/CalibreLight.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Calibre';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url('/fonts/CalibreRegular.woff2') format('woff2'),
+        url('/fonts/CalibreRegular.woff') format('woff'),
+        url('/fonts/CalibreRegular.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Calibre';
+    font-style: bold;
+    font-weight: 700;
+    font-display: swap;
+    src: url('/fonts/CalibreBold.woff2') format('woff2'),
+        url('/fonts/CalibreBold.woff') format('woff'),
+        url('/fonts/CalibreBold.ttf') format('truetype');
+}
+
+@font-face {
     font-family: 'Terminus';
     src: url('/fonts/terminus/terminus-regular.woff2') format('woff2'),
         url('/fonts/terminus/terminus-regular.woff') format('woff'),
@@ -59,11 +87,6 @@ h6 {
     margin: 0.3em 0;
 }
 
-h1,
-h2 {
-    font-size: bold;
-    font-family: Terminus;
-}
 
 h3,
 h4,

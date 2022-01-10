@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import MarkdownRenderer from '../../components/MarkdownRenderer'
 
 import aurelienPhoto from '../../public/aurelien.webp'
 
@@ -259,7 +260,7 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 								// eslint-disable-next-line react/display-name
 								img: ({ src, alt }) => (
 									<MarkdownImage
-										src={`/blog/${postData.stringId}/${src}`}
+										src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
 										alt={alt ? alt : 'no alt provided'}
 									/>
 								),

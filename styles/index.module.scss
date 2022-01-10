@@ -1,7 +1,7 @@
 @use 'core';
 
 .rootContainer {
-	background-image: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.85)),
+	background-image: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.92)),
 		url('/landing_bg.webp');
 	background-position: center;
 	background-size: cover;
@@ -12,15 +12,27 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	min-height: 60vh;
 	align-items: center;
 	padding-top: 1.5em;
 	padding-bottom: 3em;
 	position: relative;
 
+	> * {
+		margin: 1em 0;
+	}
+
 	.introduction {
 		color: #fff;
 		font-size: 1.2em;
 		text-align: center;
+
+		> * {
+			margin: .3em 0 !important;
+		}
+
+		h1 { margin: 0 }
+		h3 { margin: 0 }
 
 		h1,
 		h3 {
@@ -28,15 +40,71 @@
 		}
 
 		h1 {
+			transform: uppercase;
 			font-size: 2em;
 			font-weight: 700;
 			letter-spacing: 2px;
-			font-family: Terminus;
+
+			.period {
+				color: core.$primary-color;
+			}
 		}
 
 		h3 {
 			font-weight: 400;
 			opacity: 0.8;
+			margin-bottom: 1em;
+		}
+
+		.ctas {
+			padding-top: .5em;
+			margin: 0 auto;
+			display: flex;
+			justify-content: center;
+
+			> a {
+				border-radius: 2px;
+				padding: .3em .9em;
+				text-transform: uppercase;
+				font-weight: 700;
+				margin: 0 .5em;
+			}
+
+			span {
+					display: flex;
+			}
+
+			.hiremeCta {
+				background-color: #e2725b;
+				transition: all .2s;
+				span {
+					transform: translateY(.15em);
+				}
+				
+				&:hover {
+					transform: translateY(-.1em);
+					box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+				}
+			}
+
+			.projectsCta {
+				border: 1px rgba(255, 255, 255, .85) solid;
+				color: rgba(255, 255, 255, .85);
+				transition: border-color .2s;
+
+				span {
+					transform: translateY(.1em);
+					span {
+						margin-left: .3em;
+					}
+				}
+				
+
+				&:hover {
+					border-color: #e2725b;
+				}
+			}
+
 		}
 
 		.activity {
@@ -103,9 +171,8 @@
 }
 
 .aurelienPhoto {
-	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 	border: 5px #e2725b solid !important;
-	border-radius: 50%;
+		box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
 /**
