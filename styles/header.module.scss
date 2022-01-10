@@ -18,8 +18,10 @@
 
 	ul {
 		display: none;
+		font-size: 1.2em;
 
 		li {
+			transform: translateY(.2em);
 			outline: none;
 			margin: 0 0.5em;
 			transition: color 0.1s;
