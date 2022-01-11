@@ -1,32 +1,36 @@
-import { useState, useEffect } from 'react';
-import { Language, availableLanguages } from '../../lib/language';
-import languageContext from './languageContext';
+import { useState, useEffect } from 'react'
+import { Language, availableLanguages } from '../../lib/language'
+import languageContext from './languageContext'
 
-const LanguageProvider: React.FC<{}> = ({ children }) =>
-{
-	const [ language, setLanguage] = useState<Language>('en');
+const LanguageProvider: React.FC<{}> = ({ children }) => {
+	const [language, setLanguage] = useState<Language>('en')
 
 	useEffect(() => {
-		const storedLanguage = window.localStorage.getItem('language');
+		const storedLanguage = window.localStorage.getItem('language')
 
-		if (storedLanguage && availableLanguages.includes(storedLanguage as Language)) {
-			setLanguage(storedLanguage as Language);
+		if (storedLanguage) {
+			if (availableLanguages.includes(storedLanguage as Language)) {
+				setLanguage(storedLanguage as Language)
+			} else {
+				console.error(
+					`Could not load language "${storedLanguage}" as it does not refer to a supported language value.`
+				)
+			}
 		} else {
-			console.error(`Could not load language "${storedLanguage}" as it does not refer to a supported language value.`);
+			setLanguage(navigator.language.startsWith('fr') ? 'fr' : 'en');
 		}
-		
-	}, []);
+	}, [])
 
 	return (
 		<languageContext.Provider
 			value={{
 				language,
-				setLanguage
+				setLanguage,
 			}}
 		>
-			{ children }
+			{children}
 		</languageContext.Provider>
-	);
+	)
 }
 
-export default LanguageProvider;
+export default LanguageProvider

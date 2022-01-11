@@ -5,6 +5,7 @@ import languageFR from '../../languages/fr.json';
 import languageEN from '../../languages/en.json';
 
 import { availableLanguages } from '../../lib/language';
+import useLanguage from '../../hooks/useLanguage';
 
 const languageFiles: {[key: string]: any } =
 {
@@ -51,11 +52,17 @@ const validateManual = (manual: { [key:string]: JSX.Element }): boolean =>
 	return true;
 }
 
-const ManualTranslator: React.FC<{ manual: { [key: string]: JSX.Element }}> = ({ manual }) =>
+export const ManualTranslator: React.FC<{ manual: { [key: string]: JSX.Element }}> = ({ manual }) =>
 {
 	const { language } = useContext(languageContext);
 
 	return manual[language];
+}
+
+export const translateFromObject: <T>(obj: {[key: string]: T}) => T = (obj) => {
+	const language = useLanguage();
+
+	return obj[language];
 }
 
 export const Translator: React.FC<TranslatorProps> = ({ children, section, manual }) =>
