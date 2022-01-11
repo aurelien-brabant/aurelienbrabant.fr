@@ -112,27 +112,27 @@ body {
     margin: 0;
     padding: 0;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 @media only screen and (max-width: core.$breakpoint-md) {
-    html,
-    body {
-        font-size: 1kpx;
-    }
-}
-
-@media only screen and (max-width: core.$breakpoint-lg) {
     html,
     body {
         font-size: 16px;
     }
 }
 
-@media only screen and (min-width: core.$breakpoint-lg) {
+@media only screen and (max-width: core.$breakpoint-lg) {
     html,
     body {
         font-size: 18px;
+    }
+}
+
+@media only screen and (min-width: core.$breakpoint-lg) {
+    html,
+    body {
+        font-size: 20px;
     }
 }
 
