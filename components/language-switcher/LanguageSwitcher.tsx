@@ -12,6 +12,7 @@ const LanguageSwitcher = () =>
 			className={styles.languageWrapper}
 		>
 			{ availableLanguages.map(lang => (
+				<div className={styles.flagWrapper}>
 			<img
 				key={`${lang}-flag`}
 				src={`/language-flag/${lang}.svg`}
@@ -22,6 +23,7 @@ const LanguageSwitcher = () =>
 					window.localStorage.setItem('language', lang);
 				}}
 			/>
+			</div>
 			))}
 		</div>
 	);
