@@ -3,28 +3,98 @@ import React, { Fragment, ReactElement } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container } from '../components/container/container'
-import ExternalLink from '../components/external-link/ExternalLink'
-import SocialNetworks from '../components/social-networks/SocialNetworks'
 import { Translator } from '../components/translator/Translator'
 import Link from 'next/link'
-import { technologies } from '../data/technologies'
 import styles from '../styles/index.module.scss'
-import { useMediaQuery } from 'react-responsive'
-import BackgroundImage from '../components/BackgroundImage'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { MdDesktopMac } from 'react-icons/md'
-import { RiMacbookLine } from 'react-icons/ri'
 
 import aurelienPhoto from '../public/aurelien.webp'
-import landingBackground from '../public/landing_bg.webp'
-import landingBlog from '../public/landing_blog.webp'
+
+import UnderlinedText from '../components/UnderlinedText'
 
 import { BsCodeSquare } from 'react-icons/bs'
 import { CgFileDocument } from 'react-icons/cg'
 import { IoMdChatbubbles } from 'react-icons/io'
 
 import landingServices, { LandingService } from '../data/landing_services'
+
+type FavoriteProject = {
+	title: string
+	description: string
+	link: string
+	coverURI: string
+	direction?: 'left' | 'right'
+}
+
+const favoriteProjects: FavoriteProject[] = [
+	{
+		title: 'Dragon Realms',
+		description: `DragonRealms is a Non Fongible Token (NFT) business project that I co-founded. Making such a project implied creating a generator that is able to randomly generate drakes (made in python), developing and deploying a contract on the Polygon blockchain, and of course, realizing a web frontend to let the customer buy the actual NFTs, which I was in charge of.`,
+		link: '/projects/dragon-realms',
+		coverURI: '/landing_dragon_realms.webp',
+	},
+	{
+		title: 'Partylens API',
+		description: `A web API I've built to support a website specialized in the scheduling and organization of nocturn events.`,
+		link: '/projects/Partylens-API',
+		coverURI: '/landing_partylens.jpg',
+	},
+	{
+		title: 'aurelienbrabant.fr',
+		description: `My own website you're browsing right now, which consists in a fullstack web application. I learned most of my advanced knowledge by working on it.`,
+		link: '/projects/Partylens-API',
+		coverURI: '/large_abrabant.jpg',
+	},
+]
+
+const FavoriteProject: React.FC<FavoriteProject> = ({
+	direction,
+	title,
+	description,
+	link,
+	coverURI,
+}) => (
+	<article className={styles.project}>
+		{direction === 'left' && (
+			<div className={styles.imageWrapper}>
+				<Image
+					src={coverURI}
+					className={styles.projectImage}
+					width="400"
+					height="400"
+				/>
+			</div>
+		)}
+		<div className={styles.projectText}>
+			<UnderlinedText
+				underlineColor="#e2725b"
+				as="h3"
+				className={styles.projectTitle}
+			>
+				{title}
+			</UnderlinedText>
+			<p>{description}</p>
+			<a href={link} className={styles.visitProject}>
+				Visit project
+			</a>
+		</div>
+		{direction === 'right' && (
+			<div className={styles.imageWrapper}>
+				<Image
+					src={coverURI}
+					className={styles.projectImage}
+					width="400"
+					height="400"
+				/>
+			</div>
+		)}
+	</article>
+)
+
+FavoriteProject.defaultProps = {
+	direction: 'left',
+}
 
 const Priority: React.FC<{ title: string; icon: ReactElement }> = ({
 	title,
@@ -77,14 +147,8 @@ ServicePresenter.defaultProps = {
  ** Names are expected to be lowercase.
  */
 
-const excludedTechnologies = ['nasm', 'wordpress']
-
 const Home: NextPage = () => {
 	const languageSection = 'index'
-
-	const isPhone = useMediaQuery({
-		query: '(max-width: 600px)',
-	})
 
 	return (
 		<React.Fragment>
@@ -176,7 +240,10 @@ const Home: NextPage = () => {
 					className={styles.prioritiesContainer}
 					edgePadded={false}
 				>
-					<h2>My <span className={styles.priorityCount}>3</span> priorities as a developer</h2>
+					<h2>
+						My <span className={styles.priorityCount}>3</span>{' '}
+						priorities as a developer
+					</h2>
 					<div className={styles.priorities}>
 						<Priority
 							icon={<BsCodeSquare />}
@@ -212,9 +279,32 @@ const Home: NextPage = () => {
 							that best fits your expectations.
 						</Priority>
 					</div>
-					<Link href="/projects" >
+					<Link href="/projects">
 						<a className={styles.projectCta}>Dive into my code</a>
 					</Link>
+				</Container>
+			</section>
+
+			<section className={styles.projectsRoot}>
+				<Container size="md" className={styles.projectsContainer}>
+					<img src="/blob.svg" className={styles.blob} />
+					<div className={styles.projectsHeader}>
+						<h2>Projects that I enjoyed working on</h2>
+						<h5>
+							Here is a curated list of web related projects that
+							I particularily enjoyed doing
+						</h5>
+					</div>
+
+					<div className={styles.projects}>
+						{favoriteProjects.map((fp, i) => (
+							<FavoriteProject
+								key={fp.title}
+								{...fp}
+								direction={i % 2 === 0 ? 'left' : 'right'}
+							/>
+						))}
+					</div>
 				</Container>
 			</section>
 		</React.Fragment>

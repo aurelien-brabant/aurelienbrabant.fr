@@ -1,0 +1,20 @@
+.textWrapper {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+
+.text {
+  padding: 0;
+  margin: 0;
+}
+
+.underline {
+  position: absolute;
+  bottom: 32%;
+  border-radius: 5px;
+  left: 0;
+  right: 0;
+  height: 15%;
+  z-index: -1;
+}

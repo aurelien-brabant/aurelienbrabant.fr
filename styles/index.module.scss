@@ -592,3 +592,118 @@
 		}
 	}
 }
+
+/********************************************************************************************/
+/*                                     PROJECTS SECTION                                     */
+/********************************************************************************************/
+
+.projectsRoot {
+	background-color: #b55b49;
+	padding: 2em 0 3.5em 0;
+}
+
+.projectsContainer {
+	color: rgba(255, 255, 255, 0.9);
+	background-color: #191b1f;
+	border-radius: 1.5em;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+	position: relative;
+}
+
+.blob {
+		position: absolute;
+		right: 0;
+		height: 30rem;
+		width: 30rem;
+		z-index: -1;
+		opacity: 0.6;
+	}
+
+.projectsHeader {
+	text-align: center;
+	position: relative;
+	z-index: 5;
+	max-width: 800px;
+	margin: 0 auto;
+	padding: 3em;
+	margin-bottom: 2em;
+
+	h2,
+	h5 {
+		margin: 0.2em 0;
+	}
+
+	h2 {
+		font-size: 2em;
+		text-transform: uppercase;
+	}
+
+	h5 {
+		font-size: 1.1em;
+		font-weight: 400;
+	}
+
+	
+}
+
+.projects {
+	padding-bottom: 2em;
+
+	@media only screen and (min-width: 800px) {
+		padding: 2em;
+	}
+
+	.project {
+		.imageWrapper {
+			display: none;
+			min-width: 40%;
+			align-items: center;
+			justify-content: center;
+
+			@media only screen and (min-width: 800px) {
+				display: flex;
+			}
+		}
+
+		display: flex;
+		justify-content: space-around;
+
+		.projectText {
+			margin-left: 0.5em;
+			align-items: flex-start;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			padding: 1em;
+
+			.projectTitle {
+				max-width: 300px;
+				font-size: 1.8em;
+				color: #fff;
+			}
+
+			p {
+				line-height: 1.3em;
+				font-size: 1.2em;
+			}
+		}
+
+		.visitProject {
+			background-color: core.$primary-color;
+			padding: 0.4em 0.8em;
+			font-size: 1.2em;
+			font-weight: 700;
+			text-transform: uppercase;
+
+			&:hover {
+				box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+			}
+		}
+	}
+
+	.projectImage {
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		border: 5px #e2725b solid !important;
+		border-radius: 2px;
+	}
+}
