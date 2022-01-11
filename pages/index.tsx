@@ -339,7 +339,7 @@ const Home: NextPage = () => {
 				<img src="landing_wave_1.svg" className={styles.landingWave1} />
 			</section>
 
-			<section className={styles.servicesRoot}>
+			<section className={styles.servicesRoot} id="services">
 				<Container className={styles.services} size="lg">
 					<h2 className={styles.heading}>
 						<Translator section={languageSection}>
@@ -360,11 +360,6 @@ const Home: NextPage = () => {
 						<a className={styles.freeEstimate} href="/estimate">
 							<Translator section={languageSection}>
 								free_estimate
-							</Translator>
-						</a>
-						<a className={styles.solutionsCta} href="/solutions">
-							<Translator section={languageSection}>
-								more_solutions
 							</Translator>
 						</a>
 					</div>

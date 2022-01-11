@@ -12,6 +12,11 @@ export const navtabs: NavTab[] = [
 		id: 0,
 	},
 	{
+		label: 'services',
+		route: '/#services',
+		id: 6
+	},
+	{
 		label: 'about',
 		route: '/about',
 		id: 3,
