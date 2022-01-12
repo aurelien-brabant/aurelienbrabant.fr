@@ -1,5 +1,5 @@
 import type { NextPage } from 'next'
-import React, { Fragment, ReactElement } from 'react'
+import React, { Fragment, ReactElement, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container } from '../components/container/container'
@@ -21,9 +21,10 @@ import { BsCodeSquare } from 'react-icons/bs'
 import { CgFileDocument } from 'react-icons/cg'
 import { IoMdChatbubbles } from 'react-icons/io'
 
-import { services } from '../data/services';
+import { Service, services } from '../data/services'
 
 import useLanguage from '../hooks/useLanguage'
+import language from 'react-syntax-highlighter/dist/esm/languages/hljs/1c'
 
 type FavoriteProject = {
 	title: string
@@ -56,7 +57,7 @@ const favoriteProjects: FavoriteProject[] = [
 		title: 'aurelienbrabant.fr',
 		description: {
 			en: `My own website you're browsing right now, which consists in a fullstack web application. I learned most of my advanced skills by working on it (back-end and front-end).`,
-			fr: 'Mon site personnel et portfolio que vous visitez actuellement, qui consiste en une application web fullstack. J\'ai appris la grande majorité de mes compétences avancées en travaillant dessus (côté client et côté serveur).',
+			fr: "Mon site personnel et portfolio que vous visitez actuellement, qui consiste en une application web fullstack. J'ai appris la grande majorité de mes compétences avancées en travaillant dessus (côté client et côté serveur).",
 		},
 		link: '/projects/Partylens-API',
 		coverURI: '/large_abrabant.jpg',
@@ -170,10 +171,8 @@ const DeveloperPriority: React.FC<{ title: string; icon: ReactElement }> = ({
 	</article>
 )
 
-
-
 const ServicePresenter: React.FC<{
-	service: LandingService
+	service: Service
 	direction: 'left' | 'right'
 }> = ({ service, direction }) => (
 	<article
@@ -203,6 +202,98 @@ const ServicePresenter: React.FC<{
 
 ServicePresenter.defaultProps = {
 	direction: 'left',
+}
+
+const ContactForm: React.FC<{}> = () => {
+	const [formData, setFormData] = useState<{
+		name: string
+		email: string
+		message: string
+	}>({ name: '', email: '', message: '' })
+	const [isLoading, setIsLoading] = useState(false)
+	const [error, setError] = useState<null | string>(null)
+
+	const handleChange = (
+		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+	) => {
+		console.log('changed')
+
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		})
+	}
+
+	const handleSubmit: React.FormEventHandler = async (e) => {
+		e.preventDefault()
+
+		const res = await fetch('/api/contact', {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+			},
+			body: JSON.stringify(formData),
+		})
+
+		if (res.status !== 201) {
+			try {
+				const json = await res.json()
+				setError(json.msg)
+			} catch (e) {
+				setError('Unexpected error')
+			}
+		}
+	}
+
+	return (
+		<div>
+			{error && (
+				<small className={styles.formError}>
+					{' '}
+					An unexpected error occured{' '}
+				</small>
+			)}
+			<form onSubmit={handleSubmit}>
+				<div>
+					<input
+						name="name"
+						type="text"
+						placeholder={useTranslate(
+							'form_name_placeholder',
+							'index'
+						)}
+						onChange={handleChange}
+						value={formData.name}
+					/>
+					<input
+						name="email"
+						type="email"
+						placeholder={useTranslate(
+							'form_email_placeholder',
+							'index'
+						)}
+						value={formData.email}
+						onChange={handleChange}
+					/>
+				</div>
+				<textarea
+					name="message"
+					placeholder={useTranslate(
+						'form_textarea_placeholder',
+						'index'
+					)}
+					onChange={handleChange}
+					defaultValue={formData.message}
+				/>
+				<button
+					type="submit"
+					style={{ opacity: isLoading ? '.5' : '1' }}
+				>
+					Send
+				</button>
+			</form>
+		</div>
+	)
 }
 
 /*
@@ -368,6 +459,26 @@ const Home: NextPage = () => {
 							/>
 						))}
 					</div>
+				</Container>
+			</section>
+			<section className={styles.formSection} id="contact">
+				<Container className={styles.formContainer}>
+					<div className={styles.formHeading}>
+						<h2>
+							{' '}
+							<Translator section={languageSection}>
+								form_heading
+							</Translator>{' '}
+						</h2>
+						<h4>
+							{' '}
+							<Translator section={languageSection}>
+								form_subheading
+							</Translator>{' '}
+						</h4>
+					</div>
+					<div></div>
+					<ContactForm />
 				</Container>
 			</section>
 		</React.Fragment>

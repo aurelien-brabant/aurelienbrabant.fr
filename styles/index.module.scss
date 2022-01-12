@@ -26,9 +26,9 @@
 	align-items: center;
 	font-size: 1.2em;
 	> a {
-
-			margin: 0.5em 0;
-	}flex-direction: column;
+		margin: 0.5em 0;
+	}
+	flex-direction: column;
 
 	@media only screen and (min-width: 800px) {
 		flex-direction: row;
@@ -37,8 +37,6 @@
 			margin: 0 0.5em;
 		}
 	}
-
-	
 }
 
 .mainContainer {
@@ -624,13 +622,13 @@
 }
 
 .blob {
-		position: absolute;
-		right: 0;
-		height: 30rem;
-		width: 30rem;
-		z-index: -1;
-		opacity: 0.6;
-	}
+	position: absolute;
+	right: 0;
+	height: 30rem;
+	width: 30rem;
+	z-index: -1;
+	opacity: 0.6;
+}
 
 .projectsHeader {
 	text-align: center;
@@ -655,8 +653,6 @@
 		font-size: 1.1em;
 		font-weight: 400;
 	}
-
-	
 }
 
 .projects {
@@ -717,5 +713,96 @@
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		border: 5px #e2725b solid !important;
 		border-radius: 2px;
+	}
+}
+
+.formSection {
+	padding: 2em 0;
+	background-color: #b55b49;
+	color: #fff;
+
+	.formContainer {
+		padding: 2em;
+		background-color: #191b1f;
+		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+		border-radius: 1.5rem;
+	}
+
+	.formHeading {
+		text-align: center;
+
+		h2 {
+			font-size: 2em;
+			text-transform: uppercase;
+			text-align: center;
+			margin: 0;
+		}
+
+		h4 {
+			margin: 0;
+			font-size: 1;
+			font-weight: 400;
+		}
+
+		margin-bottom: 2em;
+	}
+
+	.formError {
+		color: red;
+		font-size: .9em;
+		text-align: center;
+		display: inline-block;
+		width: 100%;
+		padding: .5em 0;
+	}
+
+	form {
+		display: grid;
+		row-gap: 1em;
+		@media only screen and (min-width: 800px) {
+			grid-template-columns: 3fr 4fr 1fr;
+			
+		}
+input {
+				&:nth-child(1) {
+					margin-bottom: 0.5em;
+				}
+			}
+		div {
+			display: flex;
+			flex-direction: column;
+		}
+
+		input {
+			font-size: 1.1em;
+		}
+
+		textarea {
+			font-size: 0.9em;
+			resize: vertical;
+		}
+
+		textarea,
+		input {
+			color: #191b1f;
+			border: 2px transparent solid;
+			border-radius: 2px;
+			margin: 0 0.5em;
+			padding: 0.4em 0.8em;
+			transition: border-color 0.2s;
+
+			&:focus {
+				border-color: #e2725b;
+			}
+		}
+
+		button[type='submit'] {
+			font-size: 1em;
+			background-color: #e2725b;
+			text-transform: uppercase;
+			color: #fff;
+			padding: 0.4em 0.8em;
+			align-self: flex-end;
+		}
 	}
 }

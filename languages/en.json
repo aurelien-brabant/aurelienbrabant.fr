@@ -1,58 +1,64 @@
 {
-  "index": {
-    "name": "Hi, I'm Aurelien",
-    "short introduction": "I'm building blazing fast websites that send businesses to the moon",
-    "hireme": "Hire me",
-    "see_my_projects": "My projects",
-    "service_hook": "Bring your projects to the next level",
+    "index": {
+        "name": "Hi, I'm Aurelien",
+        "short introduction": "I'm building blazing fast websites that send businesses to the moon",
+        "hireme": "Hire me",
+        "see_my_projects": "My projects",
+        "service_hook": "Bring your projects to the next level",
 
-    "free_estimate": "Free estimate",
-    "more_solutions": "More solutions",
+        "free_estimate": "Free estimate",
+        "more_solutions": "More solutions",
 
-    "dive_into_my_code": "Dive into my code",
+        "dive_into_my_code": "Dive into my code",
 
-    "projects_highlight_heading": "projects that I enjoyed working on",
-    "projects_highlight_sub": "Here is a curated list of web related projects that I particularily enjoyed doing",
-    
-    "visit_project_cta": "Visit project"
-  },
+        "projects_highlight_heading": "projects that I enjoyed working on",
+        "projects_highlight_sub": "Here is a curated list of web related projects that I particularily enjoyed doing",
 
-  "navtab": {
-    "blog": "Blog",
-    "home": "Home",
-    "services": "Solutions",
-    "about": "About",
-    "contact": "Contact",
-    "projects": "Projects"
-  },
+        "visit_project_cta": "Visit project",
 
-  "header": {
-    "get in touch": "Want to work together?"
-  },
+        "form_heading": "A project, a question, an idea? Tell me!",
+        "form_subheading": "I will come back to you by email as soon as I've received your message",
+        "form_name_placeholder": "Name",
+        "form_email_placeholder": "example@gmail.com",
+        "form_textarea_placeholder": "I would want a website for my small business..."
+    },
 
-  "blog": {
-    "heading": "Blog",
-    "sub heading": "Featured articles about programming, hardware and more"
-  },
+    "navtab": {
+        "blog": "Blog",
+        "home": "Home",
+        "services": "Solutions",
+        "about": "About",
+        "contact": "Contact",
+        "projects": "Projects"
+    },
 
-  "contact": {
-    "heading": "Contact",
-    "thank you": "Thank you for your interest in getting in touch!",
-    "description": "Whether it's to discuss about stuff I've written on my blog or to work with me, I'm happy to get your email.",
-    "best way to reach": "The best way to reach me is by email at",
-    "socials": "You can also follow me on my social medias:"
-  },
+    "header": {
+        "get in touch": "Want to work together?"
+    },
 
-  "about": {
-    "heading": "About",
-    "p1": "Hi, my name is Aurélien. I'm a french student currently studying software engineering at school 42 in Paris.",
-    "p2": "If you haven't heard about the 42 network already, it's basically a network of campuses all around the world that aim to train the future of software engineers, using a very unique pedagogical approach based on peer-learning.",
-    "p3": "I started programming about one year before I decided to attempt the selection of 42 Paris which took place in August of 2020. Since then, I basically never stopped, growing my skills and mindset, enjoying programming as a hobby, but also as a full-time activity.",
-    "p4": "About programming in general, I'm mostly studying fundamentals at 42, making use of mainly C, C++ and even assembly. I also particularily like DevOps: deployment of containerized applications in the cloud, continuous integration... For example, I have setup a bunch of micro-services at home to handle the management of my passwords (Bitwarden), files (Nextcloud) and git repositories (Gitea). I also used these precious skills to deploy my personal projects with ease.",
-    "p5": "I decided to specialize in web development, since the web is where most of the things happen nowadays. I started building solid front-end skills in order to make the website I had ever wanted, and then learned more advanced tools as well as back-end development. My web skills, although perfectible, form the core of my programming experience.",
-    "p6": "Moreover, I'm really interested into the Linux ecosystem, and love hearing about open source software: I'm indeed using Linux as my daily driver since almost the beginning of my programming journey! After I tried out many (too much!) distributions, I finally decided to stay with my two favorites: Gentoo and Arch Linux. In connection with my DevOps experience, I'm also quite comfortable with every Debian-based distribution such as Ubuntu or Debian itself. I'm also a proud VIM user!",
-    "p7": "My so-called life plan is to continue working on software engineering projects, while traveling the world (the dream of every software engineer, yes I know!). As computer science is also my passion, I don't mind working from the beach 😎",
+    "blog": {
+        "heading": "Blog",
+        "sub heading": "Featured articles about programming, hardware and more"
+    },
 
-    "cta": "Want to work with me?"
-  }
+    "contact": {
+        "heading": "Contact",
+        "thank you": "Thank you for your interest in getting in touch!",
+        "description": "Whether it's to discuss about stuff I've written on my blog or to work with me, I'm happy to get your email.",
+        "best way to reach": "The best way to reach me is by email at",
+        "socials": "You can also follow me on my social medias:"
+    },
+
+    "about": {
+        "heading": "About",
+        "p1": "Hi, my name is Aurélien. I'm a french student currently studying software engineering at school 42 in Paris.",
+        "p2": "If you haven't heard about the 42 network already, it's basically a network of campuses all around the world that aim to train the future of software engineers, using a very unique pedagogical approach based on peer-learning.",
+        "p3": "I started programming about one year before I decided to attempt the selection of 42 Paris which took place in August of 2020. Since then, I basically never stopped, growing my skills and mindset, enjoying programming as a hobby, but also as a full-time activity.",
+        "p4": "About programming in general, I'm mostly studying fundamentals at 42, making use of mainly C, C++ and even assembly. I also particularily like DevOps: deployment of containerized applications in the cloud, continuous integration... For example, I have setup a bunch of micro-services at home to handle the management of my passwords (Bitwarden), files (Nextcloud) and git repositories (Gitea). I also used these precious skills to deploy my personal projects with ease.",
+        "p5": "I decided to specialize in web development, since the web is where most of the things happen nowadays. I started building solid front-end skills in order to make the website I had ever wanted, and then learned more advanced tools as well as back-end development. My web skills, although perfectible, form the core of my programming experience.",
+        "p6": "Moreover, I'm really interested into the Linux ecosystem, and love hearing about open source software: I'm indeed using Linux as my daily driver since almost the beginning of my programming journey! After I tried out many (too much!) distributions, I finally decided to stay with my two favorites: Gentoo and Arch Linux. In connection with my DevOps experience, I'm also quite comfortable with every Debian-based distribution such as Ubuntu or Debian itself. I'm also a proud VIM user!",
+        "p7": "My so-called life plan is to continue working on software engineering projects, while traveling the world (the dream of every software engineer, yes I know!). As computer science is also my passion, I don't mind working from the beach 😎",
+
+        "cta": "Want to work with me?"
+    }
 }
