@@ -20,11 +20,11 @@ const Header: React.FC<{}> = () => {
 	const [selected, setSelected] = useState(0)
 	const [isVisible, setIsVisible] = useState(false)
 
-	const router = useRouter()
+	const router = useRouter();
 
 	useEffect(() => {
 		const tmp = router.route.split('/')
-		const baseRoute = tmp.length > 0 ? `/${tmp[1]}` : '/'
+		const baseRoute = tmp.length > 0 ? `/${tmp[1]}${window.location.hash}` : '/'
 		for (const tab of navtabs) {
 			if (tab.children) {
 				for (const link of tab.children) {

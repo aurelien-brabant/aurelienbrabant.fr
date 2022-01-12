@@ -7,11 +7,6 @@ type NavTab = {
 
 export const navtabs: NavTab[] = [
 	{
-		label: 'home',
-		route: '/',
-		id: 0,
-	},
-	{
 		label: 'services',
 		route: '/#services',
 		id: 6
@@ -36,10 +31,5 @@ export const navtabs: NavTab[] = [
 		label: 'projects',
 		route: '/projects',
 		id: 1,
-	},
-	{
-		label: 'Resume',
-		route: '/resume.pdf',
-		id: 4,
 	},
 ]

@@ -1,45 +1,182 @@
 @use 'core';
 
-.aboutWrapper
-{
-  background-color: core.$background-color;
-  padding: 1.5em 0;
+.aboutBanner {
+    background-color: core.$primary-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5em 0 4em 0;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.92)),
+        url('/landing_bg.webp');
+    background-position: center;
+    background-size: cover;
+
+    h1 {
+        font-size: 3em;
+        color: #fff;
+        text-transform: uppercase;
+        background-clip: text;
+        position: relative;
+    }
+
+    h1::before {
+        position: absolute;
+        top: -10px;
+        left: -0.4em;
+        border-top: 5px core.$primary-color solid;
+        border-left: 5px core.$primary-color solid;
+        height: 30px;
+        width: 30px;
+        content: ' ';
+    }
+
+    h1::after {
+        position: absolute;
+        bottom: 5px;
+        right: -0.4em;
+        border-bottom: 5px core.$primary-color solid;
+        border-right: 5px core.$primary-color solid;
+        height: 30px;
+        width: 30px;
+        content: ' ';
+    }
 }
 
-.aboutContainer
-{
-  font-size: 1.15em;
+.aboutMain {
+    background-color: #b55b49;
+    padding-bottom: 2em;
 
-  h1 {
-    color: core.$text-color;
-    text-align: center;
-    margin-bottom: .5em;
-    text-transform: uppercase;
-    letter-spacing: 2px;
+    .aboutMainContainer {
+        min-height: 100vh;
+        color: rgba(255, 255, 255, 0.9);
+        background-color: #191b1f;
+        border-top: 10px core.$primary-color solid;
+        border-bottom: 10px core.$primary-color solid;
+        border-radius: 1.5em;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        position: relative;
+        transform: translateY(-2em);
+        padding: 4em 0.5em;
 
-    span {
-      color: core.$primary-color;
-      margin: 0 .25em;
+        .cosmeticWindowButtons {
+            position: absolute;
+            top: 1em;
+            left: 2em;
+
+            span {
+                margin: 0 0.2em;
+                display: inline-block;
+                width: 1.1em;
+                height: 1.1em;
+                background-color: #fff;
+                border-radius: 50%;
+
+                &:nth-child(1) {
+                    background-color: #ff5f57;
+                }
+                &:nth-child(2) {
+                    background-color: #ffbd2e;
+                }
+                &:nth-child(3) {
+                    background-color: #28ca41;
+                }
+            }
+        }
     }
-  }
 
-  p
-  {
-    margin: 1.5em 0;
-    color: core.$text-color;
-    line-height: 1.3em;
-  }
+    .aboutContentWrapper {
+        p::first-letter {
+            color: core.$primary-color;
+            font-size: 1.4em;
+            margin-right: 2px;
+            font-weight: 700;
+        }
 
-  a
-  {
-    color: core.$primary-color;
-    margin: 0 2px;
-    padding-bottom: 3px;
-    transition: .2s;
-    border-bottom: 1px transparent dotted;
+        display: flex;
+        flex-direction: column;
+        font-size: 1.15em;
 
-    &:hover {
-      border-color: core.$primary-color;
+        .textImage {
+            display: flex;
+            flex-direction: column;
+            align-items: start;
+
+            padding-bottom: 1em;
+            p {
+                max-width: 100%;
+                padding: 0 0.3em;
+            }
+
+            .imageWrapper {
+                align-self: center;
+                .image {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                    border-radius: 2px;
+                    border: 5px core.$primary-color solid !important;
+                }
+            }
+
+            @media only screen and (min-width: 800px) {
+                flex-direction: row;
+                align-items: center;
+                p {
+                  max-width: 80%;
+                }
+            }
+        }
     }
+}
+
+.technologiesSection {
+    display: grid;
+
+    @media only screen and (min-width: 800px) {
+      grid-template-columns: 3fr 2fr;
+      grid-column-gap: 1em;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    padding: 1em 0;
+
+    .technologies {
+        position: relative;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        border: 2px core.$primary-color solid;
+        border-radius: 2px;
+        padding: 1em;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        grid-row-gap: 5px;
+
+        div {
+            justify-self: center;
+            align-self: center;
+        }
+
+        h5 {
+            position: absolute;
+            background-color: core.$primary-color;
+            top: -1.7em;
+            left: -0.1em;
+            padding: 0.1em 0.3em;
+            text-transform: uppercase;
+        }
+    }
+}
+
+.cta {
+  background-color: core.$primary-color;
+  margin: 2em auto 0 auto;
+  padding: .4em .8em;
+  transition: .2s box-shadow;
+  text-transform: uppercase;
+  font-weight: 700;
+
+  &:hover {
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   }
 }

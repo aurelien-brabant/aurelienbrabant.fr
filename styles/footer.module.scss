@@ -1,7 +1,7 @@
 @use 'core';
 
 .footer {
-	background-color: core.$secondary-color;
+	background-color: #000;
 	min-height: 300px;
 	color: #fff;
 }
@@ -43,6 +43,12 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	text-align: center;
+
+	@media only screen and (min-width: 800px) {
+		text-align: left;
+		align-items: stretch;
+	}
 	
 	ul {
 		margin: 0;
@@ -60,13 +66,9 @@
 	}
 
 	h3 {
-		font-weight: 400;
-		letter-spacing: 2px;
+		color: #fff;
 		text-transform: uppercase;
-		padding-bottom: 0.2em;
-		border-bottom: 2px rgb(255, 255, 255, 0.2) solid;
-		color: core.$primary-color;
-		margin-bottom: 0.6em;
+		font-size: 1.4em;
 	}
 }
 

@@ -8,7 +8,10 @@ import { Translator } from '../components/translator/Translator'
 import styles from '../styles/about.module.scss'
 import ExternalLink from '../components/external-link/ExternalLink'
 
+import { technologies } from '../data/technologies'
+
 import aurelienNidAigle from '../public/aurelien_nid_aigle.webp'
+import Heading from '../components/heading'
 
 const About: NextPage = () => {
     const aboutLanguageSection = 'about'
@@ -24,124 +27,77 @@ const About: NextPage = () => {
                 <meta name="robots" content="index, follow" />
                 <link rel="canonical" href="https://aurelienbrabant.fr/about" />
             </Head>
-            <Container
-                className={styles.aboutWrapper}
-                fillPageHeight={true}
-                limitedWidth={false}
-            >
-                <Container className={styles.aboutContainer}>
-                    <h1>
-                        {' '}
-                        <span>~</span>
-                        <Translator section={aboutLanguageSection}>
-                            heading
-                        </Translator>
-                        <span>~</span>
-                    </h1>
+                <Heading title="about" />
+                        <main className={styles.aboutMain}>
+                <Container className={styles.aboutMainContainer} size="md">
+                    <div className={styles.cosmeticWindowButtons}>
+                        <span />
+                        <span />
+                        <span />
+                    </div>
+                    <Container size="lg">
+                        <div className={styles.aboutContentWrapper}>
+                            <div className={styles.textImage}>
+                                <p>
+                                    <Translator section={aboutLanguageSection}>
+                                        p1
+                                    </Translator>{' '}
+                                    <Translator section={aboutLanguageSection}>
+                                        p2
+                                    </Translator>
+                                </p>
+                                <div className={styles.imageWrapper}>
+                                <Image
+                                    className={styles.image}
+                                    src={'/large_abrabant.jpg'}
+                                    width={300}
+                                    height={300}
+                                />
+                                </div>
+                            </div>
+                            <p>
+                                <Translator section={aboutLanguageSection}>
+                                    p3
+                                </Translator>
+                            </p>
+                            <p>
+                                <Translator section={aboutLanguageSection}>
+                                    p4
+                                </Translator>
+                            </p>
+                            <section className={styles.technologiesSection}>
+                                <div>
+                                    <div className={styles.technologies}>
+                                        <h5>technos</h5>
+                                        {technologies.map((techno) => (
+                                            <div>
+                                                <Image
+                                                    src={techno.imageUrl}
+                                                    height={50}
+                                                    width={50}
+                                                />
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                                <p>
+                                    <Translator section={aboutLanguageSection}>
+                                        p5
+                                    </Translator>
+                                </p>
+                            </section>
+                            <p>
+                                <Translator section={aboutLanguageSection}>p6</Translator>
+                            </p>
+<p>
+                                <Translator section={aboutLanguageSection}>p7</Translator>
+                            </p>
 
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p1
-                        </Translator>
-                    </p>
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p2
-                        </Translator>
-                    </p>
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p3
-                        </Translator>
-                    </p>
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p4
-                        </Translator>
-                    </p>
-                    <Image
-                        src={aurelienNidAigle}
-                        alt={'photo of Aurélien Brabant'}
-                        layout="responsive"
-                        className={styles.photo}
-                    />
-
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p5
-                        </Translator>
-                    </p>
-
-                    <p>
-                        <Translator
-                            manual={{
-                                en: (
-                                    <React.Fragment>
-                                        In my spare time, I occasionaly write
-                                        articles for my{' '}
-                                        <Link href="/blog">
-                                            <a>blog</a>
-                                        </Link>{' '}
-                                        or make{' '}
-                                        <ExternalLink href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg">
-                                            YouTube videos{' '}
-                                        </ExternalLink>
-                                        with the hope that my knowledge may
-                                        become useful to others.
-                                    </React.Fragment>
-                                ),
-                                fr: (
-                                    <React.Fragment>
-                                        Sur mon temps libre, je m'adonne à
-                                        l'écriture d'articles sur mon{' '}
-                                        <Link href="/blog">
-                                            <a>blog</a>
-                                        </Link>{' '}
-                                        ou enregistre des{' '}
-                                        <ExternalLink href="https://www.youtube.com/channel/UC9JjIHlcttAz6QJTVjVxsdg">
-                                            vidéos YouTube{' '}
-                                        </ExternalLink>
-                                        avec l'espoir que mes connaissances
-                                        puissent se réveler utile aux autres.
-                                    </React.Fragment>
-                                ),
-                            }}
-                        />
-                    </p>
-
-                    <p>
-                        <Translator section={aboutLanguageSection}>
-                            p6
-                        </Translator>
-                    </p>
-
-                    <p>
-                        <Translator
-                            manual={{
-                                en: (
-                                    <React.Fragment>
-                                        A suggestion, question, offer? Feel free
-                                        to{' '}
-                                        <Link href="/contact">
-                                            <a>contact me</a>
-                                        </Link>{' '}
-                                        at any time!
-                                    </React.Fragment>
-                                ),
-                                fr: (
-                                    <React.Fragment>
-                                        Une suggestion, une question, une offre?{' '}
-                                        <Link href="/contact">
-                                            <a>Contactez moi </a>
-                                        </Link>{' '}
-                                        dès maintenant!
-                                    </React.Fragment>
-                                ),
-                            }}
-                        />
-                    </p>
+                            <Link href="/contact"><a className={styles.cta}><Translator section={aboutLanguageSection}>cta</Translator></a></Link>
+                        </div>
+                    </Container>
                 </Container>
-            </Container>
+            </main>
         </React.Fragment>
     )
 }

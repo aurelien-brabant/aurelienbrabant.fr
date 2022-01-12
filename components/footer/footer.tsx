@@ -1,17 +1,20 @@
-import React from "react";
-import styles from "../../styles/footer.module.scss";
-import { Container } from "../container/container";
-import { Translator } from "../translator/Translator";
-import SocialNetworks from '../../components/social-networks/SocialNetworks';
-import Link from "next/link";
-import { navtabs } from "../../data/navtabs";
+import React from 'react'
+import styles from '../../styles/footer.module.scss'
+import { Container } from '../container/container'
+import { translateFromObject, Translator } from '../translator/Translator'
+import SocialNetworks from '../../components/social-networks/SocialNetworks'
+import Link from 'next/link'
+import { navtabs } from '../../data/navtabs'
+import h3 from '../UnderlinedText'
 
-type FooterInputProps = {};
+import { services } from '../../data/services'
+
+type FooterInputProps = {}
 
 type FooterBlockInputProps = {
-	title: string;
-	items: { route: string; label: string }[];
-};
+	title: string
+	items: { route: string; label: string }[]
+}
 
 const FooterBlock: React.FC<FooterBlockInputProps> = ({ title, items }) => {
 	return (
@@ -27,11 +30,11 @@ const FooterBlock: React.FC<FooterBlockInputProps> = ({ title, items }) => {
 				))}
 			</ul>
 		</div>
-	);
-};
+	)
+}
 
 export const Footer: React.FC<FooterInputProps> = () => {
-	const navtabLanguageSection = "navtab";
+	const navtabLanguageSection = 'navtab'
 	return (
 		<div className={styles.footer}>
 			<Container className={styles.footerContainer}>
@@ -39,36 +42,61 @@ export const Footer: React.FC<FooterInputProps> = () => {
 					<div className={styles.footerBlock}>
 						<h3>Pages</h3>
 						<ul>
-							{navtabs.map((item) => (
-								<li key={item.label}>
-									<Link href={item.route}>
+							{navtabs
+								.filter((item) => item.label !== 'services')
+								.map((item) => (
+									<li key={item.label}>
+										<Link href={item.route}>
+											<a>
+												<Translator
+													section={
+														navtabLanguageSection
+													}
+												>
+													{item.label}
+												</Translator>
+											</a>
+										</Link>
+									</li>
+								))}
+						</ul>
+					</div>
+
+					<div className={styles.footerBlock}>
+						<h3>Solutions</h3>
+						<ul>
+							{services.map((service) => (
+								<li>
+									<Link href="/#services">
 										<a>
-											<Translator
-												section={navtabLanguageSection}
-											>
-												{item.label}
-											</Translator>
+											{translateFromObject(service.name)}
 										</a>
 									</Link>
 								</li>
 							))}
 						</ul>
 					</div>
-					<FooterBlock title="Solutions" items={[]} />
-					<FooterBlock title="Contact" items={[
-						{
-							label: "contact@aurelienbrabant.fr",
-							route: "mailto:hi@aurelienbrabant.fr"
-						}
-					]} />
+
+					<div className={styles.footerBlock}>
+						<h3>Contact</h3>
+						<ul>
+							<li><Link href="/contact"><a href="/contact">Contact form</a></Link></li>
+							<li><a href="mailto:contact@aurelienbrabant.fr">contact@aurelienbrabant.fr</a></li>
+						</ul>
+					</div>
+
+					<div className={styles.footerBlock}>
+						<h3>Suivre mon actualité</h3>
+						<SocialNetworks className={styles.socials} />
+					</div>
 				</div>
-				<SocialNetworks
-					className={styles.socials}
-				/>
 				<div className={styles.footerContactInfo}>
-					<small>&copy; Copyright {new Date().getFullYear()}, aurelienbrabant.fr</small>
+					<small>
+						&copy; Copyright {new Date().getFullYear()},
+						aurelienbrabant.fr
+					</small>
 				</div>
 			</Container>
 		</div>
-	);
-};
+	)
+}
