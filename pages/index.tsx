@@ -477,8 +477,8 @@ const Home: NextPage = () => {
 							</Translator>{' '}
 						</h4>
 					</div>
-					<div></div>
 					<ContactForm />
+					<h5 className={styles.orSendMailTo}><Translator section={languageSection}>or_send_mail</Translator> <a href="mailto:contact@aurelienbrabant.fr">contact@aurelienbrabant.fr</a></h5>
 				</Container>
 			</section>
 		</React.Fragment>

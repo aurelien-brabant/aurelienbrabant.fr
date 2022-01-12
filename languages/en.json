@@ -20,7 +20,8 @@
         "form_subheading": "I will come back to you by email as soon as I've received your message",
         "form_name_placeholder": "Name",
         "form_email_placeholder": "example@gmail.com",
-        "form_textarea_placeholder": "I would want a website for my small business..."
+        "form_textarea_placeholder": "I would want a website for my small business...",
+        "or_send_mail": "Or send a mail to"
     },
 
     "navtab": {
