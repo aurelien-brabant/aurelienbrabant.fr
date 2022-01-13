@@ -44,17 +44,19 @@
 
 .anchorHeading span
 {
-	font-size: 2em;
+	font-size: 1.5em;
 	color: #e2725b;
 	margin-right: .2em;
 	opacity: .4;
 	transition: opacity .2s;
-	font-family: Terminus;
+	font-family: MonoLisa;
 }
 
 .anchorHeading.separator
 {
-	border-bottom: 1.5px rgba(255, 255, 255, .2) solid;
+	border-bottom: 2px rgba(255, 255, 255, .1) solid;
+	margin-bottom: .4em;
+	border-radius: 2px;
 }
 
 .anchorHeading span:hover
@@ -75,13 +77,13 @@
 .inlineCode
 {
 	color: #e2725b;
-	font-family: Terminus;
+	font-family: MonoLisa;
 	letter-spacing: 1.2px;
 	font-weight: 400;
 	overflow-wrap: break-word;
 	white-space: normal;
+	font-size: .85em;
 
-	box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 	padding: 0 5px;
 }
 

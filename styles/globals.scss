@@ -29,24 +29,24 @@
 }
 
 @font-face {
-    font-family: 'Terminus';
-    src: url('/fonts/terminus/terminus-regular.woff2') format('woff2'),
-        url('/fonts/terminus/terminus-regular.woff') format('woff'),
-        url('/fonts/terminus/terminus-regular.ttf') format('truetype');
+    font-family: 'MonoLisa';
+    src: url('/fonts/MonoLisa-regular.woff2') format('woff2'),
+        url('/fonts/MonoLisa-regular.woff') format('woff'),
+        url('/fonts/MonoLisa-regular.ttf') format('truetype');
     font-style: normal;
     font-weight: 400;
     font-display: swap;
 }
 
 @font-face {
-    font-family: 'Terminus';
+    font-family: 'MonoLisa';
 
-    src: url('/fonts/terminus/terminus-bold.woff2') format('woff2'),
-        url('/fonts/terminus/terminus-bold.woff') format('woff'),
-        url('/fonts/terminus/terminus-bold.ttf') format('truetype');
+    src: url('/fonts/MonoLisa-RegularItalic.woff2') format('woff2'),
+        url('/fonts/MonoLisa-RegularItalic.woff') format('woff'),
+        url('/fonts/MonoLisa-RegularItalic.ttf') format('truetype');
 
-    font-style: normal;
-    font-weight: 700;
+    font-style: italic;
+    font-weight: 400;
     font-display: swap;
 }
 

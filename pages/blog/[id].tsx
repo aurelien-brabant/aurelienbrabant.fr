@@ -2,6 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
 import MarkdownRenderer from '../../components/MarkdownRenderer'
+import { FaComments, FaMapMarkerAlt } from 'react-icons/fa'
+import { AiOutlineClose } from 'react-icons/ai'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 import aurelienPhoto from '../../public/aurelien.webp'
 
@@ -19,6 +22,8 @@ import { Container } from '../../components/container/container'
 
 import styles from '../../styles/blogpost.module.scss'
 import { GetServerSideProps } from 'next'
+import { HeadingComponent } from 'react-markdown/lib/ast-to-react'
+import { useRouter } from 'next/router'
 
 type NestedHeading = {
 	id: string | undefined
@@ -82,25 +87,18 @@ const useMarkdownNestedHeadings = () => {
 
 /* TableOfContents Headings */
 
-const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
-	headings,
-	level,
-}) => {
+const TOCHeadings: React.FC<{
+	headings: NestedHeading[]
+	level: number
+	onClick: any
+}> = ({ headings, level, onClick }) => {
 	return (
 		<React.Fragment>
 			{headings.map((el) => (
 				<React.Fragment key={el.id}>
 					<div
 						onClick={(e) => {
-							e.preventDefault()
-							document
-								.querySelector(`#${el.id}`)!
-								.scrollIntoView({ behavior: 'smooth' })
-							history.pushState(
-								{},
-								document.title,
-								`${window.location.href.split('#')[0]}#${el.id}`
-							)
+							onClick(e, el)
 						}}
 						style={{
 							marginLeft: `${10 * (level - 1)}px`,
@@ -115,6 +113,7 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 						/* render subheadings recursiveltch the list of blog */
 						el.nested.length > 0 && (
 							<TOCHeadings
+								onClick={onClick}
 								headings={el.nested}
 								level={level + 1}
 							/>
@@ -128,22 +127,18 @@ const TOCHeadings: React.FC<{ headings: NestedHeading[]; level: number }> = ({
 
 TOCHeadings.defaultProps = { level: 1 }
 
-const TableOfContents: React.FC<{ headings: NestedHeading[] }> = ({
-	headings,
-}) => {
-	return (
-		<nav className={styles.sidenav}>
-			{/*
-			<span
-				className={styles.toggleButton}
-			>
-				X
-			</span>
-			  */}
-			<TOCHeadings headings={headings} level={1} />
-		</nav>
-	)
-}
+const TableOfContents: React.FC<{ headings: NestedHeading[]; onClick: any, isVisible: boolean }> =
+	({ headings, onClick, isVisible }) => {
+		return (
+			<nav className={`${styles.sidenav} ${isVisible ? styles.visible : ''}`}>
+					<TOCHeadings
+						headings={headings}
+						level={1}
+						onClick={onClick}
+					/>
+			</nav>
+		)
+	}
 
 export const getServerSideProps: GetServerSideProps = async function (context) {
 	const props: { [key: string]: any } = {}
@@ -155,8 +150,8 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
 			)
 		).json()
 
-		postData.releaseTs = postData.releaseTs;
-		postData.lastEditTs = postData.lastEditTs;
+		postData.releaseTs = postData.releaseTs
+		postData.lastEditTs = postData.lastEditTs
 
 		props.postData = postData
 	}
@@ -166,16 +161,34 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
 	}
 }
 
+enum ReaderState {
+	READER_TEXT,
+	READER_GLOSSARY,
+	READER_COMMENTS,
+}
+
 const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 	postData,
 }) => {
-	const [clientReleaseDate, setClientReleaseDate] = useState<string>()
-	const [clientLastEditDate, setClientLastEditDate] = useState<string>()
+	const [readerState, setReaderState] = useState(ReaderState.READER_TEXT)
+	const [anchor, setAnchor] = useState('')
+	const [scrollCoords, setScrollCoords] = useState({ x: 0, y: 0 })
+	const [isSidenavVisible, setIsSidenavVisible] = useState(false);
 
-	useEffect(() => {
-		setClientReleaseDate(new Date(postData.releaseTs).toLocaleDateString())
-		setClientLastEditDate(new Date(postData.releaseTs).toLocaleDateString());
-	})
+	const router = useRouter()
+
+	const handleGlossaryClick = (e: React.MouseEvent, el: NestedHeading) => {
+		e.preventDefault()
+const target = document.getElementById(el.id as string)
+
+		target?.scrollIntoView({ behavior: 'smooth' })
+
+		history.pushState(
+			{},
+			document.title,
+			`${window.location.href.split('#')[0]}#${anchor}`
+		)
+	}
 
 	const headings = useMarkdownNestedHeadings()
 
@@ -191,134 +204,125 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 				/>
 			</Head>
 
-			<Container
-				limitedWidth={false}
-				className={styles.mainContainer}
-				edgePadded={false}
+			<section
+				className={styles.postContent}
+				style={{
+				}}
 			>
-				<Container className={styles.postHeader}>
-					<div className={styles.tagList}>
-						{postData.tags &&
-							postData.tags.map((tag) => (
-								<span key={tag}> {tag} </span>
-							))}
-					</div>
-					<h1> {postData.title} </h1>
-					<p> {postData.description} </p>
-					<hr className={styles.separator} />
-					<div className={styles.metablock}>
-						<Image
-							src={postData.authorPictureURI}
-							alt={'photo of the author'}
-							width={40}
-							height={40}
-							className={styles.authorImage}
-						/>
+				{/* MARKDOWN RENDERING */}
+
+				<Container className={styles.contentBox} edgePadded={false}>
+					<div className={styles.toolbox}>
 						<div>
-							<div style={{ marginBottom: '5px' }}>
-								{' '}
-								{postData.authorUsername}
-							</div>
-							<div>
-								{' '}
-								Last edited the {clientLastEditDate} (Created the {clientReleaseDate}) •{' '}
-								{postData.estimatedReadingTime} MINUTES READ
-							</div>
+							<button>
+								<GiHamburgerMenu
+									onClick={() => {
+										setIsSidenavVisible(!isSidenavVisible);
+									}}
+								/>
+							</button>
+						</div>
+						<h4>{postData.title}</h4>
+						<div>
+							<button>
+								<AiOutlineClose
+									onClick={() => {
+										router.push('/blog')
+									}}
+								/>
+							</button>
 						</div>
 					</div>
-					<img
-						src={postData.coverImagePath}
-						alt={`blogpost's cover`}
-						className={styles.postImage}
-					/>
-				</Container>
-				<Container
-					className={styles.contentContainer}
-					limitedWidth={true}
-				>
-					{/* MARKDOWN RENDERING */}
-
 					<div className={styles.markdownWrapper}>
-						<ReactMarkdown
-							components={{
-								// eslint-disable-next-line react/display-name
-								code: ({ children, inline, className }) => {
-									const match = /language-(\w+)/.exec(
-										className || ''
-									)
-									return match && !inline ? (
-										<MarkdownCodeBlock language={match[1]}>
-											{children}
-										</MarkdownCodeBlock>
-									) : (
-										<MarkdownInlineCode>
-											{children}
-										</MarkdownInlineCode>
-									)
-								},
+					<TableOfContents onClick={handleGlossaryClick} headings={headings} isVisible={isSidenavVisible} />
+						{readerState === ReaderState.READER_TEXT && (
+							<div className={styles.markdownContent}>
+							<ReactMarkdown
+								components={{
+									// eslint-disable-next-line react/display-name
+									code: ({ children, inline, className }) => {
+										const match = /language-(\w+)/.exec(
+											className || ''
+										)
+										return match && !inline ? (
+											<MarkdownCodeBlock
+												language={match[1]}
+											>
+												{children}
+											</MarkdownCodeBlock>
+										) : (
+											<MarkdownInlineCode>
+												{children}
+											</MarkdownInlineCode>
+										)
+									},
 
-								// eslint-disable-next-line react/display-name
-								img: ({ src, alt }) => (
-									<MarkdownImage
-										src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
-										alt={alt ? alt : 'no alt provided'}
-									/>
-								),
+									// eslint-disable-next-line react/display-name
+									img: ({ src, alt }) => (
+										<MarkdownImage
+											src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
+											alt={alt ? alt : 'no alt provided'}
+										/>
+									),
 
-								// eslint-disable-next-line react/display-name
-								h1: ({ children, level }) => {
-									return (
+									// eslint-disable-next-line react/display-name
+									h1: ({ children, level }) => {
+										return (
+											<MarkdownHeading
+												headingLevel={level}
+											>
+												{children}
+											</MarkdownHeading>
+										)
+									},
+
+									// eslint-disable-next-line react/display-name
+									h2: ({ children, level }) => (
 										<MarkdownHeading headingLevel={level}>
 											{children}
 										</MarkdownHeading>
-									)
-								},
+									),
 
-								// eslint-disable-next-line react/display-name
-								h2: ({ children, level }) => (
-									<MarkdownHeading headingLevel={level}>
-										{children}
-									</MarkdownHeading>
-								),
+									// eslint-disable-next-line react/display-name
+									h3: ({ children, level }) => (
+										<MarkdownHeading headingLevel={level}>
+											{children}
+										</MarkdownHeading>
+									),
 
-								// eslint-disable-next-line react/display-name
-								h3: ({ children, level }) => (
-									<MarkdownHeading headingLevel={level}>
-										{children}
-									</MarkdownHeading>
-								),
+									// eslint-disable-next-line react/display-name
+									p: ({ children, ...props }) => {
+										return children[0] &&
+											typeof children[0] === 'object' &&
+											(children[0] as any).type.name ===
+												'img' ? (
+											<div {...props}>{children}</div>
+										) : (
+											<p {...props}>{children}</p>
+										)
+									},
 
-								// eslint-disable-next-line react/display-name
-								p: ({ children, ...props }) => {
-									return children[0] &&
-										typeof children[0] === 'object' &&
-										(children[0] as any).type.name ===
-											'img' ? (
-										<div {...props}>{children}</div>
-									) : (
-										<p {...props}>{children}</p>
-									)
-								},
+									// eslint-disable-next-line react/display-name
+									a: ({ children, href, target }) => (
+										<Anchor href={href} target={target}>
+											{children}
+										</Anchor>
+									),
 
-								// eslint-disable-next-line react/display-name
-								a: ({ children, href, target }) => (
-									<Anchor href={href} target={target}>
-										{children}
-									</Anchor>
-								),
-
-								// eslint-disable-next-line react/display-name
-								blockquote: ({ children }) => (
-									<Blockquote>{children}</Blockquote>
-								),
-							}}
-						>
-							{postData.content}
-						</ReactMarkdown>
+									// eslint-disable-next-line react/display-name
+									blockquote: ({ children }) => (
+										<Blockquote>{children}</Blockquote>
+									),
+								}}
+							>
+								{postData.content}
+							</ReactMarkdown>
+							</div>
+						)}
+						
 					</div>
-					<TableOfContents headings={headings} />
 				</Container>
-			</Container>
+			</section>
 		</React.Fragment>
 	)
 }

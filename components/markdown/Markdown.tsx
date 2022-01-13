@@ -1,7 +1,8 @@
 import React, { ReactNode } from "react";
 import Link from "next/link";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { tomorrow as syntaxTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { atomDark as syntaxTheme } from 'react-syntax-highlighter/dist/cjs/styles/prism';
+import { BsLink45Deg } from 'react-icons/bs';
 
 import { textToCSSId } from "../../lib/text_to_css_id";
 
@@ -19,8 +20,8 @@ export const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => {
 			style={syntaxTheme}
 			codeTagProps={{
 				style: {
-					fontFamily: "Terminus",
-					fontSize: "1em",
+					fontFamily: "MonoLisa",
+					fontSize: ".8em",
 				},
 			}}
 		>
@@ -77,7 +78,7 @@ export const AnchorHeading: React.FC<AnchorHeading> = ({
 					);
 				}}
 			>
-				#
+				<BsLink45Deg />
 			</span>
 			<Tag id={suitableId} className="markdown-heading">
 				{children}
