@@ -1,4 +1,8 @@
 {
+    "error": {
+        "report_problem": "Report a problem"
+    },
+
     "index": {
         "name": "Hi, I'm Aurelien",
         "short introduction": "I'm building blazing fast websites that send businesses to the moon",

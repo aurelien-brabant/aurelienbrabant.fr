@@ -1,0 +1,43 @@
+@use 'core';
+
+.notfound {
+background-image: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.92)),
+		url('/landing_bg.webp');
+	background-position: center;
+	background-size: cover;
+	background-attachment: fixed;
+	padding-bottom: 2em;
+
+  background-color: #191b1f;
+}
+
+.mainContainer {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: core.$primary-color;
+  font-size: 1.2em;
+  
+  h1 {
+    font-size: 10em;
+    margin: 0;
+text-shadow: 3px 5px 2px #000;
+  }
+
+  h2 {
+    color: #fff;
+    text-transform: uppercase;
+  }
+
+  a {
+    color: core.$primary-color;
+    border-bottom: 1px core.$primary-color solid;
+    transition: .1s border-color;
+
+    &:hover {
+      border-color: transparent;
+    }
+  }
+}

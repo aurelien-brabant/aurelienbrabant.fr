@@ -1,69 +1,71 @@
 {
-  "index": {
-    "name": "Aurélien Brabant",
-    "short introduction": "Je développe des sites webs qui propulsent vos projets",
-    "hireme": "Travaillons ensemble",
-    "see_my_projects": "Mes projets",
-    "service_hook": "Portez vos projets au niveau supérieur",
-    
-    "free_estimate": "Estimation gratuite",
-    "more_solutions": "Tout mes services",
+    "error": {
+        "report_problem": "Signaler un problème"
+    },
 
-    "dive_into_my_code": "Explorez mon code",
+    "index": {
+        "name": "Aurélien Brabant",
+        "short introduction": "Je développe des sites webs qui propulsent vos projets",
+        "hireme": "Travaillons ensemble",
+        "see_my_projects": "Mes projets",
+        "service_hook": "Portez vos projets au niveau supérieur",
 
-    "projects_highlight_heading": "Quelques projets que j'ai aimé développer",
-    "projects_highlight_sub": "Projets liés à la conception de site Internet qui m'ont fait progresser et gagner en expérience",
+        "free_estimate": "Estimation gratuite",
+        "more_solutions": "Tout mes services",
 
-    "visit_project_cta": "Voir le projet",
+        "dive_into_my_code": "Explorez mon code",
 
-    "form_heading": "UN PROJET, UNE QUESTION, UNE IDÉE? DITES MOI TOUT!",
-    "form_subheading": "Je reviendrai vers vous par email une fois votre message reçu",
-    "form_name_placeholder": "Nom",
-    "form_email_placeholder": "exemple@gmail.com",
-    "form_textarea_placeholder": "Je voudrais faire réaliser un site web pour mon petit commerce...",
-    "or_send_mail": "Ou envoyez un mail à",
+        "projects_highlight_heading": "Quelques projets que j'ai aimé développer",
+        "projects_highlight_sub": "Projets liés à la conception de site Internet qui m'ont fait progresser et gagner en expérience",
 
-    "contact_form_rejection": "Une erreur est survenue. Veuillez vous assurer que vous avez rempli tout les champs et validé le captcha."
+        "visit_project_cta": "Voir le projet",
 
-  },
+        "form_heading": "UN PROJET, UNE QUESTION, UNE IDÉE? DITES MOI TOUT!",
+        "form_subheading": "Je reviendrai vers vous par email une fois votre message reçu",
+        "form_name_placeholder": "Nom",
+        "form_email_placeholder": "exemple@gmail.com",
+        "form_textarea_placeholder": "Je voudrais faire réaliser un site web pour mon petit commerce...",
+        "or_send_mail": "Ou envoyez un mail à",
 
-  "navtab": {
-    "blog": "Blog",
-    "home": "Accueil",
-    "about": "A propos",
-    "contact": "Contact",
-    "projects": "Projets",
-    "services": "Solutions"
-  },
+        "contact_form_rejection": "Une erreur est survenue. Veuillez vous assurer que vous avez rempli tout les champs et validé le captcha."
+    },
 
-  "header": {
-    "get in touch": "Réalisons votre projet"
-  },
+    "navtab": {
+        "blog": "Blog",
+        "home": "Accueil",
+        "about": "A propos",
+        "contact": "Contact",
+        "projects": "Projets",
+        "services": "Solutions"
+    },
 
-  "blog": {
-      "search_filter": "Rechercher et filtrer",
-      "search_placeholder": "Rechercher par titre ou description"
-  },
+    "header": {
+        "get in touch": "Réalisons votre projet"
+    },
 
-  "contact": {
-    "heading": "Contact",
-    "thank you": "Merci de l'intérêt que vous portez à me contacter !",
-    "description": "Que ce soit pour discuter de mes articles ou pour que l'on travaille ensemble, je serai ravi de recevoir votre email.",
-    "best way to reach": "La meilleure manière de me joindre est de me contacter par email à",
-    "socials": "Vous pouvez aussi me suivre sur mes réseaux sociaux:"
-  },
+    "blog": {
+        "search_filter": "Rechercher et filtrer",
+        "search_placeholder": "Rechercher par titre ou description"
+    },
 
-  "about": {
-    "heading": "A propos",
-    "p1": "Moi c'est Aurélien, j'étudie actuellement l'informatique à l'école 42 sur le campus de Paris.",
-    "p2": "Si vous n'avez pas entendu parler du 42 \"network\", c'est un réseau mondial d'écoles de programmation dont la pédagogie est essentiellement basée sur l'autonomie et l'apprentissage entre étudiants au travers de la réalisation de projets pratiques.",
-    "p3": "J'ai commencé la programmation à peu près un an avant que je décide de tenter la sélection de 42 Paris qui a eu lieu en aôut 2020. Depuis, je n'ai jamais arrêté de coder et d'apprendre, faisant progresser mes capacités et mon état d'esprit, et appréciant la programmation comme passe temps autant que comme activité quotidienne.",
-    "p4": "A propos de la programmation en général, j'étudie surtout les fondamentaux au cours du tronc commun du cursus de 42, abordant des thèmes essentiels avec des languages bas niveau tels que le C et le C++. J'ai aussi une affinité toute particulière avec le DevOps: déploiement d'applications conteneurisées, intégration continue... J'ai par exemple mis en place tout une série de micro-services chez moi, allant de la gestion de mot de passe (Bitwarden), de fichiers (Nextcloud) et de dépôts git (Gitea). J'ai également mis à profit ces compétences pour déployer mes projets personnels.",
-    "p5": "J'ai décidé de me spécialiser dans le développement web, car celui-ci à une importance considérable à diverses échelles dans le monde dans lequel nous vivons. J'ai commencé par accumuler des compétences en développement front-end afin de réaliser le site web que j'avais toujours voulu avoir, puis je me suis porté sur l'apprentissage de notions plus complexes ainsi que du développement back-end. ",
-    "p6": "De plus, je suis également très engagé dans l'écosystème Linux qui me permet de travailler avec grande effacité depuis l'avènement de ma carrière de programmeur. Après avoir essayé maintes distributions (trop!), j'ai fini par décider de continuer à utiliser mes deux favorites: Gentoo et Arch Linux. En relation avec mon appétence pour le DevOps, je suis également très familier avec les distributions basées sur Debian telles que Ubuntu ou Debian lui même. Je suis aussi un fier défenseur de VIM!",
-    "p7": "Concernant la vie en général, j'aspirer à gagner mon indépendance autant que possible, à m'affranchir du maximum de contraintes et à commencer à voyager dès que possible. Étant donné que le développement informatique est l'une de mes passions, travailler depuis la plage ne me pose aucun problème 😎",
+    "contact": {
+        "heading": "Contact",
+        "thank you": "Merci de l'intérêt que vous portez à me contacter !",
+        "description": "Que ce soit pour discuter de mes articles ou pour que l'on travaille ensemble, je serai ravi de recevoir votre email.",
+        "best way to reach": "La meilleure manière de me joindre est de me contacter par email à",
+        "socials": "Vous pouvez aussi me suivre sur mes réseaux sociaux:"
+    },
 
-    "cta": "Envie de travailler avec moi ?"
-  }
+    "about": {
+        "heading": "A propos",
+        "p1": "Moi c'est Aurélien, j'étudie actuellement l'informatique à l'école 42 sur le campus de Paris.",
+        "p2": "Si vous n'avez pas entendu parler du 42 \"network\", c'est un réseau mondial d'écoles de programmation dont la pédagogie est essentiellement basée sur l'autonomie et l'apprentissage entre étudiants au travers de la réalisation de projets pratiques.",
+        "p3": "J'ai commencé la programmation à peu près un an avant que je décide de tenter la sélection de 42 Paris qui a eu lieu en aôut 2020. Depuis, je n'ai jamais arrêté de coder et d'apprendre, faisant progresser mes capacités et mon état d'esprit, et appréciant la programmation comme passe temps autant que comme activité quotidienne.",
+        "p4": "A propos de la programmation en général, j'étudie surtout les fondamentaux au cours du tronc commun du cursus de 42, abordant des thèmes essentiels avec des languages bas niveau tels que le C et le C++. J'ai aussi une affinité toute particulière avec le DevOps: déploiement d'applications conteneurisées, intégration continue... J'ai par exemple mis en place tout une série de micro-services chez moi, allant de la gestion de mot de passe (Bitwarden), de fichiers (Nextcloud) et de dépôts git (Gitea). J'ai également mis à profit ces compétences pour déployer mes projets personnels.",
+        "p5": "J'ai décidé de me spécialiser dans le développement web, car celui-ci à une importance considérable à diverses échelles dans le monde dans lequel nous vivons. J'ai commencé par accumuler des compétences en développement front-end afin de réaliser le site web que j'avais toujours voulu avoir, puis je me suis porté sur l'apprentissage de notions plus complexes ainsi que du développement back-end. ",
+        "p6": "De plus, je suis également très engagé dans l'écosystème Linux qui me permet de travailler avec grande effacité depuis l'avènement de ma carrière de programmeur. Après avoir essayé maintes distributions (trop!), j'ai fini par décider de continuer à utiliser mes deux favorites: Gentoo et Arch Linux. En relation avec mon appétence pour le DevOps, je suis également très familier avec les distributions basées sur Debian telles que Ubuntu ou Debian lui même. Je suis aussi un fier défenseur de VIM!",
+        "p7": "Concernant la vie en général, j'aspirer à gagner mon indépendance autant que possible, à m'affranchir du maximum de contraintes et à commencer à voyager dès que possible. Étant donné que le développement informatique est l'une de mes passions, travailler depuis la plage ne me pose aucun problème 😎",
 
+        "cta": "Envie de travailler avec moi ?"
+    }
 }
