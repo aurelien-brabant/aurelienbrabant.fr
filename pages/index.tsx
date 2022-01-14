@@ -12,6 +12,7 @@ import Link from 'next/link'
 import styles from '../styles/index.module.scss'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
+import { FiSend } from 'react-icons/fi';
 
 import { PulseLoader } from 'react-spinners'
 
@@ -327,7 +328,7 @@ const ContactForm: React.FC<{}> = () => {
 						type="submit"
 						style={{ opacity: isLoading ? '.5' : '1' }}
 					>
-						{isLoading ? <PulseLoader color="#fff" /> : 'send'}
+						{isLoading ? <PulseLoader color="#fff" /> : (<React.Fragment><FiSend /><span>send</span></React.Fragment>)}
 					</button>
 				</div>
 			</form>
@@ -517,14 +518,14 @@ const Home: NextPage = () => {
 						</h4>
 					</div>
 					<ContactForm />
-					<h5 className={styles.orSendMailTo}>
+					<p className={styles.orSendMailTo}>
 						<Translator section={languageSection}>
 							or_send_mail
 						</Translator>{' '}
-						<a href="mailto:contact@aurelienbrabant.fr">
+						<a href="mailto:contact@aurelienbrabant.fr" style={{textDecoration: 'underline'}}>
 							contact@aurelienbrabant.fr
 						</a>
-					</h5>
+					</p>
 				</Container>
 			</section>
 		</React.Fragment>

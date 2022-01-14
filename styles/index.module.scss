@@ -830,7 +830,13 @@
 			align-items: center;
 			justify-content: center;
 
+			span {
+				margin-left: .5em;
+				transform: translateY(.1em);
+			}
+
 			&:hover {
+				opacity: .8;
 				box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 			}
 		}
