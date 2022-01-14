@@ -66,5 +66,10 @@
         "p7": "My so-called life plan is to continue working on software engineering projects, while traveling the world (the dream of every software engineer, yes I know!). As computer science is also my passion, I don't mind working from the beach 😎",
 
         "cta": "Want to work with me?"
+    },
+
+    "footer": {
+        "stay_tuned": "Stay tuned",
+        "contact_form": "Contact form"
     }
 }

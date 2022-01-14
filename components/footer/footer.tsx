@@ -5,7 +5,6 @@ import { translateFromObject, Translator } from '../translator/Translator'
 import SocialNetworks from '../../components/social-networks/SocialNetworks'
 import Link from 'next/link'
 import { navtabs } from '../../data/navtabs'
-import h3 from '../UnderlinedText'
 
 import { services } from '../../data/services'
 
@@ -80,21 +79,32 @@ export const Footer: React.FC<FooterInputProps> = () => {
 					<div className={styles.footerBlock}>
 						<h3>Contact</h3>
 						<ul>
-							<li><Link href="/contact"><a href="/contact">Contact form</a></Link></li>
-							<li><a href="mailto:contact@aurelienbrabant.fr">contact@aurelienbrabant.fr</a></li>
+							<li>
+								<Link href="/#contact">
+									<a>
+										<Translator section="footer">
+											contact_form
+										</Translator>
+									</a>
+								</Link>
+							</li>
+							<li>
+								<a href="mailto:contact@aurelienbrabant.fr">
+									contact@aurelienbrabant.fr
+								</a>
+							</li>
 						</ul>
 					</div>
 
 					<div className={styles.footerBlock}>
-						<h3>Suivre mon actualité</h3>
+						<h3>
+							<Translator section="footer">stay_tuned</Translator>
+						</h3>
 						<SocialNetworks className={styles.socials} />
 					</div>
 				</div>
-				<div className={styles.footerContactInfo}>
-					<small>
-						&copy; Copyright {new Date().getFullYear()},
-						aurelienbrabant.fr
-					</small>
+				<div className={styles.footerBottom}>
+					<small>&copy; 2021 aurelienbrabant.fr</small>
 				</div>
 			</Container>
 		</div>

@@ -60,7 +60,7 @@
 			margin-bottom: 0.5em;
 
 			&:hover {
-				opacity: 0.8;
+				color: core.$primary-color;
 			}
 		}
 	}
@@ -73,5 +73,10 @@
 }
 
 .socials {
-	fill: core.$text-color;
+	fill: core.$primary-color;
+}
+
+.footerBottom {
+	border-top: 2px rgba(255, 255, 255, .1) solid;
+	padding-top: 1em;
 }

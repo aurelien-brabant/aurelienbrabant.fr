@@ -67,5 +67,10 @@
         "p7": "Concernant la vie en général, j'aspirer à gagner mon indépendance autant que possible, à m'affranchir du maximum de contraintes et à commencer à voyager dès que possible. Étant donné que le développement informatique est l'une de mes passions, travailler depuis la plage ne me pose aucun problème 😎",
 
         "cta": "Envie de travailler avec moi ?"
+    },
+
+    "footer": {
+        "stay_tuned": "Mon actualité",
+        "contact_form": "Formulaire de contact"
     }
 }
