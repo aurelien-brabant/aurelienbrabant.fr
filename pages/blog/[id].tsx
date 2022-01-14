@@ -127,28 +127,33 @@ const TOCHeadings: React.FC<{
 
 TOCHeadings.defaultProps = { level: 1 }
 
-const TableOfContents: React.FC<{ headings: NestedHeading[]; onClick: any, isVisible: boolean }> =
-	({ headings, onClick, isVisible }) => {
-		return (
-			<nav className={`${styles.sidenav} ${isVisible ? styles.visible : ''}`}>
-					<TOCHeadings
-						headings={headings}
-						level={1}
-						onClick={onClick}
-					/>
-			</nav>
-		)
-	}
+const TableOfContents: React.FC<{
+	headings: NestedHeading[]
+	onClick: any
+	isVisible: boolean
+}> = ({ headings, onClick, isVisible }) => {
+	return (
+		<nav className={`${styles.sidenav} ${isVisible ? styles.visible : ''}`}>
+			<TOCHeadings headings={headings} level={1} onClick={onClick} />
+		</nav>
+	)
+}
 
 export const getServerSideProps: GetServerSideProps = async function (context) {
 	const props: { [key: string]: any } = {}
 
 	if (context.params) {
-		const postData: BrabantApi.BlogpostData = await (
-			await fetch(
-				`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${context.params.id}`
-			)
-		).json()
+		const res = await fetch(
+			`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${context.params.id}`
+		)
+
+		if (res.status != 200) {
+			return {
+				notFound: true,
+			}
+		}
+
+		const postData: BrabantApi.BlogpostData = await res.json()
 
 		postData.releaseTs = postData.releaseTs
 		postData.lastEditTs = postData.lastEditTs
@@ -173,13 +178,13 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 	const [readerState, setReaderState] = useState(ReaderState.READER_TEXT)
 	const [anchor, setAnchor] = useState('')
 	const [scrollCoords, setScrollCoords] = useState({ x: 0, y: 0 })
-	const [isSidenavVisible, setIsSidenavVisible] = useState(false);
+	const [isSidenavVisible, setIsSidenavVisible] = useState(false)
 
 	const router = useRouter()
 
 	const handleGlossaryClick = (e: React.MouseEvent, el: NestedHeading) => {
 		e.preventDefault()
-const target = document.getElementById(el.id as string)
+		const target = document.getElementById(el.id as string)
 
 		target?.scrollIntoView({ behavior: 'smooth' })
 
@@ -204,11 +209,7 @@ const target = document.getElementById(el.id as string)
 				/>
 			</Head>
 
-			<section
-				className={styles.postContent}
-				style={{
-				}}
-			>
+			<section className={styles.postContent} style={{}}>
 				{/* MARKDOWN RENDERING */}
 
 				<Container className={styles.contentBox} edgePadded={false}>
@@ -217,7 +218,7 @@ const target = document.getElementById(el.id as string)
 							<button>
 								<GiHamburgerMenu
 									onClick={() => {
-										setIsSidenavVisible(!isSidenavVisible);
+										setIsSidenavVisible(!isSidenavVisible)
 									}}
 								/>
 							</button>
@@ -234,92 +235,108 @@ const target = document.getElementById(el.id as string)
 						</div>
 					</div>
 					<div className={styles.markdownWrapper}>
-					<TableOfContents onClick={handleGlossaryClick} headings={headings} isVisible={isSidenavVisible} />
+						<TableOfContents
+							onClick={handleGlossaryClick}
+							headings={headings}
+							isVisible={isSidenavVisible}
+						/>
 						{readerState === ReaderState.READER_TEXT && (
 							<div className={styles.markdownContent}>
-							<ReactMarkdown
-								components={{
-									// eslint-disable-next-line react/display-name
-									code: ({ children, inline, className }) => {
-										const match = /language-(\w+)/.exec(
-											className || ''
-										)
-										return match && !inline ? (
-											<MarkdownCodeBlock
-												language={match[1]}
-											>
-												{children}
-											</MarkdownCodeBlock>
-										) : (
-											<MarkdownInlineCode>
-												{children}
-											</MarkdownInlineCode>
-										)
-									},
+								<ReactMarkdown
+									components={{
+										// eslint-disable-next-line react/display-name
+										code: ({
+											children,
+											inline,
+											className,
+										}) => {
+											const match = /language-(\w+)/.exec(
+												className || ''
+											)
+											return match && !inline ? (
+												<MarkdownCodeBlock
+													language={match[1]}
+												>
+													{children}
+												</MarkdownCodeBlock>
+											) : (
+												<MarkdownInlineCode>
+													{children}
+												</MarkdownInlineCode>
+											)
+										},
 
-									// eslint-disable-next-line react/display-name
-									img: ({ src, alt }) => (
-										<MarkdownImage
-											src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
-											alt={alt ? alt : 'no alt provided'}
-										/>
-									),
+										// eslint-disable-next-line react/display-name
+										img: ({ src, alt }) => (
+											<MarkdownImage
+												src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
+												alt={
+													alt
+														? alt
+														: 'no alt provided'
+												}
+											/>
+										),
 
-									// eslint-disable-next-line react/display-name
-									h1: ({ children, level }) => {
-										return (
+										// eslint-disable-next-line react/display-name
+										h1: ({ children, level }) => {
+											return (
+												<MarkdownHeading
+													headingLevel={level}
+												>
+													{children}
+												</MarkdownHeading>
+											)
+										},
+
+										// eslint-disable-next-line react/display-name
+										h2: ({ children, level }) => (
 											<MarkdownHeading
 												headingLevel={level}
 											>
 												{children}
 											</MarkdownHeading>
-										)
-									},
+										),
 
-									// eslint-disable-next-line react/display-name
-									h2: ({ children, level }) => (
-										<MarkdownHeading headingLevel={level}>
-											{children}
-										</MarkdownHeading>
-									),
+										// eslint-disable-next-line react/display-name
+										h3: ({ children, level }) => (
+											<MarkdownHeading
+												headingLevel={level}
+											>
+												{children}
+											</MarkdownHeading>
+										),
 
-									// eslint-disable-next-line react/display-name
-									h3: ({ children, level }) => (
-										<MarkdownHeading headingLevel={level}>
-											{children}
-										</MarkdownHeading>
-									),
+										// eslint-disable-next-line react/display-name
+										p: ({ children, ...props }) => {
+											return children[0] &&
+												typeof children[0] ===
+													'object' &&
+												(children[0] as any).type
+													.name === 'img' ? (
+												<div {...props}>{children}</div>
+											) : (
+												<p {...props}>{children}</p>
+											)
+										},
 
-									// eslint-disable-next-line react/display-name
-									p: ({ children, ...props }) => {
-										return children[0] &&
-											typeof children[0] === 'object' &&
-											(children[0] as any).type.name ===
-												'img' ? (
-											<div {...props}>{children}</div>
-										) : (
-											<p {...props}>{children}</p>
-										)
-									},
+										// eslint-disable-next-line react/display-name
+										a: ({ children, href, target }) => (
+											<Anchor href={href} target={target}>
+												{children}
+											</Anchor>
+										),
 
-									// eslint-disable-next-line react/display-name
-									a: ({ children, href, target }) => (
-										<Anchor href={href} target={target}>
-											{children}
-										</Anchor>
-									),
-
-									// eslint-disable-next-line react/display-name
-									blockquote: ({ children }) => (
-										<Blockquote>{children}</Blockquote>
-									),
-								}}
-							>
-								{postData.content}
-							</ReactMarkdown>
+										// eslint-disable-next-line react/display-name
+										blockquote: ({ children }) => (
+											<Blockquote>{children}</Blockquote>
+										),
+									}}
+								>
+									{postData.content}
+								</ReactMarkdown>
 							</div>
 						)}
-						
 					</div>
 				</Container>
 			</section>

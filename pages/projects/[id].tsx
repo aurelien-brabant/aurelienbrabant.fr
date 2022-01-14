@@ -17,6 +17,12 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             `http://${process.env.API_HOST}:${process.env.API_PORT}/projects/search?by=string_id&payload=${context.params.id}`
         )
 
+        if (res.status != 200) {
+            return {
+                notFound: true
+            };
+        }
+
         project = await res.json()
     }
 
