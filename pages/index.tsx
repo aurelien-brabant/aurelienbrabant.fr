@@ -430,7 +430,7 @@ const Home: NextPage = () => {
 					</div>
 
 					<div className={styles.ctas}>
-						<a className={styles.freeEstimate} href="/estimate">
+						<a className={styles.freeEstimate} href="/#contact">
 							<Translator section={languageSection}>
 								free_estimate
 							</Translator>
