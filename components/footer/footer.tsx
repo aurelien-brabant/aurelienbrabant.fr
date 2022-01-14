@@ -66,7 +66,7 @@ export const Footer: React.FC<FooterInputProps> = () => {
 						<h3>Solutions</h3>
 						<ul>
 							{services.map((service) => (
-								<li>
+								<li key={service.name.en}>
 									<Link href="/#services">
 										<a>
 											{translateFromObject(service.name)}

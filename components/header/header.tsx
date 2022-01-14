@@ -59,6 +59,7 @@ const Header: React.FC<{}> = () => {
 					{navtabs.map((tab) =>
 						tab.children ? (
 							<Dropdown
+								key={tab.id}
 								links={tab.children}
 								titleClassName={`${styles.tab} ${
 									selected === tab.id ? styles.activated : ''

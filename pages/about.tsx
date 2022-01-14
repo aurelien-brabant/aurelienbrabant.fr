@@ -70,7 +70,7 @@ const About: NextPage = () => {
                                     <div className={styles.technologies}>
                                         <h5>technos</h5>
                                         {technologies.map((techno) => (
-                                            <div>
+                                            <div key={techno.name}>
                                                 <Image
                                                     src={techno.imageUrl}
                                                     height={50}
