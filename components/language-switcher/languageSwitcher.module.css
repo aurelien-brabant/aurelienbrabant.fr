@@ -1,28 +1,29 @@
-.languageWrapper
-{
+.languageWrapper {
 	display: flex;
 	align-items: center;
-	justify-content: center;
 }
 
 .languageWrapper > * {
-	margin: 0 .3em;
+	margin: 0 0.3em;
 }
 
 .flagWrapper {
 	overflow: hidden;
+	width: 30px;
+	height: 30px;
 }
 
-.flagWrapper > img
-{
-	border-radius: 2px;
+.flagWrapper > img {
+	border-radius: 50%;
 	object-fit: cover;
 	width: 30px;
-	transition: opacity .1s;
-	opacity: .5;
+	height: 30px;
+	transition: opacity 0.1s;
+	opacity: 0.5;
+	box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
-.flagWrapper > img:hover, .flagWrapper > img.selected
-{
+.flagWrapper > img:hover,
+.flagWrapper > img.selected {
 	opacity: 1;
 }

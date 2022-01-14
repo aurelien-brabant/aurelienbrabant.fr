@@ -154,11 +154,11 @@ const Header: React.FC<{}> = () => {
 				</ul>
 				<div className={styles.rightmostSection}>
 					<LanguageSwitcher />
-					<Button href="/contact" className={styles.projectCta}>
+					<a href="/#contact" className={styles.projectCta}>
 						<Translator section={headerLanguageSection}>
 							get in touch
 						</Translator>
-					</Button>
+					</a>
 				</div>
 			</header>
 			<div className={styles.headerOffset} />

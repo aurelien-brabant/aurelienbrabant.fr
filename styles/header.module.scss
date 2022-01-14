@@ -42,7 +42,10 @@
 			color: #000;
 			display: block;
 			background-color: core.$primary-color;
-			border-radius: 10px;
+			color: rgba(255, 255, 255, .85);
+			border-radius: 2px;
+			padding: .4em .8em;
+			font-weight: 700;
 			font-size: 0.8em;
 			text-transform: uppercase;
 		}
@@ -73,7 +76,9 @@
 	.rightmostSection {
 		display: flex;
 		align-items: center;
-		gap: 1em;
+		> * {
+			margin: 0 .4em;
+		}
 	}
 }
 

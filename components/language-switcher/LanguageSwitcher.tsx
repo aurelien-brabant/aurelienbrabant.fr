@@ -12,9 +12,11 @@ const LanguageSwitcher = () =>
 			className={styles.languageWrapper}
 		>
 			{ availableLanguages.map(lang => (
-				<div className={styles.flagWrapper}>
-			<img
+				<div
+					className={styles.flagWrapper}
 				key={`${lang}-flag`}
+				>
+			<img
 				src={`/language-flag/${lang}.svg`}
 				alt={`select-language-${lang}`}
 				className={`${lang === language ? styles.selected : ''}`}
