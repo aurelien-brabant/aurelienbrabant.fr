@@ -39,8 +39,8 @@
   },
 
   "blog": {
-    "heading": "Blog",
-    "sub heading": "Articles sur la programmation, le hardware et autres (en anglais principalement)"
+      "search_filter": "Rechercher et filtrer",
+      "search_placeholder": "Rechercher par titre ou description"
   },
 
   "contact": {

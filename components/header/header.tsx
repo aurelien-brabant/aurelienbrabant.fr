@@ -154,11 +154,13 @@ const Header: React.FC<{}> = () => {
 				</ul>
 				<div className={styles.rightmostSection}>
 					<LanguageSwitcher />
-					<a href="/#contact" className={styles.projectCta}>
-						<Translator section={headerLanguageSection}>
-							get in touch
-						</Translator>
-					</a>
+					<Link href="/#contact">
+						<a className={styles.projectCta}>
+							<Translator section={headerLanguageSection}>
+								get in touch
+							</Translator>
+						</a>
+					</Link>
 				</div>
 			</header>
 			<div className={styles.headerOffset} />

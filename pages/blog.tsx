@@ -6,7 +6,7 @@ import { Container } from '../components/container/container'
 import styles from '../styles/blog.module.scss'
 import { useMediaQuery } from 'react-responsive'
 
-import { Translator } from '../components/translator/Translator'
+import { Translator, useTranslate } from '../components/translator/Translator'
 
 import Heading from '../components/heading'
 
@@ -131,42 +131,13 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     />
                 </Head>
                 <Heading title="blog" />
-                {/*
-                    <Container className={styles.blogHeader}>
-                        <h1>
-                            <Translator section={blogLanguageSection}>
-                                heading
-                            </Translator>
-                        </h1>
-                        <h3>
-                            <Translator section={blogLanguageSection}>
-                                sub heading
-                            </Translator>
-                        </h3>
-                        <div className={styles.tagList}>
-                            {tags.map((tag) => (
-                                <span
-                                    key={tag}
-                                    className={`${styles.tag} ${
-                                        selectedTag === tag
-                                            ? styles.selected
-                                            : ''
-                                    }`}
-                                    onClick={() => selectTag(tag)}
-                                >
-                                    {tag}
-                                </span>
-                            ))}
-                        </div>
-                    </Container>
-                      */}
 
                 <main className={styles.mainContainer}>
                     <Container>
                         <div className={styles.filteringTools}>
-                            <h2>Search and filter</h2>
+                            <h2><Translator section={blogLanguageSection}>search_filter</Translator></h2>
                             <div className={styles.searchInputs}>
-                            <input type="text" placeholder="Search by title" value={searchText} onChange={handleTextSearch} />
+                            <input type="text" placeholder={useTranslate('search_placeholder', blogLanguageSection)} value={searchText} onChange={handleTextSearch} />
                                 <select name="selectedTag" value={selectedTag as string} onChange={(e) => { selectTag(e.target.value) }}>
                                     <option value={"NONE"}>
                                         NONE

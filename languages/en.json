@@ -38,8 +38,8 @@
     },
 
     "blog": {
-        "heading": "Blog",
-        "sub heading": "Featured articles about programming, hardware and more"
+        "search_filter": "Search and filter",
+        "search_placeholder": "Search title or description"
     },
 
     "contact": {
