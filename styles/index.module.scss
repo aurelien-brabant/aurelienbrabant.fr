@@ -634,7 +634,7 @@
 	text-align: center;
 	position: relative;
 	z-index: 5;
-	max-width: 800px;
+	max-width: 1000px;
 	margin: 0 auto;
 	padding: 3em;
 	margin-bottom: 2em;
@@ -712,6 +712,7 @@
 	.projectImage {
 		box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 		border: 5px #e2725b solid !important;
+		filter: grayscale(100%);
 		border-radius: 2px;
 	}
 }

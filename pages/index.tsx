@@ -12,7 +12,7 @@ import Link from 'next/link'
 import styles from '../styles/index.module.scss'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
-import { FiSend } from 'react-icons/fi';
+import { FiSend } from 'react-icons/fi'
 
 import { PulseLoader } from 'react-spinners'
 
@@ -41,9 +41,9 @@ const favoriteProjects: FavoriteProject[] = [
 		title: 'Dragon Realms',
 		description: {
 			en: `DragonRealms is a Non Fongible Token (NFT) business project that I co-founded. Making such a project implied creating an image generator in python, developing and deploying a solidity contract on the Polygon blockchain, and of course, realizing a web frontend to let the customer buy the actual NFTs, which I was in charge of.`,
-			fr: "DragonRealms est un projet de vente de Jeton Non Fongible (NFT) que j'ai co-fondé. La réalisation de ce projet a impliqué la création d'un générateur d'image codé en python, le développement d'un contrat solidity déployé sur la blockchain Polygon, et bien sûr, la création d'une interface web destinée à présenter et à acheter les jetons, dont j'étais responsable.",
+			fr: "DragonRealms est un projet de vente de Jeton Non Fongible (JNF) que j'ai co-fondé. La réalisation de ce projet a impliqué la création d'un générateur d'image codé en python, le développement d'un contrat solidity déployé sur la blockchain Polygon, et bien sûr, la création d'une interface web destinée à présenter et à acheter les jetons, dont j'étais responsable.",
 		},
-		link: '/projects/dragon-realms',
+		link: 'https://dragonrealms.fr',
 		coverURI: '/landing_dragon_realms.webp',
 	},
 	{
@@ -61,8 +61,8 @@ const favoriteProjects: FavoriteProject[] = [
 			en: `My own website you're browsing right now, which consists in a fullstack web application. I learned most of my advanced skills by working on it (back-end and front-end).`,
 			fr: "Mon site personnel et portfolio que vous visitez actuellement, qui consiste en une application web fullstack. J'ai appris la grande majorité de mes compétences avancées en travaillant dessus (côté client et côté serveur).",
 		},
-		link: '/projects/Partylens-API',
-		coverURI: '/large_abrabant.jpg',
+		link: '/projects/my-website',
+		coverURI: '/aurelien.webp',
 	},
 ]
 
@@ -75,7 +75,10 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 }) => (
 	<article className={styles.project}>
 		{direction === 'left' && (
-			<div className={styles.imageWrapper}>
+			<div
+				className={styles.imageWrapper}
+				style={{ transform: 'rotate(1deg)' }}
+			>
 				<Image
 					src={coverURI}
 					className={styles.projectImage}
@@ -93,12 +96,21 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 				{title}
 			</UnderlinedText>
 			<p>{translateFromObject(description)}</p>
-			<a href={link} className={styles.visitProject}>
-				<Translator section={'index'}>visit_project_cta</Translator>
-			</a>
+			<Link href={link}>
+				<a
+					target="_blank"
+					rel="noreferrer"
+					className={styles.visitProject}
+				>
+					<Translator section={'index'}>visit_project_cta</Translator>
+				</a>
+			</Link>
 		</div>
 		{direction === 'right' && (
-			<div className={styles.imageWrapper}>
+			<div
+				className={styles.imageWrapper}
+				style={{ transform: 'rotate(-1deg)' }}
+			>
 				<Image
 					src={coverURI}
 					className={styles.projectImage}
@@ -128,7 +140,7 @@ const priorities: Priority[] = [
 		},
 		description: {
 			fr: "Ma principale préoccupation quand j'écris du code est de garder la base de code la plus légère possible. J'attribue par ailleurs beaucoup d'importance à la lisibilité du code, que je juge essentielle pour permettre aux développeurs qui passeraient après moi de s'approprier mon code. Vous n'aurez pas besoin de faire forcément appel à moi pour faire grandir un projet que j'ai initialement développé!",
-			en: "My main focus when writing code is to keep the codebase as small as possible. I also particularily care about code readability, so that any enginee that would come after me is able to work on my code easily. You won't have to commission me if you want to add new features to your project, you are free to hire someone else!",
+			en: "My main focus when writing code is to keep the codebase as small as possible. I also particularily care about code readability, so that any engineer that would come after me is able to work on my code easily. You won't have to commission me if you want to add new features to your project, you are free to hire someone else!",
 		},
 		icon: <BsCodeSquare />,
 	},
@@ -206,9 +218,8 @@ ServicePresenter.defaultProps = {
 	direction: 'left',
 }
 
-interface ValidatableTarget extends EventTarget
-{
-	checkValidity: () => void;
+interface ValidatableTarget extends EventTarget {
+	checkValidity: () => void
 }
 
 const ContactForm: React.FC<{}> = () => {
@@ -219,7 +230,7 @@ const ContactForm: React.FC<{}> = () => {
 		'g-recaptcha-response': string | null
 	}>({ name: '', email: '', message: '', 'g-recaptcha-response': null })
 	const [isLoading, setIsLoading] = useState(false)
-	const [errored, setErrored] = useState(false);
+	const [errored, setErrored] = useState(false)
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -231,20 +242,19 @@ const ContactForm: React.FC<{}> = () => {
 	}
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-		(e.target as ValidatableTarget).checkValidity();
-		console.log('After validity');
+		;(e.target as ValidatableTarget).checkValidity()
+		console.log('After validity')
 		e.preventDefault()
-		setErrored(false);
-
+		setErrored(false)
 
 		if (formData['g-recaptcha-response'] === null) {
-			setErrored(true);
-			return;
+			setErrored(true)
+			return
 		}
 
-		console.log('bronte');
+		console.log('bronte')
 
-		(window as any).grecaptcha.reset()
+		;(window as any).grecaptcha.reset()
 
 		setIsLoading(true)
 
@@ -259,7 +269,7 @@ const ContactForm: React.FC<{}> = () => {
 		setIsLoading(false)
 
 		if (res.status !== 201) {
-			setErrored(true);
+			setErrored(true)
 		}
 
 		setFormData({
@@ -274,7 +284,9 @@ const ContactForm: React.FC<{}> = () => {
 		<div>
 			{errored && (
 				<small className={styles.formError}>
-					<Translator section="index">contact_form_rejection</Translator>
+					<Translator section="index">
+						contact_form_rejection
+					</Translator>
 				</small>
 			)}
 			<form onSubmit={handleSubmit}>
@@ -328,7 +340,14 @@ const ContactForm: React.FC<{}> = () => {
 						type="submit"
 						style={{ opacity: isLoading ? '.5' : '1' }}
 					>
-						{isLoading ? <PulseLoader color="#fff" /> : (<React.Fragment><FiSend /><span>send</span></React.Fragment>)}
+						{isLoading ? (
+							<PulseLoader color="#fff" />
+						) : (
+							<React.Fragment>
+								<FiSend />
+								<span>send</span>
+							</React.Fragment>
+						)}
 					</button>
 				</div>
 			</form>
@@ -522,7 +541,10 @@ const Home: NextPage = () => {
 						<Translator section={languageSection}>
 							or_send_mail
 						</Translator>{' '}
-						<a href="mailto:contact@aurelienbrabant.fr" style={{textDecoration: 'underline'}}>
+						<a
+							href="mailto:contact@aurelienbrabant.fr"
+							style={{ textDecoration: 'underline' }}
+						>
 							contact@aurelienbrabant.fr
 						</a>
 					</p>
