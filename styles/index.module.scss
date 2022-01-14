@@ -719,6 +719,7 @@
 .formSection {
 	.submitPart {
 		align-self: center;
+		overflow: hidden;
 
 		div {
 			margin: 0 auto;
@@ -761,11 +762,11 @@
 
 	.formError {
 		color: red;
-		font-size: .9em;
+		font-size: 0.9em;
 		text-align: center;
 		display: inline-block;
 		width: 100%;
-		padding: .5em 0;
+		padding: 0.5em 0;
 	}
 
 	.orSendMailTo {
@@ -778,14 +779,15 @@
 		display: grid;
 		row-gap: 1em;
 		@media only screen and (min-width: 800px) {
-			grid-template-columns: 3fr 4fr 1fr;
-			
-		}
-input {
-				&:nth-child(1) {
-					margin-bottom: 0.5em;
-				}
+			& {
+				grid-template-columns: 1fr 2fr 1fr;
 			}
+		}
+		input {
+			&:nth-child(1) {
+				margin-bottom: 0.5em;
+			}
+		}
 		div {
 			display: flex;
 			flex-direction: column;
@@ -815,7 +817,7 @@ input {
 		}
 
 		button[type='submit'] {
-			margin-top: .5em;
+			margin-top: 0.5em;
 			font-size: 1em;
 			background-color: #e2725b;
 			text-transform: uppercase;
@@ -823,7 +825,10 @@ input {
 			padding: 0.4em 0.8em;
 			border: none;
 			font-weight: 700;
-			transition: box-shadow .2s;
+			transition: box-shadow 0.2s;
+			display: flex;
+			align-items: center;
+			justify-content: center;
 
 			&:hover {
 				box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;

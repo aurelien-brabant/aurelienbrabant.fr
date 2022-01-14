@@ -13,6 +13,8 @@ import styles from '../styles/index.module.scss'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
 
+import { PulseLoader } from 'react-spinners'
+
 import aurelienPhoto from '../public/aurelien.webp'
 
 import UnderlinedText from '../components/UnderlinedText'
@@ -24,9 +26,6 @@ import { IoMdChatbubbles } from 'react-icons/io'
 import { Service, services } from '../data/services'
 
 import ReCAPTCHA from 'react-google-recaptcha'
-
-import useLanguage from '../hooks/useLanguage'
-import language from 'react-syntax-highlighter/dist/esm/languages/hljs/1c'
 
 type FavoriteProject = {
 	title: string
@@ -206,6 +205,11 @@ ServicePresenter.defaultProps = {
 	direction: 'left',
 }
 
+interface ValidatableTarget extends EventTarget
+{
+	checkValidity: () => void;
+}
+
 const ContactForm: React.FC<{}> = () => {
 	const [formData, setFormData] = useState<{
 		name: string
@@ -214,21 +218,34 @@ const ContactForm: React.FC<{}> = () => {
 		'g-recaptcha-response': string | null
 	}>({ name: '', email: '', message: '', 'g-recaptcha-response': null })
 	const [isLoading, setIsLoading] = useState(false)
-	const [error, setError] = useState<null | string>(null)
+	const [errored, setErrored] = useState(false);
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
-		console.log('changed')
-
 		setFormData({
 			...formData,
 			[e.target.name]: e.target.value,
 		})
 	}
 
-	const handleSubmit: React.FormEventHandler = async (e) => {
+	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+		(e.target as ValidatableTarget).checkValidity();
+		console.log('After validity');
 		e.preventDefault()
+		setErrored(false);
+
+
+		if (formData['g-recaptcha-response'] === null) {
+			setErrored(true);
+			return;
+		}
+
+		console.log('bronte');
+
+		(window as any).grecaptcha.reset()
+
+		setIsLoading(true)
 
 		const res = await fetch('/api/contact', {
 			method: 'POST',
@@ -238,22 +255,25 @@ const ContactForm: React.FC<{}> = () => {
 			body: JSON.stringify(formData),
 		})
 
+		setIsLoading(false)
+
 		if (res.status !== 201) {
-			try {
-				const json = await res.json()
-				setError(json.msg)
-			} catch (e) {
-				setError('Unexpected error')
-			}
+			setErrored(true);
 		}
+
+		setFormData({
+			name: formData.name,
+			email: formData.email,
+			message: '',
+			'g-recaptcha-response': null,
+		})
 	}
 
 	return (
 		<div>
-			{error && (
+			{errored && (
 				<small className={styles.formError}>
-					{' '}
-					An unexpected error occured{' '}
+					<Translator section="index">contact_form_rejection</Translator>
 				</small>
 			)}
 			<form onSubmit={handleSubmit}>
@@ -267,6 +287,7 @@ const ContactForm: React.FC<{}> = () => {
 						)}
 						onChange={handleChange}
 						value={formData.name}
+						required
 					/>
 					<input
 						name="email"
@@ -277,6 +298,7 @@ const ContactForm: React.FC<{}> = () => {
 						)}
 						value={formData.email}
 						onChange={handleChange}
+						required
 					/>
 				</div>
 				<textarea
@@ -287,23 +309,26 @@ const ContactForm: React.FC<{}> = () => {
 					)}
 					onChange={handleChange}
 					defaultValue={formData.message}
+					required
 				/>
 				<div className={styles.submitPart}>
-				<ReCAPTCHA
-					sitekey={process.env.NEXT_PUBLIC_RECAPTCHA2_PUBLIC as string}
-					onChange={(value) => {
-						setFormData({
-							...formData,
-							'g-recaptcha-response': value,
-						})
-					}}
-				/>
-				<button
-					type="submit"
-					style={{ opacity: isLoading ? '.5' : '1' }}
-				>
-					Send
-				</button>
+					<ReCAPTCHA
+						sitekey={
+							process.env.NEXT_PUBLIC_RECAPTCHA2_PUBLIC as string
+						}
+						onChange={(value) => {
+							setFormData({
+								...formData,
+								'g-recaptcha-response': value,
+							})
+						}}
+					/>
+					<button
+						type="submit"
+						style={{ opacity: isLoading ? '.5' : '1' }}
+					>
+						{isLoading ? <PulseLoader color="#fff" /> : 'send'}
+					</button>
 				</div>
 			</form>
 		</div>

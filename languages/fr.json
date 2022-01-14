@@ -21,7 +21,9 @@
     "form_name_placeholder": "Nom",
     "form_email_placeholder": "exemple@gmail.com",
     "form_textarea_placeholder": "Je voudrais faire réaliser un site web pour mon petit commerce...",
-    "or_send_mail": "Ou envoyez un mail à" 
+    "or_send_mail": "Ou envoyez un mail à",
+
+    "contact_form_rejection": "Une erreur est survenue. Veuillez vous assurer que vous avez rempli tout les champs et validé le captcha."
 
   },
 
