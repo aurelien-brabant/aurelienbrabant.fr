@@ -23,6 +23,8 @@ import { IoMdChatbubbles } from 'react-icons/io'
 
 import { Service, services } from '../data/services'
 
+import ReCAPTCHA from 'react-google-recaptcha'
+
 import useLanguage from '../hooks/useLanguage'
 import language from 'react-syntax-highlighter/dist/esm/languages/hljs/1c'
 
@@ -209,7 +211,8 @@ const ContactForm: React.FC<{}> = () => {
 		name: string
 		email: string
 		message: string
-	}>({ name: '', email: '', message: '' })
+		'g-recaptcha-response': string | null
+	}>({ name: '', email: '', message: '', 'g-recaptcha-response': null })
 	const [isLoading, setIsLoading] = useState(false)
 	const [error, setError] = useState<null | string>(null)
 
@@ -254,7 +257,7 @@ const ContactForm: React.FC<{}> = () => {
 				</small>
 			)}
 			<form onSubmit={handleSubmit}>
-				<div>
+				<div className={styles.inputs}>
 					<input
 						name="name"
 						type="text"
@@ -285,12 +288,23 @@ const ContactForm: React.FC<{}> = () => {
 					onChange={handleChange}
 					defaultValue={formData.message}
 				/>
+				<div className={styles.submitPart}>
+				<ReCAPTCHA
+					sitekey={process.env.NEXT_PUBLIC_RECAPTCHA2_PUBLIC as string}
+					onChange={(value) => {
+						setFormData({
+							...formData,
+							'g-recaptcha-response': value,
+						})
+					}}
+				/>
 				<button
 					type="submit"
 					style={{ opacity: isLoading ? '.5' : '1' }}
 				>
 					Send
 				</button>
+				</div>
 			</form>
 		</div>
 	)
@@ -478,7 +492,14 @@ const Home: NextPage = () => {
 						</h4>
 					</div>
 					<ContactForm />
-					<h5 className={styles.orSendMailTo}><Translator section={languageSection}>or_send_mail</Translator> <a href="mailto:contact@aurelienbrabant.fr">contact@aurelienbrabant.fr</a></h5>
+					<h5 className={styles.orSendMailTo}>
+						<Translator section={languageSection}>
+							or_send_mail
+						</Translator>{' '}
+						<a href="mailto:contact@aurelienbrabant.fr">
+							contact@aurelienbrabant.fr
+						</a>
+					</h5>
 				</Container>
 			</section>
 		</React.Fragment>

@@ -717,6 +717,14 @@
 }
 
 .formSection {
+	.submitPart {
+		align-self: center;
+
+		div {
+			margin: 0 auto;
+		}
+	}
+
 	padding: 2em 0;
 	background-color: #b55b49;
 	color: #fff;
@@ -745,6 +753,10 @@
 		}
 
 		margin-bottom: 2em;
+	}
+
+	.inputs {
+		align-self: center;
 	}
 
 	.formError {
@@ -803,12 +815,19 @@ input {
 		}
 
 		button[type='submit'] {
+			margin-top: .5em;
 			font-size: 1em;
 			background-color: #e2725b;
 			text-transform: uppercase;
 			color: #fff;
 			padding: 0.4em 0.8em;
-			align-self: flex-end;
+			border: none;
+			font-weight: 700;
+			transition: box-shadow .2s;
+
+			&:hover {
+				box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+			}
 		}
 	}
 }
