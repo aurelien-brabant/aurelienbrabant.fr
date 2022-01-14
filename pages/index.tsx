@@ -127,7 +127,7 @@ const priorities: Priority[] = [
 			en: 'Clean, scalable and maintainable code',
 		},
 		description: {
-			fr: "Ma principale préoccupation quand j'écris du code est de garder la base code la plus légère possible. J'attribue par ailleurs beaucoup d'importance à la lisibilité du code, que je juge essentielle pour permettre aux développeurs qui passeraient après moi de s'approprier mon code. Vous n'aurez pas besoin de faire forcément appel à moi pour faire grandir un projet que j'ai initialement développé!",
+			fr: "Ma principale préoccupation quand j'écris du code est de garder la base de code la plus légère possible. J'attribue par ailleurs beaucoup d'importance à la lisibilité du code, que je juge essentielle pour permettre aux développeurs qui passeraient après moi de s'approprier mon code. Vous n'aurez pas besoin de faire forcément appel à moi pour faire grandir un projet que j'ai initialement développé!",
 			en: "My main focus when writing code is to keep the codebase as small as possible. I also particularily care about code readability, so that any enginee that would come after me is able to work on my code easily. You won't have to commission me if you want to add new features to your project, you are free to hire someone else!",
 		},
 		icon: <BsCodeSquare />,
@@ -145,12 +145,12 @@ const priorities: Priority[] = [
 	},
 	{
 		name: {
-			fr: 'Ce que vous demandez est ce que je vais vous livrer',
-			en: 'What you ask for is that I will deliver',
+			fr: 'Communication',
+			en: 'Communication',
 		},
 		description: {
-			fr: "La discussion est mon leitmotiv, et ce, pour n'importe quel projet sur lequel je travaille. Je n'hésiterai pas à vous poser toutes les questions nécessaires, de sorte à ce que je puisse vous livrer le produit final qui correspondra le mieux à vos attentes.",
-			en: 'Discussion is my leitmotiv, and that, for any project that I work on. I will always ask questions if I need to, so that I can deliver a final product that best fits your expectations.',
+			fr: "La communication est mon leitmotiv, et ce, pour n'importe quel projet sur lequel je travaille. Je n'hésiterai pas à vous poser toutes les questions nécessaires, de sorte à ce que je puisse vous livrer le produit final qui correspondra le mieux à vos attentes.",
+			en: 'Communication is my leitmotiv, and that, for any project that I work on. I will always ask questions if I need to, so that I can deliver a final product that best fits your expectations.',
 		},
 		icon: <IoMdChatbubbles />,
 	},
