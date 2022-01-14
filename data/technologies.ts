@@ -89,14 +89,10 @@ export const technologies: Technology[] = [
         name: "MongoDB",
         imageUrl: "/technos/mongodb.svg",
         isTool: false
+    },
+    {
+        name: 'PostgreSQL',
+        imageUrl: '/technos/postgres.webp',
+        isTool: false
     }
 ];
-
-export const getTechnology = (technologyName: string): Technology | null => {
-    for (const technology of technologies) {
-        if (technology.name.toLowerCase() === technologyName.toLocaleLowerCase()) {
-            return technology;
-        }
-    }
-    return null;
-}
