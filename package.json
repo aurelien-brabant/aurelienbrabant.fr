@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "postbuild": "node scripts/sitemap.js && node scripts/rssFeedGenerator.js",
-    "rss2": "node scripts/rssFeedGenerator.js"
+    "rss2": "node scripts/rssFeedGenerator.js",
+    "gen-sitemap": "ts-node --files -O '{ \"module\": \"commonjs\" }' scripts/generate_sitemap.ts localhost 5000"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.0",
