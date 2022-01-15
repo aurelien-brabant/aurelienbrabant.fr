@@ -2,13 +2,15 @@ import React, { useState, Fragment } from 'react'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
-import Head from 'next/head';
+import Head from 'next/head'
 import { Container } from '../components/container/container'
 import styles from '../styles/blog.module.scss'
 
 import { Translator, useTranslate } from '../components/translator/Translator'
 
 import Heading from '../components/heading'
+
+import { BsFillRssFill } from 'react-icons/bs'
 
 export const getServerSideProps: GetServerSideProps = async function (
     _content
@@ -125,6 +127,12 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                         rel="canonical"
                         href={`https://aurelienbrabant.fr/about`}
                     />
+                    <link
+                        rel="alternate"
+                        type="application/rss+xml"
+                        title={useTranslate('rss_title', 'blog')}
+                        href="/feeds/blog.xml"
+                    />
                 </Head>
 
                 <Heading title="blog" />
@@ -132,11 +140,18 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                 <main className={styles.mainContainer}>
                     <Container>
                         <div className={styles.filteringTools}>
-                            <h2>
-                                <Translator section={blogLanguageSection}>
-                                    search_filter
-                                </Translator>
-                            </h2>
+                            <div className={styles.title}>
+                                <h2>
+                                    <Translator section={blogLanguageSection}>
+                                        search_filter
+                                    </Translator>
+                                </h2>
+                                <Link href="/feeds/blog.xml">
+                                    <a target="_blank" rel="noreferrer">
+                                        <BsFillRssFill />
+                                    </a>
+                                </Link>
+                            </div>
                             <div className={styles.searchInputs}>
                                 <input
                                     type="text"
@@ -156,7 +171,10 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                                 >
                                     <option value={'NONE'}>NONE</option>
                                     {tags.map((tag) => (
-                                        <option key={tag} value={tag.toUpperCase()}>
+                                        <option
+                                            key={tag}
+                                            value={tag.toUpperCase()}
+                                        >
                                             {tag.toUpperCase()}
                                         </option>
                                     ))}

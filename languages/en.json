@@ -50,7 +50,8 @@
         "meta_description": "Articles about computer science, web development and entrepreneurship",
 
         "search_filter": "Search and filter",
-        "search_placeholder": "Search title or description"
+        "search_placeholder": "Search title or description",
+        "rss_title": "Subscribe to the feed to make sure to not miss anything"
     },
 
     "projects": {

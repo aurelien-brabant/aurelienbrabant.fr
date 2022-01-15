@@ -50,7 +50,8 @@
         "title": "Aurélien Brabant - Blog",
         "meta_description": "Articles sur le monde de l'informatique, de la programmation et de l'entreprenariat",
         "search_filter": "Rechercher et filtrer",
-        "search_placeholder": "Rechercher par titre ou description"
+        "search_placeholder": "Rechercher par titre ou description",
+        "rss_title": "Abonnez vous au flux pour être sûr de ne rien rater"
     },
 
     "projects": {
