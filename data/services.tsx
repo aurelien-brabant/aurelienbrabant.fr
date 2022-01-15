@@ -14,12 +14,12 @@ export type Service = {
 export const services: Service[] = [
 	{
 		name: {
-			en: 'Website creation, from start to finish',
-			fr: 'Création de site Internet',
+			en: 'Full responsive website creation',
+			fr: 'Réalisation complète de votre site Internet "responsive"',
 		},
 		description: {
-			en: 'I will build the website your business need to step up, from start to finish, including front-end and back-end development depending on your needs.',
-			fr: "Je vais réaliser votre site Internet pour aider votre project à se digitaliser, comprenant le développement de l'interface graphique et la logique serveur selon les besoins.",
+			en: 'I will build the website your business need to step up, from start to finish, including front-end and back-end development depending on your needs: creation of a database, user authentication system, payment module...',
+			fr: "Je vais réaliser votre site Internet pour aider votre projet à se digitaliser, comprenant le développement de l'interface graphique ainsi que de la logique serveur selon vos besoins : mise en place d'une base de données, d'un système d'authentification, d'un module de paiement...",
 		},
 		icon: <HiOutlineDesktopComputer />,
 		bgURI: '/landing_website_service.jpg',
@@ -50,7 +50,7 @@ export const services: Service[] = [
 	},
 	{
 		name: {
-			en: 'Make the Internet hear about your business',
+			en: 'Search Engine Optimization Boost',
 			fr: 'Amélioration de votre référencement',
 		},
 		description: {

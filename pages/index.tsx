@@ -150,7 +150,7 @@ const priorities: Priority[] = [
 			en: 'documentation',
 		},
 		description: {
-			fr: "Afin de rendre votre projet indépendant de moi, je prête attention à documenter tout ce que je fais: que ce soit le code, les procédures de déploiements ou les rapports de bugs, votre project n'aura aucun secret pour vous! Je délivre l'entièreté de cette documentation à la livraison du projet, sans délai.",
+			fr: "Afin de rendre votre projet indépendant de moi, je prête attention à documenter tout ce que je fais: que ce soit le code, les procédures de déploiements ou les rapports de bugs, votre projet n'aura aucun secret pour vous! Je délivre l'entièreté de cette documentation à la livraison du projet, sans délai.",
 			en: 'In order to make your project completely yours, I carefully document everything I do. The code, deployment procedures, bug reports: your project will not have any secret for you! I deliver the full documentation at the same time I deliver the project, without any delay.',
 		},
 		icon: <CgFileDocument />,
