@@ -34,19 +34,25 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
         const [filteredPosts, setFilteredPosts] =
             useState<BrabantApi.BlogpostPreview[]>(posts)
         const [selectedTag, setSelectedTag] = useState<string>('NONE')
-        const [searchText, setSearchText] = useState('');
+        const [searchText, setSearchText] = useState('')
 
         const handleTextSearch = (e: React.ChangeEvent<HTMLInputElement>) => {
-            const normalized = e.target.value.toLowerCase();
-            setSelectedTag('NONE');
-            setSearchText(e.target.value);
-            setFilteredPosts(posts.filter(post => post.title.toLowerCase().includes(normalized) || post.description.toLowerCase().includes(normalized)));
+            const normalized = e.target.value.toLowerCase()
+            setSelectedTag('NONE')
+            setSearchText(e.target.value)
+            setFilteredPosts(
+                posts.filter(
+                    (post) =>
+                        post.title.toLowerCase().includes(normalized) ||
+                        post.description.toLowerCase().includes(normalized)
+                )
+            )
         }
 
         const blogLanguageSection = 'blog'
 
         const selectTag = (tag: string) => {
-            setSearchText('');
+            setSearchText('')
             if (tag === 'NONE') {
                 setFilteredPosts(posts)
             } else {
@@ -54,7 +60,7 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     posts.filter((post) => post.tags!.includes(tag))
                 )
             }
-            setSelectedTag(tag);
+            setSelectedTag(tag)
         }
 
         const BlogPostPreview: React.FC<{
@@ -75,16 +81,8 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                             </div>
                             <div className={styles.content}>
                                 <div>
-                                    <h3>
-                                        <Link href={`/blog/${post.blogpostId}`}>
-                                            <a> {post.title}</a>
-                                        </Link>
-                                    </h3>
-                                    <p>
-                                        <Link href={`/blog/${post.blogpostId}`}>
-                                            <a>{post.description}</a>
-                                        </Link>
-                                    </p>
+                                    <h3>{post.title}</h3>
+                                    <p>{post.description}</p>
                                 </div>
                                 <div className={styles.metablock}>
                                     <Image
@@ -135,14 +133,30 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                 <main className={styles.mainContainer}>
                     <Container>
                         <div className={styles.filteringTools}>
-                            <h2><Translator section={blogLanguageSection}>search_filter</Translator></h2>
+                            <h2>
+                                <Translator section={blogLanguageSection}>
+                                    search_filter
+                                </Translator>
+                            </h2>
                             <div className={styles.searchInputs}>
-                            <input type="text" placeholder={useTranslate('search_placeholder', blogLanguageSection)} value={searchText} onChange={handleTextSearch} />
-                                <select name="selectedTag" value={selectedTag as string} onChange={(e) => { selectTag(e.target.value) }}>
-                                    <option value={"NONE"}>
-                                        NONE
-                                    </option>
-                                    {tags.map(tag => (
+                                <input
+                                    type="text"
+                                    placeholder={useTranslate(
+                                        'search_placeholder',
+                                        blogLanguageSection
+                                    )}
+                                    value={searchText}
+                                    onChange={handleTextSearch}
+                                />
+                                <select
+                                    name="selectedTag"
+                                    value={selectedTag as string}
+                                    onChange={(e) => {
+                                        selectTag(e.target.value)
+                                    }}
+                                >
+                                    <option value={'NONE'}>NONE</option>
+                                    {tags.map((tag) => (
                                         <option value={tag.toUpperCase()}>
                                             {tag.toUpperCase()}
                                         </option>
