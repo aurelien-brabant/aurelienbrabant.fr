@@ -122,7 +122,7 @@
 				color: #000;
 
 				span {
-					transform: translateY(0.1em);
+					transform: translateY(0.05em);
 					span {
 						margin-left: 0.3em;
 					}
@@ -353,6 +353,7 @@
 	}
 
 	.heading {
+			color: #fff;
 		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
 		margin: 0 auto;
 		padding: 0.5em 0.5em 0.2em 0.5em;
@@ -360,12 +361,11 @@
 		color: rgba(255, 255, 255, 1);
 		background-color: #000;
 		border: 3px #e2725b solid;
-		transform: translateY(-0.5em);
+		transform: translateY(-0.5em) rotate(-1deg);
 		text-transform: uppercase;
 		max-width: 700px;
 		font-size: 1.7em;
 		letter-spacing: 1.2px;
-		color: #e2725b;
 		border-radius: 2px;
 	}
 
