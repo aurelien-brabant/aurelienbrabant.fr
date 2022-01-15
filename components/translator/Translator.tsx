@@ -7,18 +7,9 @@ import languageEN from '../../languages/en.json';
 import { availableLanguages, Language } from '../../lib/language';
 import useLanguage from '../../hooks/useLanguage';
 
-const languageFiles: {[key: string]: any } =
-{
-	'fr': languageFR,
-	'en': languageEN
-}
-
-export const useTranslate = (text: string, section?: string): string =>
-{
-	const { language } = useContext(languageContext);
-
+export const translate = (lang: Language, text: string, section: string) => {
 	for (const key in languageFiles) {
-		if (key === language) {
+		if (key === lang) {
 			if (section) {
 				return languageFiles[key][section][text] || text;
 			} else {
@@ -26,8 +17,19 @@ export const useTranslate = (text: string, section?: string): string =>
 			}
 		}
 	}
+}
 
-	return text;
+const languageFiles: {[key: string]: any } =
+{
+	'fr': languageFR,
+	'en': languageEN
+}
+
+export const useTranslate = (text: string, section: string): string =>
+{
+	const { language } = useContext(languageContext);
+
+	return translate(language, text, section);
 }
 
 type TranslatorProps = {
@@ -66,6 +68,7 @@ export const useTranslateFromObject: <T>(obj: {[key: string]: T}) => T = (obj) =
 }
 
 export const translateFromObject: <T>(lang: Language, obj: {[key: string]: T}) => T = (lang, obj) => obj[lang];
+
 
 export const Translator: React.FC<TranslatorProps> = ({ children, section, manual }) =>
 {

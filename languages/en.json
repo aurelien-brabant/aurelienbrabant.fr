@@ -29,7 +29,8 @@
         "form_email_placeholder": "example@gmail.com",
         "form_textarea_placeholder": "I would want a website for my small business...",
         "or_send_mail": "Or send a mail to",
-        "contact_form_rejection": "An error occured. Please make sure you filled all the fields and validated the captcha."
+        "contact_form_rejected": "An error occured. Please make sure you filled all the fields and validated the captcha.",
+        "contact_form_sent": "Message sent successfully. I will come back to you as soon as possible!"
     },
 
     "navtab": {

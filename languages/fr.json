@@ -30,7 +30,8 @@
         "form_textarea_placeholder": "Je voudrais faire réaliser un site web pour mon petit commerce...",
         "or_send_mail": "Ou envoyez un mail à",
 
-        "contact_form_rejection": "Une erreur est survenue. Veuillez vous assurer que vous avez rempli tout les champs et validé le captcha."
+        "contact_form_rejected": "Une erreur est survenue. Veuillez vous assurer que vous avez rempli tout les champs et validé le captcha.",
+        "contact_form_sent": "Message envoyé avec succès! Je reviendrai vers vous aussi vite que possible."
     },
 
     "navtab": {

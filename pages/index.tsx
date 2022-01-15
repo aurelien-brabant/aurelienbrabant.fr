@@ -9,6 +9,7 @@ import {
 	useTranslateFromObject,
 	useTranslate,
 	translateFromObject,
+	translate,
 } from '../components/translator/Translator'
 import Link from 'next/link'
 import styles from '../styles/index.module.scss'
@@ -76,56 +77,58 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 	link,
 	coverURI,
 }) => (
-		<Fade triggerOnce>
-	<article className={styles.project}>
-		{direction === 'left' && (
-			<div
-				className={styles.imageWrapper}
-				style={{ transform: 'rotate(1deg)' }}
-			>
-				<Image
-					alt={`${title}'s illustration`}
-					src={coverURI}
-					className={styles.projectImage}
-					width="400"
-					height="400"
-				/>
-			</div>
-		)}
-		<div className={styles.projectText}>
-			<UnderlinedText
-				underlineColor="#e2725b"
-				as="h3"
-				className={styles.projectTitle}
-			>
-				{title}
-			</UnderlinedText>
-			<p>{useTranslateFromObject(description)}</p>
-			<Link href={link}>
-				<a
-					target="_blank"
-					rel="noreferrer"
-					className={styles.visitProject}
+	<Fade triggerOnce>
+		<article className={styles.project}>
+			{direction === 'left' && (
+				<div
+					className={styles.imageWrapper}
+					style={{ transform: 'rotate(1deg)' }}
 				>
-					<Translator section={'index'}>visit_project_cta</Translator>
-				</a>
-			</Link>
-		</div>
-		{direction === 'right' && (
-			<div
-				className={styles.imageWrapper}
-				style={{ transform: 'rotate(-1deg)' }}
-			>
-				<Image
-					src={coverURI}
-					alt={`${title}'s illustration`}
-					className={styles.projectImage}
-					width="400"
-					height="400"
-				/>
+					<Image
+						alt={`${title}'s illustration`}
+						src={coverURI}
+						className={styles.projectImage}
+						width="400"
+						height="400"
+					/>
+				</div>
+			)}
+			<div className={styles.projectText}>
+				<UnderlinedText
+					underlineColor="#e2725b"
+					as="h3"
+					className={styles.projectTitle}
+				>
+					{title}
+				</UnderlinedText>
+				<p>{useTranslateFromObject(description)}</p>
+				<Link href={link}>
+					<a
+						target="_blank"
+						rel="noreferrer"
+						className={styles.visitProject}
+					>
+						<Translator section={'index'}>
+							visit_project_cta
+						</Translator>
+					</a>
+				</Link>
 			</div>
-		)}
-	</article>
+			{direction === 'right' && (
+				<div
+					className={styles.imageWrapper}
+					style={{ transform: 'rotate(-1deg)' }}
+				>
+					<Image
+						src={coverURI}
+						alt={`${title}'s illustration`}
+						className={styles.projectImage}
+						width="400"
+						height="400"
+					/>
+				</div>
+			)}
+		</article>
 	</Fade>
 )
 
@@ -186,10 +189,10 @@ const DeveloperPriority: React.FC<{ title: string; icon: ReactElement }> = ({
 			<div className={styles.iconBox}>{icon}</div>
 		</div>
 		<Fade triggerOnce>
-		<div className={styles.text}>
-			<h4> {title} </h4>
-			<p> {children} </p>
-		</div>
+			<div className={styles.text}>
+				<h4> {title} </h4>
+				<p> {children} </p>
+			</div>
 		</Fade>
 	</article>
 )
@@ -239,7 +242,12 @@ const ContactForm: React.FC<{}> = () => {
 		'g-recaptcha-response': string | null
 	}>({ name: '', email: '', message: '', 'g-recaptcha-response': null })
 	const [isLoading, setIsLoading] = useState(false)
-	const [errored, setErrored] = useState(false)
+	const [feedback, setFeedback] = useState<null | {
+		msg: string
+		type: 'error' | 'info'
+	}>(null)
+
+	const language = useLanguage()
 
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -252,16 +260,16 @@ const ContactForm: React.FC<{}> = () => {
 
 	const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 		;(e.target as ValidatableTarget).checkValidity()
-		console.log('After validity')
 		e.preventDefault()
-		setErrored(false)
+		setFeedback(null)
 
 		if (formData['g-recaptcha-response'] === null) {
-			setErrored(true)
+			setFeedback({
+				type: 'error',
+				msg: 'contact_form_rejected'
+			})
 			return
 		}
-
-		console.log('bronte')
 
 		;(window as any).grecaptcha.reset()
 
@@ -277,9 +285,12 @@ const ContactForm: React.FC<{}> = () => {
 
 		setIsLoading(false)
 
-		if (res.status !== 201) {
-			setErrored(true)
-		}
+		const isSuccess = res.status === 201
+
+		setFeedback({
+			msg: isSuccess ? 'contact_form_sent' : 'contact_form_rejected',
+			type: isSuccess ? 'info' : 'error',
+		})
 
 		setFormData({
 			name: formData.name,
@@ -291,11 +302,15 @@ const ContactForm: React.FC<{}> = () => {
 
 	return (
 		<div>
-			{errored && (
-				<small className={styles.formError}>
-					<Translator section="index">
-						contact_form_rejection
-					</Translator>
+			{feedback && (
+				<small
+					className={styles.formError}
+					style={{
+						color:
+							feedback.type === 'error' ? '#C53030' : '#68D391',
+					}}
+				>
+					<Translator section={'index'}>{feedback.msg}</Translator>
 				</small>
 			)}
 			<form onSubmit={handleSubmit}>
@@ -371,7 +386,7 @@ const ContactForm: React.FC<{}> = () => {
 
 const Home: NextPage = () => {
 	const languageSection = 'index'
-	const language = useLanguage();
+	const language = useLanguage()
 
 	return (
 		<React.Fragment>
@@ -438,7 +453,11 @@ const Home: NextPage = () => {
 						</div>
 					</div>
 				</Container>
-				<img src="landing_wave_1.svg" alt={'wave svg'} className={styles.landingWave1} />
+				<img
+					src="landing_wave_1.svg"
+					alt={'wave svg'}
+					className={styles.landingWave1}
+				/>
 			</section>
 
 			<section className={styles.servicesRoot} id="services">
@@ -460,11 +479,11 @@ const Home: NextPage = () => {
 
 					<div className={styles.ctas}>
 						<Link href="/#contact">
-						<a className={styles.freeEstimate}>
-							<Translator section={languageSection}>
-								free_estimate
-							</Translator>
-						</a>
+							<a className={styles.freeEstimate}>
+								<Translator section={languageSection}>
+									free_estimate
+								</Translator>
+							</a>
 						</Link>
 					</div>
 				</Container>
@@ -488,10 +507,16 @@ const Home: NextPage = () => {
 						{priorities.map((priority) => (
 							<DeveloperPriority
 								key={priority.name.en}
-								title={translateFromObject(language, priority.name)}
+								title={translateFromObject(
+									language,
+									priority.name
+								)}
 								icon={priority.icon}
 							>
-								{translateFromObject(language, priority.description)}
+								{translateFromObject(
+									language,
+									priority.description
+								)}
 							</DeveloperPriority>
 						))}
 					</div>
@@ -566,4 +591,4 @@ const Home: NextPage = () => {
 	)
 }
 
-export default Home;
+export default Home
