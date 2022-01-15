@@ -2,9 +2,6 @@ import http from 'http'
 import { readdirSync, existsSync, lstatSync } from 'fs'
 import path from 'path'
 
-let apiHost = 'localhost'
-let apiPort = 3000
-
 const isDir = (path: string) => {
 	return existsSync(path) && lstatSync(path).isDirectory()
 }
@@ -21,7 +18,11 @@ const formatDate = (date: Date) => {
 	return [year, month, day].join('-')
 }
 
-const fetch = (route: string): Promise<any> => {
+const fetch = (
+	apiHost: string,
+	apiPort: number,
+	route: string
+): Promise<any> => {
 	const options: http.RequestOptions = {
 		hostname: apiHost,
 		path: route,
@@ -62,7 +63,7 @@ const createSitemapEntry = (
 }
 
 const createPagesEntries = (): string => {
-	const ignored = ['about']
+	const ignored = ['about', '404', '500', 'sitemap', 'sitemap_local'];
 
 	const p = path.join(__dirname, '../pages')
 	const pages = readdirSync(p).filter(
@@ -87,8 +88,13 @@ const createPagesEntries = (): string => {
 		.join('')
 }
 
-const createBlogpostEntries = async (): Promise<string> => {
+const createBlogpostEntries = async (
+	apiHost: string,
+	apiPort: number
+): Promise<string> => {
 	const { posts }: { posts: BrabantApi.BlogpostPreview[] } = await fetch(
+		apiHost,
+		apiPort,
 		'/blogposts'
 	)
 
@@ -103,10 +109,15 @@ const createBlogpostEntries = async (): Promise<string> => {
 		.join('')
 }
 
-const createProjectEntries = async (): Promise<string> => {
+const createProjectEntries = async (
+	apiHost: string,
+	apiPort: number
+): Promise<string> => {
 	const projects: BrabantApi.ProjectPreview[] = await fetch(
+		apiHost,
+		apiPort,
 		'/projects'
-	);
+	)
 
 	return projects
 		.map((project) =>
@@ -119,20 +130,13 @@ const createProjectEntries = async (): Promise<string> => {
 		.join('')
 }
 
-const main = async () => {
-	if (process.argv.length !== 4) {
-		console.error('Usage: ts-node generate_sitemap <api_host> <api_port>')
-		process.exit(1)
-	}
-
-	apiHost = process.argv[2]
-	apiPort = +process.argv[3]
-
+export const generate = async (apiHost: string, apiPort: number): Promise<string> => {
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 	<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${createPagesEntries()}${await createBlogpostEntries()}${await createProjectEntries()}	</urlset>`
+${createPagesEntries()}${await createBlogpostEntries(
+		apiHost,
+		apiPort
+	)}${await createProjectEntries(apiHost, apiPort)}	</urlset>`
 
-	console.log(sitemap)
+	return sitemap;
 }
-
-main()
