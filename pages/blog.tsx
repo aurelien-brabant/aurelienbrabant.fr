@@ -2,6 +2,7 @@ import React, { useState, Fragment } from 'react'
 import { GetServerSideProps } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
+import Head from 'next/head';
 import { Container } from '../components/container/container'
 import styles from '../styles/blog.module.scss'
 
@@ -112,8 +113,8 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
         }
 
         return (
-            <React.Fragment>
-                <head>
+            <Fragment>
+                <Head>
                     <title>{useTranslate('title', 'blog')}</title>
                     <meta
                         name="description"
@@ -124,7 +125,7 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                         rel="canonical"
                         href={`https://aurelienbrabant.fr/about`}
                     />
-                </head>
+                </Head>
 
                 <Heading title="blog" />
 
@@ -155,7 +156,7 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                                 >
                                     <option value={'NONE'}>NONE</option>
                                     {tags.map((tag) => (
-                                        <option value={tag.toUpperCase()}>
+                                        <option key={tag} value={tag.toUpperCase()}>
                                             {tag.toUpperCase()}
                                         </option>
                                     ))}
@@ -172,7 +173,7 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                         </div>
                     </Container>
                 </main>
-            </React.Fragment>
+            </Fragment>
         )
     }
 
