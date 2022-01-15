@@ -144,7 +144,7 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
 
 	if (context.params) {
 		const res = await fetch(
-			`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${context.params.id}`
+			`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${(context.params.id as string).toLowerCase()}`
 		)
 
 		if (res.status != 200) {

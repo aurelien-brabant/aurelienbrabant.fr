@@ -64,7 +64,7 @@ const favoriteProjects: FavoriteProject[] = [
 			en: `My own website you're browsing right now, which consists in a fullstack web application. I learned most of my advanced skills by working on it (back-end and front-end).`,
 			fr: "Mon site personnel et portfolio que vous visitez actuellement, qui consiste en une application web fullstack. J'ai appris la grande majorité de mes compétences avancées en travaillant dessus (côté client et côté serveur).",
 		},
-		link: '/projects/my-website',
+		link: '/projects/My-website',
 		coverURI: '/aurelien.webp',
 	},
 ]
