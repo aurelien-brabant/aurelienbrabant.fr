@@ -412,7 +412,7 @@ const Home: NextPage = () => {
 							🚀
 						</h3>
 						<div className={styles.ctas}>
-							<Link href="/contact">
+							<Link href="/#contact">
 								<a className={styles.hiremeCta}>
 									<span>
 										<Translator section={languageSection}>
