@@ -7,9 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "postbuild": "node scripts/sitemap.js && node scripts/rssFeedGenerator.js",
-    "rss2": "node scripts/rssFeedGenerator.js",
-    "gen-sitemap": "ts-node --files -O '{ \"module\": \"commonjs\" }' scripts/generate_sitemap.ts localhost 5000"
+    "postbuild": "node scripts/rssFeedGenerator.js",
+    "rss2": "node scripts/rssFeedGenerator.js"
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.0",
@@ -26,13 +25,13 @@
     "next": "^12.0.1",
     "nprogress": "^0.2.0",
     "react": "17.0.2",
+    "react-awesome-reveal": "^3.8.1",
     "react-dom": "17.0.2",
     "react-google-recaptcha": "^2.1.0",
     "react-icons": "^4.3.1",
     "react-markdown": "^7.0.0",
     "react-multi-carousel": "^2.6.5",
     "react-responsive": "^9.0.0-beta.4",
-    "react-reveal": "^1.2.2",
     "react-simple-typewriter": "^3.0.0",
     "react-spinners": "^0.11.0",
     "react-syntax-highlighter": "^15.4.4",

@@ -22,7 +22,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
                     style={{ backgroundColor }}
                 />
             )}
-            {src && <img src={src} className={styles.imageBackground} />}
+            {src && <img src={src} alt={''} className={styles.imageBackground} />}
         </React.Fragment>
     )
 }

@@ -4,7 +4,7 @@ import languageContext from '../../context/language/languageContext';
 import languageFR from '../../languages/fr.json';
 import languageEN from '../../languages/en.json';
 
-import { availableLanguages } from '../../lib/language';
+import { availableLanguages, Language } from '../../lib/language';
 import useLanguage from '../../hooks/useLanguage';
 
 const languageFiles: {[key: string]: any } =
@@ -59,11 +59,13 @@ export const ManualTranslator: React.FC<{ manual: { [key: string]: JSX.Element }
 	return manual[language];
 }
 
-export const translateFromObject: <T>(obj: {[key: string]: T}) => T = (obj) => {
+export const useTranslateFromObject: <T>(obj: {[key: string]: T}) => T = (obj) => {
 	const language = useLanguage();
 
 	return obj[language];
 }
+
+export const translateFromObject: <T>(lang: Language, obj: {[key: string]: T}) => T = (lang, obj) => obj[lang];
 
 export const Translator: React.FC<TranslatorProps> = ({ children, section, manual }) =>
 {

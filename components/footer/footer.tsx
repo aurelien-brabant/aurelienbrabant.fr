@@ -1,12 +1,13 @@
 import React from 'react'
 import styles from '../../styles/footer.module.scss'
 import { Container } from '../container/container'
-import { translateFromObject, Translator } from '../translator/Translator'
+import { useTranslateFromObject, Translator, translateFromObject } from '../translator/Translator'
 import SocialNetworks from '../../components/social-networks/SocialNetworks'
 import Link from 'next/link'
 import { navtabs } from '../../data/navtabs'
 
 import { services } from '../../data/services'
+import useLanguage from '../../hooks/useLanguage'
 
 type FooterInputProps = {}
 
@@ -34,6 +35,8 @@ const FooterBlock: React.FC<FooterBlockInputProps> = ({ title, items }) => {
 
 export const Footer: React.FC<FooterInputProps> = () => {
 	const navtabLanguageSection = 'navtab'
+	const language = useLanguage()
+
 	return (
 		<div className={styles.footer}>
 			<Container className={styles.footerContainer}>
@@ -68,7 +71,10 @@ export const Footer: React.FC<FooterInputProps> = () => {
 								<li key={service.name.en}>
 									<Link href="/#services">
 										<a>
-											{translateFromObject(service.name)}
+											{translateFromObject(
+												language,
+												service.name
+											)}
 										</a>
 									</Link>
 								</li>

@@ -15,4 +15,6 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
     }
 }
 
-export default () => {}
+const SitemapLocal = () => {}
+
+export default SitemapLocal;

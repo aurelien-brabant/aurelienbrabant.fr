@@ -2,11 +2,13 @@ import type { NextPage } from 'next'
 import React, { Fragment, ReactElement, useState } from 'react'
 import Head from 'next/head'
 import Image from 'next/image'
+import { Fade } from 'react-awesome-reveal'
 import { Container } from '../components/container/container'
 import {
 	Translator,
-	translateFromObject,
+	useTranslateFromObject,
 	useTranslate,
+	translateFromObject,
 } from '../components/translator/Translator'
 import Link from 'next/link'
 import styles from '../styles/index.module.scss'
@@ -27,6 +29,7 @@ import { IoMdChatbubbles } from 'react-icons/io'
 import { Service, services } from '../data/services'
 
 import ReCAPTCHA from 'react-google-recaptcha'
+import useLanguage from '../hooks/useLanguage'
 
 type FavoriteProject = {
 	title: string
@@ -73,6 +76,7 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 	link,
 	coverURI,
 }) => (
+		<Fade triggerOnce>
 	<article className={styles.project}>
 		{direction === 'left' && (
 			<div
@@ -80,6 +84,7 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 				style={{ transform: 'rotate(1deg)' }}
 			>
 				<Image
+					alt={`${title}'s illustration`}
 					src={coverURI}
 					className={styles.projectImage}
 					width="400"
@@ -95,7 +100,7 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 			>
 				{title}
 			</UnderlinedText>
-			<p>{translateFromObject(description)}</p>
+			<p>{useTranslateFromObject(description)}</p>
 			<Link href={link}>
 				<a
 					target="_blank"
@@ -113,6 +118,7 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 			>
 				<Image
 					src={coverURI}
+					alt={`${title}'s illustration`}
 					className={styles.projectImage}
 					width="400"
 					height="400"
@@ -120,6 +126,7 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 			</div>
 		)}
 	</article>
+	</Fade>
 )
 
 FavoriteProject.defaultProps = {
@@ -178,10 +185,12 @@ const DeveloperPriority: React.FC<{ title: string; icon: ReactElement }> = ({
 		<div className={styles.iconWrapper}>
 			<div className={styles.iconBox}>{icon}</div>
 		</div>
+		<Fade triggerOnce>
 		<div className={styles.text}>
 			<h4> {title} </h4>
 			<p> {children} </p>
 		</div>
+		</Fade>
 	</article>
 )
 
@@ -202,10 +211,10 @@ const ServicePresenter: React.FC<{
 		)}
 		<div className={styles.description}>
 			<h4 className={styles.title}>
-				{translateFromObject(service.name)}
+				{useTranslateFromObject(service.name)}
 			</h4>
 			<p className={styles.description}>
-				{translateFromObject(service.description)}
+				{useTranslateFromObject(service.description)}
 			</p>
 		</div>
 		{direction == 'right' && (
@@ -362,6 +371,7 @@ const ContactForm: React.FC<{}> = () => {
 
 const Home: NextPage = () => {
 	const languageSection = 'index'
+	const language = useLanguage();
 
 	return (
 		<React.Fragment>
@@ -428,7 +438,7 @@ const Home: NextPage = () => {
 						</div>
 					</div>
 				</Container>
-				<img src="landing_wave_1.svg" className={styles.landingWave1} />
+				<img src="landing_wave_1.svg" alt={'wave svg'} className={styles.landingWave1} />
 			</section>
 
 			<section className={styles.servicesRoot} id="services">
@@ -449,11 +459,13 @@ const Home: NextPage = () => {
 					</div>
 
 					<div className={styles.ctas}>
-						<a className={styles.freeEstimate} href="/#contact">
+						<Link href="/#contact">
+						<a className={styles.freeEstimate}>
 							<Translator section={languageSection}>
 								free_estimate
 							</Translator>
 						</a>
+						</Link>
 					</div>
 				</Container>
 			</section>
@@ -465,9 +477,9 @@ const Home: NextPage = () => {
 					edgePadded={false}
 				>
 					<h2>
-						{translateFromObject({ fr: 'Mes', en: 'My' })}{' '}
+						{useTranslateFromObject({ fr: 'Mes', en: 'My' })}{' '}
 						<span className={styles.priorityCount}>3</span>{' '}
-						{translateFromObject({
+						{useTranslateFromObject({
 							fr: 'priorités en tant que développeur',
 							en: 'priorities as a developer',
 						})}
@@ -476,10 +488,10 @@ const Home: NextPage = () => {
 						{priorities.map((priority) => (
 							<DeveloperPriority
 								key={priority.name.en}
-								title={translateFromObject(priority.name)}
+								title={translateFromObject(language, priority.name)}
 								icon={priority.icon}
 							>
-								{translateFromObject(priority.description)}
+								{translateFromObject(language, priority.description)}
 							</DeveloperPriority>
 						))}
 					</div>
@@ -495,7 +507,7 @@ const Home: NextPage = () => {
 
 			<section className={styles.projectsRoot}>
 				<Container size="md" className={styles.projectsContainer}>
-					<img src="/blob.svg" className={styles.blob} />
+					<img src="/blob.svg" alt={''} className={styles.blob} />
 					<div className={styles.projectsHeader}>
 						<h2>
 							<Translator section={languageSection}>
@@ -554,4 +566,4 @@ const Home: NextPage = () => {
 	)
 }
 
-export default Home
+export default Home;

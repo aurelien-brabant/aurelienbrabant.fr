@@ -1,12 +1,12 @@
 import { GetServerSideProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
-import Fade from 'react-reveal/Fade'
+import { Fade } from 'react-awesome-reveal';
 import Link from 'next/link'
 import Head from 'next/head'
+import BackgroundImage from '../components/BackgroundImage';
 
 import styles from '../styles/projects.module.scss'
-import BackgroundImage from '../components/BackgroundImage'
 import { useTranslate } from '../components/translator/Translator'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
@@ -49,10 +49,6 @@ const Projects: React.FC<ProjectsPageProps> = ({
 }) => {
     const [filteredProjects, setFilteredProjects] = useState(projects)
     const [selectedTechnology, setSelectedTechnology] = useState('')
-
-    useEffect(() => {
-        console.log(technologyNames)
-    }, [])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {

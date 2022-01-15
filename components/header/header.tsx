@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react'
 import Image from 'next/image'
-import { Button } from '../button/button'
 import styles from '../../styles/header.module.scss'
 import { navtabs } from '../../data/navtabs'
 import { useRouter } from 'next/dist/client/router'
@@ -9,9 +8,6 @@ import disableScroll from 'disable-scroll'
 import LanguageSwitcher from '../language-switcher/LanguageSwitcher'
 import { Translator } from '../translator/Translator'
 import Dropdown from '../Dropdown'
-import BackgroundImage from '../BackgroundImage'
-
-import landingBg from '../../public/landing_bg.webp';
 
 const Header: React.FC<{}> = () => {
 	const navtabLanguageSection = 'navtab'

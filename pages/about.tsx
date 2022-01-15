@@ -49,6 +49,7 @@ const About: NextPage = () => {
                                 </p>
                                 <div className={styles.imageWrapper}>
                                 <Image
+                                    alt={`picture of Aurelien`}
                                     className={styles.image}
                                     src={'/large_abrabant.jpg'}
                                     width={300}
@@ -73,6 +74,7 @@ const About: NextPage = () => {
                                         {technologies.map((techno) => (
                                             <div key={techno.name}>
                                                 <Image
+                                                    alt={techno.name}
                                                     src={techno.imageUrl}
                                                     height={50}
                                                     width={50}

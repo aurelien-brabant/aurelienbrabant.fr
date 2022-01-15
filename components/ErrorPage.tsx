@@ -3,7 +3,7 @@ import Head from 'next/head';
 import {Container} from '../components/container/container';
 
 import styles from '../styles/error-page.module.scss';
-import {translateFromObject, Translator} from './translator/Translator';
+import {useTranslateFromObject, Translator} from './translator/Translator';
 
 type ErrorPageProps = {
     statusCode: number;
@@ -20,7 +20,7 @@ const ErrorPage: React.FC<ErrorPageProps> = ({ statusCode, sub }) => (
         <section className={styles.notfound}>
             <Container className={styles.mainContainer}>
                 <h1>{statusCode}</h1>
-                <h2>{translateFromObject(sub)}</h2>
+                <h2>{useTranslateFromObject(sub)}</h2>
                 <a href="mailto:contact@aurelienbrabant.fr"><Translator section="error">report_problem</Translator></a>
             </Container>
         </section>
