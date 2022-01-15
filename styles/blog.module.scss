@@ -96,7 +96,8 @@
 
 .blogpostsWrapper {
     display: grid;
-    align-items: end;
+    align-items: stretch;
+    grid-template-rows: 1fr;
 
     @media only screen and (min-width: 600px) {
         grid-template-columns: 1fr 1fr;
@@ -111,6 +112,7 @@
 }
 
 .blogpostPreviewWrapper {
+    height: 100%;
     transition: 0.2s transform;
     &:hover {
         transform: translateY(-1em);
