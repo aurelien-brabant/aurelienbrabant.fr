@@ -1,5 +1,22 @@
 @use 'core';
 
+@keyframes blinkToPrimary {
+	from {
+		color: #fff;
+		transform: scale(1);
+		opacity: .8;
+	}
+	50% {
+		transform: scale(1.09);
+		opacity: 1;
+	}
+	to {
+		transform: scale(1);
+		color: #fff;
+		opacity: .8;
+	}
+}
+
 .introductionSection {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.92), rgba(0, 0, 0, 0.92)),
 		url('/landing_bg.webp');
@@ -397,6 +414,9 @@
 
 		.logo {
 			display: flex;
+			svg {
+			animation: blinkToPrimary 2s infinite;
+		}
 			align-items: center;
 			justify-content: center;
 			background-color: #000;
