@@ -17,7 +17,7 @@ const LanguageProvider: React.FC<{}> = ({ children }) => {
 				)
 			}
 		} else {
-			setLanguage(navigator.language.startsWith('fr') ? 'fr' : 'en');
+			setLanguage(navigator.language.startsWith('en') ? 'en' : 'fr');
 		}
 	}, [])
 
