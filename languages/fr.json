@@ -4,6 +4,9 @@
     },
 
     "index": {
+        "title": "Aurélien Brabant - Création de site internet",
+        "meta_description": "La cŕeation de votre site internet professionnel du début à la fin rendu facile. Faites réaliser votre site web dès maintenant.",
+
         "name": "Aurélien Brabant",
         "short introduction": "Je développe des sites Internet rapides, fiables et élégants",
         "hireme": "Travaillons ensemble",
@@ -44,19 +47,21 @@
     },
 
     "blog": {
+        "title": "Aurélien Brabant - Blog",
+        "meta_description": "Articles sur le monde de l'informatique, de la programmation et de l'entreprenariat",
         "search_filter": "Rechercher et filtrer",
         "search_placeholder": "Rechercher par titre ou description"
     },
 
-    "contact": {
-        "heading": "Contact",
-        "thank you": "Merci de l'intérêt que vous portez à me contacter !",
-        "description": "Que ce soit pour discuter de mes articles ou pour que l'on travaille ensemble, je serai ravi de recevoir votre email.",
-        "best way to reach": "La meilleure manière de me joindre est de me contacter par email à",
-        "socials": "Vous pouvez aussi me suivre sur mes réseaux sociaux:"
+    "projects": {
+        "title": "Aurélien Brabant - Projets",
+        "meta_description": "Mon portfolio de développeur. Projets de site web réalisés pour mes clients et projets personnels visant à acquérir de nouvelles compétences"
     },
 
     "about": {
+        "title": "Aurélien Brabant - Qui suis-je",
+        "meta_description": "Étudiant en informatique et passionné d'informatique et d'entrepreneuriat, je met mes services de développeur web fullstack à contribution de vos projets les plus ambitieux",
+
         "heading": "A propos",
         "p1": "Moi c'est Aurélien, j'étudie actuellement l'informatique à l'école 42 sur le campus de Paris.",
         "p2": "Si vous n'avez pas entendu parler du 42 \"network\", c'est un réseau mondial d'écoles de programmation dont la pédagogie est essentiellement basée sur l'autonomie et l'apprentissage entre étudiants au travers de la réalisation de projets pratiques.",

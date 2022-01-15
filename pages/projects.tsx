@@ -7,9 +7,12 @@ import Head from 'next/head'
 
 import styles from '../styles/projects.module.scss'
 import BackgroundImage from '../components/BackgroundImage'
+import { useTranslate } from '../components/translator/Translator'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
-    let res = await fetch(`http://${process.env.API_HOST}:${process.env.API_PORT}/projects`);
+    let res = await fetch(
+        `http://${process.env.API_HOST}:${process.env.API_PORT}/projects`
+    )
 
     const projects: BrabantApi.ProjectPreview[] = await res.json()
 
@@ -47,7 +50,9 @@ const Projects: React.FC<ProjectsPageProps> = ({
     const [filteredProjects, setFilteredProjects] = useState(projects)
     const [selectedTechnology, setSelectedTechnology] = useState('')
 
-    useEffect(() => { console.log(technologyNames); }, [])
+    useEffect(() => {
+        console.log(technologyNames)
+    }, [])
 
     const filterProjectsByTechnology = (technologyName: string) => {
         if (technologyName == selectedTechnology) {
@@ -71,7 +76,16 @@ const Projects: React.FC<ProjectsPageProps> = ({
     return (
         <React.Fragment>
             <Head>
-                <title> Projects | Aurelien Brabant </title>
+                <title>{useTranslate('title', 'projects')}</title>
+                <meta
+                    name="description"
+                    content={useTranslate('meta_description', 'projects')}
+                />
+                <meta name="robots" content="index, follow" />
+                <link
+                    rel="canonical"
+                    href={`https://aurelienbrabant.fr/projects`}
+                />
             </Head>
             <Container className={styles.projectHeader} limitedWidth={false}>
                 <h1> My projects </h1>
@@ -84,27 +98,24 @@ const Projects: React.FC<ProjectsPageProps> = ({
                 </h3>
 
                 <div className={styles.sortByTechnology}>
-                    {technologyNames
-                        .map((technology) => (
-                            <a
-                                key={technology}
-                                onClick={() => {
-                                    filterProjectsByTechnology(
-                                        technology.toLowerCase()
-                                    )
-                                }}
-                                className={
-                                    technology.toLocaleLowerCase() ==
-                                    selectedTechnology
-                                        ? styles.selected
-                                        : ''
-                                }
-                            >
-                                <span>
-                                {technology}
-                                </span>
-                            </a>
-                        ))}
+                    {technologyNames.map((technology) => (
+                        <a
+                            key={technology}
+                            onClick={() => {
+                                filterProjectsByTechnology(
+                                    technology.toLowerCase()
+                                )
+                            }}
+                            className={
+                                technology.toLocaleLowerCase() ==
+                                selectedTechnology
+                                    ? styles.selected
+                                    : ''
+                            }
+                        >
+                            <span>{technology}</span>
+                        </a>
+                    ))}
                 </div>
             </Container>
             <Container limitedWidth={false} className={styles.projectContainer}>

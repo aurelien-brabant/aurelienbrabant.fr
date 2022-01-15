@@ -366,10 +366,10 @@ const Home: NextPage = () => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>Web developer | Aurélien Brabant</title>
+				<title>{useTranslate('title', 'index')}</title>
 				<meta
 					name="description"
-					content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
+					content={useTranslate('meta_description', 'index')}
 				/>
 				<meta name="robots" content="index, follow" />
 				<link rel="canonical" href={`https://aurelienbrabant.fr`} />

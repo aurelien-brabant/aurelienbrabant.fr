@@ -4,13 +4,10 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { Container } from '../components/container/container'
 import styles from '../styles/blog.module.scss'
-import { useMediaQuery } from 'react-responsive'
 
 import { Translator, useTranslate } from '../components/translator/Translator'
 
 import Heading from '../components/heading'
-
-import Head from 'next/head'
 
 export const getServerSideProps: GetServerSideProps = async function (
     _content
@@ -116,18 +113,19 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
 
         return (
             <React.Fragment>
-                <Head>
-                    <title>Blog | Aurelien Brabant</title>
+                <head>
+                    <title>{useTranslate('title', 'blog')}</title>
                     <meta
                         name="description"
-                        content="Blog posts about web development, React, Javascript, minilibx, Linux"
+                        content={useTranslate('meta_description', 'blog')}
                     />
                     <meta name="robots" content="index, follow" />
                     <link
                         rel="canonical"
-                        href={`https://aurelienbrabant.fr/blog`}
+                        href={`https://aurelienbrabant.fr/about`}
                     />
-                </Head>
+                </head>
+
                 <Heading title="blog" />
 
                 <main className={styles.mainContainer}>

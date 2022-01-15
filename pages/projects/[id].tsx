@@ -19,8 +19,8 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
         if (res.status != 200) {
             return {
-                notFound: true
-            };
+                notFound: true,
+            }
         }
 
         project = await res.json()
@@ -46,7 +46,11 @@ const SourceCodeLink: React.FC<{
     } ${styles.sourceCodeLink}`
 
     if (!link) {
-        return <div className={className} style={{opacity: .3}}>{children}</div>
+        return (
+            <div className={className} style={{ opacity: 0.3 }}>
+                {children}
+            </div>
+        )
     }
 
     return (
@@ -61,6 +65,12 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
         <React.Fragment>
             <Head>
                 <title> {project.name} | Aurelien Brabant </title>
+                <meta name="description" content={project.description} />
+                <meta name="robots" content="index, follow" />
+                <link
+                    rel="canonical"
+                    href={`https://aurelienbrabant.fr/projects/${project.stringId}`}
+                />
             </Head>
             <Container
                 className={styles.projectHeader}
@@ -70,10 +80,24 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
                 <h1> {project.name} </h1>
                 <h2> {project.description} </h2>
                 <div className={styles.sourceCodeWrapper}>
-                    <SourceCodeLink platform="github" link={project.githubLink ? `https://github.com/${project.githubLink}` : null}>
+                    <SourceCodeLink
+                        platform="github"
+                        link={
+                            project.githubLink
+                                ? `https://github.com/${project.githubLink}`
+                                : null
+                        }
+                    >
                         <BsGithub /> <span>See the code on Github</span>
                     </SourceCodeLink>
-                    <SourceCodeLink platform="gitlab" link={project.gitlabLink ? `https://github.com/${project.githubLink}` : null}>
+                    <SourceCodeLink
+                        platform="gitlab"
+                        link={
+                            project.gitlabLink
+                                ? `https://github.com/${project.githubLink}`
+                                : null
+                        }
+                    >
                         <SiGitlab /> <span>See the code on Gitlab</span>
                     </SourceCodeLink>
                 </div>

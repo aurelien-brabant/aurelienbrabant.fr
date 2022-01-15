@@ -4,6 +4,9 @@
     },
 
     "index": {
+        "title": "Aurélien Brabant - Website development",
+        "meta_description": "Development of your professional website from start to finish. Let's build your website now.",
+
         "name": "Hi, I'm Aurelien",
         "short introduction": "I build blazing fast, reliable and elegant websites",
         "hireme": "Hire me",
@@ -43,19 +46,22 @@
     },
 
     "blog": {
+        "title": "Aurélien Brabant - Blog",
+        "meta_description": "Articles about computer science, web development and entrepreneurship",
+
         "search_filter": "Search and filter",
         "search_placeholder": "Search title or description"
     },
 
-    "contact": {
-        "heading": "Contact",
-        "thank you": "Thank you for your interest in getting in touch!",
-        "description": "Whether it's to discuss about stuff I've written on my blog or to work with me, I'm happy to get your email.",
-        "best way to reach": "The best way to reach me is by email at",
-        "socials": "You can also follow me on my social medias:"
+    "projects": {
+        "title": "Aurélien Brabant - Projects",
+        "meta_description": "My developer portfolio. Website projects that I did for my clients and personal projects I did on my own to learn new skills"
     },
 
     "about": {
+        "title": "Aurélien Brabant - About",
+        "meta_description": "I'm a french computer science student passionated about web development and entrepreneurship. I put my developers skills at the service of your most ambitious projects",
+
         "heading": "About",
         "p1": "Hi, my name is Aurélien. I'm a french student currently studying software engineering at school 42 in Paris.",
         "p2": "If you haven't heard about the 42 network already, it's basically a network of campuses all around the world that aim to train the future of software engineers, using a very unique pedagogical approach based on peer-learning.",

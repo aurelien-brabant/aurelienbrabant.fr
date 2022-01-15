@@ -4,7 +4,7 @@ import Head from 'next/head'
 import { NextPage } from 'next'
 import Link from 'next/link'
 import { Container } from '../components/container/container'
-import { Translator } from '../components/translator/Translator'
+import { Translator, useTranslate } from '../components/translator/Translator'
 import styles from '../styles/about.module.scss'
 import ExternalLink from '../components/external-link/ExternalLink'
 
@@ -18,16 +18,17 @@ const About: NextPage = () => {
 
     return (
         <React.Fragment>
-            <Head>
-                <title> About | Aurelien Brabant </title>
-                <meta
-                    name="description"
-                    content="My name is Aurélien, I'm a web developer. Need your own website done right? Let's get in touch!"
-                />
-                <meta name="robots" content="index, follow" />
-                <link rel="canonical" href="https://aurelienbrabant.fr/about" />
-            </Head>
-                <Heading title="about" />
+<Head>
+                    <title>{useTranslate('title', 'about')}</title>
+                    <meta
+                        name="description"
+                        content={useTranslate('meta_description', 'about')}
+                    />
+                    <meta name="robots" content="index, follow" />
+                    <link rel="canonical" href={`https://aurelienbrabant.fr/blog`} />
+                </Head>
+
+                            <Heading title="about" />
                         <main className={styles.aboutMain}>
                 <Container className={styles.aboutMainContainer} size="md">
                     <div className={styles.cosmeticWindowButtons}>
