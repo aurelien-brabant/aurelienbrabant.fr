@@ -33,7 +33,7 @@ export const useTranslate = (text: string, section: string): string =>
 }
 
 type TranslatorProps = {
-	section?: string;
+	section: string;
 	manual?: { [key: string]: JSX.Element }
 }
 
