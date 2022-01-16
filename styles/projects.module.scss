@@ -3,7 +3,7 @@
 .projectHeader {
     padding-top: 1em;
     min-height: 300px;
-    background-color: core.$secondary-color;
+    background-color: rgb(20, 20, 20);
     text-align: center;
     color: #fff;
     display: flex;
@@ -69,13 +69,13 @@
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     max-width: 100%;
     color: core.$text-color;
-    border: 5px core.$secondary-color solid;
+    border: 5px rgb(20, 20, 20) solid;
     transition: 0.2s;
     margin: .5em;
 
 
     .cardDecoration {
-        background-color: core.$secondary-color;
+        background-color: rgb(20, 20, 20);
         display: flex;
         align-items: center;
         justify-content: center;
