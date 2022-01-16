@@ -31,6 +31,7 @@ import { Service, services } from '../data/services'
 
 import ReCAPTCHA from 'react-google-recaptcha'
 import useLanguage from '../hooks/useLanguage'
+import CallToAction from '../components/CallToAction'
 
 type FavoriteProject = {
 	title: string
@@ -102,17 +103,14 @@ const FavoriteProject: React.FC<FavoriteProject> = ({
 					{title}
 				</UnderlinedText>
 				<p>{useTranslateFromObject(description)}</p>
-				<Link href={link}>
-					<a
-						target="_blank"
-						rel="noreferrer"
-						className={styles.visitProject}
-					>
-						<Translator section={'index'}>
-							visit_project_cta
-						</Translator>
-					</a>
-				</Link>
+				<CallToAction
+					href={link}
+					target="_blank"
+					rel="noreferrer"
+					className={styles.visitProject}
+				>
+					<Translator section={'index'}>visit_project_cta</Translator>
+				</CallToAction>
 			</div>
 			{direction === 'right' && (
 				<div
@@ -247,8 +245,6 @@ const ContactForm: React.FC<{}> = () => {
 		type: 'error' | 'info'
 	}>(null)
 
-	const language = useLanguage()
-
 	const handleChange = (
 		e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
 	) => {
@@ -266,7 +262,7 @@ const ContactForm: React.FC<{}> = () => {
 		if (formData['g-recaptcha-response'] === null) {
 			setFeedback({
 				type: 'error',
-				msg: 'contact_form_rejected'
+				msg: 'contact_form_rejected',
 			})
 			return
 		}
@@ -427,29 +423,29 @@ const Home: NextPage = () => {
 							🚀
 						</h3>
 						<div className={styles.ctas}>
-							<Link href="/#contact">
-								<a className={styles.hiremeCta}>
+							<CallToAction
+								href="/#contact"
+								className={styles.hiremeCta}
+							>
+								<span>
+									<Translator section={languageSection}>
+										hireme
+									</Translator>
+								</span>
+							</CallToAction>
+							<CallToAction
+								href="/projects"
+								className={styles.projectsCta}
+							>
+								<span>
+									<AiOutlineArrowRight />
 									<span>
 										<Translator section={languageSection}>
-											hireme
+											see_my_projects
 										</Translator>
 									</span>
-								</a>
-							</Link>
-							<Link href="/projects">
-								<a className={styles.projectsCta}>
-									<span>
-										<AiOutlineArrowRight />
-										<span>
-											<Translator
-												section={languageSection}
-											>
-												see_my_projects
-											</Translator>
-										</span>
-									</span>
-								</a>
-							</Link>
+								</span>
+							</CallToAction>
 						</div>
 					</div>
 				</Container>
@@ -478,13 +474,16 @@ const Home: NextPage = () => {
 					</div>
 
 					<div className={styles.ctas}>
-						<Link href="/#contact">
-							<a className={styles.freeEstimate}>
-								<Translator section={languageSection}>
-									free_estimate
-								</Translator>
-							</a>
-						</Link>
+						<CallToAction
+							eventLabel="landing_estimate"
+							href="/#contact"
+							className={styles.freeEstimate}
+							colorVariant="secondary"
+						>
+							<Translator section={languageSection}>
+								free_estimate
+							</Translator>
+						</CallToAction>
 					</div>
 				</Container>
 			</section>
@@ -520,13 +519,14 @@ const Home: NextPage = () => {
 							</DeveloperPriority>
 						))}
 					</div>
-					<Link href="/projects">
-						<a className={styles.projectCta}>
-							<Translator section={languageSection}>
-								dive_into_my_code
-							</Translator>
-						</a>
-					</Link>
+					<CallToAction
+						href="/projects"
+						className={styles.projectCta}
+					>
+						<Translator section={languageSection}>
+							dive_into_my_code
+						</Translator>
+					</CallToAction>
 				</Container>
 			</section>
 

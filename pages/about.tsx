@@ -12,24 +12,28 @@ import { technologies } from '../data/technologies'
 
 import aurelienNidAigle from '../public/aurelien_nid_aigle.webp'
 import Heading from '../components/heading'
+import CallToAction from '../components/CallToAction'
 
 const About: NextPage = () => {
     const aboutLanguageSection = 'about'
 
     return (
         <React.Fragment>
-<Head>
-                    <title>{useTranslate('title', 'about')}</title>
-                    <meta
-                        name="description"
-                        content={useTranslate('meta_description', 'about')}
-                    />
-                    <meta name="robots" content="index, follow" />
-                    <link rel="canonical" href={`https://aurelienbrabant.fr/blog`} />
-                </Head>
+            <Head>
+                <title>{useTranslate('title', 'about')}</title>
+                <meta
+                    name="description"
+                    content={useTranslate('meta_description', 'about')}
+                />
+                <meta name="robots" content="index, follow" />
+                <link
+                    rel="canonical"
+                    href={`https://aurelienbrabant.fr/blog`}
+                />
+            </Head>
 
-                            <Heading title="about" />
-                        <main className={styles.aboutMain}>
+            <Heading title="about" />
+            <main className={styles.aboutMain}>
                 <Container className={styles.aboutMainContainer} size="md">
                     <div className={styles.cosmeticWindowButtons}>
                         <span />
@@ -48,13 +52,13 @@ const About: NextPage = () => {
                                     </Translator>
                                 </p>
                                 <div className={styles.imageWrapper}>
-                                <Image
-                                    alt={`picture of Aurelien`}
-                                    className={styles.image}
-                                    src={'/large_abrabant.jpg'}
-                                    width={300}
-                                    height={300}
-                                />
+                                    <Image
+                                        alt={`picture of Aurelien`}
+                                        className={styles.image}
+                                        src={'/large_abrabant.jpg'}
+                                        width={300}
+                                        height={300}
+                                    />
                                 </div>
                             </div>
                             <p>
@@ -90,13 +94,24 @@ const About: NextPage = () => {
                                 </p>
                             </section>
                             <p>
-                                <Translator section={aboutLanguageSection}>p6</Translator>
+                                <Translator section={aboutLanguageSection}>
+                                    p6
+                                </Translator>
                             </p>
-<p>
-                                <Translator section={aboutLanguageSection}>p7</Translator>
+                            <p>
+                                <Translator section={aboutLanguageSection}>
+                                    p7
+                                </Translator>
                             </p>
 
-                            <Link href="/contact"><a className={styles.cta}><Translator section={aboutLanguageSection}>cta</Translator></a></Link>
+                            <CallToAction
+                                href="/#contact"
+                                className={styles.cta}
+                            >
+                                <Translator section={aboutLanguageSection}>
+                                    cta
+                                </Translator>
+                            </CallToAction>
                         </div>
                     </Container>
                 </Container>

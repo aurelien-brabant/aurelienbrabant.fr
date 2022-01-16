@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "@fontsource/roboto": "^4.5.0",
+    "@types/gtag.js": "^0.0.8",
     "@types/nprogress": "^0.2.0",
     "@types/react-google-recaptcha": "^2.1.2",
     "@types/react-syntax-highlighter": "^13.5.2",

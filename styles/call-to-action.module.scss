@@ -1,0 +1,42 @@
+@use 'core';
+
+.cta {
+    outline: none;
+    border: 2px transparent solid;
+
+    padding: 0.4em 0.8em;
+
+    &.primary {
+        color: core.$text-color;
+
+        &.filled {
+            background-color: core.$primary-color;
+        }
+
+        &.outline {
+            border-color: core.$primary-color;
+        }
+    }
+
+    &.secondary {
+        &.filled {
+            background-color: core.$secondary-color;
+        }
+
+        &.outline {
+            border-color: core.$secondary-color;
+        }
+
+        color: #000;
+    }
+
+    &:hover {
+        &.shadow {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        &.jump {
+            transform: translateY(-0.2em);
+        }
+    }
+}
