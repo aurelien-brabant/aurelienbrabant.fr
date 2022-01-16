@@ -269,7 +269,7 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 										// eslint-disable-next-line react/display-name
 										img: ({ src, alt }) => (
 											<MarkdownImage
-												src={`/blog/${postData.stringId.toLowerCase()}/${src}`}
+												src={src ? src.startsWith('http') ? src : `/blog/${postData.stringId.toLowerCase()}/${src}` : ''}
 												alt={
 													alt
 														? alt
