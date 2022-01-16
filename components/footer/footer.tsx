@@ -1,7 +1,12 @@
 import React from 'react'
+import Image from 'next/image'
 import styles from '../../styles/footer.module.scss'
 import { Container } from '../container/container'
-import { useTranslateFromObject, Translator, translateFromObject } from '../translator/Translator'
+import {
+	useTranslateFromObject,
+	Translator,
+	translateFromObject,
+} from '../translator/Translator'
 import SocialNetworks from '../../components/social-networks/SocialNetworks'
 import Link from 'next/link'
 import { navtabs } from '../../data/navtabs'
@@ -40,7 +45,36 @@ export const Footer: React.FC<FooterInputProps> = () => {
 	return (
 		<div className={styles.footer}>
 			<Container className={styles.footerContainer}>
+<div className={styles.logoBlock}>
+						<Image src="/logo.svg" width="100" height="66" />
+						<p>
+							<Translator section={'footer'}>
+								introduction
+							</Translator>
+						</p>
+					</div>
 				<div className={styles.footerBlockWrapper}>
+					
+					<div className={styles.footerBlock}>
+						<div>
+						<h3>Solutions</h3>
+						<ul>
+							{services.map((service) => (
+								<li key={service.name.en}>
+									<Link href="/#services">
+										<a>
+											{translateFromObject(
+												language,
+												service.name
+											)}
+										</a>
+									</Link>
+								</li>
+							))}
+						</ul>
+						</div>
+					</div>
+
 					<div className={styles.footerBlock}>
 						<h3>Pages</h3>
 						<ul>
@@ -61,24 +95,6 @@ export const Footer: React.FC<FooterInputProps> = () => {
 										</Link>
 									</li>
 								))}
-						</ul>
-					</div>
-
-					<div className={styles.footerBlock}>
-						<h3>Solutions</h3>
-						<ul>
-							{services.map((service) => (
-								<li key={service.name.en}>
-									<Link href="/#services">
-										<a>
-											{translateFromObject(
-												language,
-												service.name
-											)}
-										</a>
-									</Link>
-								</li>
-							))}
 						</ul>
 					</div>
 

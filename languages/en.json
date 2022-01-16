@@ -77,6 +77,7 @@
     },
 
     "footer": {
+        "introduction": "My name is Aurélien, I'm a web developer selling my services as a freelancer since 2021.",
         "stay_tuned": "Stay tuned",
         "contact_form": "Contact form"
     }

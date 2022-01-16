@@ -8,6 +8,7 @@ import disableScroll from 'disable-scroll'
 import LanguageSwitcher from '../language-switcher/LanguageSwitcher'
 import { Translator } from '../translator/Translator'
 import Dropdown from '../Dropdown'
+import { GiHamburgerMenu } from 'react-icons/gi'
 
 const Header: React.FC<{}> = () => {
 	const navtabLanguageSection = 'navtab'
@@ -16,11 +17,12 @@ const Header: React.FC<{}> = () => {
 	const [selected, setSelected] = useState(0)
 	const [isVisible, setIsVisible] = useState(false)
 
-	const router = useRouter();
+	const router = useRouter()
 
 	useEffect(() => {
 		const tmp = router.route.split('/')
-		const baseRoute = tmp.length > 0 ? `/${tmp[1]}${window.location.hash}` : '/'
+		const baseRoute =
+			tmp.length > 0 ? `/${tmp[1]}${window.location.hash}` : '/'
 		for (const tab of navtabs) {
 			if (tab.children) {
 				for (const link of tab.children) {
@@ -94,20 +96,21 @@ const Header: React.FC<{}> = () => {
 				</div>
 			</nav>
 			<header className={styles.header}>
-				<div className={styles.logoWrapper}>
-					<Image
-						className={styles.rudder}
-						width="35"
-						height="35"
-						src="/rudder.png"
-						alt={'rudder logo'}
+				<div className={styles.hamburgerLogoGroup}>
+					<GiHamburgerMenu
+						className={styles.hamburger}
 						onClick={() => {
 							setIsVisible(!isVisible)
 						}}
 					/>
-					<Link href="/">
-						<a className={styles.logo}>AB</a>
-					</Link>
+
+					<div className={styles.logoWrapper}>
+						<Link href="/">
+							<a>
+								<Image src="/logo.svg" width="50" height="33" />
+							</a>
+						</Link>
+					</div>
 				</div>
 				<ul>
 					{navtabs.map((tab) => (

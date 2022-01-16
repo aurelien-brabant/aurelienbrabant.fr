@@ -9,19 +9,21 @@
 .footerBlockWrapper {
 	display: flex;
 	flex-direction: column;
-	justify-content: space-between;
+	justify-content: center;
+	row-gap: 0.3em;
+	margin: 0 auto;
+	max-width: 300px;
+
+	@media only screen and (min-width: 900px) {
+		& {
+			max-width: 100%;
+			flex-direction: row;
+			justify-content: space-between;
+		}
+	}
+	column-gap: 1em;
 	padding-top: 1em;
 	padding-bottom: 1em;
-}
-
-@media only screen and (min-width: 700px) {
-	.footerBlockWrapper {
-		flex-direction: row;
-	}
-
-	.footerBlock {
-		margin: 0;
-	}
 }
 
 .footerContactInfo {
@@ -39,18 +41,14 @@
 }
 
 .footerBlock {
-	margin: .5em 0;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	text-align: center;
 
-	@media only screen and (min-width: 800px) {
-		text-align: left;
-		align-items: stretch;
-	}
-	
 	ul {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
 		margin: 0;
 		padding: 0;
 
@@ -66,17 +64,38 @@
 	}
 
 	h3 {
+		text-align: center;
+
 		color: #fff;
 		text-transform: uppercase;
 		font-size: 1.4em;
 	}
+
+	@media only screen and (min-width: 1000px) {
+		& {
+			align-items: flex-start;
+		}
+		h3 {
+			text-align: left;
+		}
+	}
 }
 
 .socials {
-	fill: core.$primary-color;
+	fill: core.$secondary-color;
+}
+
+.logoBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	max-width: 400px;
+	margin: 0 auto;
+	text-align: center;
 }
 
 .footerBottom {
-	border-top: 2px rgba(255, 255, 255, .1) solid;
+	border-top: 2px rgba(255, 255, 255, 0.1) solid;
 	padding-top: 1em;
 }

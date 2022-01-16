@@ -78,6 +78,7 @@
 
     "footer": {
         "stay_tuned": "Mon actualité",
-        "contact_form": "Formulaire de contact"
+        "contact_form": "Formulaire de contact",
+        "introduction": "Je m'appelle Aurélien, je suis développeur web et je vends mes services en tant que freelance depuis 2021."
     }
 }

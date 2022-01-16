@@ -12,7 +12,7 @@
 	z-index: 10;
 	display: flex;
 	align-items: center;
-	padding: 5px 15px;
+	padding: .2em 1.5em;
 	color: #fff;
 	justify-content: space-between;
 
@@ -52,17 +52,10 @@
 	}
 }
 
-.logoWrapper {
+.logoWrapper > a {
 	display: flex;
 	align-items: center;
-}
-
-.rudder {
-	transition: all 0.2s;
-
-	&:hover {
-		transform: scale(1.05);
-	}
+	justify-content: center;
 }
 
 @media only screen and (min-width: core.$breakpoint-md) {
@@ -79,19 +72,6 @@
 		> * {
 			margin: 0 .4em;
 		}
-	}
-}
-
-.logo {
-	font-size: 1.8em;
-	color: core.$primary-color;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-	font-family: MonoLisa;
-	margin-left: 0.5em;
-
-	&::first-letter {
-		color: #fff;
 	}
 }
 
@@ -180,6 +160,22 @@
 }
 
 .headerOffset {
+    background-color: #000;
 	height: 60px;
-	background-color: core.$secondary-color;
+}
+
+.hamburgerLogoGroup {
+	display: flex;
+	align-items: center;
+	column-gap: .2em;
+
+	.hamburger {
+		font-size: 1.5em;
+
+		@media only screen and (min-width: 800px) {
+			& {
+				display: none;
+			}
+		}
+	}
 }
