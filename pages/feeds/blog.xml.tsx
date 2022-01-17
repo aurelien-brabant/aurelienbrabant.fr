@@ -28,6 +28,7 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
         const feed = new Feed(baseFeedOptions)
 
         for (const post of posts) {
+            //console.log(post);
             feed.addItem({
                 title: post.title,
                 id: post.stringId,
@@ -35,7 +36,6 @@ export const getServerSideProps: GetServerSideProps = async ({ res }) => {
                 description: post.description,
                 date: new Date(post.lastEditTs),
                 published: new Date(post.releaseTs),
-                image: post.coverImagePath
             })
         }
 
