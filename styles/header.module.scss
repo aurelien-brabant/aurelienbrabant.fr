@@ -1,10 +1,10 @@
 @use 'core';
 
 .header {
-	background-color: rgba(0, 0, 0, .92);
+	background-color: rgba(0, 0, 0, 0.92);
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 	height: 60px;
-	border-bottom: 2px rgba(255, 255, 255, .1) solid;
+	border-bottom: 2px rgba(255, 255, 255, 0.1) solid;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -12,7 +12,7 @@
 	z-index: 10;
 	display: flex;
 	align-items: center;
-	padding: .2em 1.5em;
+	padding: 0.2em 1.5em;
 	color: #fff;
 	justify-content: space-between;
 
@@ -21,7 +21,7 @@
 		letter-spacing: 1px;
 
 		li {
-			transform: translateY(.2em);
+			transform: translateY(0.2em);
 			outline: none;
 			margin: 0 0.5em;
 			transition: color 0.1s;
@@ -42,9 +42,9 @@
 			color: #000;
 			display: block;
 			background-color: core.$primary-color;
-			color: rgba(255, 255, 255, .85);
+			color: rgba(255, 255, 255, 0.85);
 			border-radius: 2px;
-			padding: .4em .8em;
+			padding: 0.4em 0.8em;
 			font-weight: 700;
 			font-size: 0.8em;
 			text-transform: uppercase;
@@ -70,7 +70,7 @@
 		display: flex;
 		align-items: center;
 		> * {
-			margin: 0 .4em;
+			margin: 0 0.4em;
 		}
 	}
 }
@@ -114,9 +114,9 @@
 	left: 0;
 	width: 0;
 	max-width: 100%;
-	z-index: 6;
 	background-color: core.$secondary-color;
 	transition: width 0.3s;
+	z-index: -1;
 
 	.menuContainer {
 		margin: 0 auto;
@@ -124,12 +124,15 @@
 		z-index: 100;
 	}
 
-	&.visible {
-		/* do not display right orange border if the menu takes the full viewport's width */
-		@media screen and (min-width: core.$breakpoint-sm) {
-			border-right: 2px core.$primary-color solid;
+	@media only screen and (max-width: 800px) {
+		&.visible {
+			/* do not display right orange border if the menu takes the full viewport's width */
+			@media screen and (min-width: core.$breakpoint-sm) {
+				border-right: 2px core.$primary-color solid;
+			}
+			width: 600px;
+			z-index: 6;
 		}
-		width: 600px;
 	}
 
 	.dropdownTab {
@@ -160,14 +163,14 @@
 }
 
 .headerOffset {
-    background-color: #000;
+	background-color: #000;
 	height: 60px;
 }
 
 .hamburgerLogoGroup {
 	display: flex;
 	align-items: center;
-	column-gap: .2em;
+	column-gap: 0.2em;
 
 	.hamburger {
 		font-size: 1.5em;
