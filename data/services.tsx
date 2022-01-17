@@ -27,7 +27,7 @@ export const services: Service[] = [
 	{
 		name: {
 			en: 'Secure cloud deployment',
-			fr: 'Déploiement sécurisé sur le cloud',
+			fr: 'Déploiement sécurisé dans le Cloud',
 		},
 		description: {
 			en: "I will deploy your website or infrastructure for you on the cloud provider of your choice. Whether it's a standalone website or a containerized set of applications, I will cover your needs and make your project available on the Internet as soon as possible while keeping your costs low.",
