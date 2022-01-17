@@ -28,8 +28,36 @@ const About: NextPage = () => {
                 <meta name="robots" content="index, follow" />
                 <link
                     rel="canonical"
-                    href={`https://aurelienbrabant.fr/blog`}
+                    href={`https://aurelienbrabant.fr/about`}
                 />
+
+                <meta property="og:url" content="https://aurelienbrabant.fr/about" />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content={useTranslate('title', 'about')}
+                />
+                <meta
+                    property="og:description"
+                    content={useTranslate('meta_description', 'about')}
+                />
+                <meta property="og:image" content="/og-landing.webp" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="aurelienbrabant.fr" />
+                <meta
+                    property="twitter:url"
+                    content="https://aurelienbrabant.fr/about"
+                />
+                <meta
+                    name="twitter:title"
+                    content={useTranslate('title', 'about')}
+                />
+                <meta
+                    name="twitter:description"
+                    content={useTranslate('meta_description', 'about')}
+                />
+                <meta name="twitter:image" content="/og-landing.webp" />
             </Head>
 
             <Heading title="about" />

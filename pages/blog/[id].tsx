@@ -144,7 +144,11 @@ export const getServerSideProps: GetServerSideProps = async function (context) {
 
 	if (context.params) {
 		const res = await fetch(
-			`http://${process.env.API_HOST}:${process.env.API_PORT}/blogposts/search?by=string_id&payload=${(context.params.id as string).toLowerCase()}`
+			`http://${process.env.API_HOST}:${
+				process.env.API_PORT
+			}/blogposts/search?by=string_id&payload=${(
+				context.params.id as string
+			).toLowerCase()}`
 		)
 
 		if (res.status != 200) {
@@ -207,6 +211,34 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 					rel="canonical"
 					href={`https://aurelienbrabant.fr/blog/${postData.stringId}`}
 				/>
+
+				<meta
+					property="og:url"
+					content={`https://aurelienbrabant.fr/blog/${postData.stringId}`}
+				/>
+				<meta property="og:type" content="website" />
+				<meta property="og:title" content={postData.title} />
+				<meta
+					property="og:description"
+					content={postData.description}
+				/>
+				<meta property="og:image" content={postData.coverImagePath} />
+
+				<meta name="twitter:card" content="summary_large_image" />
+				<meta
+					property="twitter:domain"
+					content={`https://aurelienbrabant.fr`}
+				/>
+				<meta
+					property="twitter:url"
+					content={`https://aurelienbrabant.fr/blog/${postData.stringId}`}
+				/>
+				<meta name="twitter:title" content={postData.title} />
+				<meta
+					name="twitter:description"
+					content={postData.description}
+				/>
+				<meta name="twitter:image" content={postData.coverImagePath} />
 			</Head>
 
 			<section className={styles.postContent} style={{}}>
@@ -269,7 +301,13 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 										// eslint-disable-next-line react/display-name
 										img: ({ src, alt }) => (
 											<MarkdownImage
-												src={src ? src.startsWith('http') ? src : `/blog/${postData.stringId.toLowerCase()}/${src}` : ''}
+												src={
+													src
+														? src.startsWith('http')
+															? src
+															: `/blog/${postData.stringId.toLowerCase()}/${src}`
+														: ''
+												}
 												alt={
 													alt
 														? alt

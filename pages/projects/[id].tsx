@@ -14,7 +14,11 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
 
     if (context.params) {
         const res = await fetch(
-            `http://${process.env.API_HOST}:${process.env.API_PORT}/projects/search?by=string_id&payload=${(context.params.id as string).toLowerCase()}`
+            `http://${process.env.API_HOST}:${
+                process.env.API_PORT
+            }/projects/search?by=string_id&payload=${(
+                context.params.id as string
+            ).toLowerCase()}`
         )
 
         if (res.status != 200) {
@@ -71,6 +75,28 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ project }) => {
                     rel="canonical"
                     href={`https://aurelienbrabant.fr/projects/${project.stringId}`}
                 />
+
+                <meta
+                    property="og:url"
+                    content={`https://aurelienbrabant.fr/projects/${project.stringId}`}
+                />
+                <meta property="og:type" content="website" />
+                <meta property="og:title" content={project.name} />
+                <meta property="og:description" content={project.description} />
+                <meta property="og:image" content={project.coverURI} />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="aurelienbrabant.fr" />
+                <meta
+                    property="twitter:url"
+                    content={`https://aurelienbrabant.fr/projects/${project.stringId}`}
+                />
+                <meta name="twitter:title" content={project.name} />
+                <meta
+                    name="twitter:description"
+                    content={project.description}
+                />
+                <meta name="twitter:image" content={project.coverURI} />
             </Head>
             <Container
                 className={styles.projectHeader}

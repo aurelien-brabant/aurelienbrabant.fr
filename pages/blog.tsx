@@ -133,6 +133,40 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                         title={useTranslate('rss_title', 'blog')}
                         href="/feeds/blog.xml"
                     />
+
+                    <meta
+                        property="og:url"
+                        content="https://aurelienbrabant.fr/blog"
+                    />
+                    <meta property="og:type" content="website" />
+                    <meta
+                        property="og:title"
+                        content={useTranslate('title', 'blog')}
+                    />
+                    <meta
+                        property="og:description"
+                        content={useTranslate('meta_description', 'blog')}
+                    />
+                    <meta property="og:image" content="/og-landing.webp" />
+
+                    <meta name="twitter:card" content="summary_large_image" />
+                    <meta
+                        property="twitter:domain"
+                        content="aurelienbrabant.fr"
+                    />
+                    <meta
+                        property="twitter:url"
+                        content="https://aurelienbrabant.fr/blog"
+                    />
+                    <meta
+                        name="twitter:title"
+                        content={useTranslate('title', 'blog')}
+                    />
+                    <meta
+                        name="twitter:description"
+                        content={useTranslate('meta_description', 'blog')}
+                    />
+                    <meta name="twitter:image" content="/og-landing.webp" />
                 </Head>
 
                 <Heading title="blog" />

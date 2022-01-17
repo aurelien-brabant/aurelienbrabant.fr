@@ -1,10 +1,10 @@
 import { GetServerSideProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
-import { Fade } from 'react-awesome-reveal';
+import { Fade } from 'react-awesome-reveal'
 import Link from 'next/link'
 import Head from 'next/head'
-import BackgroundImage from '../components/BackgroundImage';
+import BackgroundImage from '../components/BackgroundImage'
 
 import styles from '../styles/projects.module.scss'
 import { useTranslate } from '../components/translator/Translator'
@@ -82,6 +82,37 @@ const Projects: React.FC<ProjectsPageProps> = ({
                     rel="canonical"
                     href={`https://aurelienbrabant.fr/projects`}
                 />
+
+                <meta
+                    property="og:url"
+                    content="https://aurelienbrabant.fr/projects"
+                />
+                <meta property="og:type" content="website" />
+                <meta
+                    property="og:title"
+                    content={useTranslate('title', 'projects')}
+                />
+                <meta
+                    property="og:description"
+                    content={useTranslate('meta_description', 'projects')}
+                />
+                <meta property="og:image" content="/og-landing.webp" />
+
+                <meta name="twitter:card" content="summary_large_image" />
+                <meta property="twitter:domain" content="aurelienbrabant.fr" />
+                <meta
+                    property="twitter:url"
+                    content="https://aurelienbrabant.fr/projects"
+                />
+                <meta
+                    name="twitter:title"
+                    content={useTranslate('title', 'projects')}
+                />
+                <meta
+                    name="twitter:description"
+                    content={useTranslate('meta_description', 'projects')}
+                />
+                <meta name="twitter:image" content="/og-landing.webp" />
             </Head>
             <Container className={styles.projectHeader} limitedWidth={false}>
                 <h1> My projects </h1>
