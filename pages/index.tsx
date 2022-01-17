@@ -66,7 +66,7 @@ const favoriteProjects: FavoriteProject[] = [
 			fr: "Mon site personnel et portfolio que vous visitez actuellement, qui consiste en une application web fullstack. J'ai appris la grande majorité de mes compétences avancées en travaillant dessus (côté client et côté serveur).",
 		},
 		link: '/projects/My-website',
-		coverURI: '/aurelien.webp',
+		coverURI: '/logo.svg',
 	},
 ]
 
