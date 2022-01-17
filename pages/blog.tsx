@@ -6,7 +6,7 @@ import Head from 'next/head'
 import { Container } from '../components/container/container'
 import styles from '../styles/blog.module.scss'
 
-import { Translator, useTranslate } from '../components/translator/Translator'
+import { translate, Translator, useTranslate } from '../components/translator/Translator'
 
 import Heading from '../components/heading'
 
@@ -117,10 +117,10 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
         return (
             <Fragment>
                 <Head>
-                    <title>{useTranslate('title', 'blog')}</title>
+                    <title>{translate('fr', 'title', 'blog')}</title>
                     <meta
                         name="description"
-                        content={useTranslate('meta_description', 'blog')}
+                        content={translate('fr', 'meta_description', 'blog')}
                     />
                     <meta name="robots" content="index, follow" />
                     <link
@@ -130,7 +130,7 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     <link
                         rel="alternate"
                         type="application/rss+xml"
-                        title={useTranslate('rss_title', 'blog')}
+                        title={translate('fr', 'rss_title', 'blog')}
                         href="/feeds/blog.xml"
                     />
 
@@ -141,11 +141,11 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     <meta property="og:type" content="website" />
                     <meta
                         property="og:title"
-                        content={useTranslate('title', 'blog')}
+                        content={translate('fr', 'title', 'blog')}
                     />
                     <meta
                         property="og:description"
-                        content={useTranslate('meta_description', 'blog')}
+                        content={translate('fr', 'meta_description', 'blog')}
                     />
                     <meta property="og:image" content="/og-landing.webp" />
 
@@ -160,11 +160,11 @@ const Blog: React.FC<{ tags: string[]; posts: BrabantApi.BlogpostPreview[] }> =
                     />
                     <meta
                         name="twitter:title"
-                        content={useTranslate('title', 'blog')}
+                        content={translate('fr', 'title', 'blog')}
                     />
                     <meta
                         name="twitter:description"
-                        content={useTranslate('meta_description', 'blog')}
+                        content={translate('fr', 'meta_description', 'blog')}
                     />
                     <meta name="twitter:image" content="/og-landing.webp" />
                 </Head>

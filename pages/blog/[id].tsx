@@ -1,12 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import Head from 'next/head'
-import Image from 'next/image'
-import MarkdownRenderer from '../../components/MarkdownRenderer'
-import { FaComments, FaMapMarkerAlt } from 'react-icons/fa'
 import { AiOutlineClose } from 'react-icons/ai'
 import { GiHamburgerMenu } from 'react-icons/gi'
-
-import aurelienPhoto from '../../public/aurelien.webp'
 
 import ReactMarkdown from 'react-markdown'
 import {
@@ -22,7 +17,6 @@ import { Container } from '../../components/container/container'
 
 import styles from '../../styles/blogpost.module.scss'
 import { GetServerSideProps } from 'next'
-import { HeadingComponent } from 'react-markdown/lib/ast-to-react'
 import { useRouter } from 'next/router'
 
 type NestedHeading = {
@@ -181,7 +175,6 @@ const Post: React.FC<{ postData: BrabantApi.BlogpostData }> = ({
 }) => {
 	const [readerState, setReaderState] = useState(ReaderState.READER_TEXT)
 	const [anchor, setAnchor] = useState('')
-	const [scrollCoords, setScrollCoords] = useState({ x: 0, y: 0 })
 	const [isSidenavVisible, setIsSidenavVisible] = useState(false)
 
 	const router = useRouter()

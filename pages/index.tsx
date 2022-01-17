@@ -11,7 +11,6 @@ import {
 	translateFromObject,
 	translate,
 } from '../components/translator/Translator'
-import Link from 'next/link'
 import styles from '../styles/index.module.scss'
 
 import { AiOutlineArrowRight } from 'react-icons/ai'
@@ -387,10 +386,10 @@ const Home: NextPage = () => {
 	return (
 		<React.Fragment>
 			<Head>
-				<title>{useTranslate('title', 'index')}</title>
+				<title>{translate('fr', 'title', 'index')}</title>
 				<meta
 					name="description"
-					content={useTranslate('meta_description', 'index')}
+					content={translate('fr', 'meta_description', 'index')}
 				/>
 				<meta name="robots" content="index, follow" />
 				<link rel="canonical" href={`https://aurelienbrabant.fr`} />
@@ -399,11 +398,11 @@ const Home: NextPage = () => {
 				<meta property="og:type" content="website" />
 				<meta
 					property="og:title"
-					content={useTranslate('title', 'index')}
+					content={translate('fr', 'title', 'index')}
 				/>
 				<meta
 					property="og:description"
-					content={useTranslate('meta_description', 'index')}
+					content={translate('fr', 'meta_description', 'index')}
 				/>
 				<meta property="og:image" content="/og-landing.webp" />
 
@@ -415,11 +414,11 @@ const Home: NextPage = () => {
 				/>
 				<meta
 					name="twitter:title"
-					content={useTranslate('title', 'index')}
+					content={translate('fr', 'title', 'index')}
 				/>
 				<meta
 					name="twitter:description"
-					content={useTranslate('meta_description', 'index')}
+					content={translate('fr', 'meta_description', 'index')}
 				/>
 				<meta name="twitter:image" content="/og-landing.webp" />
 			</Head>

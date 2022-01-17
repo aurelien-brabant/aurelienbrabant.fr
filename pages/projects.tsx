@@ -7,7 +7,7 @@ import Head from 'next/head'
 import BackgroundImage from '../components/BackgroundImage'
 
 import styles from '../styles/projects.module.scss'
-import { useTranslate } from '../components/translator/Translator'
+import { translate, useTranslate } from '../components/translator/Translator'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     let res = await fetch(
@@ -72,10 +72,10 @@ const Projects: React.FC<ProjectsPageProps> = ({
     return (
         <React.Fragment>
             <Head>
-                <title>{useTranslate('title', 'projects')}</title>
+                <title>{translate('fr', 'title', 'projects')}</title>
                 <meta
                     name="description"
-                    content={useTranslate('meta_description', 'projects')}
+                    content={translate('fr', 'meta_description', 'projects')}
                 />
                 <meta name="robots" content="index, follow" />
                 <link
@@ -90,11 +90,11 @@ const Projects: React.FC<ProjectsPageProps> = ({
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={useTranslate('title', 'projects')}
+                    content={translate('fr', 'title', 'projects')}
                 />
                 <meta
                     property="og:description"
-                    content={useTranslate('meta_description', 'projects')}
+                    content={translate('fr', 'meta_description', 'projects')}
                 />
                 <meta property="og:image" content="/og-landing.webp" />
 
@@ -106,11 +106,11 @@ const Projects: React.FC<ProjectsPageProps> = ({
                 />
                 <meta
                     name="twitter:title"
-                    content={useTranslate('title', 'projects')}
+                    content={translate('fr', 'title', 'projects')}
                 />
                 <meta
                     name="twitter:description"
-                    content={useTranslate('meta_description', 'projects')}
+                    content={translate('fr', 'meta_description', 'projects')}
                 />
                 <meta name="twitter:image" content="/og-landing.webp" />
             </Head>

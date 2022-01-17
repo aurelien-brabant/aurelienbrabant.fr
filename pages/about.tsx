@@ -2,15 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 import Head from 'next/head'
 import { NextPage } from 'next'
-import Link from 'next/link'
 import { Container } from '../components/container/container'
-import { Translator, useTranslate } from '../components/translator/Translator'
+import { translate, Translator, useTranslate } from '../components/translator/Translator'
 import styles from '../styles/about.module.scss'
-import ExternalLink from '../components/external-link/ExternalLink'
 
 import { technologies } from '../data/technologies'
 
-import aurelienNidAigle from '../public/aurelien_nid_aigle.webp'
 import Heading from '../components/heading'
 import CallToAction from '../components/CallToAction'
 
@@ -20,10 +17,10 @@ const About: NextPage = () => {
     return (
         <React.Fragment>
             <Head>
-                <title>{useTranslate('title', 'about')}</title>
+                <title>{translate('fr', 'title', 'about')}</title>
                 <meta
                     name="description"
-                    content={useTranslate('meta_description', 'about')}
+                    content={translate('fr', 'meta_description', 'about')}
                 />
                 <meta name="robots" content="index, follow" />
                 <link
@@ -35,11 +32,11 @@ const About: NextPage = () => {
                 <meta property="og:type" content="website" />
                 <meta
                     property="og:title"
-                    content={useTranslate('title', 'about')}
+                    content={translate('fr', 'title', 'about')}
                 />
                 <meta
                     property="og:description"
-                    content={useTranslate('meta_description', 'about')}
+                    content={translate('fr', 'meta_description', 'about')}
                 />
                 <meta property="og:image" content="/og-landing.webp" />
 
@@ -51,11 +48,11 @@ const About: NextPage = () => {
                 />
                 <meta
                     name="twitter:title"
-                    content={useTranslate('title', 'about')}
+                    content={translate('fr', 'title', 'about')}
                 />
                 <meta
                     name="twitter:description"
-                    content={useTranslate('meta_description', 'about')}
+                    content={translate('fr', 'meta_description', 'about')}
                 />
                 <meta name="twitter:image" content="/og-landing.webp" />
             </Head>
