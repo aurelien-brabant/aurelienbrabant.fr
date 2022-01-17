@@ -107,7 +107,7 @@ const Header: React.FC<{}> = () => {
 					<div className={styles.logoWrapper}>
 						<Link href="/">
 							<a>
-								<Image src="/logo.svg" width="50" height="33" />
+								<Image src="/logo.svg" alt={'aurelien brabant\'s logo'} width="50" height="33" />
 							</a>
 						</Link>
 					</div>

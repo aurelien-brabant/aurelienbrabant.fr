@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterInputProps> = () => {
 		<div className={styles.footer}>
 			<Container className={styles.footerContainer}>
 <div className={styles.logoBlock}>
-						<Image src="/logo.svg" width="100" height="66" />
+						<Image src="/logo.svg" alt={'aurelien brabant\'s logo'} width="100" height="66" />
 						<p>
 							<Translator section={'footer'}>
 								introduction
