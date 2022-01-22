@@ -168,6 +168,7 @@ const Projects: React.FC<ProjectsPageProps> = ({
                     <div className={styles.projectsWrapper}>
                         {filteredProjects.map((project) => (
                             <ProjectCardWrapper
+                                key={project.name}
                                 projectLink={project.projectLink}
                             >
                                 <div className={`${styles.projectCard}`}>
@@ -176,6 +177,7 @@ const Projects: React.FC<ProjectsPageProps> = ({
                                             {project.technologies.map(
                                                 (techno) => (
                                                     <div
+                                                        key={techno.name}
                                                         className={
                                                             styles.technoWrapper
                                                         }
