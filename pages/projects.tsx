@@ -1,13 +1,17 @@
 import { GetServerSideProps } from 'next'
 import React, { useEffect, useState } from 'react'
 import { Container } from '../components/container/container'
-import { Fade } from 'react-awesome-reveal'
-import Link from 'next/link'
 import Head from 'next/head'
-import BackgroundImage from '../components/BackgroundImage'
+import Heading from '../components/heading'
+import { BsArrowRight } from 'react-icons/bs'
+import { VscGithub } from 'react-icons/vsc'
+import { SiGitea, SiGitlab } from 'react-icons/si'
 
 import styles from '../styles/projects.module.scss'
 import { translate, useTranslate } from '../components/translator/Translator'
+import UnderlinedText from '../components/UnderlinedText'
+import CallToAction from '../components/CallToAction'
+import { getFirstAvailable } from '../lib/misc'
 
 export const getServerSideProps: GetServerSideProps = async (context) => {
     let res = await fetch(
@@ -36,6 +40,19 @@ export const getServerSideProps: GetServerSideProps = async (context) => {
             projects,
         },
     }
+}
+
+const ProjectCardWrapper: React.FC<{ projectLink: string | null }> = ({
+    children,
+    projectLink,
+}) => {
+    return projectLink ? (
+        <a target="_blank" rel="noreferrer" href={projectLink}>
+            {children}
+        </a>
+    ) : (
+        <React.Fragment>{children}</React.Fragment>
+    )
 }
 
 type ProjectsPageProps = {
@@ -114,7 +131,8 @@ const Projects: React.FC<ProjectsPageProps> = ({
                 />
                 <meta name="twitter:image" content="/og-landing.webp" />
             </Head>
-            <Container className={styles.projectHeader} limitedWidth={false}>
+            <Heading title="projects" />
+            {/*
                 <h1> My projects </h1>
                 <h3>
                     {' '}
@@ -144,70 +162,81 @@ const Projects: React.FC<ProjectsPageProps> = ({
                         </a>
                     ))}
                 </div>
-            </Container>
+                  */}
             <Container limitedWidth={false} className={styles.projectContainer}>
                 <Container size={'lg'}>
                     <div className={styles.projectsWrapper}>
                         {filteredProjects.map((project) => (
-                            <Fade key={project.projectId}>
+                            <ProjectCardWrapper
+                                projectLink={project.projectLink}
+                            >
                                 <div className={`${styles.projectCard}`}>
-                                    <div className={styles.cardDecoration}>
-                                        <h2>{project.name}</h2>
-                                        <i className={styles.closeButton} />
-                                        <i className={styles.minimizeButton} />
-                                        <i
-                                            className={styles.fullscreenButton}
-                                        />
-                                    </div>
-                                    <div
-                                        className={`${styles.projectCardContent}`}
-                                    >
-                                        <Link
-                                            href={`/projects/${project.stringId}`}
-                                        >
-                                            <a>
-                                                <BackgroundImage
-                                                    src={project.coverURI}
-                                                    backgroundColor={
-                                                        'rgba(20, 20, 20, .9)'
-                                                    }
-                                                />
-                                                <div
-                                                    className={
-                                                        styles.backgroundText
-                                                    }
-                                                >
-                                                    <h3>
-                                                        {project.description}
-                                                    </h3>
+                                    <div className={styles.imageFrame}>
+                                        <div className={styles.technologies}>
+                                            {project.technologies.map(
+                                                (techno) => (
                                                     <div
                                                         className={
-                                                            styles.technologies
+                                                            styles.technoWrapper
                                                         }
                                                     >
-                                                        {project.technologies.map(
-                                                            (technology) => (
-                                                                <div
-                                                                    key={
-                                                                        technology.name
-                                                                    }
-                                                                >
-                                                                    <img
-                                                                        alt={`made with ${technology.name}`}
-                                                                        src={
-                                                                            technology.logoURI
-                                                                        }
-                                                                    />
-                                                                </div>
-                                                            )
-                                                        )}
+                                                        <img
+                                                            alt={`${techno.name} logo`}
+                                                            src={techno.logoURI}
+                                                            height="20px"
+                                                            width="20px"
+                                                        />
                                                     </div>
-                                                </div>
-                                            </a>
-                                        </Link>
+                                                )
+                                            )}
+                                        </div>
+                                        <div className={styles.imageWrapper}>
+                                            <img
+                                                alt={`${project.name} decorative image`}
+                                                src={project.coverURI}
+                                            />
+                                        </div>
                                     </div>
+                                    <div className={styles.projectHeadingGroup}>
+                                        <UnderlinedText
+                                            as="h2"
+                                            underlineColor="#e2725b"
+                                        >
+                                            {project.name}
+                                        </UnderlinedText>
+                                        <div className={styles.codeLinks}>
+                                            {project.githubLink && (
+                                                <a
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    href={`https://github.com/${project.githubLink}`}
+                                                >
+                                                    <VscGithub />
+                                                </a>
+                                            )}
+                                            {project.gitlabLink && (
+                                                <a
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    href={`https://gitlab.com/${project.gitlabLink}`}
+                                                >
+                                                    <SiGitlab />
+                                                </a>
+                                            )}
+                                            {project.giteaLink && (
+                                                <a
+                                                    target="_blank"
+                                                    rel="noreferrer"
+                                                    href={`https://git.aurelienbrabant.fr/${project.giteaLink}`}
+                                                >
+                                                    <SiGitea />
+                                                </a>
+                                            )}
+                                        </div>
+                                    </div>
+                                    <p>{project.description}</p>
                                 </div>
-                            </Fade>
+                            </ProjectCardWrapper>
                         ))}
                     </div>
                 </Container>

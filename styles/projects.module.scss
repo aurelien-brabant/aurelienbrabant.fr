@@ -13,12 +13,12 @@
     padding-bottom: 2em;
 
     h1 {
-        margin: .4em 0;
+        margin: 0.4em 0;
         font-size: 2.2em;
         text-transform: uppercase;
         letter-spacing: 2px;
     }
-    
+
     .sortByTechnology {
         margin-top: 1em;
         display: flex;
@@ -27,9 +27,9 @@
         max-width: 600px;
 
         > a {
-            border: 1px rgba(255, 255, 255, .3) solid;
-            padding: .5em;
-            margin: .4em;
+            border: 1px rgba(255, 255, 255, 0.3) solid;
+            padding: 0.5em;
+            margin: 0.4em;
             padding-bottom: 5px;
             font-family: Terminus;
             font-size: 1em;
@@ -40,14 +40,15 @@
                 background-color: core.$primary-color;
                 color: #000;
             }
-            
-            &:hover, &.selected {
+
+            &:hover,
+            &.selected {
                 border-color: core.$primary-color;
             }
 
             > span {
                 display: block;
-                transform: translateY(-.1em);
+                transform: translateY(-0.1em);
             }
         }
     }
@@ -56,121 +57,101 @@
 .projectContainer {
     padding-top: 2em;
     padding-bottom: 2em;
-    background-color: core.$background-color;
+    background-color: #191b1f;
+    min-height: calc(100vh - 70px);
 }
 
 .projectsWrapper {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    column-gap: 3em;
+    row-gap: 2em;
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .projectCard {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    max-width: 100%;
-    color: core.$text-color;
-    border: 5px rgb(20, 20, 20) solid;
+    margin: 0 auto;
     transition: 0.2s;
-    margin: .5em;
+    margin: 0.5em;
+    color: core.$text-color;
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2em;
+    height: auto;
 
-
-    .cardDecoration {
-        background-color: rgb(20, 20, 20);
+    .projectHeadingGroup {
         display: flex;
         align-items: center;
-        justify-content: center;
-        color: core.$primary-color;
-        height: 26px;
-        width: 100%;
-        align-items: center;
-        font-size: 0.6em;
-        text-transform: uppercase;
-        letter-spacing: 2px;
-        text-align: center;
-        position: relative;
-        font-family: Terminus;
+        justify-content: space-between;
 
-        i {
-            position: absolute;
-            height: 12px;
-            display: inline-block;
-            border-radius: 50%;
-            top: 6px;
-            width: 12px;
+        h2 {
+            font-size: 1.5em;
         }
 
-        .closeButton {
-            left: 4px;
-            background-color: #ff5f57;
-        }
+        .codeLinks {
+            display: flex;
+            align-items: center;
+            column-gap: 0.3em;
 
-        .minimizeButton {
-            left: 20px;
-            content: ' ';
-            background-color: #ffbd2e;
-        }
+            a {
+                transition: 0.2s color;
+            }
 
-        .fullscreenButton {
-            left: 36px;
-            content: ' ';
-            background-color: #28ca41;
+            > a:hover {
+                color: core.$primary-color;
+            }
         }
     }
 
-    a {
-        overflow: hidden;
-        position: relative; 
-        height: 100%;
-        width: 100%;
-
-        &:hover div:nth-child(1) {
-            opacity: .85;
-        }
-
-        > img {
-            transition: transform .2s;
-        }
-
-        &:hover > img {
-            transform: scale(1.25);
-        }
-    }
-
-    .projectCardContent {
-        width: 350px;
-        height: 275px;
-        max-width: 100%;
-        position: relative;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-    }
-
-    .backgroundText {
-        position: relative;
-        height: 100%;
-        padding: 0 .5em;
-        text-align: center;
-        z-index: 5;
+    .technologies {
+        position: absolute;
+        transform: translateX(-0.8em);
+        z-index: 1;
+        left: 0;
+        top: 0;
+        bottom: 0;
         display: flex;
         flex-direction: column;
-        justify-content: center;
         align-items: center;
-        line-height: 1.5em;
-        transition: opacity 0.2s;
+        justify-content: center;
+        row-gap: 0.2em;
 
-        .technologies {
+        .technoWrapper {
+            border-radius: 50%;
+            background-color: #000;
+            width: 40px;
+            outline: 1px core.$primary-color solid;
+            height: 40px;
             display: flex;
-            flex-wrap: wrap;
             justify-content: center;
-            margin-top: 1em;
+            align-items: center;
+        }
+    }
 
-            img {
-                margin: 0 .4em;
-                width: 30px;
-                height: auto;
+    .imageFrame {
+        position: relative;
+        align-self: stretch;
+        transition: outline 0.2s;
+        padding: 0.3em;
+        outline: 1px core.$primary-color solid;
+        margin-bottom: 1em;
+        &:hover {
+            > .imageWrapper > img {
+                filter: grayscale(0%);
             }
+            outline: 5px core.$primary-color solid;
+        }
+    }
+
+    .imageWrapper {
+        overflow: hidden;
+        height: 300px;
+        overflow: hidden;
+        > img {
+            filter: grayscale(100%);
+            transition: all 0.2s;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
     }
 }

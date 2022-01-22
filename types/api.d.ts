@@ -97,6 +97,10 @@ declare namespace BrabantApi {
 		companyName: string | null;
 		role: string;
 		endTs?: string,
+		projectLink: string | null;
+		githubLink: string | null;
+		gitlabLink: string | null;
+		giteaLink: string | null;
 	}
 
 	export interface Project extends ProjectPreview {
